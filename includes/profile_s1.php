@@ -1,5 +1,5 @@
 <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100vh; width:100%; padding-top:400px; margin-bottom:400px">
-	<form method="post" action="function/toUpdate.php" enctype="multipart/form-data" class="d-flex flex-column justify-content-center" style="width: 400px; ">
+	<form method="post" action="function/toUpdate1.php" enctype="multipart/form-data" class="d-flex flex-column justify-content-center" style="width: 400px; ">
 		<h1 style="margin-bottom: 20px;">Profile information</h1>
 		<div class="form-group">
 			<label>First Name</label>
@@ -38,7 +38,7 @@
 		</div>
 		<div class="form-group" style="margin-bottom: 10px;">
 			<label>Upload Certificate of Registration(CoR)</label>
-			<input type="file" name="cor" class="form-control" id="cor1">
+			<input type="file" name="cor" accept="application/pdf" class="form-control" id="cor1">
 		</div>
 		<div class="form-group">
 			<label>Vaccination Card</label>
