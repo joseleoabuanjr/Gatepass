@@ -39,8 +39,83 @@
 				{
 					$img = $row["image"];
 					$scan = $row["scan_stats"];
+					$acc_no = $row["acc_no"];
+        			$name = $row["first"]." ".$row["middle"]." ".$row["last"];
+        			$type = $row["type"];
+
+					$id = $row["acc_no"];
 					if($scan == "granted"){
-						
+
+
+						//save time in database
+						require_once "../function/connect.php";
+						$savetime = true;
+
+						$tz = 'Asia/Manila';
+						$timestamp = time();
+						$dt = new DateTime("now", new DateTimeZone($tz));
+						$dt ->setTimestamp($timestamp);
+						$date = $dt->format('Y-m-d h:i:s a');  
+
+    				if($savetime){
+        
+
+        				$select = "SELECT * FROM time_inout WHERE account_no = $id";
+        				$result = mysqli_query($connect,$select);
+        				while($row = mysqli_fetch_assoc($result)){
+            				$in_out = $row["in_out"];
+        				}  
+
+        			if(mysqli_num_rows ($result) == 0){
+						$update = "timein";
+            		$insert = "INSERT INTO time_inout (account_no,name,type,in_out, time) VALUES ('$acc_no','$name','$type','$update', '$date')";
+            		if(mysqli_query($connect,$insert))
+            		{
+                		echo"<script>console.log('Time In Success')";
+            		}
+            		else
+            		{
+                		echo"<script>console.log('Time In Error')";
+            		}	
+        		}
+        			else{
+
+            		if($in_out == "timein"){
+                		$update = "timeout";
+    
+                			$insert = "INSERT INTO time_inout (account_no,name,type,in_out, time) VALUES ('$acc_no','$name','$type','$update', '$date')";
+                    		if(mysqli_query($connect,$insert))
+                    		{
+                        		echo"<script>console.log('Time Out Success')";
+                    		}
+                    		else
+                    		{
+								echo"<script>console.log('Time Out Error')";
+                    		}	
+            }
+            				else  if($in_out == "timeout"){
+                				$update = "timein";
+    
+                				$insert = "INSERT INTO time_inout (account_no,name,type,in_out, time) VALUES ('$acc_no','$name','$type','$update', '$date')";
+                    if(mysqli_query($connect,$insert))
+                    {
+                        echo"<script>console.log('Time In Success')";
+                    }
+                    else
+                    {
+						echo"<script>console.log('Time In Error')";
+                    }	
+            }
+        
+            else{
+                console.log("Failed!");
+                }
+        }
+    }
+    else{
+        console.log("Failed!");
+    }
+						//end ng attendance
 						echo ("
 							<body onload='autoClose();'style='background-color:#d4edda;'>
 								<center>
