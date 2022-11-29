@@ -3,31 +3,38 @@
 		<h1 style="margin-bottom: 20px;">Profile information</h1>
 		<div class="form-group">
 			<label>First Name</label>
-			<input type="text" name="first" class="form-control" value="<?php echo $first?>" style="margin-bottom: 10px;">
+			<input type="text" name="first" class="form-control" value="<?php echo $first?>" style="margin-bottom: 10px;" id="fname1">
+			<div class="message1"></div>
 		</div>
 		<div class="form-group">
 			<label>Last Name</label>
-			<input type="text" name="last" class="form-control" value="<?php echo $last?>" style="margin-bottom: 10px;">
+			<input type="text" name="last" class="form-control" value="<?php echo $last?>" style="margin-bottom: 10px;" id="lname1">
+			<div class="message2"></div>
 		</div>
 		<div class="form-group">
 			<label>Middle Initial</label>
-			<input type="text" name="mid" class="form-control" value="<?php echo $mid?>" style="margin-bottom: 10px;">
+			<input type="text" name="mid" class="form-control" value="<?php echo $mid?>" style="margin-bottom: 10px;" id="mname1">
+			<div class="message3"></div>
 		</div>
 		<div class="form-group">
 			<label>Employee Number</label>
-			<input type="text" name="empno" class="form-control" value="<?php echo $empno?>" style="margin-bottom: 10px;">
+			<input type="text" name="empno" class="form-control" value="<?php echo $empno?>" style="margin-bottom: 10px;" id="empno">
+			<div class="message4"></div>
 		</div>
 		<div class="form-group">
 			<label>Username</label>
-			<input type="text" name="user" autocomplete="nope" class="form-control" value="<?php echo $usern?>" style="margin-bottom: 10px;">
+			<input type="text" name="user" autocomplete="nope" class="form-control" value="<?php echo $usern?>" style="margin-bottom: 10px;" id="username">
+			<div class="message5"></div>
 		</div>
 		<div class="form-group">
 			<label>Password</label>
-			<input type="password" name="pass" autocomplete="nope" class="form-control" value="<?php echo $p?>" style="margin-bottom: 20px;">
+			<input type="password" name="pass" autocomplete="nope" class="form-control" value="<?php echo $p?>" style="margin-bottom: 20px;" id="pass1">
+			<div class="message6"></div>
 		</div>
 		<div class="form-group">
 			<label>Email</label>
-			<input type="text" name="email" class="form-control" value="<?php echo $email?>" style="margin-bottom: 10px;">
+			<input type="text" name="email" class="form-control" value="<?php echo $email?>" style="margin-bottom: 10px;" id="email1">
+			<div class="message7"></div>
 		</div>
 		<div class="form-group">
 			<label>Valid ID</label>
@@ -38,7 +45,8 @@
 		</div>
 		<div class="form-group" style="margin-bottom: 10px;">
 			<label>Upload Valid ID</label>
-			<input type="file" name="v_id" class="form-control" id="v_id1">
+			<input type="file" name="v_id" class="form-control" id="v_id1" onchange="return checkImage1()">
+			<div class="message8"></div>
 		</div>
 		<div class="form-group">
 			<label>Vaccination Card</label>
@@ -49,8 +57,9 @@
 		</div>
 		<div class="form-group" style="margin-bottom: 10px;">
 			<label>Upload Vaccination Card</label>
-			<input type="file" name="vax" class="form-control" id="vax1">
+			<input type="file" name="vax" class="form-control" id="vax1" onchange="return checkImage2()">
+			<div class="message9"></div>
 		</div>
-		<button type="submit" class="btn btn-primary">Update</button>
+		<button id="btn1" type="submit" class="btn btn-primary">Update</button>
 	</form>
 </div>

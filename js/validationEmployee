@@ -1,17 +1,12 @@
 var fst1 = document.querySelector('#fname1');
 var lst1 = document.querySelector('#lname1');
 var mid1 = document.querySelector('#mname1');
-var stud1 = document.querySelector('#studno1');
-var username1 = document.querySelector('#username1');
-var pass1 = document.querySelector('#cpass1');
+var emp1 = document.querySelector('#empno');
+var username1 = document.querySelector('#username');
+var pass1 = document.querySelector('#pass1');
 var email1 = document.querySelector('#email1');
-var cor = document.querySelector('#cor1');
+var v_id = document.querySelector('#v_id1');
 var vaxx = document.querySelector('#vax1');
-//STUDENTS ID'S (COLLEGE/COURSE/YEAR/SECTION)
-var col = document.querySelector('#col-s');
-var course = document.querySelector('#course-s');
-var year = document.querySelector('#year-s');
-var section = document.querySelector('#section-s');
 
 var btn1 = document.querySelector('#btn1');
 
@@ -27,11 +22,6 @@ var msg6 = document.querySelector('#message6');
 var msg7 = document.querySelector('#message7');
 var msg8 = document.querySelector('#message8');
 var msg9 = document.querySelector('#message9');
-var msg10 = document.querySelector('#message10');
-var msg11 = document.querySelector('#message11');
-var msg12= document.querySelector('#message12');
-var msg13 = document.querySelector('#message13');
-
 
 btn1.addEventListener('click', function(){
     if (fst1.value == ""){
@@ -67,13 +57,13 @@ btn1.addEventListener('click', function(){
     }
 })
 btn1.addEventListener('click', function(){
-    if (stud1.value == ""){
-        stud1.style.border = '1px solid red';
-        msg4.innerHTML="Please enter student number";
+    if (emp1.value == ""){
+        emp1.style.border = '1px solid red';
+        msg4.innerHTML="Please enter employee number";
         return false; 
     }
     else {
-        stud1.style.border = '1px solid green';
+        emp1.style.border = '1px solid green';
         msg4.innerHTML="";
     }
 })
@@ -100,92 +90,16 @@ btn1.addEventListener('click', function(){
     }
 })
 btn1.addEventListener('click', function(){
-    if (cpass1.value == ""){
-        cpass1.style.border = '1px solid red';
-        msg7.innerHTML="Please enter confirm password";
-        return false; 
-    }
-    else {
-        cpass1.style.border = '1px solid green';
-        msg7.innerHTML="";
-    }
-})
-btn1.addEventListener('click', function(){
     if (email1.value == ""){
-        email1.style.border = '1px solid red';
-        msg8.innerHTML="Please enter email";
-        return false; 
-    }
-    else if (!(email1.value.match(validRegex))){
-        email1.style.border = '1px solid red';
-        msg8.innerHTML="Invalid email";
+        emil1.style.border = '1px solid red';
+        msg7.innerHTML="Please enter email";
         return false; 
     }
     else {
         email1.style.border = '1px solid green';
-        msg8.innerHTML="";
+        msg7.innerHTML="";
     }
 })
-btn1.addEventListener('click', function(){
-    if (img1.value == ""){
-        img1.style.border = '1px solid red';
-        msg9.innerHTML="Please upload picture";
-        return false; 
-    }
-    else {
-        img1.style.border = '1px solid green';
-        msg9.innerHTML="";
-    }
-})
-
-btn1.addEventListener('click', function(){
-    if (col.value == "0"){
-        col.style.border = '1px solid red';
-        msg10.innerHTML="Please select college";
-        return false; 
-    }
-    else {
-        col.style.border = '1px solid green';
-        msg10.innerHTML="";
-    }
-})
-
-btn1.addEventListener('click', function(){
-    if (course.value == "0"){
-        course.style.border = '1px solid red';
-        msg11.innerHTML="Please select course";
-        return false; 
-    }
-    else {
-        course.style.border = '1px solid green';
-        msg11.innerHTML="";
-    }
-})
-
-btn1.addEventListener('click', function(){
-    if (year.value == "0"){
-        year.style.border = '1px solid red';
-        msg12.innerHTML="Please select year";
-        return false; 
-    }
-    else {
-        year.style.border = '1px solid green';
-        msg12.innerHTML="";
-    }
-})
-
-btn1.addEventListener('click', function(){
-    if (section.value == "0"){
-        section.style.border = '1px solid red';
-        msg13.innerHTML="Please select section";
-        return false; 
-    }
-    else {
-        section.style.border = '1px solid green';
-        msg13.innerHTML="";
-    }
-})
-
 
 //onkeyup event form 1
 fst1.addEventListener('keyup', function(){
@@ -221,19 +135,19 @@ lst1.addEventListener('keyup', function(){
         msg3.innerHTML="";
     }
 })
-stud1.addEventListener('keyup', function(){
-    if (stud1.value.length == 0){
-        stud1.style.border = '1px solid red';
+emp1.addEventListener('keyup', function(){
+    if (emp1.value.length == 0){
+        emp1.style.border = '1px solid red';
         msg4.innerHTML="Please enter student number";
         return false; 
     }
     else if (isNaN(stud1.value)){
-        stud1.style.border = '1px solid red';
+        emp1.style.border = '1px solid red';
         msg4.innerHTML="Please enter number only";
         return false; 
     }
     else {
-        stud1.style.border = '1px solid green';
+        emp1.style.border = '1px solid green';
         msg4.innerHTML="";
     }
 })
@@ -324,19 +238,21 @@ email1.addEventListener('keyup', function(){
     }
 })
 
+
+
 function checkImage1(){
-    if (!allowedExtensions.exec(cor.value)) {
-        cor.style.border = '1px solid red';
+    if (!allowedExtensions.exec(v_id.value)) {
+        v_id.style.border = '1px solid red';
         msg8.innerHTML="Invalid file type";
         return false;
     }
-    else if (cor.value.length ==0){
-        cor.style.border = '1px solid red';
+    else if (v_id.value.length ==0){
+        v_id.style.border = '1px solid red';
         msg8.innerHTML="Please upload picture";
         return false;
     }
     else{
-        cor.style.border = '1px solid green';
+        v_id.style.border = '1px solid green';
         msg8.innerHTML="";
     }
 }
@@ -358,7 +274,6 @@ function checkImage2(){
         msg9.innerHTML="";
     }
 }
-
 
 
 function toCheck(){
@@ -399,3 +314,7 @@ function toCheck(){
         return true;
     }  
 }
+
+
+
+
