@@ -1,4 +1,4 @@
-<div class="studentcon" id="student1">
+<div class="studentcon--hidden" id="student1">
 	<div class="d-flex justify-content-center align-items-center" style="height: 100%;margin-bottom:60px;">
 		<form id="f1" method="post" action="function/toRegister.php?id=1" onsubmit="return tocheck1()" enctype="multipart/form-data" style="width: 400px; ">
 			<h1 style="margin-bottom: 20px;">Student registration</h1>

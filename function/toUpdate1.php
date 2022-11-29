@@ -22,6 +22,10 @@
 
     if($type == "student"){
         $studno = $_POST["studno"];
+        $col = $_POST["college"];
+        $cour = $_POST["course"];
+        $year = $_POST["year"];
+        $sec = $_POST["section"];
         $v_idpdf = "";
         $corpdf=$_FILES['cor']['name']; //additional codes para sa PDF
         $corpdf_type=$_FILES['cor']['type']; //additional codes para sa PDF
@@ -67,7 +71,7 @@
     if($vaxpdf && $corpdf || $v_idpdf  != "" || NULL){
         if($type == "student"){
             if($stats == "no"){
-                $update = "UPDATE user_account SET first = '$first', last = '$last', middle = '$mid', email = '$email', stud_no = '$studno', username = '$user', password = '$pass', cor = '$corpdf', vax = '$vaxpdf', verified ='$status' WHERE acc_no = $id";
+                $update = "UPDATE user_account SET first = '$first', last = '$last', middle = '$mid', email = '$email', stud_no = '$studno', username = '$user', password = '$pass', cor = '$corpdf', vax = '$vaxpdf', verified ='$status',college='$col', course ='$cour', year='$year',section='$sec' WHERE acc_no = $id";
                 if(mysqli_query($connect,$update)){
                     echo "<script>alert('Update Success.')</script>";
                     header("refresh: 0; url='../index.php'");
@@ -77,7 +81,7 @@
                 }
             }
             else{
-                $update = "UPDATE user_account SET first = '$first', last = '$last', middle = '$mid', email = '$email', stud_no = '$studno', username = '$user', password = '$pass', cor = '$corpdf', vax = '$vaxpdf' WHERE acc_no = $id";
+                $update = "UPDATE user_account SET first = '$first', last = '$last', middle = '$mid', email = '$email', stud_no = '$studno', username = '$user', password = '$pass', cor = '$corpdf', vax = '$vaxpdf',college='$col', course ='$cour', year='$year',section='$sec' WHERE acc_no = $id";
                 if(mysqli_query($connect,$update)){
                     echo "<script>alert('Update Success.')</script>";
                     header("refresh: 0; url='../index.php'");
@@ -88,7 +92,7 @@
             }
         }
         else if($type == 'employee'){
-            if($stats =="xd"){
+            if($stats =="no"){
                 $update = "UPDATE user_account SET first = '$first', last = '$last', middle = '$mid', email = '$email', emp_no = '$empno', username = '$user', password = '$pass', valid_id = '$v_idpdf', vax = '$vaxpdf', verified ='$status' WHERE acc_no = $id";
                 if(mysqli_query($connect,$update)){
                     echo "<script>alert('Update Success.')</script>";

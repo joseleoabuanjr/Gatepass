@@ -10,10 +10,6 @@
                 <th>Name</th>
                 <th>Type</th>
                 <th>Verified</th>
-                <th>Appointment</th>
-                <th>Certificate of Registration (CoR)</th>
-                <th>Valid ID</th>
-                <th>Vaccination Card</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -42,70 +38,9 @@
                             <td>".$row["first"]." ".$row["middle"].". ".$row["last"]."</td>
                             <td>".$row["type"]."</td>
                             <td>".$row["verified"]."</td>
-                            <td>".$req."</td>
                     ");
-                if($row["type"] == "student"){
-                    if($cor == "" || NULL && $vax == "" || NULL){
-                        echo ("
-                            <td></td><td></td><td></td>
-                        ");
-                    }
-                    else{
-                        if($cor == "" || NULL && !($vax == "" || NULL) ){
-                            echo ("
-                                <td></td>
-                                <td></td>
-                                <td><a class='btn btn-secondary' href='viewvax.php?id=".$row["acc_no"]."'>View</a></td>
-                            ");
-                        }
-                        else if($vax == "" || NULL && !($cor== "" || NULL)){
-                            echo ("
-                                <td><a class='btn btn-secondary' href='viewcor.php?id=".$row["acc_no"]."'>View</a></td>
-                                <td></td>
-                                <td></td>
-                            ");
-                        }
-                        else{
-                            echo ("
-                                <td><a class='btn btn-secondary' href='viewcor.php?id=".$row["acc_no"]."'>View</a></td>
-                                <td></td>
-                                <td><a class='btn btn-secondary' href='viewvax.php?id=".$row["acc_no"]."'>View</a></td>
-                            ");
-                        }
-                    }
-                }
-                else if($row["type"] == "employee" || "visitor"){
-                    if($v_id == "" || NULL && $vax == "" || NULL){
-                        echo ("
-                            <td></td><td></td><td></td>
-                        ");
-                    }
-                    else{
-                        if($v_id == "" || NULL && !($vax == "" || NULL) ){
-                            echo ("
-                                <td></td>
-                                <td></td>
-                                <td><a class='btn btn-secondary' href='viewvax.php?id=".$row["acc_no"]."'>View</a></td>
-                            ");
-                        }
-                        else if($vax == "" || NULL && !($v_id == "" || NULL)){
-                            echo ("
-                                <td></td>
-                                <td><a class='btn btn-secondary' href='view_vid.php?id=".$row["acc_no"]."'>View</a></td>
-                                <td></td>
-                            ");
-                        }
-                        else{
-                            echo ("
-                                <td></td>
-                                <td><a class='btn btn-secondary' href='view_vid.php?id=".$row["acc_no"]."'>View</a></td>
-                                <td><a class='btn btn-secondary' href='viewvax.php?id=".$row["acc_no"]."'>View</a></td>
-                            ");
-                        }
-                    }
-                }
                 echo "<td>
-                        <a class='btn btn-danger btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Delete</a>
+                        <a class='btn btn-danger btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Archive</a>
                     </td>
                 </tr>";
                     

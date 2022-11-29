@@ -36,5 +36,4 @@
 	else{
 		echo "<script>alert(Error)</script>";
 	}
-	print json_encode($type);
 ?>

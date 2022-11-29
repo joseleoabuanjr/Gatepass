@@ -20,10 +20,10 @@
                     $first = $row["first"];
                     $mid = $row["middle"];
                     $last = $row["last"];
-                    $col = "none";
-                    $course = "none";
-                    $year = "none";
-                    $section = "none";
+                    $col = $row["college"];
+                    $course =$row["course"];
+                    $year = $row["year"];
+                    $section = $row["section"];
 
                     echo ('
                         <div class"d-flex justify-content-center" style="width:40%; height:100%; padding-top:50px;">
@@ -107,7 +107,7 @@
                                 </div>
                                 <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
                                     <div class="infobtn">
-                                        <button class="btn-p" type="button" >Profile</button>
+                                        <button class="btn-p" type="button" id="pf1">Profile</button>
                                     </div>
                                 </div>
                             </div>

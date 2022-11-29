@@ -18,7 +18,7 @@ if (mysqli_num_rows($result) > 0)
 			header("refresh: 2; url=index.php");
 		}
 		else{
-			echo '<embed type="application/pdf" src="files/'.$vid.'" width="100%" height="100%">'; //eto pag display nung PDF galing SQL
+			echo '<embed type="application/pdf" target="_blank" src="files/'.$vid.'" width="100%" height="100%">'; //eto pag display nung PDF galing SQL
 		}
     }
 } 

@@ -43,7 +43,7 @@
     </div>
 
 
-    <div class="regcontain" id="register1">
+    <div class="regcontain--hidden" id="register1">
         <div class="actionBtn">
             <div class="actionBtns">
                 <button class="actionBtn studentBtn" id="studentBtn"> STUDENT</button>
