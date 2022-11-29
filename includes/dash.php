@@ -1,8 +1,36 @@
-<div class="container d-flex justify-content-center align-items-center flex-column" style="height:100vh;padding-bottom:40px;">
-    <div class="titlepg" style="width:100%; padding-top:100px;">
-        <h1>My Dashboard</h1>
-    </div>
-    <div class="container d-flex justify-content-center align-items-center" style="width:100%;height: 100%;">
+<div class="container d-flex justify-content-center align-items-center flex-column" style="height:auto;padding-bottom:40px;">
+    <?php 
+        $accno = $_SESSION["accno"];
+        $select = "SELECT * FROM user_account WHERE acc_no = $accno";
+        $result = mysqli_query($connect, $select);
+
+        if (mysqli_num_rows($result) > 0) {
+
+            while ($row = mysqli_fetch_assoc($result)) {
+                if($row['verified']=="unverified"){
+                    echo '
+                    <div style="width:100%;padding-top:80px;">
+                        <div class="alert alert-warning" role="alert">
+                            Your account is not yet fully verified. Please <a href="">verify</a> now.
+                        </div>
+                    </div>
+                    <div class="titlepg" style="width:100%; padding-top:20px;">
+                        <h1>My Dashboard</h1>
+                    </div> 
+                    '; 
+                }
+                else{
+                    echo'
+                    <div class="titlepg" style="width:100%; padding-top:100px;">
+                        <h1>My Dashboard</h1>
+                    </div>
+                ';
+                }
+            }
+        }
+    ?>
+    
+    <div class="container d-flex justify-content-center align-items-start" style="width:100%;height: 100%;">
         <?php
 
         $accno = $_SESSION["accno"];
@@ -45,7 +73,7 @@
                     if($row['verified']=="pending"){
                         echo '<div class="status2">Pending Verification</div>';
                     }
-                    else if($row['verified']=="yes"){
+                    else if($row['verified']=="verified"){
                         echo '<div class="status3">Verified</div>';
                     }
                     else{
@@ -111,6 +139,16 @@
                                     </div>
                                 </div>
                             </div>
+                            <div class="d-flex justify-content-left align-items-start flex-column" style="width:100%; height:100%; border:1px solid black; padding:40px; margin-top:40px;">
+                                <div class="titleinfo" style="padding-bottom:10px;">
+                                    Appointment Summary
+                                </div>
+                                <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
+                                    <div class="infobtn">
+                                        <button class="btn-p" type="button" id="ar1">Profile</button>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     ');
                 }
@@ -144,7 +182,7 @@
                     if($row['verified']=="pending"){
                         echo '<div class="status2">Pending Verification</div>';
                     }
-                    else if($row['verified']=="yes"){
+                    else if($row['verified']=="verified"){
                         echo '<div class="status3">Verified</div>';
                     }
                     else{
@@ -176,9 +214,6 @@
                                         <div class="info-d" style="padding:10px">
                                             Name:
                                         </div>
-                                        <div class="info-d" style="padding:10px">
-                                            College:
-                                        </div>
                                     </div>
                                     <div class="t-info" style="width:100%;">
                                         <div class="info-v" style="padding:10px">
@@ -187,14 +222,21 @@
                                         <div class="info-v" style="padding:10px">
                                             '.$first.' '.$mid.'. '.$last.'
                                         </div>
-                                        <div class="info-v" style="padding:10px">
-                                            '.$col.'
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
                                     <div class="infobtn">
                                         <button class="btn-p" type="button" >Profile</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="d-flex justify-content-left align-items-start flex-column" style="width:100%; height:100%; border:1px solid black; padding:40px; margin-top:40px;">
+                                <div class="titleinfo" style="padding-bottom:10px;">
+                                    Appointment Summary
+                                </div>
+                                <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
+                                    <div class="infobtn">
+                                        <button class="btn-p" type="button" id="ar1">Profile</button>
                                     </div>
                                 </div>
                             </div>
@@ -234,7 +276,7 @@
                     if($row['verified']=="pending"){
                         echo '<div class="status2">Pending Verification</div>';
                     }
-                    else if($row['verified']=="yes"){
+                    else if($row['verified']=="verified"){
                         echo '<div class="status3">Verified</div>';
                     }
                     else{

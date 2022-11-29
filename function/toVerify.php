@@ -37,7 +37,7 @@
 
         //Validate inputed verification code with database verification code;
         if($vcode == $in_vcode){
-            $fv = "no";
+            $fv = "unverified";
             $req = "none";
             //insert data to database table
             $insert = "INSERT INTO user_account(acc_no,username,password,email,stud_no,emp_no,type,first,last,middle,image,qr,verified,req_status) VALUES ('$accno','$user','$pass','$email','$studno','$empno','$type','$first','$last','$mid','$img','$qr','$fv','$req')";

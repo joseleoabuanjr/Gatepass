@@ -70,7 +70,7 @@
 
     if($vaxpdf && $corpdf || $v_idpdf  != "" || NULL){
         if($type == "student"){
-            if($stats == "no"){
+            if($stats == "unverified"){
                 $update = "UPDATE user_account SET first = '$first', last = '$last', middle = '$mid', email = '$email', stud_no = '$studno', username = '$user', password = '$pass', cor = '$corpdf', vax = '$vaxpdf', verified ='$status',college='$col', course ='$cour', year='$year',section='$sec' WHERE acc_no = $id";
                 if(mysqli_query($connect,$update)){
                     echo "<script>alert('Update Success.')</script>";
@@ -92,7 +92,7 @@
             }
         }
         else if($type == 'employee'){
-            if($stats =="no"){
+            if($stats =="unverified"){
                 $update = "UPDATE user_account SET first = '$first', last = '$last', middle = '$mid', email = '$email', emp_no = '$empno', username = '$user', password = '$pass', valid_id = '$v_idpdf', vax = '$vaxpdf', verified ='$status' WHERE acc_no = $id";
                 if(mysqli_query($connect,$update)){
                     echo "<script>alert('Update Success.')</script>";
@@ -115,7 +115,7 @@
             
         }
         else if($type == 'visitor'){
-            if($stats == "no"){
+            if($stats == "unverified"){
                 $update = "UPDATE user_account SET first = '$first', last = '$last', middle = '$mid', email = '$email', username = '$user', password = '$pass', valid_id = '$v_idpdf', vax = '$vaxpdf', verified ='$status' WHERE acc_no = $id";
                 if(mysqli_query($connect,$update))
                 {

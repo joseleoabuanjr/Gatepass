@@ -37,15 +37,15 @@ $id = $_SESSION['accno'];
 			{
 				$status= $row['verified'];
 			}
-			if($status == "yes"){
+			if($status == "verified"){
 				require_once "includes/request.php";
 			}
-			else if($status == "no"){
+			else if($status == "unverified"){
 				echo ('<script type="text/javascript" src="js/profilebtn.js"></script>');
 				require_once "includes/nf_verified.php";
 			}
 			else if($status == "pending"){
-				require_once "includes/p_verified.php";
+				require_once "includes/nf_verified.php";
 			}
 			else{
 				echo "<script>alert(Error)</script>";
