@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html>
 	<head>
@@ -6,6 +7,7 @@
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.1.10/vue.min.js"></script>
 		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/webrtc-adapter/3.3.3/adapter.min.js"></script>	
 		<script>
+			
 			var visitorInfo;
 			function scanQR()
 			{
@@ -22,12 +24,12 @@
 				});
 				scanner.addListener("scan",function(c)
 				{
-					var studno = document.getElementById("text").value=c;			
-				
-					visitInfo = window.open("function/toScan.php?sno=" + studno, "_blank");
-					// document.onmousedown=focusWindow; 
-					// document.onmousemove=focusWindow;
-					// document.onkeyup=focusWindow;		
+					var studno = document.getElementById("text").value=c;
+			
+						visitInfo = window.open("function/toScan.php?sno=" + studno, "_blank");
+						// document.onmousedown=focusWindow; 
+						// document.onmousemove=focusWindow;
+						// document.onkeyup=focusWindow;	
 				})	
 			}	
 			function focusWindow()
@@ -43,6 +45,7 @@
 							<h1>SCAN QR CODE HERE</h1>
 							<video id="preview" height="800px" width="800px"></video>
 							<input type="hidden" name="text" id="text"></input>
+							<input type="hidden" name="text2" id="text2" value="<?php echo $studno?>"></input>
 					</form>	
 			</center>	
 	</body>

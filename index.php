@@ -25,7 +25,7 @@ $id = $_SESSION['accno'];
 
 <body>
 	<?php require_once 'includes/navbar.php'; ?>
-	<div class="tab1" id="tab1"><?php require_once 'includes/dashboard1.php'; ?></div>
+	<div class="tab1" id="tab1"><?php require_once 'includes/dash.php'; ?></div>
 	<div class="tab2--hidden" id="tab2"><?php require_once 'includes/profile.php'; ?></div>
 	<div class="tab3--hidden" id="tab3">
 		<?php 

@@ -142,7 +142,7 @@
                             <div style="width:100%;padding:40px 0;">
                     ');
                     if($row['verified']=="pending"){
-                        echo '<div class="status2">Verifiying</div>';
+                        echo '<div class="status2">Pending Verification</div>';
                     }
                     else if($row['verified']=="yes"){
                         echo '<div class="status3">Verified</div>';

@@ -42,14 +42,8 @@
 					$acc_no = $row["acc_no"];
         			$name = $row["first"]." ".$row["middle"]." ".$row["last"];
         			$type = $row["type"];
-
 					$id = $row["acc_no"];
 					if($scan == "granted"){
-
-
-						//save time in database
-						require_once "../function/connect.php";
-						$savetime = true;
 
 						$tz = 'Asia/Manila';
 						$timestamp = time();
@@ -57,83 +51,114 @@
 						$dt ->setTimestamp($timestamp);
 						$date = $dt->format('Y-m-d h:i:s a');  
 
-    				if($savetime){
-        
+						$select = "SELECT * FROM time_inout WHERE account_no = $id";
+						$result = mysqli_query($connect,$select);
+						while($row = mysqli_fetch_assoc($result)){
+							$in_out = $row["in_out"];
+						}  
 
-        				$select = "SELECT * FROM time_inout WHERE account_no = $id";
-        				$result = mysqli_query($connect,$select);
-        				while($row = mysqli_fetch_assoc($result)){
-            				$in_out = $row["in_out"];
-        				}  
-
-        			if(mysqli_num_rows ($result) == 0){
-						$update = "timein";
-            		$insert = "INSERT INTO time_inout (account_no,name,type,in_out, time) VALUES ('$acc_no','$name','$type','$update', '$date')";
-            		if(mysqli_query($connect,$insert))
-            		{
-                		echo"<script>console.log('Time In Success')";
-            		}
-            		else
-            		{
-                		echo"<script>console.log('Time In Error')";
-            		}	
-        		}
-        			else{
-
-            		if($in_out == "timein"){
-                		$update = "timeout";
-    
-                			$insert = "INSERT INTO time_inout (account_no,name,type,in_out, time) VALUES ('$acc_no','$name','$type','$update', '$date')";
-                    		if(mysqli_query($connect,$insert))
-                    		{
-                        		echo"<script>console.log('Time Out Success')";
-                    		}
-                    		else
-                    		{
-								echo"<script>console.log('Time Out Error')";
-                    		}	
-            }
-            				else  if($in_out == "timeout"){
-                				$update = "timein";
-    
-                				$insert = "INSERT INTO time_inout (account_no,name,type,in_out, time) VALUES ('$acc_no','$name','$type','$update', '$date')";
-                    if(mysqli_query($connect,$insert))
-                    {
-                        echo"<script>console.log('Time In Success')";
-                    }
-                    else
-                    {
-						echo"<script>console.log('Time In Error')";
-                    }	
-            }
-        
-            else{
-                console.log("Failed!");
-                }
-        }
-    }
-    else{
-        console.log("Failed!");
-    }
-						//end ng attendance
-						echo ("
-							<body onload='autoClose();'style='background-color:#d4edda;'>
-								<center>
-									<div class='cont' style='width:100%; height:95vh;display:flex; justify-content:center; align-items:center;'>
-										<div style='background-color:white;display:flex; justify-content:center; align-items:center; padding:20px;'>
-											<div style='display:flex; justify-content:center; align-items:center;'>
-												<img src='data:image;base64,".$img."' height='250' width='250' onload='granted()'>
+						if(mysqli_num_rows ($result) == 0){
+							$update = "timein";
+							$insert = "INSERT INTO time_inout (account_no,name,type,in_out, time) VALUES ('$acc_no','$name','$type','$update', '$date')";
+							if(mysqli_query($connect,$insert))
+							{
+								echo"<script>console.log('Time In Success')</script>";
+								//end ng attendance
+								echo ("
+									<body onload='autoClose();'style='background-color:#d4edda;'>
+										<center>
+											<div class='cont' style='width:100%; height:95vh;display:flex; justify-content:center; align-items:center;'>
+												<div style='background-color:white;display:flex; justify-content:center; align-items:center; padding:20px;'>
+													<div style='display:flex; justify-content:center; align-items:center;'>
+														<img src='data:image;base64,".$img."' height='250' width='250' onload='granted()'>
+													</div>
+													<div style='display:flex; justify-content:flex-start;flex-direction:column; align-content:center;text-align: left; padding-left:20px;'>
+														<h2>Student No.: " . $acc_no . "</h2>
+														<h2>Name.: " . $name . "</h2>
+														<h2>Status: Granted</h2>
+													</div>
+												</div>
 											</div>
-											<div style='display:flex; justify-content:flex-start;flex-direction:column; align-content:center;text-align: left; padding-left:20px;'>
-												<h2>Student No.: " . $row["acc_no"] . "</h2>
-												<h2>Name.: " . $row["first"] . " " . $row["middle"] . ", " . $row["last"] . "</h2>
-												<h2>Status: Granted</h2>
-											</div>
-										</div>
-									</div>
-								</center>
-							</body>
-						");
+										</center>
+									</body>
+								");
+							}
+							else
+							{
+								echo"<script>console.log('Time In Error')";
+							}	
+						}
+						else{
+
+							if($in_out == "timein"){
+								$update = "timeout";
+			
+									$insert = "INSERT INTO time_inout (account_no,name,type,in_out, time) VALUES ('$acc_no','$name','$type','$update', '$date')";
+									if(mysqli_query($connect,$insert))
+									{
+										echo"<script>console.log('Time In Success')</script>";
+										//end ng attendance
+										echo ("
+											<body onload='autoClose();'style='background-color:#d4edda;'>
+												<center>
+													<div class='cont' style='width:100%; height:95vh;display:flex; justify-content:center; align-items:center;'>
+														<div style='background-color:white;display:flex; justify-content:center; align-items:center; padding:20px;'>
+															<div style='display:flex; justify-content:center; align-items:center;'>
+																<img src='data:image;base64,".$img."' height='250' width='250' onload='granted()'>
+															</div>
+															<div style='display:flex; justify-content:flex-start;flex-direction:column; align-content:center;text-align: left; padding-left:20px;'>
+																<h2>Student No.: " . $acc_no . "</h2>
+																<h2>Name.: " . $name . "</h2>
+																<h2>Status: Granted</h2>
+															</div>
+														</div>
+													</div>
+												</center>
+											</body>
+										");
+									}
+									else
+									{
+										echo"<script>console.log('Time Out Error')";
+									}	
+							}
+							else if($in_out == "timeout"){
+								$update = "timein";
+	
+								$insert = "INSERT INTO time_inout (account_no,name,type,in_out, time) VALUES ('$acc_no','$name','$type','$update', '$date')";
+								if(mysqli_query($connect,$insert))
+								{
+									echo"<script>console.log('Time In Success')</script>";
+									//end ng attendance
+									echo ("
+										<body onload='autoClose();'style='background-color:#d4edda;'>
+											<center>
+												<div class='cont' style='width:100%; height:95vh;display:flex; justify-content:center; align-items:center;'>
+													<div style='background-color:white;display:flex; justify-content:center; align-items:center; padding:20px;'>
+														<div style='display:flex; justify-content:center; align-items:center;'>
+															<img src='data:image;base64,".$img."' height='250' width='250' onload='granted()'>
+														</div>
+														<div style='display:flex; justify-content:flex-start;flex-direction:column; align-content:center;text-align: left; padding-left:20px;'>
+															<h2>Student No.: " . $acc_no . "</h2>
+															<h2>Name.: " . $name . "</h2>
+															<h2>Status: Granted</h2>
+														</div>
+													</div>
+												</div>
+											</center>
+										</body>
+									");	
+								}
+								else
+								{
+									echo"<script>console.log('Time In Error')";
+								}	
+							}
+				
+							else{
+								echo"<script>console.log('Failed!')";
+								}
+						}
 					}
 					else if($scan == "denied"){
 						echo ("
@@ -145,8 +170,8 @@
 												<img src='data:image;base64,".$img."' height='250' width='250' onload='denied()'>
 											</div>
 											<div style='display:flex; justify-content:flex-start;flex-direction:column; align-content:center;text-align: left; padding-left:20px;'>
-												<h2>Student No.: " . $row["acc_no"] . "</h2>
-												<h2>Name.: " . $row["first"] . " " . $row["middle"] . ", " . $row["last"] . "</h2>
+												<h2>Student No.: " . $acc_no . "</h2>
+												<h2>Name.: " . $name . "</h2>
 												<h2>Status: Denied</h2>
 											</div>
 										</div>
