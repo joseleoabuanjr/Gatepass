@@ -5,11 +5,12 @@
     
 
     //read data from database table
-	$select = "SELECT * FROM user_account WHERE email = '$emailinput';";
+	$select = "SELECT * FROM user_account WHERE email = '$emailinput'";
 	$result = mysqli_query($connect,$select);
 	$count =  mysqli_num_rows ($result);
     if($count > 0)
 	{
+        $_SESSION["emailinput"] = $emailinput;
         header("refresh: 0; url=../forgotpassword.php");
 	}
 
