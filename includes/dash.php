@@ -43,7 +43,7 @@
                             <div style="width:100%;padding:40px 0;">
                     ');
                     if($row['verified']=="pending"){
-                        echo '<div class="status2">Verifiying</div>';
+                        echo '<div class="status2">Pending Verification</div>';
                     }
                     else if($row['verified']=="yes"){
                         echo '<div class="status3">Verified</div>';
@@ -125,7 +125,7 @@
                     $col = "none";
 
                     echo ('
-                        <div class="d-flex justify-content-center" style="width:40%; height:100%; padding-top:50px;">
+                        <div class"d-flex justify-content-center" style="width:40%; height:100%; padding-top:50px;">
                             <div class="d-flex justify-content-left align-items-center" style="width:100%;">
                                 <div style="width:60%">
                                     <img src="data:image;base64,' . $img . '"style="height:100%; width:100%; border-radius: 50%;">
@@ -232,7 +232,7 @@
                             <div style="width:100%;padding:40px 0;">
                     ');
                     if($row['verified']=="pending"){
-                        echo '<div class="status2">Verifiying</div>';
+                        echo '<div class="status2">Pending Verification</div>';
                     }
                     else if($row['verified']=="yes"){
                         echo '<div class="status3">Verified</div>';

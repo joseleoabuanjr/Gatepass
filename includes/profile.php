@@ -25,7 +25,7 @@
 ?>
 <?php
 	if($type == "student"){
-		require_once 'profile_s1.php';
+		require_once 'profile_sx.php';
 	}
 	else if($type == "employee"){
 		require_once 'profile_e.php';

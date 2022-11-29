@@ -29,7 +29,7 @@
 			<label>Valid ID</label>
 			<div class="d-flex">
 				<input type="text" name="V_id" class="form-control" value="<?php echo $v_id?>" style="margin-bottom: 10px; margin-right: 10px;" disabled>
-				<a class='btn btn-secondary' href='view_vid.php?id=<?php echo $accno?>' style="height:40px;">View</a>
+				<a class='btn btn-secondary' target="_blank" href='view_vid.php?id=<?php echo $accno?>' style="height:40px;">View</a>
 			</div>
 		</div>
 		<div class="form-group" style="margin-bottom: 10px;">
@@ -40,7 +40,7 @@
 			<label>Vaccination Card</label>
 			<div class="d-flex">
 				<input type="text" name="vaxx" class="form-control" value="<?php echo $vax?>" style="margin-bottom: 10px; margin-right: 10px;" disabled>
-				<a class='btn btn-secondary' href='viewvax.php?id=<?php echo $accno?>' style="height:40px;">View</a>
+				<a class='btn btn-secondary' target="_blank" href='viewvax.php?id=<?php echo $accno?>' style="height:40px;">View</a>
 			</div>
 		</div>
 		<div class="form-group" style="margin-bottom: 10px;">

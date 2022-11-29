@@ -35,7 +35,7 @@
                             <td>".$row["date_apt"]."</td>
                             <td>
                                 <a class='btn btn-primary btn-sm' href='function/toapt_Approve.php?id=".$row['acc_no']."'>Approve</a>
-                                <a class='btn btn-danger btn-sm' href='function/toapt_Denied.php?id=".$row['acc_no']."'>Denied</a>
+                                <a class='btn btn-danger btn-sm' href='function/toapt_Denied.php?id=".$row['acc_no']."'>Deny</a>
                             </td>
                         </tr>");
                     
