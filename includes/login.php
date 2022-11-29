@@ -11,7 +11,7 @@
 			class="form-control" placeholder="Enter password" >
 			<label>Password</label>
 		<div class="msg" id="msgpass"></div>
-			<a href="">Forgot Password?</a>
+			<a href="../forgotpassword_email.php">Forgot Password?</a>
 		</div>
 			<button type="submit" class="btn btn-primary" id="logbtn" style="margin-top: 20px;">Submit</button>
 	</form>
