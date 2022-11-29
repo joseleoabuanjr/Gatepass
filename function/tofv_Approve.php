@@ -4,7 +4,7 @@
     include 'connect.php';
 
     $id = $_GET["id"];
-    $status = "yes";
+    $status = "verified";
 
     // $text = $id;	//Only the student number will  be saved in the QR Code;
     //                 //If you want every information be stored in the QR Code use the code below instead;

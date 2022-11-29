@@ -3,7 +3,7 @@ require_once "function/connect.php";
 
 session_start();
 
-$id =$_GET['id'];
+$id = $_GET['id'];
 
 $select = "SELECT * FROM user_account WHERE acc_no = $id";
 $result = mysqli_query($connect,$select);
@@ -18,7 +18,7 @@ if (mysqli_num_rows($result) == 1)
 			header("refresh: 2; url=index.php");
 		}
 		else{
-			echo '<embed type="application/pdf" target="_blank" src="files/'.$vax.'" width="100%" height="100%">'; //eto pag display nung PDF galing SQL
+			echo '<embed type="application/pdf" src="files/'.$vax.'" width="100%" height="100%">'; //eto pag display nung PDF galing SQL
 		}
     }
 } 

@@ -1,3 +1,6 @@
-<div class="d-flex flex-column" style="height:auto; padding:100px;">
-    <div class="title">You cant access this section until your account is fully verified!</div><p>You must be fully verified by completing information in your <a href="" id="t4">profile.</a></p>
+<div class="d-flex flex-column" style="height:auto; padding:80px;">
+    <div class="alert alert-danger" role="alert">
+        This page is not available until your account is fully verified.
+    </div>
+    <div class="title"></div>
 </div>
