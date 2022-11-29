@@ -59,7 +59,7 @@
 		</div>
 		<div class="form-group" style="margin-bottom: 10px;">
 			<label>Upload Vaccination Card</label>
-			<input type="file" name="vax" class="form-control" id="vax1" onchange="return checkImage1()">
+			<input type="file" name="vax" class="form-control" id="vax1" onchange="return checkImage2()">
 			<div id="message9"></div>
 		</div>
 

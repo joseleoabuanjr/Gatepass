@@ -5,8 +5,8 @@ var stud1 = document.querySelector('#studno1');
 var pass1 = document.querySelector('#username1');
 var cpass1 = document.querySelector('#cpass1');
 var email1 = document.querySelector('#email1');
-var cor = document.querySelector('#cor');
-var vaxx = document.querySelector('#vaxx');
+var cor = document.querySelector('#cor1');
+var vaxx = document.querySelector('#vax1');
 //STUDENTS ID'S (COLLEGE/COURSE/YEAR/SECTION)
 var col = document.querySelector('#col-s');
 var course = document.querySelector('#course-s');
@@ -14,7 +14,6 @@ var year = document.querySelector('#year-s');
 var section = document.querySelector('#section-s');
 
 var btn1 = document.querySelector('#btn1');
-var img1 = document.querySelector('#img1');
 
 var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 var allowedExtensions = /(\.jpg|\.jpeg|\.png|\.gif)$/i;
@@ -326,18 +325,36 @@ email1.addEventListener('keyup', function(){
 })
 
 function checkImage1(){
-    if (!allowedExtensions.exec(img1.value)) {
-        img1.style.border = '1px solid red';
+    if (!allowedExtensions.exec(cor.value)) {
+        cor.style.border = '1px solid red';
+        msg8.innerHTML="Invalid file type";
+        return false;
+    }
+    else if (cor.value.length ==0){
+        cor.style.border = '1px solid red';
+        msg8.innerHTML="Please upload picture";
+        return false;
+    }
+    else{
+        cor.style.border = '1px solid green';
+        msg8.innerHTML="";
+    }
+}
+
+function checkImage2(){
+
+    if (!allowedExtensions.exec(vaxx.value)) {
+        vaxx.style.border = '1px solid red';
         msg9.innerHTML="Invalid file type";
         return false;
     }
-    else if (img1.value.length ==0){
-        img1.style.border = '1px solid red';
+    else if (cor.value.length ==0){
+        vaxx.style.border = '1px solid red';
         msg9.innerHTML="Please upload picture";
         return false;
     }
     else{
-        img1.style.border = '1px solid green';
+        vaxx.style.border = '1px solid green';
         msg9.innerHTML="";
     }
 }
