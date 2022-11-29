@@ -3,58 +3,70 @@
 		<h1 style="margin-bottom: 20px;">Profile information</h1>
 		<div class="form-group">
 			<label>First Name</label>
-			<input type="text" name="first" class="form-control" value="<?php echo $first?>" style="margin-bottom: 10px;">
+			<input type="text" name="first" class="form-control" value="<?php echo $first?>" style="margin-bottom: 10px;" id="fname1">
+			<div id="message1"></div>
 		</div>
 		<div class="form-group">
 			<label>Last Name</label>
-			<input type="text" name="last" class="form-control" value="<?php echo $last?>" style="margin-bottom: 10px;">
+			<input type="text" name="last" class="form-control" value="<?php echo $last?>" style="margin-bottom: 10px;" id="lname1">
+			<div id="message2"></div>
 		</div>
 		<div class="form-group">
 			<label>Middle Initial</label>
-			<input type="text" name="mid" class="form-control" value="<?php echo $mid?>" style="margin-bottom: 10px;">
+			<input type="text" name="mid" class="form-control" value="<?php echo $mid?>" style="margin-bottom: 10px;" id="mname1">
+			<div id="message3"></div>
 		</div>
 		<div class="form-group">
 			<label>Student Number</label>
-			<input type="text" name="studno" class="form-control" value="<?php echo $studno?>" style="margin-bottom: 10px;">
+			<input type="text" name="studno" class="form-control" value="<?php echo $studno?>" style="margin-bottom: 10px;" id="studno1">
+			<div id="message4"></div>
 		</div>
 		<div class="form-group">
 			<label>Username</label>
-			<input type="text" name="user" autocomplete="nope" class="form-control" value="<?php echo $usern?>" style="margin-bottom: 10px;">
+			<input type="text" name="user" autocomplete="nope" class="form-control" value="<?php echo $usern?>" style="margin-bottom: 10px;" id="username1">
+			<div id="message5"></div>
 		</div>
 		<div class="form-group">
 			<label>Password</label>
-			<input type="password" name="pass" autocomplete="nope" class="form-control" value="<?php echo $p?>" style="margin-bottom: 20px;">
+			<input type="password" name="pass" autocomplete="nope" class="form-control" value="<?php echo $p?>" style="margin-bottom: 20px;" id="pass1">
+			<div id="message6"></div>
 		</div>
 		<div class="form-group">
 			<label>Email</label>
-			<input type="text" name="email" class="form-control" value="<?php echo $email?>" style="margin-bottom: 10px;">
+			<input type="text" name="email" class="form-control" value="<?php echo $email?>" style="margin-bottom: 10px;" id="email1">
+			<div id="message7"></div>
 		</div>
 		<div class="form-group">
 			<label>Certificate of Registration(CoR)</label>
 			<div class="d-flex">
-				<input type="text" name="CoR" class="form-control" value="<?php echo $cor?>" style="margin-bottom: 10px; margin-right: 10px;" disabled>
+				<input type="text" name="CoR" class="form-control" value="<?php echo $cor?>" style="margin-bottom: 10px; margin-right: 10px;" disabled id="cor">
+				
 				<a class='btn btn-secondary' target="_blank" href='viewcor.php?id=<?php echo $accno?>' style="height:40px;">View</a>
 			</div>
 		</div>
 		<div class="form-group" style="margin-bottom: 10px;">
 			<label>Upload Certificate of Registration(CoR)</label>
-			<input type="file" name="cor" accept="application/pdf" class="form-control" id="cor1">
+			<input type="file" name="cor" accept="application/pdf" class="form-control" id="cor1" onchange="return checkImage1()">
+			<div id="message8"></div>
 		</div>
 		<div class="form-group">
 			<label>Vaccination Card</label>
 			<div class="d-flex">
-				<input type="text" name="vaxx" class="form-control" value="<?php echo $vax?>" style="margin-bottom: 10px; margin-right: 10px;" disabled>
+				<input type="text" name="vaxx" class="form-control" value="<?php echo $vax?>" style="margin-bottom: 10px; margin-right: 10px;" disabled id="vaxx">
+	
 				<a class='btn btn-secondary' target="_blank" href='viewvax.php?id=<?php echo $accno?>' style="height:40px;">View</a>
 			</div>
 		</div>
 		<div class="form-group" style="margin-bottom: 10px;">
 			<label>Upload Vaccination Card</label>
-			<input type="file" name="vax" class="form-control" id="vax1">
+			<input type="file" name="vax" class="form-control" id="vax1" onchange="return checkImage1()">
+			<div id="message9"></div>
 		</div>
 
 		<div class="form-floating">
             <select class="form-select" name="college" id="col-s">
-                <option selected disabled>Select College</option>
+				<div class="message10"></div>
+                <option value="0" selected disabled>Select College</option>
                 <option value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
                 <option value="College of Arts and Letters (CAL)">College of Arts and Letters (CAL)</option>
                 <option value="College of Business Administration (CBA)">College of Business Administration (CBA)</option>
@@ -77,7 +89,8 @@
 
 		<div class="form-floating">
             <select class="form-select" name="course" id="course-s">
-                <option selected disabled>Select Course</option>
+			<div class="message11"></div>
+                <option value="0" selected disabled>Select Course</option>
 				<div class ="op1" name = "College of Architecture and Fine Arts (CAFA)" id="cafa">
                 <option class="cafa1--hidden" id="cafa1" value="Bachelor of Science in Architecture">Bachelor of Science in Architecture</option>
                 <option class="cafa2--hidden" id="cafa2"value="Bachelor of Landscape Architecture">Bachelor of Landscape Architecture</option>
@@ -192,7 +205,8 @@
 
 		<div class="form-floating">
             <select class="form-select" name="year" id="year-s">
-                <option selected disabled>Select Year</option>
+			<div class="message12"></div>
+                <option value="0" selected disabled>Select Year</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -204,7 +218,8 @@
 
 		<div class="form-floating">
             <select class="form-select" name="section" id="section-s">
-                <option selected disabled>Select Section</option>
+			<div class="message13"></div>
+                <option value="0" selected disabled>Select Section</option>
 				<option value="A">A</option>
 				<option value="B">B</option>
 				<option value="C">C</option>
@@ -236,6 +251,6 @@
             <label for="floatingSelect">Section</label>
         </div>
 
-		<button type="submit" class="btn btn-primary">Update</button>
+		<button type="submit" class="btn btn-primary" id="btn1">Update</button>
 	</form>
 </div>

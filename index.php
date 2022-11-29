@@ -55,6 +55,7 @@ $id = $_SESSION['accno'];
 	
 	<script type="text/javascript" src="js/college.js"></script>
 	<script type="text/javascript" src="js/request.js"></script>
+	<script type="text/javascript" src="js/validationStudent.js"></script>
 </body>
 
 </html>
