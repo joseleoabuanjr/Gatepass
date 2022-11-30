@@ -36,10 +36,11 @@
 			
 			if (mysqli_num_rows($result) > 0) 
 			{
-				print json_encode(mysqli_num_rows($result));
+
 				//loop that will stop after displaying all the records fetched from database 
 				while($row = mysqli_fetch_assoc($result)) 
 				{
+					print json_encode($row);
 					$img = $row["image"];
 					$scan = $row["scan_stats"];
 					$acc_no = $row["acc_no"];
