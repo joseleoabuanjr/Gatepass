@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 30, 2022 at 04:17 AM
+-- Generation Time: Nov 30, 2022 at 06:43 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -88,6 +88,29 @@ CREATE TABLE `appointment` (
 
 INSERT INTO `appointment` (`req_id`, `acc_no`, `name`, `type`, `reason`, `date_apt`, `scan_stats`, `apt_stats`, `qr`, `apt_exp`) VALUES
 (0, 221000002, 'Jose Leo B. Abuan', 'student', 'Request for Dry Seal', '2022-11-30', 'denied', 'pending', 0x2e2e2f496d616765732f3232313030303030323031372e706e67, '2022-12-01');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `time_inout`
+--
+
+CREATE TABLE `time_inout` (
+  `account_no` int(11) DEFAULT NULL,
+  `name` varchar(100) DEFAULT NULL,
+  `type` varchar(100) DEFAULT NULL,
+  `in_out` varchar(100) DEFAULT NULL,
+  `time` timestamp NULL DEFAULT NULL,
+  `reason` varchar(200) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `time_inout`
+--
+
+INSERT INTO `time_inout` (`account_no`, `name`, `type`, `in_out`, `time`, `reason`) VALUES
+(221000002, 'Jose Leo B Abuan', 'student', 'timein', '2022-11-29 16:00:00', NULL),
+(221000002, 'Jose Leo B Abuan', 'student', 'timeout', '2022-11-29 16:00:00', NULL);
 
 -- --------------------------------------------------------
 
