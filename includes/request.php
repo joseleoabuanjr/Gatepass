@@ -43,11 +43,11 @@
                                         <td>".$row["reason"]."</td>
                                         <td>".$row["date_apt"]."</td>
                                         <td>".$row["apt_exp"]."</td>
-                                        <td>".$row["scan_stats"]."</td>
+                                        <td>".$row["apt_stats"]."</td>
                                         <td><a class='btn btn-secondary' target='_blank' href='viewqr.php?id=".$row["acc_no"]."'>View</a></td>
                                 ");
                             echo "<td>
-                                    <a class='btn btn-danger btn-sm' href='function/toapt-cancel.php?id=".$row['acc_no']."'>Cancel</a>
+                                    <a class='btn btn-danger' href='function/toapt-cancel.php?id=".$row['acc_no']."&req=".$row["req_id"]."'>Cancel</a>
                                 </td>
                             </tr>";
                                 
@@ -90,7 +90,7 @@
                 <label for="floatingTextarea2">Other</label>
             </div>
             </div>
-            <Submit type="submit" onclick="if(confirm('are you sure ?')){ this.form.submit() }" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  id="reg1" style=" width:100%; margin-top: 20px;">Submit Request</button>
+            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  id="reg1" style=" width:100%; margin-top: 20px;">Submit Request</button>
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">

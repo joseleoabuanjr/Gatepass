@@ -24,9 +24,9 @@
 				});
 				scanner.addListener("scan",function(c)
 				{
-					var studno = document.getElementById("text").value=c;
+					var qr = document.getElementById("text").value=c;
 			
-						visitInfo = window.open("function/toScan.php?sno=" + studno, "_blank");
+						visitInfo = window.open("function/toScan.php?qr=" + qr, "_blank");
 						// document.onmousedown=focusWindow; 
 						// document.onmousemove=focusWindow;
 						// document.onkeyup=focusWindow;	
