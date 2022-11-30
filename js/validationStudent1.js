@@ -3,7 +3,7 @@ var lst1 = document.querySelector('#lname1');
 var mid1 = document.querySelector('#mname1');
 var stud1 = document.querySelector('#studno1');
 var username1 = document.querySelector('#username1');
-var pass1 = document.querySelector('#cpass1');
+var pass1 = document.querySelector('#pass1');
 var email1 = document.querySelector('#email1');
 var cor = document.querySelector('#cor1');
 var vaxx = document.querySelector('#vax1');
@@ -31,7 +31,6 @@ var msg10 = document.querySelector('#message10');
 var msg11 = document.querySelector('#message11');
 var msg12= document.querySelector('#message12');
 var msg13 = document.querySelector('#message13');
-
 
 btn1.addEventListener('click', function(){
     if (fst1.value == ""){
@@ -100,17 +99,6 @@ btn1.addEventListener('click', function(){
     }
 })
 btn1.addEventListener('click', function(){
-    if (cpass1.value == ""){
-        cpass1.style.border = '1px solid red';
-        msg7.innerHTML="Please enter confirm password";
-        return false; 
-    }
-    else {
-        cpass1.style.border = '1px solid green';
-        msg7.innerHTML="";
-    }
-})
-btn1.addEventListener('click', function(){
     if (email1.value == ""){
         email1.style.border = '1px solid red';
         msg8.innerHTML="Please enter email";
@@ -139,7 +127,7 @@ btn1.addEventListener('click', function(){
 })
 
 btn1.addEventListener('click', function(){
-    if (col.value == "0"){
+    if (col.value == "Default"){
         col.style.border = '1px solid red';
         msg10.innerHTML="Please select college";
         return false; 
@@ -262,49 +250,10 @@ pass1.addEventListener('keyup', function(){
     else if(pass1.value.length < 4){
         pass1.style.border = '1px solid red';
         msg6.innerHTML="Password must be at least 4 characters";
-        if(cpass1.value.match(pass1.value)){
-            cpass1.style.border = '1px solid green';
-            msg7.innerHTML="";
-        }
-        else {
-            cpass1.style.border = '1px solid red';
-            msg7.innerHTML="Password not match";
-            return false; 
-        }
     }
     else {
         pass1.style.border = '1px solid green';
         msg6.innerHTML="";
-        if(cpass1.value.match(pass1.value)){
-            cpass1.style.border = '1px solid green';
-            msg7.innerHTML="";
-        }
-        else {
-            cpass1.style.border = '1px solid red';
-            msg7.innerHTML="Password not match";
-            return false; 
-        }
-    }
-})
-cpass1.addEventListener('keyup', function(){
-    if (cpass1.value.length == 0){
-        cpass1.style.border = '1px solid red';
-        msg7.innerHTML="Password not match";
-        return false; 
-    }
-    else if (pass1.value.length == 0){
-        cpass1.style.border = '1px solid red';
-        msg7.innerHTML="Password not match";
-        return false; 
-    }
-    else if(cpass1.value.match(pass1.value)){
-        cpass1.style.border = '1px solid green';
-        msg7.innerHTML="";
-    }
-    else {
-        cpass1.style.border = '1px solid red';
-        msg7.innerHTML="Password not match";
-        return false; 
     }
 })
 email1.addEventListener('keyup', function(){
@@ -368,9 +317,6 @@ function toCheck(){
     else if(pass1.value.length == 0 || pass1.value.length < 4) {
         return false; 
     }
-    else if(cpass1.value.length == 0 || cpass1.value.length < 4) {
-        return false; 
-    } 
     else if(email1.value.length == 0) {
         return false; 
     } 
@@ -392,7 +338,29 @@ function toCheck(){
     else if(!(email1.value.match(validRegex))) {
         return false; 
     }
-    else if(!(cpass1.value.match(pass1.value))) {
+    else  if(col.value == "Default"){
+        return false;
+      
+    }
+    else if(course.value== "Default") {
+        return false; 
+    }
+    else if(year.value=="Default") {
+        return false; 
+    }
+    else if(section.value== "Default") {
+        return false; 
+    }
+    else if(col.value== NULL) {
+        return false; 
+    }
+    else if(course.value== NULL) {
+        return false; 
+    }
+    else if(year.value== NULL) {
+        return false; 
+    }
+    else if(section.value== NULL) {
         return false; 
     }
     else {

@@ -252,9 +252,6 @@ function toCheck(){
     else if(email1.value.length == 0) {
         return false; 
     } 
-    else if(stud1.value.length == 0) {
-        return false; 
-    } 
     else if(fst1.value.length == 0) {
         return false; 
     } 

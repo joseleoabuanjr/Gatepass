@@ -1,40 +1,40 @@
 <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100vh; width:100%; padding-top:400px; margin-bottom:400px">
-	<form method="post" action="function/toUpdate1.php" enctype="multipart/form-data" class="d-flex flex-column justify-content-center" style="width: 400px; ">
+	<form method="post" action="" enctype="multipart/form-data" onsubmit="return toCheck()"class="d-flex flex-column justify-content-center" style="width: 400px; ">
 		<h1 style="margin-bottom: 20px;">Profile information</h1>
 		<div class="form-group">
 			<label>First Name</label>
-			<input type="text" name="first" class="form-control" value="<?php echo $first?>" style="margin-bottom: 10px;" id="fname1">
-			<div id="message1"></div>
+			<input type="text" name="first" class="form-control" value="<?php echo $first?>" style="margin-bottom: 10px;" id="fname1" required>
+			<div class="msg1" id="message1"></div>
 		</div>
 		<div class="form-group">
 			<label>Last Name</label>
-			<input type="text" name="last" class="form-control" value="<?php echo $last?>" style="margin-bottom: 10px;" id="lname1">
-			<div id="message2"></div>
+			<input type="text" name="last" class="form-control" value="<?php echo $last?>" style="margin-bottom: 10px;" id="lname1" required>
+			<div class="msg2" id="message2"></div>
 		</div>
 		<div class="form-group">
 			<label>Middle Initial</label>
-			<input type="text" name="mid" class="form-control" value="<?php echo $mid?>" style="margin-bottom: 10px;" id="mname1">
-			<div id="message3"></div>
+			<input type="text" name="mid" class="form-control" value="<?php echo $mid?>" style="margin-bottom: 10px;" id="mname1" required>
+			<div class="msg3" id="message3"></div>
 		</div>
 		<div class="form-group">
 			<label>Student Number</label>
-			<input type="text" name="studno" class="form-control" value="<?php echo $studno?>" style="margin-bottom: 10px;" id="studno1">
-			<div id="message4"></div>
+			<input type="text" name="studno" class="form-control" value="<?php echo $studno?>" style="margin-bottom: 10px;" id="studno1" required>
+			<div class="msg4" id="message4"></div>
 		</div>
 		<div class="form-group">
 			<label>Username</label>
-			<input type="text" name="user" autocomplete="nope" class="form-control" value="<?php echo $usern?>" style="margin-bottom: 10px;" id="username1">
-			<div id="message5"></div>
+			<input type="text" name="user" autocomplete="nope" class="form-control" value="<?php echo $usern?>" style="margin-bottom: 10px;" id="username1" required>
+			<div class="msg5" id="message5"></div>
 		</div>
 		<div class="form-group">
 			<label>Password</label>
-			<input type="password" name="pass" autocomplete="nope" class="form-control" value="<?php echo $p?>" style="margin-bottom: 20px;" id="pass1">
-			<div id="message6"></div>
+			<input type="password" name="pass" autocomplete="nope" class="form-control" value="<?php echo $p?>" style="margin-bottom: 20px;" id="pass1" required>
+			<div class="msg6" id="message6"></div>
 		</div>
 		<div class="form-group">
 			<label>Email</label>
-			<input type="text" name="email" class="form-control" value="<?php echo $email?>" style="margin-bottom: 10px;" id="email1">
-			<div id="message7"></div>
+			<input type="text" name="email" class="form-control" value="<?php echo $email?>" style="margin-bottom: 10px;" id="email1" required>
+			<div class="msg7" id="message7"></div>
 		</div>
 		<div class="form-group">
 			<label>Certificate of Registration(CoR)</label>
@@ -46,8 +46,8 @@
 		</div>
 		<div class="form-group" style="margin-bottom: 10px;">
 			<label>Upload Certificate of Registration(CoR)</label>
-			<input type="file" name="cor" accept="application/pdf" class="form-control" id="cor1" onchange="return checkImage1()">
-			<div id="message8"></div>
+			<input type="file" name="cor" accept="application/pdf" class="form-control" id="cor1" onchange="return checkImage1()" required>
+			<div class="msg8" id="message8"></div>
 		</div>
 		<div class="form-group">
 			<label>Vaccination Card</label>
@@ -59,14 +59,14 @@
 		</div>
 		<div class="form-group" style="margin-bottom: 10px;">
 			<label>Upload Vaccination Card</label>
-			<input type="file" name="vax" class="form-control" id="vax1" onchange="return checkImage2()">
-			<div id="message9"></div>
+			<input type="file" name="vax" class="form-control" id="vax1" onchange="return checkImage2()" required>
+			<div class="msg9" id="message9"></div>
 		</div>
 
 		<div class="form-floating">
-            <select class="form-select" name="college" id="col-s">
-				<div class="message10"></div>
-                <option value="0" selected disabled>Select College</option>
+            <select class="form-select" name="college" id="col-s" required>
+			<div class="msg10" id="message10"></div>
+                <option value="Default" selected disabled>Select College</option>
                 <option value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
                 <option value="College of Arts and Letters (CAL)">College of Arts and Letters (CAL)</option>
                 <option value="College of Business Administration (CBA)">College of Business Administration (CBA)</option>
@@ -88,8 +88,8 @@
         </div>
 
 		<div class="form-floating">
-            <select class="form-select" name="course" id="course-s">
-			<div class="message11"></div>
+            <select class="form-select" name="course" id="course-s" required>
+			<div class="msg11" id="message11"></div>
                 <option value="0" selected disabled>Select Course</option>
 				<div class ="op1" name = "College of Architecture and Fine Arts (CAFA)" id="cafa">
                 <option class="cafa1--hidden" id="cafa1" value="Bachelor of Science in Architecture">Bachelor of Science in Architecture</option>
@@ -204,8 +204,8 @@
         </div>
 
 		<div class="form-floating">
-            <select class="form-select" name="year" id="year-s">
-			<div class="message12"></div>
+            <select class="form-select" name="year" id="year-s" required>
+			<div class="msg12" id="message12"></div>
                 <option value="0" selected disabled>Select Year</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
@@ -217,8 +217,8 @@
         </div>
 
 		<div class="form-floating">
-            <select class="form-select" name="section" id="section-s">
-			<div class="message13"></div>
+            <select class="form-select" name="section" id="section-s" required>
+			<div class="msg13" id="message13"></div>
                 <option value="0" selected disabled>Select Section</option>
 				<option value="A">A</option>
 				<option value="B">B</option>
