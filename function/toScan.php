@@ -30,12 +30,13 @@
 			require_once "connect.php";
 			$qrwhole = $_REQUEST["qr"];
 			$qrsplit = explode(":",$qrwhole);
-			print json_encode($qrsplit);
-			$select = "SELECT * FROM user_account WHERE stud_no = '$sno'";
+			$qraccno = intval($qrsplit[0]);
+			$select = "SELECT * FROM user_account WHERE acc_no = '$qraccno'";
 			$result = mysqli_query($connect,$select);
-
+			
 			if (mysqli_num_rows($result) > 0) 
 			{
+				print json_encode(mysqli_num_rows($result));
 				//loop that will stop after displaying all the records fetched from database 
 				while($row = mysqli_fetch_assoc($result)) 
 				{
