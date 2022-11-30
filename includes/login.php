@@ -1,4 +1,4 @@
-<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+<div class="d-flex justify-content-center align-items-center" style="height: 100%;">
 	<form method="post" action="function/toLogin.php" class="d-flex flex-column justify-content-center" onsubmit="return validate()" style="width: 400px;">
 		<h1 style="margin-bottom: 20px;">Login</h1>
 		<div class="form-floating"  style="margin-bottom: 10px;">

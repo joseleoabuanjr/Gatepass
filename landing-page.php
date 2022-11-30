@@ -14,46 +14,51 @@
 
 </head>
 <body>
-    <div class="actionBtn">
-        <div class="actionBtns">
-            <button class="actionBtn loginBtn" id="actionBtn_login"> LOGIN</button>
-            <button class="actionBtn registerBtn" id="actionBtn_register"> REGISTER</button>
-            <button class="moveBtn" id="actionBtn_login"> LOGIN</button>
-            <!-- <button class="actionBtn studentBtn"> STUDENT</button>
-            <button class="actionBtn employeeBtn"> EMPLOYEE</button>
-            <button class="actionBtn visitorBtn"> VISITOR</button> -->
-        </div>
-    </div>
-    <div class="lgcontain" id="login1">
-        <?php 
-        session_start();
-        $invalid = 0;
-        if(isset($_SESSION["invalid"])){
-            $invalid = 1;
-            session_unset();
-            session_destroy();
-        }
-        if($invalid == 1){
-            require_once 'includes/login-invalid.php';
-        }
-        else{
-            require_once 'includes/login.php';
-        }
-        ?>
-    </div>
-
-
-    <div class="regcontain--hidden" id="register1">
+    <center>
         <div class="actionBtn">
             <div class="actionBtns">
-                <button class="actionBtn studentBtn" id="studentBtn"> STUDENT</button>
-                <button class="actionBtn employeeBtn" id="employeeBtn"> EMPLOYEE</button>
-                <button class="actionBtn visitorBtn" id="visitorBtn"> VISITOR</button> 
-                <button class="moveBtn2" id="actionBtn_login"> STUDENT</button>
+                <button class="actionBtn loginBtn" id="actionBtn_login"> LOGIN</button>
+                <button class="actionBtn registerBtn" id="actionBtn_register"> REGISTER</button>
+                <button class="moveBtn" id="actionBtn_login"> LOGIN</button>
+                <!-- <button class="actionBtn studentBtn"> STUDENT</button>
+                <button class="actionBtn employeeBtn"> EMPLOYEE</button>
+                <button class="actionBtn visitorBtn"> VISITOR</button> -->
             </div>
-    </div>
-        <?php require_once 'includes/register.php'; ?>
-    </div>
+        </div>
+    </center>
+        <div class="lgcontain" id="login1">
+            <?php 
+            session_start();
+            $invalid = 0;
+            if(isset($_SESSION["invalid"])){
+                $invalid = 1;
+                session_unset();
+                session_destroy();
+            }
+            if($invalid == 1){
+                require_once 'includes/login-invalid.php';
+            }
+            else{
+                require_once 'includes/login.php';
+            }
+            ?>
+        </div>
+
+        
+        <div class="regcontain--hidden" id="register1">
+            <center>
+                <div class="actionBtn">
+                    <div class="actionBtns">
+                        <button class="actionBtn studentBtn" id="studentBtn"> STUDENT</button>
+                        <button class="actionBtn employeeBtn" id="employeeBtn"> EMPLOYEE</button>
+                        <button class="actionBtn visitorBtn" id="visitorBtn"> VISITOR</button> 
+                        <button class="moveBtn2" id="actionBtn_login"> STUDENT</button>
+                    </div>
+                </div>
+            </center>
+            <?php require_once 'includes/register.php'; ?>
+        </div>
+    <script type="text/javascript" src="js/college.js"></script>
     <script type="text/javascript" src="js/landing.js"></script>
     <script type="text/javascript" src="js/loginx.js"></script>
     <script type="text/javascript" src="js/form1.js"></script>
