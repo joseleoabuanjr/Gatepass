@@ -36,7 +36,6 @@
 			
 			if (mysqli_num_rows($result) > 0) 
 			{
-
 				//loop that will stop after displaying all the records fetched from database 
 				while($row = mysqli_fetch_assoc($result)) 
 				{
