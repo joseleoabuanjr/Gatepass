@@ -336,31 +336,18 @@ function toCheck(){
         return false; 
     }
     else if(!(email1.value.match(validRegex))) {
+        return false;  
+    }
+    else if(col.value== "") {
         return false; 
     }
-    else  if(col.value == "Default"){
-        return false;
-      
-    }
-    else if(course.value== "Default") {
+    else if(course.value== "") {
         return false; 
     }
-    else if(year.value=="Default") {
+    else if(year.value== "") {
         return false; 
     }
-    else if(section.value== "Default") {
-        return false; 
-    }
-    else if(col.value== NULL) {
-        return false; 
-    }
-    else if(course.value== NULL) {
-        return false; 
-    }
-    else if(year.value== NULL) {
-        return false; 
-    }
-    else if(section.value== NULL) {
+    else if(section.value== "") {
         return false; 
     }
     else {

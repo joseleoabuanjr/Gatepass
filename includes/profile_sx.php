@@ -1,5 +1,5 @@
 <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100vh; width:100%; padding-top:400px; margin-bottom:400px">
-	<form method="post" action="" enctype="multipart/form-data" onsubmit="return toCheck()"class="d-flex flex-column justify-content-center" style="width: 400px; ">
+	<form method="post" action="function/toUpdate1.php" enctype="multipart/form-data" onsubmit="return toCheck()"class="d-flex flex-column justify-content-center" style="width: 400px; ">
 		<h1 style="margin-bottom: 20px;">Profile information</h1>
 		<div class="form-group">
 			<label>First Name</label>
@@ -64,9 +64,9 @@
 		</div>
 
 		<div class="form-floating">
-            <select class="form-select" name="college" id="col-s" required>
+            <select class="form-select" name="college" id="col" required="">
 			<div class="msg10" id="message10"></div>
-                <option value="Default" selected disabled>Select College</option>
+                <option value="" selected disabled>Select College</option>
                 <option value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
                 <option value="College of Arts and Letters (CAL)">College of Arts and Letters (CAL)</option>
                 <option value="College of Business Administration (CBA)">College of Business Administration (CBA)</option>
@@ -88,9 +88,9 @@
         </div>
 
 		<div class="form-floating">
-            <select class="form-select" name="course" id="course-s" required>
+            <select class="form-select" name="course" id="course" required>
 			<div class="msg11" id="message11"></div>
-                <option value="0" selected disabled>Select Course</option>
+                <option value="" selected disabled>Select Course</option>
 				<div class ="op1" name = "College of Architecture and Fine Arts (CAFA)" id="cafa">
                 <option class="cafa1--hidden" id="cafa1" value="Bachelor of Science in Architecture">Bachelor of Science in Architecture</option>
                 <option class="cafa2--hidden" id="cafa2"value="Bachelor of Landscape Architecture">Bachelor of Landscape Architecture</option>
@@ -204,9 +204,9 @@
         </div>
 
 		<div class="form-floating">
-            <select class="form-select" name="year" id="year-s" required>
+            <select class="form-select" name="year" id="year" required>
 			<div class="msg12" id="message12"></div>
-                <option value="0" selected disabled>Select Year</option>
+                <option value="" selected disabled>Select Year</option>
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -217,9 +217,9 @@
         </div>
 
 		<div class="form-floating">
-            <select class="form-select" name="section" id="section-s" required>
+            <select class="form-select" name="section" id="section" required>
 			<div class="msg13" id="message13"></div>
-                <option value="0" selected disabled>Select Section</option>
+                <option value="" selected disabled>Select Section</option>
 				<option value="A">A</option>
 				<option value="B">B</option>
 				<option value="C">C</option>
