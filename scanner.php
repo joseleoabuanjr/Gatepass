@@ -25,11 +25,8 @@
 				scanner.addListener("scan",function(c)
 				{
 					var qrwhole = document.getElementById("text").value=c;
-					let qrtext = qrwhole;
-					const qrarr = text.split(":");
-					alert(qrarr);
 			
-						visitInfo = window.open("function/toScan.php?qr=" + qr, "_blank");
+						visitInfo = window.open("function/toScan.php?qr=" + qrwhole, "_blank");
 						// document.onmousedown=focusWindow; 
 						// document.onmousemove=focusWindow;
 						// document.onkeyup=focusWindow;	

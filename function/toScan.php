@@ -28,7 +28,9 @@
 	</head>
 		<?php				
 			require_once "connect.php";
-			$sno = $_REQUEST["sno"];
+			$qrwhole = $_REQUEST["qr"];
+			$qrsplit = explode(":",$qrwhole);
+			print json_encode($qrsplit);
 			$select = "SELECT * FROM user_account WHERE stud_no = '$sno'";
 			$result = mysqli_query($connect,$select);
 
