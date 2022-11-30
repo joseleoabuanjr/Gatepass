@@ -44,7 +44,7 @@
         }
         $name = $first." ".$mid.". ".$last;
 
-        $text = $id.":".$reqid.":".$name; //Only the student number will  be saved in the QR Code;
+        $text = array("Account No"=>$id,"Request No"=>$reqid,"Name"=>$name); //Only the student number will  be saved in the QR Code;
 				//If you want every information be stored in the QR Code use the code below instead;
 				
         $path = '../Images/'; //name of folder where to store all QR Images
