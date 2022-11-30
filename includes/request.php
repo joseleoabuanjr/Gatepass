@@ -10,10 +10,12 @@
                     </div> -->
                     <thead>
                         <tr style="background-color: #4F4F4B; color:white;">
-                            <th>Account Number</th>
-                            <th>Name</th>
-                            <th>Type</th>
-                            <th>Verified</th>
+                            <th>Id</th>
+                            <th>Reason</th>
+                            <th>Date of Appointment</th>
+                            <th>Date of Expiration</th>
+                            <th>Appointment Status</th>
+                            <th>QR CODE</th>
                             <th>Action</th>
                         </tr>
                     </thead>
@@ -22,8 +24,10 @@
                         //connect to database
                         require_once "function/connect.php";
 
+                        $accno= $_SESSION["accno"];
+
                         //read all row from database table
-                        $select = "SELECT * FROM user_account";
+                        $select = "SELECT * FROM appointment WHERE acc_no ='$accno'";
                         $result = mysqli_query($connect,$select);
 
                         if(!$result){
@@ -32,19 +36,18 @@
                         
                         $count = 0;
                         while($row = mysqli_fetch_assoc($result)){
-                            $cor = $row["cor"];
-                            $vax = $row["vax"];
-                            $v_id = $row["valid_id"];
-                            $req = $row["req_status"];
-                            echo ("
+                        
+                            echo (" 
                                     <tr>
-                                        <td>".$row["acc_no"]."</td>
-                                        <td>".$row["first"]." ".$row["middle"].". ".$row["last"]."</td>
-                                        <td>".$row["type"]."</td>
-                                        <td>".$row["verified"]."</td>
+                                        <td>".($count+1)."</td>
+                                        <td>".$row["reason"]."</td>
+                                        <td>".$row["date_apt"]."</td>
+                                        <td>".$row["apt_exp"]."</td>
+                                        <td>".$row["scan_stats"]."</td>
+                                        <td><a class='btn btn-secondary' target='_blank' href='viewqr.php?id=".$row["acc_no"]."'>View</a></td>
                                 ");
                             echo "<td>
-                                    <a class='btn btn-danger btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Archive</a>
+                                    <a class='btn btn-danger btn-sm' href='function/toapt-cancel.php?id=".$row['acc_no']."'>Cancel</a>
                                 </td>
                             </tr>";
                                 
@@ -87,7 +90,7 @@
                 <label for="floatingTextarea2">Other</label>
             </div>
             </div>
-            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop" id="reg1" style=" width:100%; margin-top: 20px;">Submit Request</button>
+            <Submit type="submit" onclick="if(confirm('are you sure ?')){ this.form.submit() }" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  id="reg1" style=" width:100%; margin-top: 20px;">Submit Request</button>
             <!-- Modal -->
             <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
