@@ -24,7 +24,10 @@
 				});
 				scanner.addListener("scan",function(c)
 				{
-					var qr = document.getElementById("text").value=c;
+					var qrwhole = document.getElementById("text").value=c;
+					let qrtext = qrwhole;
+					const qrarr = text.split(":");
+					alert(qrarr);
 			
 						visitInfo = window.open("function/toScan.php?qr=" + qr, "_blank");
 						// document.onmousedown=focusWindow; 
