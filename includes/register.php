@@ -5,22 +5,37 @@
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="first" id="fst1"class="form-control" placeholder="Enter first name" required>
 				<label>First Name</label>
-				<div class="msg" id="message1"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="middle" id="mid1" class="form-control" placeholder="Enter middle initial" required>
 				<label>M.I. </label>
-				<div class="msg" id="message2"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="last" id="lst1" class="form-control" placeholder="Enter last name" required>
 				<label>Last Name </label>
-				<div class="msg" id="message3"></div>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="text" name="contact" id="cont1" class="form-control" placeholder="Enter Phone Number" required>
+				<label>Your Phone Number</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="text" name="contact_P" id="contp1" class="form-control" placeholder="Enter Name of Contact Person" required>
+				<label>Name of Contact Person</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="text" name="contact_pnum" id="contp1" class="form-control" placeholder="Enter Phone Number of Contact Person" required>
+				<label>Phone Number of Contact Person</label>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="studno" id="stud1" class="form-control" placeholder="Enter student no." required>
 				<label>Student No.</label>
-				<div class="msg" id="message4"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<select class="form-select" name="college" id="col" required="">
@@ -43,12 +58,11 @@
 					<option value="Other">Other</option>
 				</select>
 				<label for="floatingSelect">College</label>
-				<div class="msg10" id="message10"></div>
+				<div class="msg10" id="message"></div>
 			</div>
 
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<select class="form-select" name="course" id="course" required>
-				<div class="msg11" id="message11"></div>
 					<option value="" selected disabled>Select Course</option>
 					<div class ="op1" name = "College of Architecture and Fine Arts (CAFA)" id="cafa">
 						<option class="cafa1--hidden" id="cafa1" value="Bachelor of Science in Architecture">Bachelor of Science in Architecture</option>
@@ -160,11 +174,12 @@
 					<option value="Other">Other</option>
 				</select>
 				<label for="floatingSelect">Course</label>
+				<div class="msg11" id="message"></div>
 			</div>
 
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<select class="form-select" name="year" id="year" required>
-				<div class="msg12" id="message12"></div>
+				<div class="msg12" id="message"></div>
 					<option value="" selected disabled>Select Year</option>
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -174,94 +189,55 @@
 				</select>
 				<label for="floatingSelect">Year</label>
 			</div>
-
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<select class="form-select" name="section" id="section" required>
-				<div class="msg13" id="message13"></div>
-					<option value="" selected disabled>Select Section</option>
-					<option value="A">A</option>
-					<option value="B">B</option>
-					<option value="C">C</option>
-					<option value="D">D</option>
-					<option value="E">E</option>
-					<option value="F">F</option>
-					<option value="G">G</option>
-					<option value="H">H</option>
-					<option value="I">I</option>
-					<option value="J">J</option>
-					<option value="K">K</option>
-					<option value="L">L</option>
-					<option value="M">M</option>
-					<option value="N">N</option>
-					<option value="O">O</option>
-					<option value="P">P</option>
-					<option value="Q">Q</option>
-					<option value="R">R</option>
-					<option value="S">S</option>
-					<option value="T">T</option>
-					<option value="U">U</option>
-					<option value="V">V</option>
-					<option value="W">W</option>
-					<option value="X">X</option>
-					<option value="Y">Y</option>
-					<option value="Z">Z</option>
-					<option value="Other">Other</option>
-				</select>
-				<label for="floatingSelect">Section</label>
+				<input type="text" name="section" class="form-control" placeholder="Enter username" id="section" required>
+				<label>Section</label>
+				<div class="msg13" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="user" class="form-control" placeholder="Enter username" id="username1" required>
 				<label>Username</label>
-				<div class="msg" id="message5"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="password" name="pass" id="pass1" class="form-control" placeholder="Enter password" required>
 				<label>Password</label>
-				<div class="msg" id="message6"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="password" name="pass" id="cpass1" class="form-control" placeholder="Enter confirm password" required>
 				<label>Confirm Password</label>
-				<div class="msg" id="message7"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="email" id="email1" class="form-control" placeholder="Enter email" required>
 				<label>Email </label>
-				<div class="msg" id="message8"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="file" name="image" class="form-control" id="img1" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage1()" required>
 				<label>Upload Picture</label>
 				<p> -Please select a jpg/jpeg or png file format to upload image to be your profile picture <br> -Image size must be 2x2 only</p>
-				<div class="msg" id="message9"></div>
-			</div>
-			<div class="form-group">
-				<label>Certificate of Registration(CoR)</label>
-				<div class="d-flex">
-					<input type="text" name="CoR" class="form-control" value="<?php echo $cor?>" style="margin-bottom: 10px; margin-right: 10px;" disabled id="cor">
-					
-					<a class='btn btn-secondary' target="_blank" href='viewcor.php?id=<?php echo $accno?>' style="height:40px;">View</a>
-				</div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<label>Upload Certificate of Registration(CoR)</label>
-				<input type="file" name="cor" accept="application/pdf" class="form-control" id="cor1" onchange="return checkImage1()" required>
-				<div class="msg8" id="message8"></div>
+				<input type="file" name="cor" accept="application/pdf" class="form-control" id="cor1" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage1()" required>
+				<label>Certificate of Registration(CoR)</label>
+				<div class="msg" id="message"></div>
 			</div>
-			<div class="form-group">
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="file" name="vax" class="form-control" id="vax1"style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage2()" required>
 				<label>Vaccination Card</label>
-				<div class="d-flex">
-					<input type="text" name="vaxx" class="form-control" value="<?php echo $vax?>" style="margin-bottom: 10px; margin-right: 10px;" disabled id="vaxx">
-		
-					<a class='btn btn-secondary' target="_blank" href='viewvax.php?id=<?php echo $accno?>' style="height:40px;">View</a>
-				</div>
+				<div class="msg" id="message"></div>
 			</div>
-			<div class="form-group" style="margin-bottom: 10px;">
-				<label>Upload Vaccination Card</label>
-				<input type="file" name="vax" class="form-control" id="vax1" onchange="return checkImage2()" required>
-				<div class="msg9" id="message9"></div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage3()" required>
+				<label>Valid ID</label>
+				<div class="msg" id="message"></div>
 			</div>
-			<button type="submit" class="btn btn-primary" id="reg1">Submit</button>
+			<div class="d-grid gap-2">
+				<button type="submit" class="btn btn-primary" id="reg1">Submit</button>
+			</div>
 		</form>
 	</div>
 </div>
@@ -270,54 +246,77 @@
 		<form id="f2" method="post" action="function/toRegister.php?id=2" onsubmit="return tocheck2()" enctype="multipart/form-data" style="width: 400px">
 			<h1 style="margin-bottom: 20px;">Employee registration</h1>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="text" name="first" id="fst2" class="form-control" placeholder="Enter first name" required>
+				<input type="text" name="first" id="fst1"class="form-control" placeholder="Enter first name" required>
 				<label>First Name</label>
-				<div class="msg" id="message10"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="text" name="middle" id="mid2" class="form-control" placeholder="Enter middle initial" required>
+				<input type="text" name="middle" id="mid1" class="form-control" placeholder="Enter middle initial" required>
 				<label>M.I. </label>
-				<div class="msg" id="message11"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="text" name="last" id="lst2" class="form-control" placeholder="Enter last name" required>
+				<input type="text" name="last" id="lst1" class="form-control" placeholder="Enter last name" required>
 				<label>Last Name </label>
-				<div class="msg" id="message12"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="text" name="empno" id="emp2" class="form-control" placeholder="Enter student no." required>
+				<input type="text" name="contact" id="cont1" class="form-control" placeholder="Enter Phone Number" required>
+				<label>Your Phone Number</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="text" name="contact_P" id="contp1" class="form-control" placeholder="Enter Name of Contact Person" required>
+				<label>Name of Contact Person</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="text" name="contact_pnum" id="contp1" class="form-control" placeholder="Enter Phone Number of Contact Person" required>
+				<label>Phone Number of Contact Person</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="text" name="studno" id="stud1" class="form-control" placeholder="Enter student no." required>
 				<label>Employee No.</label>
-				<div class="msg" id="message13"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="text" name="user" id="username2" class="form-control" placeholder="Enter username" required>
+				<input type="text" name="user" class="form-control" placeholder="Enter username" id="username1" required>
 				<label>Username</label>
-				<div class="msg" id="message14"></div>
+				<div class="msg" id="message"></div>
 			</div>
-			<div class="form-floating"  style="margin-bottom: 10px;">
-				<input type="password" id="pass2" name="pass" class="form-control" placeholder="Enter password" required>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="password" name="pass" id="pass1" class="form-control" placeholder="Enter password" required>
 				<label>Password</label>
-				<div class="msg" id="message15"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="password" name="pass" id="cpass2" class="form-control" placeholder="Enter confirm password" required>
+				<input type="password" name="pass" id="cpass1" class="form-control" placeholder="Enter confirm password" required>
 				<label>Confirm Password</label>
-				<div class="msg" id="message16"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="text" id="email2" name="email" class="form-control" placeholder="Enter email" required>
+				<input type="text" name="email" id="email1" class="form-control" placeholder="Enter email" required>
 				<label>Email </label>
-				<div class="msg" id="message17"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="file" name="image" class="form-control" id="img2" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage2()" required>
+				<input type="file" name="image" class="form-control" id="img1" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage1()" required>
 				<label>Upload Picture</label>
-			</div>
-			<div>
 				<p> -Please select a jpg/jpeg or png file format to upload image to be your profile picture <br> -Image size must be 2x2 only</p>
-				<div class="msg" id="message18"></div>
+				<div class="msg" id="message"></div>
 			</div>
-			<div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="file" name="vax" class="form-control" id="vax1"style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage2()" required>
+				<label>Vaccination Card</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage3()" required>
+				<label>Valid ID</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="d-grid gap-2" >
 				<button type="submit" class="btn btn-primary" id="reg2">Submit</button>
 			</div>
 		</form>
@@ -328,49 +327,72 @@
 		<form id="f3" method="post" action="function/toRegister.php?id=3" onsubmit="return tocheck3()" enctype="multipart/form-data" style="width: 400px">
 			<h1 style="margin-bottom: 20px;">Visitor registration</h1>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="text" name="first" id="fst3" class="form-control" placeholder="Enter first name" required>
+				<input type="text" name="first" id="fst1"class="form-control" placeholder="Enter first name" required>
 				<label>First Name</label>
-				<div class="msg" id="message19"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="text" name="middle" id="mid3" class="form-control" placeholder="Enter middle initial" required>
+				<input type="text" name="middle" id="mid1" class="form-control" placeholder="Enter middle initial" required>
 				<label>M.I. </label>
-				<div class="msg" id="message20"></div>
-			</div> 
+				<div class="msg" id="message"></div>
+			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="text" name="last" id="lst3" class="form-control" placeholder="Enter last name" required>
+				<input type="text" name="last" id="lst1" class="form-control" placeholder="Enter last name" required>
 				<label>Last Name </label>
-				<div class="msg" id="message21"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="text" name="user" id="username3" class="form-control" placeholder="Enter username" required>
+				<input type="text" name="contact" id="cont1" class="form-control" placeholder="Enter Phone Number" required>
+				<label>Your Phone Number</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="text" name="contact_P" id="contp1" class="form-control" placeholder="Enter Name of Contact Person" required>
+				<label>Name of Contact Person</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="text" name="contact_pnum" id="contp1" class="form-control" placeholder="Enter Phone Number of Contact Person" required>
+				<label>Phone Number of Contact Person</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="text" name="user" class="form-control" placeholder="Enter username" id="username1" required>
 				<label>Username</label>
-				<div class="msg" id="message22"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="password" id="pass3" name="pass" class="form-control" placeholder="Enter password" required>
+				<input type="password" name="pass" id="pass1" class="form-control" placeholder="Enter password" required>
 				<label>Password</label>
-				<div class="msg" id="message23"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="password" name="pass" id="cpass3" class="form-control" placeholder="Enter confirm password" required>
+				<input type="password" name="pass" id="cpass1" class="form-control" placeholder="Enter confirm password" required>
 				<label>Confirm Password</label>
-				<div class="msg" id="message24"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="text" name="email" id="email3" class="form-control" placeholder="Enter email" required>
+				<input type="text" name="email" id="email1" class="form-control" placeholder="Enter email" required>
 				<label>Email </label>
-				<div class="msg" id="message25"></div>
+				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="file" name="image" class="form-control" id="img3" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage3()" required>
+				<input type="file" name="image" class="form-control" id="img1" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage1()" required>
 				<label>Upload Picture</label>
-			</div>
-			<div>
 				<p> -Please select a jpg/jpeg or png file format to upload image to be your profile picture <br> -Image size must be 2x2 only</p>
-				<div class="msg" id="message26"></div>
+				<div class="msg" id="message"></div>
 			</div>
-			<div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="file" name="vax" class="form-control" id="vax1"style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage2()" required>
+				<label>Vaccination Card</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage3()" required>
+				<label>Valid ID</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="d-grid gap-2">
 				<button type="submit" class="btn btn-primary" id="reg3">Submit</button>
 			</div>
 		</form>
