@@ -23,6 +23,16 @@
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="date" name="dob" id="dob" class="form-control" placeholder="Enter Birthday" required>
+				<label>Birthday</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="text" name="address" id="address1" class="form-control" placeholder="Enter Address" required>
+				<label>Address</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="contact_p" id="cperson1" class="form-control" placeholder="Enter Name of Contact Person" required>
 				<label>Name of Contact Person</label>
 				<div class="msg" id="message"></div>
@@ -266,6 +276,16 @@
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="date" name="dob" id="dob" class="form-control" placeholder="Enter Birthday" required>
+				<label>Birthday</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="text" name="address" id="address1" class="form-control" placeholder="Enter Address" required>
+				<label>Address</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="contact_P" id="contp1" class="form-control" placeholder="Enter Name of Contact Person" required>
 				<label>Name of Contact Person</label>
 				<div class="msg" id="message"></div>
@@ -344,6 +364,16 @@
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="contact" id="cont1" class="form-control" placeholder="Enter Phone Number" required>
 				<label>Your Phone Number</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="date" name="dob" id="dob" class="form-control" placeholder="Enter Birthday" required>
+				<label>Birthday</label>
+				<div class="msg" id="message"></div>
+			</div>
+			<div class="form-floating" style="margin-bottom: 10px;">
+				<input type="text" name="address" id="address1" class="form-control" placeholder="Enter Address" required>
+				<label>Address</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">

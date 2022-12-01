@@ -1,7 +1,7 @@
 <?php
     session_start();
     require 'connect.php';
-    $emailinput = $_POST["emailinput"];
+    $emailinput = $_POST["email"];
     
 
     //read data from database table

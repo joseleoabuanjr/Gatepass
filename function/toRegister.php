@@ -23,6 +23,8 @@
 				$last = $_POST["last"];
 				$pnum = $_POST["contact"];
 				$cname = $_POST["contact_p"];
+				$bday = $_POST["dob"];
+				$add = $_POST["address"];
 				$contnum = $_POST["contact_pnum"];
 				$studno = $_POST["studno"];
 				$col = $_POST["college"];
@@ -63,7 +65,7 @@
 				$y = date("Y");//get year today;
 				$y = substr( $y, -2);//last digits on year;
 				$prefix= $y.$type ;// concatinate $y and $type;
-				$default = $prefix."000001";//default value for acc_no;
+				$default = $prefix."000000";//default value for acc_no;
 
 				//================================================Generate Account Number;
 				//concat( 1st str, 2nd str); concatinate two string;
@@ -108,7 +110,7 @@
 				$last = ucfirst(lcfirst($last));
 				$mid = ucfirst(lcfirst($mid));
 					
-				$insert = "INSERT INTO acc_temp (acc_no,first,middle,last,contact_no,cp_name,cp_no,stud_no,college,course,year,section,username,password,email,image,cor,valid_id,vax,verification,qr,type,v_code) VALUES ('$accnum','$first','$mid','$last','$pnum','$cname','$contnum','$studno','$col','$course','$yr','$sec','$user','$pass','$email','$img','$corpdf','$v_idpdf','$vaxpdf','$verif','$file','$acctype','$gcode')";
+				$insert = "INSERT INTO acc_temp (acc_no,first,middle,last,contact_no,birthday,address,cp_name,cp_no,stud_no,college,course,year,section,username,password,email,image,cor,valid_id,vax,verification,qr,type,v_code) VALUES ('$accnum','$first','$mid','$last','$pnum','$bday','$add','$cname','$contnum','$studno','$col','$course','$yr','$sec','$user','$pass','$email','$img','$corpdf','$v_idpdf','$vaxpdf','$verif','$file','$acctype','$gcode')";
 				if(mysqli_query($connect,$insert)){
 					require "toSendverif.php";
 				}
@@ -153,7 +155,7 @@
 				$y = date("Y");//get year today;
 				$y = substr( $y, -2);//last digits on year;
 				$prefix= $y.$type ;// concatinate $y and $type;
-				$default = $prefix."000001";//default value for acc_no;
+				$default = $prefix."000000";//default value for acc_no;
 
 				//================================================Generate Account Number;
 				//concat( 1st str, 2nd str); concatinate two string;
@@ -198,8 +200,8 @@
 				$last = ucfirst(lcfirst($last));
 				$mid = ucfirst(lcfirst($mid));
 					
-				$insert = "INSERT INTO acc_temp (acc_no,first,middle,last,contact_no,cp_name,cp_no,emp
-				_no,username,password,email,image,valid_id,vax,verification,qr,type,v_code) VALUES ('$accnum','$first','$mid','$last','$pnum','$cname','$contnum','$empno','$user','$pass','$email','$img','$v_idpdf','$vaxpdf','$verif','$file','$acctype','$gcode')";
+				$insert = "INSERT INTO acc_temp (acc_no,first,middle,last,contact_no,birthday,address,cp_name,cp_no,emp
+				_no,username,password,email,image,valid_id,vax,verification,qr,type,v_code) VALUES ('$accnum','$first','$mid','$last','$pnum','$bday','$add','$cname','$contnum','$empno','$user','$pass','$email','$img','$v_idpdf','$vaxpdf','$verif','$file','$acctype','$gcode')";
 				if(mysqli_query($connect,$insert)){
 					require "toSendverif.php";
 				}
@@ -244,7 +246,7 @@
 				$y = date("Y");//get year today;
 				$y = substr( $y, -2);//last digits on year;
 				$prefix= $y.$type ;// concatinate $y and $type;
-				$default = $prefix."000001";//default value for acc_no;
+				$default = $prefix."000000";//default value for acc_no;
 
 				//================================================Generate Account Number;
 				//concat( 1st str, 2nd str); concatinate two string;
@@ -289,7 +291,7 @@
 				$last = ucfirst(lcfirst($last));
 				$mid = ucfirst(lcfirst($mid));
 					
-				$insert = "INSERT INTO acc_temp (acc_no,first,middle,last,contact_no,cp_name,cp_no,username,password,email,image,valid_id,vax,verification,qr,type,v_code) VALUES ('$accnum','$first','$mid','$last','$pnum','$cname','$contnum','$user','$pass','$email','$img','$v_idpdf','$vaxpdf','$verif','$file','$acctype','$gcode')";
+				$insert = "INSERT INTO acc_temp (acc_no,first,middle,last,contact_no,birthday,address,cp_name,cp_no,username,password,email,image,valid_id,vax,verification,qr,type,v_code) VALUES ('$accnum','$first','$mid','$last','$pnum','$bday','$add','$cname','$contnum','$user','$pass','$email','$img','$v_idpdf','$vaxpdf','$verif','$file','$acctype','$gcode')";
 				if(mysqli_query($connect,$insert)){
 					require "toSendverif.php";
 				}

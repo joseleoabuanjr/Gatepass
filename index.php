@@ -25,7 +25,7 @@ $id = $_SESSION['accno'];
 
 <body>
 	<?php require_once 'includes/navbar.php'; ?>
-	<div class="tab1" id="tab1"><?php require_once 'includes/dash.php'; ?></div>
+	<div class="tab1" id="tab1"><?php require_once 'includes/dashboard.php'; ?></div>
 	<div class="tab2--hidden" id="tab2"><?php require_once 'includes/profile.php'; ?></div>
 	<div class="tab3--hidden" id="tab3">
 		<?php 
@@ -35,7 +35,7 @@ $id = $_SESSION['accno'];
 
 			while($row = mysqli_fetch_assoc($result)) 
 			{
-				$status= $row['verified'];
+				$status= $row['verification'];
 			}
 			if($status == "verified"){
 				require_once "includes/request.php";

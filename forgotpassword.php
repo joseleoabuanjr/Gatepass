@@ -13,16 +13,22 @@
 <body>
         <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
                 <form method="post" action="function/toUpdatePassword.php" enctype="multipart/form-data" style="width: 400px" onsubmit="return toCheck()">
-                <h1 style="margin-bottom: 20px;">Password: </h1>
-                <input type="text" class="form-control" name="password_input" id="pass1"><br>
-                <div id="message1"></div>
-                <h2 style="margin-bottom: 20px;">Confirm Password: </h2>
-                <input type="text" class="form-control" name="confirmpass_input" id="cpass"><br>
-                <div id="message2"></div>
-                <button type="submit" class="btn btn-primary" id="submitbut">Update</button>
+                        <h1 style="margin-bottom: 20px;">Forgot Password</h1>
+                        <div class="form-floating" style="margin-bottom: 10px;">
+                                <input type="password" name="password" id="pass1"
+                                class="form-control" placeholder="Enter new password" >
+                                <label>Password</label>
+                                <div class="msg" id="message1"></div>
+                        </div>
+                        <div class="form-floating" style="margin-bottom: 10px;">
+                                <input type="password" name="cpassword" id="cpass"
+                                class="form-control" placeholder="Enter confirm new password" >
+                                <label>Confirm New Password</label>
+                                <div class="msg" id="message2"></div>
+                        </div>
+                        <button type="submit" class="btn btn-primary" id="submitbut">Update</button>
                 </form>
         </div>
-
         <script type="text/javascript" src="js/forgotpass1.js"></script>
 </body>
 </html>

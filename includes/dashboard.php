@@ -7,11 +7,23 @@
         if (mysqli_num_rows($result) > 0) {
 
             while ($row = mysqli_fetch_assoc($result)) {
-                if($row['verified']=="unverified"){
+                if($row['verification']=="unverified"){
                     echo '
                     <div style="width:100%;padding-top:80px;">
                         <div class="alert alert-warning" role="alert">
-                            Your account is not yet fully verified. Please <a href="">verify</a> now.
+                            This account is not yet fully verified. Please <a href="">verify</a> now.
+                        </div>
+                    </div>
+                    <div class="titlepg" style="width:100%; padding-top:20px;">
+                        <h1>My Dashboard</h1>
+                    </div> 
+                    '; 
+                }
+                else if($row['verification']=="pending"){
+                    echo '
+                    <div style="width:100%;padding-top:80px;">
+                        <div class="alert alert-warning" role="alert">
+                            This account verification status is pending. Please wait until become fully verified.
                         </div>
                     </div>
                     <div class="titlepg" style="width:100%; padding-top:20px;">
@@ -70,10 +82,10 @@
                             </div>
                             <div style="width:100%;padding:40px 0;">
                     ');
-                    if($row['verified']=="pending"){
+                    if($row['verification']=="pending"){
                         echo '<div class="status2">Pending Verification</div>';
                     }
-                    else if($row['verified']=="verified"){
+                    else if($row['verification']=="verified"){
                         echo '<div class="status3">Verified</div>';
                     }
                     else{
@@ -179,10 +191,10 @@
                             </div>
                             <div style="width:100%;padding:40px 0;">
                     ');
-                    if($row['verified']=="pending"){
+                    if($row['verification']=="pending"){
                         echo '<div class="status2">Pending Verification</div>';
                     }
-                    else if($row['verified']=="verified"){
+                    else if($row['verification']=="verified"){
                         echo '<div class="status3">Verified</div>';
                     }
                     else{
@@ -251,10 +263,6 @@
                     $first = $row["first"];
                     $mid = $row["middle"];
                     $last = $row["last"];
-                    $col = "none";
-                    $course = "none";
-                    $year = "none";
-                    $section = "none";
 
                     echo ('
                         <div class"d-flex justify-content-center" style="width:40%; height:100%; padding-top:50px;">
@@ -273,10 +281,10 @@
                             </div>
                             <div style="width:100%;padding:40px 0;">
                     ');
-                    if($row['verified']=="pending"){
+                    if($row['verification']=="pending"){
                         echo '<div class="status2">Pending Verification</div>';
                     }
-                    else if($row['verified']=="verified"){
+                    else if($row['verification']=="verified"){
                         echo '<div class="status3">Verified</div>';
                     }
                     else{

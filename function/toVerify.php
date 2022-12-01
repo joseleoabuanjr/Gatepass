@@ -21,37 +21,44 @@
         while($row = mysqli_fetch_assoc($result)) 
             {
                 $accno= $row['acc_no'];
-                $user = $row['username'];
-                $pass = $row['password'];
-                $email = $row['email'];
-                $studno = $row['stud_no'];
-                $empno = $row['emp_no'];
-                $type = $row['type'];
-                $vcode = $row['v_code'];
                 $first = $row['first'];
                 $last = $row['last'];
                 $mid = $row['middle'];
+                $pnum = $row['contact_no'];
+                $bday = $row['birthday'];
+                $add = $row['address'];
+				$cname = $row['cp_name'];
+				$contnum = $row['cp_no'];
+                $studno = $row['stud_no'];
+                $empno = $row['emp_no'];
+                $col = $row['college'];
+				$course = $row['course'];
+				$yr = $row['year'];
+				$sec = $row['section'];
+                $user = $row['username'];
+                $pass = $row['password'];
+                $email = $row['email'];
+                $type = $row['type'];
+                $vcode = $row['v_code'];
                 $img = $row['image'];
+                $cor = $row['cor'];
+                $v_id = $row['valid_id'];
+                $vax = $row["vax"];
                 $qr = $row['qr'];
             }
 
         //Validate inputed verification code with database verification code;
         if($vcode == $in_vcode){
-            $fv = "unverified";
-            $req = "none";
+            $verif = "pending";
             //insert data to database table
-            $insert = "INSERT INTO user_account(acc_no,username,password,email,stud_no,emp_no,type,first,last,middle,image,qr,verified,req_status) VALUES ('$accno','$user','$pass','$email','$studno','$empno','$type','$first','$last','$mid','$img','$qr','$fv','$req')";
+            $insert = "INSERT INTO user_account (acc_no,first,middle,last,contact_no,birthday,address,cp_name,cp_no,stud_no,emp_no,college,course,year,section,username,password,email,image,cor,valid_id,vax,verification,qr,type) VALUES ('$accno','$first','$mid','$last','$pnum','$bday','$add','$cname','$contnum','$studno','$empno','$col','$course','$yr','$sec','$user','$pass','$email','$img','$cor','$v_id','$vax','$verif','$qr','$type')";
 
             if(mysqli_query($connect,$insert)){
                 //delete data of acc_no from database table;
                 $delete = "DELETE FROM acc_temp WHERE acc_no = $id;";
 
                 if(mysqli_query($connect,$delete)){
-                    
                     header("refresh: 0; url=../index.php");
-                }
-                else{
-                    echo "<script>alert('Delete Failed.')</script>";	
                 }
 			}
             else{
@@ -60,8 +67,8 @@
 
         }
         else{
-            echo "<script>alert('Invalid verification code')</script>;";
-            header("refresh: 0; url=verification.php?id=$accno");
+            echo "<script>alert('Invalid verification code')</script>";
+            header("refresh: 0; url=../verification.php?id=$accno");
         }
     }
     else{
