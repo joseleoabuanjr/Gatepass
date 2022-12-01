@@ -23,7 +23,7 @@
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="text" name="contact_P" id="contp1" class="form-control" placeholder="Enter Name of Contact Person" required>
+				<input type="text" name="contact_p" id="cperson1" class="form-control" placeholder="Enter Name of Contact Person" required>
 				<label>Name of Contact Person</label>
 				<div class="msg" id="message"></div>
 			</div>
@@ -205,7 +205,7 @@
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="password" name="pass" id="cpass1" class="form-control" placeholder="Enter confirm password" required>
+				<input type="password" name="cpass" id="cpass1" class="form-control" placeholder="Enter confirm password" required>
 				<label>Confirm Password</label>
 				<div class="msg" id="message"></div>
 			</div>
@@ -276,7 +276,7 @@
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="text" name="studno" id="stud1" class="form-control" placeholder="Enter student no." required>
+				<input type="text" name="empno" id="empno1" class="form-control" placeholder="Enter student no." required>
 				<label>Employee No.</label>
 				<div class="msg" id="message"></div>
 			</div>
