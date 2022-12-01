@@ -215,7 +215,7 @@
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="file" name="image" class="form-control" id="img1" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage1()" required>
+				<input type="file" name="image" class="form-control" id="img1" style="height: 80px;padding-top:40px; padding-left:40px" accept="image/png, image/jpeg" onchange="return checkImage1()" required>
 				<label>Upload Picture</label>
 				<p> -Please select a jpg/jpeg or png file format to upload image to be your profile picture <br> -Image size must be 2x2 only</p>
 				<div class="msg" id="message"></div>
@@ -226,12 +226,12 @@
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="file" name="vax" class="form-control" id="vax1"style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage2()" required>
+				<input type="file" name="vax" class="form-control" id="vax1"style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" onchange="return checkImage2()" required>
 				<label>Vaccination Card</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage3()" required>
+				<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" onchange="return checkImage3()" required>
 				<label>Valid ID</label>
 				<div class="msg" id="message"></div>
 			</div>
@@ -307,12 +307,12 @@
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="file" name="vax" class="form-control" id="vax1"style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage2()" required>
+				<input type="file" name="vax" class="form-control" id="vax1"style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" onchange="return checkImage2()" required>
 				<label>Vaccination Card</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage3()" required>
+				<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" onchange="return checkImage3()" required>
 				<label>Valid ID</label>
 				<div class="msg" id="message"></div>
 			</div>
@@ -383,12 +383,12 @@
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="file" name="vax" class="form-control" id="vax1"style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage2()" required>
+				<input type="file" name="vax" class="form-control" id="vax1"style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" onchange="return checkImage2()" required>
 				<label>Vaccination Card</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
-				<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage3()" required>
+				<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" onchange="return checkImage3()" required>
 				<label>Valid ID</label>
 				<div class="msg" id="message"></div>
 			</div>
