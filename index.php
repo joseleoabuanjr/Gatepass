@@ -2,6 +2,16 @@
 session_start();
 require_once "function/connect.php";
 $id = $_SESSION['accno'];
+
+$select = "SELECT * FROM user_account Where acc_no = $id";
+    $result = mysqli_query($connect,$select);
+	$count =  mysqli_num_rows ($result);
+    
+    if($count == 1){
+        while($row = mysqli_fetch_assoc($result)) {
+			$type = $row['type'];
+        }
+	}
 ?>
 <!doctype html>
 <html>
