@@ -43,8 +43,6 @@
             }
             ?>
         </div>
-
-        
         <div class="regcontain--hidden" id="register1">
             <center>
                 <div class="actionBtn">
