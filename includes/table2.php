@@ -1,14 +1,14 @@
 <table class="table">
-    <h2 style="padding-top: 60px; padding-bottom:20px;"> Verification</h2>
+    <h2 style="padding-top: 60px; padding-bottom:20px;">Account Verification</h2>
     <thead>
         <tr style="background-color: #4F4F4B; color:white;">
             <th>Account Number</th>
             <th>Name</th>
-            <th>Type</th>
-            <th>Certificate of Registration (CoR)</th>
-            <th>Valid ID</th>
+            <th>Account Type</th>
+            <th>Certificate of Registration</th>
+            <th>Valid ID Card</th>
             <th>Vaccination Card</th>
-            <th>Action</th>
+            <th>Actions</th>
         </tr>
     </thead>
         

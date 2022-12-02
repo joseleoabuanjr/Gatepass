@@ -15,11 +15,11 @@
         <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
                 <form method="post" action="function/toCheckEmail.php" enctype="multipart/form-data" style="width: 400px">
                 <h1 style="margin-bottom: 20px;">Find Your Email</h1>
-                <p>Please enter your email to search for your account.</p>
+                <p>Please Enter your Email Address to Search for your Account.</p>
                 <div class="form-floating" style="margin-bottom: 10px;">
 			<input type="email" name="email" id="email1"
 			class="form-control" placeholder="Enter Email" >
-			<label>Email</label>
+			<label>Email Address</label>
 		</div>
                 <button type="submit" class="btn btn-primary" id="emailsubmit"> Submit </button>
                 </form>

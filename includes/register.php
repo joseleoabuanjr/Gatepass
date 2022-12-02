@@ -1,7 +1,7 @@
 <div class="studentcon" id="student1">
 	<div class="d-flex justify-content-center align-items-center" style="height: 100%;margin-bottom:60px;">
 		<form id="f1" method="post" action="function/toRegister.php?id=1" onsubmit="return tocheck1()" enctype="multipart/form-data" style="width: 400px; ">
-			<h1 style="margin-bottom: 20px;">Student registration</h1>
+			<h1 style="margin-bottom: 20px;">Student Registration</h1>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="first" id="fst1"class="form-control" placeholder="Enter first name" required>
 				<label>First Name</label>
@@ -9,22 +9,22 @@
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="middle" id="mid1" class="form-control" placeholder="Enter middle initial" required>
-				<label>M.I. </label>
+				<label>Middle Initial (M.I.)</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="last" id="lst1" class="form-control" placeholder="Enter last name" required>
-				<label>Last Name </label>
+				<label>Last Name</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="contact" id="cont1" class="form-control" placeholder="Enter Phone Number" required>
-				<label>Your Phone Number</label>
+				<label>Phone Number</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="date" name="dob" id="dob" class="form-control" placeholder="Enter Birthday" required>
-				<label>Birthday</label>
+				<label>Date of Birth</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
@@ -34,17 +34,17 @@
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="contact_p" id="cperson1" class="form-control" placeholder="Enter Name of Contact Person" required>
-				<label>Name of Contact Person</label>
+				<label>Contact Person (In Case of Emergency)</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="contact_pnum" id="contp1" class="form-control" placeholder="Enter Phone Number of Contact Person" required>
-				<label>Phone Number of Contact Person</label>
+				<label>Emergency Contact Number</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="studno" id="stud1" class="form-control" placeholder="Enter student no." required>
-				<label>Student No.</label>
+				<label>Student Number</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
@@ -221,28 +221,31 @@
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="email" id="email1" class="form-control" placeholder="Enter email" required>
-				<label>Email </label>
+				<label>Email Address</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="file" name="image" class="form-control" id="img1" style="height: 80px;padding-top:40px; padding-left:40px" accept="image/png, image/jpeg" onchange="return checkImage1()" required>
-				<label>Upload Picture</label>
-				<p> -Please select a jpg/jpeg or png file format to upload image to be your profile picture <br> -Image size must be 2x2 only</p>
+				<label>Account Profile Picture</label>
+				<p>*Please select a jpg/jpeg or png file format to upload for your account profile picture.</p>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="file" name="cor" accept="application/pdf" class="form-control" id="cor1" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage1()" required>
-				<label>Certificate of Registration(CoR)</label>
+				<label>Certificate of Registration</label>
+				<p>*Please select a valid pdf file of your latest certificate of registration.</p>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="file" name="vax" class="form-control" id="vax1"style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" onchange="return checkImage2()" required>
 				<label>Vaccination Card</label>
+				<p>*Please select a jpg/jpeg or png file format to upload for your vaccination card.</p>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" onchange="return checkImage3()" required>
-				<label>Valid ID</label>
+				<label>Valid ID Card</label>
+				<p>*Please select a jpg/jpeg or png file format to upload for your valid ID card.</p>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="d-grid gap-2">
@@ -254,7 +257,7 @@
 <div class="employeecon--hidden" id="employee1">
 	<div class="d-flex justify-content-center align-items-center" style="height: 100%;">
 		<form id="f2" method="post" action="function/toRegister.php?id=2" onsubmit="return tocheck2()" enctype="multipart/form-data" style="width: 400px">
-			<h1 style="margin-bottom: 20px;">Employee registration</h1>
+			<h1 style="margin-bottom: 20px;">Employee Registration</h1>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="first" id="fst1"class="form-control" placeholder="Enter first name" required>
 				<label>First Name</label>
@@ -262,22 +265,22 @@
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="middle" id="mid1" class="form-control" placeholder="Enter middle initial" required>
-				<label>M.I. </label>
+				<label>Middle Initial (M.I.)</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="last" id="lst1" class="form-control" placeholder="Enter last name" required>
-				<label>Last Name </label>
+				<label>Last Name</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="contact" id="cont1" class="form-control" placeholder="Enter Phone Number" required>
-				<label>Your Phone Number</label>
+				<label>Phone Number</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="date" name="dob" id="dob" class="form-control" placeholder="Enter Birthday" required>
-				<label>Birthday</label>
+				<label>Date of Birth</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
@@ -287,17 +290,17 @@
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="contact_P" id="contp1" class="form-control" placeholder="Enter Name of Contact Person" required>
-				<label>Name of Contact Person</label>
+				<label>Contact Person (In Case of Emergency)</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="contact_pnum" id="contp1" class="form-control" placeholder="Enter Phone Number of Contact Person" required>
-				<label>Phone Number of Contact Person</label>
+				<label>Emergency Contact Number</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="empno" id="empno1" class="form-control" placeholder="Enter student no." required>
-				<label>Employee No.</label>
+				<label>Employee Number</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
@@ -317,23 +320,25 @@
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="email" id="email1" class="form-control" placeholder="Enter email" required>
-				<label>Email </label>
+				<label>Email Address</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="file" name="image" class="form-control" id="img1" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage1()" required>
-				<label>Upload Picture</label>
-				<p> -Please select a jpg/jpeg or png file format to upload image to be your profile picture <br> -Image size must be 2x2 only</p>
+				<label>Account Profile Picture</label>
+				<p>*Please select a jpg/jpeg or png file format to upload for your account profile picture</p>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="file" name="vax" class="form-control" id="vax1"style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" onchange="return checkImage2()" required>
 				<label>Vaccination Card</label>
+				<p>*Please select a jpg/jpeg or png file format to upload for your vaccination card.</p>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" onchange="return checkImage3()" required>
-				<label>Valid ID</label>
+				<label>Valid ID Card</label>
+				<p>*Please select a jpg/jpeg or png file format to upload for your valid ID card.</p>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="d-grid gap-2" >
@@ -345,7 +350,7 @@
 <div class="visitorcon--hidden" id="visitor1">
 	<div class="d-flex justify-content-center align-items-center" style="height: 100%;">
 		<form id="f3" method="post" action="function/toRegister.php?id=3" onsubmit="return tocheck3()" enctype="multipart/form-data" style="width: 400px">
-			<h1 style="margin-bottom: 20px;">Visitor registration</h1>
+			<h1 style="margin-bottom: 20px;">Visitor Registration</h1>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="first" id="fst1"class="form-control" placeholder="Enter first name" required>
 				<label>First Name</label>
@@ -353,22 +358,22 @@
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="middle" id="mid1" class="form-control" placeholder="Enter middle initial" required>
-				<label>M.I. </label>
+				<label>Middle Initial (M.I.)</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="last" id="lst1" class="form-control" placeholder="Enter last name" required>
-				<label>Last Name </label>
+				<label>Last Name</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="contact" id="cont1" class="form-control" placeholder="Enter Phone Number" required>
-				<label>Your Phone Number</label>
+				<label>Phone Number</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="date" name="dob" id="dob" class="form-control" placeholder="Enter Birthday" required>
-				<label>Birthday</label>
+				<label>Date of Birth</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
@@ -378,12 +383,12 @@
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="contact_P" id="contp1" class="form-control" placeholder="Enter Name of Contact Person" required>
-				<label>Name of Contact Person</label>
+				<label>Contact Person (In Case of Emergency)</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="contact_pnum" id="contp1" class="form-control" placeholder="Enter Phone Number of Contact Person" required>
-				<label>Phone Number of Contact Person</label>
+				<label>Emergency Contact Number</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
@@ -403,23 +408,25 @@
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="text" name="email" id="email1" class="form-control" placeholder="Enter email" required>
-				<label>Email </label>
+				<label>Email Address</label>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="file" name="image" class="form-control" id="img1" style="height: 80px;padding-top:40px; padding-left:40px" onchange="return checkImage1()" required>
-				<label>Upload Picture</label>
-				<p> -Please select a jpg/jpeg or png file format to upload image to be your profile picture <br> -Image size must be 2x2 only</p>
+				<label>Account Profile Picture</label>
+				<p>*Please select a jpg/jpeg or png file format to upload for your account profile picture.</p>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="file" name="vax" class="form-control" id="vax1"style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" onchange="return checkImage2()" required>
 				<label>Vaccination Card</label>
+				<p>*Please select a jpg/jpeg or png file format to upload for your vaccination card.</p>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="form-floating" style="margin-bottom: 10px;">
 				<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" onchange="return checkImage3()" required>
-				<label>Valid ID</label>
+				<label>Valid ID Card</label>
+				<p>*Please select a jpg/jpeg or png file format to upload for your valid ID card.</p>
 				<div class="msg" id="message"></div>
 			</div>
 			<div class="d-grid gap-2">

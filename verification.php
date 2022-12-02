@@ -35,7 +35,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Verification</title>
+		<title>Account Email Verification</title>
 
 		<!-- Required meta tags -->
 		<meta charset="utf-8">

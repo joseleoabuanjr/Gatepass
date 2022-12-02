@@ -11,7 +11,7 @@
                     echo '
                     <div style="width:100%;padding-top:80px;">
                         <div class="alert alert-warning" role="alert">
-                            This account is not yet fully verified. Please <a href="">verify</a> now.
+                            Your account is not yet fully verified. Please <a href="">verify</a> now.
                         </div>
                     </div>
                     <div class="titlepg" style="width:100%; padding-top:20px;">
@@ -23,7 +23,7 @@
                     echo '
                     <div style="width:100%;padding-top:80px;">
                         <div class="alert alert-warning" role="alert">
-                            This account verification status is pending. Please wait until become fully verified.
+                            Your account verification status is pending. Please wait until your account is fully verified.
                         </div>
                     </div>
                     <div class="titlepg" style="width:100%; padding-top:20px;">
@@ -335,12 +335,12 @@
                     ');
                 } 
                 else {
-                    echo "No results found.";
+                    echo "NO RESULTS FOUND.";
                 }
             }
         } 
         else {
-            echo "No results found.";
+            echo "NO RESULTS FOUND.";
         }
         mysqli_close($connect);
         ?>

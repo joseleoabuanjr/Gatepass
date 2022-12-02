@@ -1,13 +1,13 @@
 <table class="table">
-    <h2 style="padding-top: 60px; padding-bottom:20px;"> Appointment Request</h2>
+    <h2 style="padding-top: 60px; padding-bottom:20px;">Appointment Request</h2>
     <thead>
         <tr style="background-color: #4F4F4B; color:white;">
             <th>Account Number</th>
             <th>Name</th>
-            <th>Type</th>
-            <th>Reason</th>
+            <th>Account Type</th>
+            <th>Purpose of Appointment</th>
             <th>Date of Appointment</th>
-            <th>Action</th>
+            <th>Actions</th>
         </tr>
     </thead>
         

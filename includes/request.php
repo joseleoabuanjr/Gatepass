@@ -4,19 +4,19 @@
         <div class="card-body">
             <div class="table-responsive">
                 <table class="table">
-                    <h2 style="padding-bottom:20px;"> Your Appointments</h2>
+                    <h2 style="padding-bottom:20px;">Appointments Requests</h2>
                     <!-- <div class="searchbar">
                         <input type="text" name="s_name" id="s_n" placeholder="Name">
                     </div> -->
                     <thead>
                         <tr style="background-color: #4F4F4B; color:white;">
-                            <th>Id</th>
-                            <th>Reason</th>
+                            <th>Valid ID Card</th>
+                            <th>Purpose of Appointment</th>
                             <th>Date of Appointment</th>
                             <th>Date of Expiration</th>
                             <th>Appointment Status</th>
                             <th>QR CODE</th>
-                            <th>Action</th>
+                            <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -72,17 +72,17 @@
             </div>
             <div class="form-floating">
                 <select class="form-select" name="purpose" id="purpose-s">
-                    <option selected disabled>Select purpose</option>
+                    <option selected disabled>Select Purpose</option>
                     <option value="Request of Transcript of Records (TOR)">Request of Transcript of Records (TOR)</option>
                     <option value="Claiming of Graduation Picture">Claiming of Graduation Picture</option>
                     <option value="Request of Form 137">Request of Form 137</option>
                     <option value="Request of Good Moral Certificate">Request of Good Moral Certificate</option>
-                    <option value="Request for Dry Seal">Request for Dry Seal</option>
-                    <option value="Payment">Payment</option>
-                    <option value="Inquiries">Inquiries</option>
+                    <option value="Request for Dry Seal">Request for Dry Seal of Documents</option>
+                    <option value="Payment">Payment to University Cashier</option>
+                    <option value="Inquiries">Inquiries to Registrar's Office</option>
                     <option value="Other">Other</option>
                 </select>
-                <label for="floatingSelect">Purpose of Visit:</label>
+                <label for="floatingSelect">Purpose of Appointment:</label>
             </div>
             <div class="cont-p--hidden" id="txt-1" style="margin-top: 10px;">
             <div class="form-floating">

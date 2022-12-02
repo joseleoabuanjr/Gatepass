@@ -26,7 +26,7 @@ var msg9 = document.querySelector('#message9');
 btn1.addEventListener('click', function(){
     if (fst1.value == ""){
         fst1.style.border = '1px solid red';
-        msg1.innerHTML="Please enter first name";
+        msg1.innerHTML="Please Enter First Name";
         return false; 
     }
     else {
@@ -37,7 +37,7 @@ btn1.addEventListener('click', function(){
 btn1.addEventListener('click', function(){
     if (mid1.value == ""){
         mid1.style.border = '1px solid red';
-        msg2.innerHTML="Please enter middle name";
+        msg2.innerHTML="Please Enter Middle Initial";
         return false; 
     }
     else {
@@ -48,7 +48,7 @@ btn1.addEventListener('click', function(){
 btn1.addEventListener('click', function(){
     if (lst1.value == ""){
         lst1.style.border = '1px solid red';
-        msg3.innerHTML="Please enter last name";
+        msg3.innerHTML="Please Enter Last Name";
         return false; 
     }
     else {
@@ -59,7 +59,7 @@ btn1.addEventListener('click', function(){
 btn1.addEventListener('click', function(){
     if (stud1.value == ""){
         stud1.style.border = '1px solid red';
-        msg4.innerHTML="Please enter student number";
+        msg4.innerHTML="Please Enter Student Number";
         return false; 
     }
     else {
@@ -70,7 +70,7 @@ btn1.addEventListener('click', function(){
 btn1.addEventListener('click', function(){
     if (username1.value == ""){
         username1.style.border = '1px solid red';
-        msg5.innerHTML="Please enter username";
+        msg5.innerHTML="Please Enter Username";
         return false; 
     }
     else {
@@ -81,7 +81,7 @@ btn1.addEventListener('click', function(){
 btn1.addEventListener('click', function(){
     if (pass1.value == ""){
         pass1.style.border = '1px solid red';
-        msg6.innerHTML="Please enter password";
+        msg6.innerHTML="Please Enter Password";
         return false; 
     }
     else {
@@ -92,7 +92,7 @@ btn1.addEventListener('click', function(){
 btn1.addEventListener('click', function(){
     if (cpass1.value == ""){
         cpass1.style.border = '1px solid red';
-        msg7.innerHTML="Please enter confirm password";
+        msg7.innerHTML="Please Enter Confirm Password";
         return false; 
     }
     else {
@@ -103,12 +103,12 @@ btn1.addEventListener('click', function(){
 btn1.addEventListener('click', function(){
     if (email1.value == ""){
         email1.style.border = '1px solid red';
-        msg8.innerHTML="Please enter email";
+        msg8.innerHTML="Please Enter Email Address";
         return false; 
     }
     else if (!(email1.value.match(validRegex))){
         email1.style.border = '1px solid red';
-        msg8.innerHTML="Invalid email";
+        msg8.innerHTML="Invalid Email Address";
         return false; 
     }
     else {
@@ -119,7 +119,7 @@ btn1.addEventListener('click', function(){
 btn1.addEventListener('click', function(){
     if (img1.value == ""){
         img1.style.border = '1px solid red';
-        msg9.innerHTML="Please upload picture";
+        msg9.innerHTML="Please Upload Picture";
         return false; 
     }
     else {
@@ -132,7 +132,7 @@ btn1.addEventListener('click', function(){
 fst1.addEventListener('keyup', function(){
     if (fst1.value.length == 0){
         fst1.style.border = '1px solid red';
-        msg1.innerHTML="Please enter first name";
+        msg1.innerHTML="Please Enter First Name";
         return false; 
     }
     else {
@@ -143,7 +143,7 @@ fst1.addEventListener('keyup', function(){
 mid1.addEventListener('keyup', function(){
     if (mid1.value.length == 0){
         mid1.style.border = '1px solid red';
-        msg2.innerHTML="Please enter middle name";
+        msg2.innerHTML="Please Enter Middle Initial";
         return false; 
     }
     else {
@@ -154,7 +154,7 @@ mid1.addEventListener('keyup', function(){
 lst1.addEventListener('keyup', function(){
     if (lst1.value.length == 0){
         lst1.style.border = '1px solid red';
-        msg3.innerHTML="Please enter last name";
+        msg3.innerHTML="Please Enter Last Name";
         return false; 
     }
     else {
@@ -165,12 +165,12 @@ lst1.addEventListener('keyup', function(){
 stud1.addEventListener('keyup', function(){
     if (stud1.value.length == 0){
         stud1.style.border = '1px solid red';
-        msg4.innerHTML="Please enter student number";
+        msg4.innerHTML="Please Enter Student Number";
         return false; 
     }
     else if (isNaN(stud1.value)){
         stud1.style.border = '1px solid red';
-        msg4.innerHTML="Please enter number only";
+        msg4.innerHTML="Please Enter Numbers Only";
         return false; 
     }
     else {
@@ -181,12 +181,12 @@ stud1.addEventListener('keyup', function(){
 username1.addEventListener('keyup', function(){
     if (username1.value.length == 0){
         username1.style.border = '1px solid red';
-        msg5.innerHTML="Please enter username";
+        msg5.innerHTML="Please Enter Username";
         return false; 
     }
     else if(username1.value.length < 4){
         username1.style.border = '1px solid red';
-        msg5.innerHTML="Username must be at least 4 characters";
+        msg5.innerHTML="Username Must Be At Least 4 Characters";
         return false; 
     }
     else {
@@ -197,19 +197,19 @@ username1.addEventListener('keyup', function(){
 pass1.addEventListener('keyup', function(){
     if (pass1.value.length == 0){
         pass1.style.border = '1px solid red';
-        msg6.innerHTML="Please enter password";
+        msg6.innerHTML="Please Enter Password";
         return false; 
     }
     else if(pass1.value.length < 4){
         pass1.style.border = '1px solid red';
-        msg6.innerHTML="Password must be at least 4 characters";
+        msg6.innerHTML="Password Must Be At Least 4 Characters";
         if(cpass1.value.match(pass1.value)){
             cpass1.style.border = '1px solid green';
             msg7.innerHTML="";
         }
         else {
             cpass1.style.border = '1px solid red';
-            msg7.innerHTML="Password not match";
+            msg7.innerHTML="Passwords Did Not Match";
             return false; 
         }
     }
@@ -222,7 +222,7 @@ pass1.addEventListener('keyup', function(){
         }
         else {
             cpass1.style.border = '1px solid red';
-            msg7.innerHTML="Password not match";
+            msg7.innerHTML="Passwords Did Not Match";
             return false; 
         }
     }
@@ -230,12 +230,12 @@ pass1.addEventListener('keyup', function(){
 cpass1.addEventListener('keyup', function(){
     if (cpass1.value.length == 0){
         cpass1.style.border = '1px solid red';
-        msg7.innerHTML="Password not match";
+        msg7.innerHTML="Passwords Did Not Match";
         return false; 
     }
     else if (pass1.value.length == 0){
         cpass1.style.border = '1px solid red';
-        msg7.innerHTML="Password not match";
+        msg7.innerHTML="Passwords Did Not Match";
         return false; 
     }
     else if(cpass1.value.match(pass1.value)){
@@ -244,14 +244,14 @@ cpass1.addEventListener('keyup', function(){
     }
     else {
         cpass1.style.border = '1px solid red';
-        msg7.innerHTML="Password not match";
+        msg7.innerHTML="Passwords Did Not Match";
         return false; 
     }
 })
 email1.addEventListener('keyup', function(){
     if (email1.value.length == 0){
         email1.style.border = '1px solid red';
-        msg8.innerHTML="Please enter email";
+        msg8.innerHTML="Please Enter Email Address";
         return false; 
     }
     else if(email1.value.match(validRegex)){
@@ -260,7 +260,7 @@ email1.addEventListener('keyup', function(){
     }
     else {
         email1.style.border = '1px solid red';
-        msg8.innerHTML="Invalid Email";
+        msg8.innerHTML="Invalid Email Address";
         return false; 
     }
 })
@@ -268,12 +268,12 @@ email1.addEventListener('keyup', function(){
 function checkImage1(){
     if (!allowedExtensions.exec(img1.value)) {
         img1.style.border = '1px solid red';
-        msg9.innerHTML="Invalid file type";
+        msg9.innerHTML="Invalid File Format";
         return false;
     }
     else if (img1.value.length ==0){
         img1.style.border = '1px solid red';
-        msg9.innerHTML="Please upload picture";
+        msg9.innerHTML="Please Upload Picture";
         return false;
     }
     else{

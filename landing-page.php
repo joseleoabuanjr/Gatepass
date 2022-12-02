@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>Title</title>
+    <title>BulSU Gatepass</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -17,9 +17,9 @@
     <center>
         <div class="actionBtn">
             <div class="actionBtns">
-                <button class="actionBtn loginBtn" id="actionBtn_login"> LOGIN</button>
-                <button class="actionBtn registerBtn" id="actionBtn_register"> REGISTER</button>
-                <button class="moveBtn" id="actionBtn_login"> LOGIN</button>
+                <button class="actionBtn loginBtn" id="actionBtn_login">LOGIN</button>
+                <button class="actionBtn registerBtn" id="actionBtn_register">REGISTER</button>
+                <button class="moveBtn" id="actionBtn_login">LOGIN</button>
                 <!-- <button class="actionBtn studentBtn"> STUDENT</button>
                 <button class="actionBtn employeeBtn"> EMPLOYEE</button>
                 <button class="actionBtn visitorBtn"> VISITOR</button> -->
@@ -47,10 +47,10 @@
             <center>
                 <div class="actionBtn">
                     <div class="actionBtns">
-                        <button class="actionBtn studentBtn" id="studentBtn"> STUDENT</button>
-                        <button class="actionBtn employeeBtn" id="employeeBtn"> EMPLOYEE</button>
-                        <button class="actionBtn visitorBtn" id="visitorBtn"> VISITOR</button> 
-                        <button class="moveBtn2" id="actionBtn_login"> STUDENT</button>
+                        <button class="actionBtn studentBtn" id="studentBtn">STUDENT</button>
+                        <button class="actionBtn employeeBtn" id="employeeBtn">EMPLOYEE</button>
+                        <button class="actionBtn visitorBtn" id="visitorBtn">VISITOR</button> 
+                        <button class="moveBtn2" id="actionBtn_login">STUDENT</button>
                     </div>
                 </div>
             </center>

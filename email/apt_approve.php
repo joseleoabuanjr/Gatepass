@@ -55,10 +55,10 @@
                 <br>
                 <br>Hi '.$lst.', '.$fst.',
                 <br>
-                <br>We would like to you know that your appointment request was approved.
+                <br>We would like to inform you that your Appointment Request was Approved.
                 <br>
                 <br>
-                <br> -BulSU Gate Pass Team</p>
+                <br>- BulSU Gate Pass Team</p>
             </div>    
             ';
         }

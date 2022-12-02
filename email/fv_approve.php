@@ -55,10 +55,10 @@
                 <br>
                 <br>Hi '.$lst.', '.$fst.',
                 <br>
-                <br>We would like to you know that your account is fully Verified. You can access now appointment request.
+                <br>We would like to inform you that your Account is now Fully Verified. You can now Access the Appointment Request Feature.
                 <br>
                 <br>
-                <br>BulSU Gate Pass Team</p>
+                <br>- BulSU Gate Pass Team</p>
             </div>    
             ';
         }

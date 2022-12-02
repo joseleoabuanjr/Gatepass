@@ -8,7 +8,7 @@ var msgboth = document.querySelector('#msgboth');
 userlg.addEventListener('keyup', function(){
     if (userlg.value.length == 0){
         userlg.style.border = '1px solid red';
-        msguser.innerHTML="Please enter username";
+        msguser.innerHTML="Please Enter Username";
     }
     else {
         userlg.style.border = '1px solid green';
@@ -18,7 +18,7 @@ userlg.addEventListener('keyup', function(){
 passlg.addEventListener('keyup', function(){
     if (passlg.value.length == 0){
         passlg.style.border = '1px solid red';
-        msgpass.innerHTML="Please enter password";
+        msgpass.innerHTML="Please Enter Password";
     }
     else {
         passlg.style.border = '1px solid green';
@@ -29,13 +29,13 @@ passlg.addEventListener('keyup', function(){
 btnlg.addEventListener('click', function(){
     if (userlg.value.length == 0){
         userlg.style.border = '1px solid red';
-        msguser.innerHTML="Please enter username";
+        msguser.innerHTML="Please Enter Username";
         msgboth.innerHTML="";
 
     }
     if(passlg.value.length == 0){
         passlg.style.border = '1px solid red';
-        msgpass.innerHTML="Please enter password";
+        msgpass.innerHTML="Please Enter Password";
         msgboth.innerHTML="";
     }
     else {

@@ -1,6 +1,6 @@
 <div class="table-responsive">
     <table class="table">
-        <h2 style="padding-top: 60px; padding-bottom:20px;"> User Accounts</h2>
+        <h2 style="padding-top: 60px; padding-bottom:20px;">User Accounts</h2>
         <!-- <div class="searchbar">
             <input type="text" name="s_name" id="s_n" placeholder="Name">
         </div> -->
@@ -8,8 +8,8 @@
             <tr style="background-color: #4F4F4B; color:white;">
                 <th>Account Number</th>
                 <th>Name</th>
-                <th>Type</th>
-                <th>Verified</th>
+                <th>Account Type</th>
+                <th>Account Status</th>
                 <th>Action</th>
             </tr>
         </thead>

@@ -26,7 +26,7 @@ var msg18 = document.querySelector('#message18');
 btn2.addEventListener('click', function(){
     if (fst2.value == ""){
         fst2.style.border = '1px solid red';
-        msg10.innerHTML="Please enter first name";
+        msg10.innerHTML="Please Enter First Name";
         return false; 
     }
     else {
@@ -37,7 +37,7 @@ btn2.addEventListener('click', function(){
 btn2.addEventListener('click', function(){
     if (mid2.value == ""){
         mid2.style.border = '1px solid red';
-        msg11.innerHTML="Please enter middle name";
+        msg11.innerHTML="Please Enter Middle Initial";
         return false; 
     }
     else {
@@ -48,7 +48,7 @@ btn2.addEventListener('click', function(){
 btn2.addEventListener('click', function(){
     if (lst2.value == ""){
         lst2.style.border = '1px solid red';
-        msg12.innerHTML="Please enter last name";
+        msg12.innerHTML="Please Enter Last Name";
         return false; 
     }
     else {
@@ -59,7 +59,7 @@ btn2.addEventListener('click', function(){
 btn2.addEventListener('click', function(){
     if (emp2.value == ""){
         emp2.style.border = '1px solid red';
-        msg13.innerHTML="Please enter student number";
+        msg13.innerHTML="Please Enter Student Number";
         return false; 
     }
     else {
@@ -70,7 +70,7 @@ btn2.addEventListener('click', function(){
 btn2.addEventListener('click', function(){
     if (username2.value == ""){
         username2.style.border = '1px solid red';
-        msg14.innerHTML="Please enter username";
+        msg14.innerHTML="Please Enter Username";
         return false; 
     }
     else {
@@ -81,7 +81,7 @@ btn2.addEventListener('click', function(){
 btn2.addEventListener('click', function(){
     if (pass2.value == ""){
         pass2.style.border = '1px solid red';
-        msg15.innerHTML="Please enter password";
+        msg15.innerHTML="Please Enter Password";
         return false; 
     }
     else {
@@ -92,7 +92,7 @@ btn2.addEventListener('click', function(){
 btn2.addEventListener('click', function(){
     if (cpass2.value == ""){
         cpass2.style.border = '1px solid red';
-        msg16.innerHTML="Please enter confirm password";
+        msg16.innerHTML="Please Enter Confirm Password";
         return false; 
     }
     else {
@@ -103,7 +103,7 @@ btn2.addEventListener('click', function(){
 btn2.addEventListener('click', function(){
     if (email2.value == ""){
         email2.style.border = '1px solid red';
-        msg17.innerHTML="Please enter email";
+        msg17.innerHTML="Please Enter Email Address";
         return false; 
     }
     else {
@@ -114,7 +114,7 @@ btn2.addEventListener('click', function(){
 btn2.addEventListener('click', function(){
     if (img2.value == ""){
         img2.style.border = '1px solid red';
-        msg18.innerHTML="Please upload picture";
+        msg18.innerHTML="Please Upload Picture";
         return false; 
     }
     else {
@@ -127,7 +127,7 @@ btn2.addEventListener('click', function(){
 fst2.addEventListener('keyup', function(){
     if (fst2.value.length == 0){
         fst2.style.border = '1px solid red';
-        msg10.innerHTML="Please enter first name";
+        msg10.innerHTML="Please Enter First Name";
         return false; 
     }
     else {
@@ -138,7 +138,7 @@ fst2.addEventListener('keyup', function(){
 mid2.addEventListener('keyup', function(){
     if (mid2.value.length == 0){
         mid2.style.border = '1px solid red';
-        msg11.innerHTML="Please enter middle name";
+        msg11.innerHTML="Please Enter Middle Initial";
         return false; 
     }
     else {
@@ -149,7 +149,7 @@ mid2.addEventListener('keyup', function(){
 lst2.addEventListener('keyup', function(){
     if (lst2.value.length == 0){
         lst2.style.border = '1px solid red';
-        msg12.innerHTML="Please enter last name";
+        msg12.innerHTML="Please Enter Last Name";
         return false; 
     }
     else {
@@ -160,12 +160,12 @@ lst2.addEventListener('keyup', function(){
 emp2.addEventListener('keyup', function(){
     if (emp2.value.length == 0){
         emp2.style.border = '1px solid red';
-        msg13.innerHTML="Please enter student number";
+        msg13.innerHTML="Please Enter Student Number";
         return false; 
     }
     else if (isNaN(emp2.value)){
         emp2.style.border = '1px solid red';
-        msg13.innerHTML="Please enter number only";
+        msg13.innerHTML="Please Enter Numbers Only";
         return false; 
     }
     else {
@@ -176,12 +176,12 @@ emp2.addEventListener('keyup', function(){
 username2.addEventListener('keyup', function(){
     if (username2.value.length == 0){
         username2.style.border = '1px solid red';
-        msg14.innerHTML="Please enter username";
+        msg14.innerHTML="Please Enter Username";
         return false; 
     }
     else if(username2.value.length < 4){
         username1.style.border = '1px solid red';
-        msg14.innerHTML="Username must be at least 4 characters";
+        msg14.innerHTML="Username Must Be At Least 4 Characters";
         return false; 
     }
     else {
@@ -192,19 +192,19 @@ username2.addEventListener('keyup', function(){
 pass2.addEventListener('keyup', function(){
     if (pass2.value.length == 0){
         pass2.style.border = '1px solid red';
-        msg15.innerHTML="Please enter password";
+        msg15.innerHTML="Please Enter Password";
         return false; 
     }
     else if(pass2.value.length < 4){
         pass2.style.border = '1px solid red';
-        msg15.innerHTML="Password must be at least 4 characters";
+        msg15.innerHTML="Password Must Be At Least 4 Characters";
         if(cpass2.value.match(pass2.value)){
             cpass2.style.border = '1px solid green';
             msg16.innerHTML="";
         }
         else {
             cpass2.style.border = '1px solid red';
-            msg16.innerHTML="Password not match";
+            msg16.innerHTML="Password Did Not Match";
             return false;
         }
     }
@@ -217,7 +217,7 @@ pass2.addEventListener('keyup', function(){
         }
         else {
             cpass1.style.border = '1px solid red';
-            msg16.innerHTML="Password not match";
+            msg16.innerHTML="Password Did Not Match";
             return false; 
         }
     }
@@ -225,12 +225,12 @@ pass2.addEventListener('keyup', function(){
 cpass2.addEventListener('keyup', function(){
     if (cpass2.value.length == 0){
         cpass2.style.border = '1px solid red';
-        msg16.innerHTML="Password not match";
+        msg16.innerHTML="Password Did Not Match";
         return false; 
     }
     else if (pass2.value.length == 0){
         cpass2.style.border = '1px solid red';
-        msg16.innerHTML="Password not match";
+        msg16.innerHTML="Password Did Not Match";
         return false; 
     }
     else if(cpass2.value.match(pass2.value)){
@@ -239,14 +239,14 @@ cpass2.addEventListener('keyup', function(){
     }
     else {
         cpass2.style.border = '1px solid red';
-        msg16.innerHTML="Password not match";
+        msg16.innerHTML="Password Did Not Match";
         return false; 
     }
 })
 email2.addEventListener('keyup', function(){
     if (email2.value.length == 0){
         email2.style.border = '1px solid red';
-        msg17.innerHTML="Please enter email";
+        msg17.innerHTML="Please Enter Email Address";
         return false; 
     }
     else if(email2.value.match(validRegex)){
@@ -255,7 +255,7 @@ email2.addEventListener('keyup', function(){
     }
     else {
         email2.style.border = '1px solid red';
-        msg17.innerHTML="Invalid Email";
+        msg17.innerHTML="Invalid Email Address";
         return false; 
     }
 })
@@ -263,12 +263,12 @@ email2.addEventListener('keyup', function(){
 function checkImage2(){
     if (!allowedExtensions.exec(img2.value)) {
         img2.style.border = '1px solid red';
-        msg18.innerHTML="Invalid file type";
+        msg18.innerHTML="Invalid File Format";
         return false;
     }
     else if (img2.value.length ==0){
         img2.style.border = '1px solid red';
-        msg18.innerHTML="Please upload picture";
+        msg18.innerHTML="Please Upload Picture";
         return false;
     }
     else{

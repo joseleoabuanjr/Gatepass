@@ -24,7 +24,7 @@ var msg26 = document.querySelector('#message26');
 btn3.addEventListener('click', function(){
     if (fst3.value == ""){
         fst3.style.border = '1px solid red';
-        msg19.innerHTML="Please enter first name";
+        msg19.innerHTML="Please Enter First Name";
         return false; 
     }
     else {
@@ -35,7 +35,7 @@ btn3.addEventListener('click', function(){
 btn3.addEventListener('click', function(){
     if (mid3.value == ""){
         mid3.style.border = '1px solid red';
-        msg20.innerHTML="Please enter middle name";
+        msg20.innerHTML="Please Enter Middle Initial";
         return false; 
     }
     else {
@@ -46,7 +46,7 @@ btn3.addEventListener('click', function(){
 btn3.addEventListener('click', function(){
     if (lst3.value == ""){
         lst3.style.border = '1px solid red';
-        msg21.innerHTML="Please enter last name";
+        msg21.innerHTML="Please Enter Last Name";
         return false; 
     }
     else {
@@ -57,7 +57,7 @@ btn3.addEventListener('click', function(){
 btn3.addEventListener('click', function(){
     if (username3.value == ""){
         username3.style.border = '1px solid red';
-        msg22.innerHTML="Please enter username";
+        msg22.innerHTML="Please Enter Username";
         return false; 
     }
     else {
@@ -68,7 +68,7 @@ btn3.addEventListener('click', function(){
 btn3.addEventListener('click', function(){
     if (pass3.value == ""){
         pass3.style.border = '1px solid red';
-        msg23.innerHTML="Please enter password";
+        msg23.innerHTML="Please Enter Password";
         return false; 
     }
     else {
@@ -79,7 +79,7 @@ btn3.addEventListener('click', function(){
 btn3.addEventListener('click', function(){
     if (cpass3.value == ""){
         cpass3.style.border = '1px solid red';
-        msg24.innerHTML="Please enter confirm password";
+        msg24.innerHTML="Please Enter Confirm Password";
         return false; 
     }
     else {
@@ -90,7 +90,7 @@ btn3.addEventListener('click', function(){
 btn3.addEventListener('click', function(){
     if (email3.value == ""){
         email3.style.border = '1px solid red';
-        msg25.innerHTML="Please enter email";
+        msg25.innerHTML="Please Enter Email Address";
         return false; 
     }
     else {
@@ -101,7 +101,7 @@ btn3.addEventListener('click', function(){
 btn3.addEventListener('click', function(){
     if (img3.value == ""){
         img3.style.border = '1px solid red';
-        msg26.innerHTML="Please upload picture";
+        msg26.innerHTML="Please Upload Picture";
         return false; 
     }
     else {
@@ -114,7 +114,7 @@ btn3.addEventListener('click', function(){
 fst3.addEventListener('keyup', function(){
     if (fst3.value.length == 0){
         fst3.style.border = '1px solid red';
-        msg19.innerHTML="Please enter first name";
+        msg19.innerHTML="Please Enter First Name";
         return false; 
     }
     else {
@@ -125,7 +125,7 @@ fst3.addEventListener('keyup', function(){
 mid3.addEventListener('keyup', function(){
     if (mid3.value.length == 0){
         mid3.style.border = '1px solid red';
-        msg20.innerHTML="Please enter middle name";
+        msg20.innerHTML="Please Enter Middle Initial";
         return false; 
     }
     else {
@@ -136,7 +136,7 @@ mid3.addEventListener('keyup', function(){
 lst3.addEventListener('keyup', function(){
     if (lst3.value.length == 0){
         lst3.style.border = '1px solid red';
-        msg21.innerHTML="Please enter last name";
+        msg21.innerHTML="Please Enter Last Name";
         return false; 
     }
     else {
@@ -147,12 +147,12 @@ lst3.addEventListener('keyup', function(){
 username3.addEventListener('keyup', function(){
     if (username3.value.length == 0){
         username3.style.border = '1px solid red';
-        msg22.innerHTML="Please enter username";
+        msg22.innerHTML="Please Enter Username";
         return false; 
     }
     else if(username3.value.length < 4){
         username3.style.border = '1px solid red';
-        msg22.innerHTML="Username must be at least 4 characters";
+        msg22.innerHTML="Username Must Be At Least 4 Characters";
         return false; 
     }
     else {
@@ -163,19 +163,19 @@ username3.addEventListener('keyup', function(){
 pass3.addEventListener('keyup', function(){
     if (pass3.value.length == 0){
         pass3.style.border = '1px solid red';
-        msg23.innerHTML="Please enter password";
+        msg23.innerHTML="Please Enter Password";
         return false; 
     }
     else if(pass3.value.length < 4){
         pass3.style.border = '1px solid red';
-        msg23.innerHTML="Password must be at least 4 characters";
+        msg23.innerHTML="Password Must Be At Least 4 Characters";
         if(cpass3.value.match(pass3.value)){
             cpass3.style.border = '1px solid green';
             msg24.innerHTML="";
         }
         else {
             cpass3.style.border = '1px solid red';
-            msg24.innerHTML="Password not match";
+            msg24.innerHTML="Password Did Not Match";
             return false; 
         }
     }
@@ -188,7 +188,7 @@ pass3.addEventListener('keyup', function(){
         }
         else {
             cpass3.style.border = '1px solid red';
-            msg24.innerHTML="Password not match";
+            msg24.innerHTML="Password Did Not Match";
             return false; 
         }
     }
@@ -196,12 +196,12 @@ pass3.addEventListener('keyup', function(){
 cpass3.addEventListener('keyup', function(){
     if (cpass3.value.length == 0){
         cpass3.style.border = '1px solid red';
-        msg24.innerHTML="Password not match";
+        msg24.innerHTML="Password Did Not Match";
         return false; 
     }
     else if (pass3.value.length == 0){
         cpass3.style.border = '1px solid red';
-        msg24.innerHTML="Password not match";
+        msg24.innerHTML="Password Did Not Match";
         return false; 
     }
     else if(cpass3.value.match(pass3.value)){
@@ -210,14 +210,14 @@ cpass3.addEventListener('keyup', function(){
     }
     else {
         cpass3.style.border = '1px solid red';
-        msg24.innerHTML="Password not match";
+        msg24.innerHTML="Password Did Not Match";
         return false; 
     }
 })
 email3.addEventListener('keyup', function(){
     if (email3.value.length == 0){
         email3.style.border = '1px solid red';
-        msg25.innerHTML="Please enter email";
+        msg25.innerHTML="Please Enter Email Address";
     }
     else if(email3.value.match(validRegex)){
         email3.style.border = '1px solid green';
@@ -225,7 +225,7 @@ email3.addEventListener('keyup', function(){
     }
     else {
         email3.style.border = '1px solid red';
-        msg25.innerHTML="Invalid Email";
+        msg25.innerHTML="Invalid Email Address";
         return false; 
     }
 })
@@ -233,12 +233,12 @@ email3.addEventListener('keyup', function(){
 function checkImage3(){
     if (!allowedExtensions.exec(img3.value)) {
         img3.style.border = '1px solid red';
-        msg26.innerHTML="Invalid file type";
+        msg26.innerHTML="Invalid File Format";
         return false;
     }
     else if (img3.value.length ==0){
         img3.style.border = '1px solid red';
-        msg26.innerHTML="Please upload picture";
+        msg26.innerHTML="Please Upload Picture";
         return false;
     }
     else{

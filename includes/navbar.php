@@ -8,7 +8,7 @@
             <div class="navbar-nav">
                 <a class="nav-link" href="" id="ta1">Dashboard</a>
                 <a class="nav-link" href="" id="ta2">Profile</a>
-                <a class="nav-link" href="" id="ta3">Appointment</a>
+                <a class="nav-link" href="" id="ta3">Appointments</a>
                 <a class="nav-link" href="function/toLogout.php">Logout</a>
             </div>
         </div>

@@ -12,7 +12,7 @@
 			<div class="msg2" id="message2"></div>
 		</div>
 		<div class="form-group">
-			<label>Middle Initial</label>
+			<label>Middle Initial (M.I.)</label>
 			<input type="text" id="mname" name="mid" class="form-control" value="<?php echo $mid?>" style="margin-bottom: 10px;" required>
 			<div class="msg3" id="message3"></div>
 		</div>
@@ -27,12 +27,13 @@
 			<div class="msg5" id="message5"></div>
 		</div>
 		<div class="form-group">
-			<label>Email</label>
+			<label>Email Address</label>
 			<input type="text" id="email" name="email" class="form-control" value="<?php echo $email?>" style="margin-bottom: 10px;" required>
 			<div class="msg6" id="message6"></div>
 		</div>
 		<div class="form-group">
-			<label>Valid ID</label>
+			<label>Valid ID Card</label>
+			<p>*Please select a jpg/jpeg or png file format to upload for your valid ID card.</p>
 			<div class="d-flex">
 				<input type="text" name="V_id" class="form-control" value="<?php echo $v_id?>" style="margin-bottom: 10px; margin-right: 10px;" disabled>
 				<a class='btn btn-secondary' target="_blank" href='view_vid.php?id=<?php echo $accno?>' style="height:40px;">View</a>
@@ -45,6 +46,7 @@
 		</div>
 		<div class="form-group">
 			<label>Vaccination Card</label>
+			<p>*Please select a jpg/jpeg or png file format to upload for your vaccination card.</p>
 			<div class="d-flex">
 				<input type="text" name="vaxx" class="form-control" value="<?php echo $vax?>" style="margin-bottom: 10px; margin-right: 10px;" disabled>
 				<a class='btn btn-secondary' target="_blank" href='viewvax.php?id=<?php echo $accno?>' style="height:40px;">View</a>

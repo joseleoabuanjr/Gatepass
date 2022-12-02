@@ -53,12 +53,14 @@
     $mail->Body    = '
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
         <p style="margin-bottom: 20px;">
-        <br>Hi '.$name.' ,
+        <br>Hi '.$lst.', '.$fst.',
         <br>
-        <br>Fully verfication has been denied. Your information is invalid for full verification. Please try again.
+        <br>We would like to inform you that your Request for Account Verification was Denied.
+        <br>Your Information was considered Invalid. If you wish to Try Again, Please send another Account Verification Request.
         <br>
-        <br>-BulSU Gate Pass Team</p>
-    </div>
+        <br>
+        <br>- BulSU Gate Pass Team</p>
+    </div>    
     ';
     //send mail
     $mail->send();
