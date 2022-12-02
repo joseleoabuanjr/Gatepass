@@ -123,7 +123,7 @@
 					<div class="msg13" id="message"></div>
 				</div>
 				<div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
-					<button type="submit" id="btn1" class="btn btn-primary">Save</button>
+					<button type="submit" id="save1" class="btn btn-primary">Save</button>
 				</div>
 			</form>
 		</div>
@@ -146,7 +146,7 @@
 					</div>
 				</div>
 				<div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
-					<button type="submit" id="btn2" class="btn btn-primary">Save</button>
+					<button type="submit" id="save2" class="btn btn-primary">Save</button>
 				</div>
 			</form>
 		</div>
@@ -194,7 +194,7 @@
 					</div>
 				</div>
 				<div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
-					<button type="submit" id="btn3" class="btn btn-primary">Save</button>
+					<button type="submit" id="save3" class="btn btn-primary">Save</button>
 				</div>
 			</form>
 		</div>
@@ -219,7 +219,7 @@
 					<div class="msg" id="message"></div>
 				</div>
 				<div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
-					<button type="submit" id="btn2" class="btn btn-primary">Save</button>
+					<button type="submit" id="save4" class="btn btn-primary">Save</button>
 				</div>
 			</form>
 		</div>

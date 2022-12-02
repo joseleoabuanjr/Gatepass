@@ -28,9 +28,7 @@ $select = "SELECT * FROM user_account Where acc_no = $id";
 	<!-- Bootstrap CSS -->
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
 
-	<!-- Javascripts -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="js/mainScript-1.js"></script>
+	
 </head>
 
 <body>
@@ -61,11 +59,11 @@ $select = "SELECT * FROM user_account Where acc_no = $id";
 				echo "<script>alert(Error)</script>";
 			}
 		?>
+		<input type="hidden" name="type" id="type" value="<?php echo $type?>"></input>
 	</div>
-	<script type="text/javascript" src="js/request.js"></script>
-	<script type="text/javascript" src="js/validationStudent1.js"></script>
-	<script type="text/javascript" src="js/validationEmployee.js"></script>
-	<script type="text/javascript" src="js/validationVisitor.js"></script>
+	<script type="text/javascript" src="js/mainScriptx.js"></script>
+	<!-- Javascripts -->
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
 
 </html>

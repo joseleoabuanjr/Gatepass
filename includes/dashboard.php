@@ -253,7 +253,7 @@
                                 </div>
                                 <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
                                     <div class="infobtn">
-                                        <button class="btn btn-secondary btn-sm" type="button" id="pf1">See more</button>
+                                        <button class="btn btn-secondary btn-sm" type="button" id="pf2">See more</button>
                                     </div>
                                 </div>
                             </div>
@@ -263,7 +263,7 @@
                                 </div>
                                 <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
                                     <div class="infobtn">
-                                        <button class="btn btn-secondary btn-sm" type="button" id="ar1">See more</button>
+                                        <button class="btn btn-secondary btn-sm" type="button" id="ar2">See more</button>
                                     </div>
                                 </div>
                             </div>
@@ -351,7 +351,7 @@
                                 </div>
                                 <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
                                     <div class="infobtn">
-                                        <button class="btn btn-secondary btn-sm" type="button" id="pf1">See more</button>
+                                        <button class="btn btn-secondary btn-sm" type="button" id="pf3">See more</button>
                                     </div>
                                 </div>
                             </div>
@@ -361,7 +361,7 @@
                                 </div>
                                 <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
                                     <div class="infobtn">
-                                        <button class="btn btn-secondary btn-sm" type="button" id="ar1">See more</button>
+                                        <button class="btn btn-secondary btn-sm" type="button" id="ar3">See more</button>
                                     </div>
                                 </div>
                             </div>
