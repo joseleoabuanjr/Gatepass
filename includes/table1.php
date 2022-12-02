@@ -16,7 +16,7 @@
         <tbody>
         <?php 
             //connect to database
-            require_once "function/connect.php";
+            require_once "../function/connect.php";
 
             //read all row from database table
             $select = "SELECT * FROM user_account";
