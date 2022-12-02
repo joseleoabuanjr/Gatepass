@@ -14,7 +14,7 @@
     <script type="text/javascript" src="js/adminScript.js"></script>
 </head>
 <body style="margin: 50px;">
-    <?php require_once 'includes/navbar-admin.php'; ?>
+    <?php require_once '../includes/navbar-admin.php'; ?>
     <div class="table1" id="tbl1"><?php require_once 'includes/table1.php'; ?></div>
     <div class="table2--hidden" id="tbl2"><?php require_once 'includes/table2.php'; ?></div>
     <div class="table3--hidden" id="tbl3"><?php require_once 'includes/table3.php'; ?></div>
