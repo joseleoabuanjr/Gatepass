@@ -147,7 +147,7 @@
                                 </div>
                                 <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
                                     <div class="infobtn">
-                                        <button class="btn-p" type="button" id="pf1">Profile</button>
+                                        <button class="btn btn-secondary btn-sm" type="button" id="pf1">See More</button>
                                     </div>
                                 </div>
                             </div>
@@ -157,7 +157,7 @@
                                 </div>
                                 <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
                                     <div class="infobtn">
-                                        <button class="btn-p" type="button" id="ar1">Profile</button>
+                                        <button class="btn btn-secondary btn-sm" type="button" id="ar1">See More</button>
                                     </div>
                                 </div>
                             </div>
@@ -238,7 +238,7 @@
                                 </div>
                                 <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
                                     <div class="infobtn">
-                                        <button class="btn-p" type="button" >Profile</button>
+                                        <button class="btn btn-secondary btn-sm" type="button" >Profile</button>
                                     </div>
                                 </div>
                             </div>
@@ -248,7 +248,7 @@
                                 </div>
                                 <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
                                     <div class="infobtn">
-                                        <button class="btn-p" type="button" id="ar1">Profile</button>
+                                        <button class="btn btn-secondary btn-sm" type="button" id="ar1">Profile</button>
                                     </div>
                                 </div>
                             </div>
@@ -328,7 +328,7 @@
                                 </div>
                                 <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
                                     <div class="infobtn">
-                                        <button class="btn-p" type="button" >Profile</button>
+                                        <button class="btn btn-secondary btn-sm" type="button" >Profile</button>
                                     </div>
                                 </div>
                             </div>
