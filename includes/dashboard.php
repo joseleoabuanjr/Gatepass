@@ -201,7 +201,7 @@
                     }
                     echo "</div>";
                     echo('
-                            <div class="d-flex justify-content-center align-items-center flex-column" style="width:100%;">
+                            <div class="d-none justify-content-center align-items-center flex-column" style="width:100%;">
                                 <div>
                                     QR Code
                                 </div>
@@ -213,11 +213,11 @@
                     ');
                     echo ('
                         <div class"blur d-flex justify-content-center flex-column" style="width:90%; height:100%; padding-top:50px; padding-left:40px;">
-                            <div class="d-flex justify-content-left align-items-start flex-column" style="width:100%; height:100%; border:1px solid black; padding:40px">
+                            <div class="d-flex justify-content-left align-items-start flex-column" style="width:100%; height:500px; border:1px solid black; padding:40px">
                                 <div class="titleinfo" style="padding-bottom:10px;">
                                     Profile Summary
                                 </div>
-                                <div class="d-flex" style="width:100%;">
+                                <div class="d-flex" style="width:100%;margin-bottom:auto;">
                                     <div class="t-info" style="width:100%;">
                                         <div class="info-d" style="padding:10px">
                                             Employee Number:
@@ -237,17 +237,17 @@
                                 </div>
                                 <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
                                     <div class="infobtn">
-                                        <button class="btn btn-secondary btn-sm" type="button" >Profile</button>
+                                        <button class="btn btn-secondary btn-sm" type="button" >See more</button>
                                     </div>
                                 </div>
                             </div>
-                            <div class="d-flex justify-content-left align-items-start flex-column" style="width:100%; height:100%; border:1px solid black; padding:40px; margin-top:40px;">
+                            <div class="d-none justify-content-left align-items-start flex-column" style="width:100%; height:100%; border:1px solid black; padding:40px; margin-top:40px;">
                                 <div class="titleinfo" style="padding-bottom:10px;">
                                     Appointment Summary
                                 </div>
                                 <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
                                     <div class="infobtn">
-                                        <button class="btn btn-secondary btn-sm" type="button" id="ar1">Profile</button>
+                                        <button class="btn btn-secondary btn-sm" type="button" id="ar1">See more</button>
                                     </div>
                                 </div>
                             </div>
