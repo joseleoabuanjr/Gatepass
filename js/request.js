@@ -1,6 +1,5 @@
 var ppse = document.querySelector('#purpose-s');
 var text1 = document.querySelector('#txt-1');
-console.log(ppse);
 ppse.addEventListener('change', function(){
     if (ppse.value == "Other"){
         text1.classList.remove("cont-p--hidden");
