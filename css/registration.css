@@ -1,0 +1,18 @@
+html,
+body {
+    height: 100%;
+}
+
+body {
+    background-image: url("../resources/bg1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+}
+
+.glass-effect {
+    /* background: linear-gradient(32deg, rgb(175 79 0), rgba(255, 255, 255, 0)); */
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
+}
