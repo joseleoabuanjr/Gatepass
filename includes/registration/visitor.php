@@ -144,9 +144,9 @@
 
 
             </form>
-            <!-- <div class="alert alert-success mt-3" role="alert" id="successAlert">
-                Registration Completed! Proceed to <a href="../login/login.php" class="alert-link text-decoration-none">Log in page</a>.
-            </div> -->
+            <div class="alert alert-success mt-3" role="alert" id="successAlert">
+                Registration Completed! Proceed to <a href="../../landing-page.php" class="alert-link text-decoration-none">Log in page</a>.
+            </div>
         </div>
 
     </div>

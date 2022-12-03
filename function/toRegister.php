@@ -107,7 +107,7 @@ if ($userType == "student") {
 	if (mysqli_query($connect, $insert)) {
 		require "toSendverif.php";
 	} else {
-		echo json_encode(array("status" => false));
+		echo json_encode(array("status" => false, "sql"=>$insert, "error"=>mysqli_error($connect)));
 		// echo "<script>alert('Register Failed.')</script>";	
 	}
 	mysqli_close($connect);
@@ -120,6 +120,8 @@ if ($userType == "student") {
 	$pnum = $_POST["contact"];
 	// $cname = $_POST["contact_p"];
 	// $contnum = $_POST["contact_pnum"];
+	$bday = $_POST["dob"];
+	$add = $_POST["address"];
 	$empno = $_POST["empno"];
 	$user = $_POST["username"];
 	$pass = md5($_POST["pass"]);
@@ -191,12 +193,12 @@ if ($userType == "student") {
 	$last = ucfirst(lcfirst($last));
 	$mid = ucfirst(lcfirst($mid));
 
-	$insert = "INSERT INTO acc_temp (acc_no,first,middle,last,contact_no,birthday,address,emp
-				_no,username,password,email,image,valid_id,vax,verification,qr,type,v_code) VALUES ('$accnum','$first','$mid','$last','$pnum','$bday','$add','$empno','$user','$pass','$email','$img','$v_idpdf','$vaxpdf','$verif','$file','$acctype','$gcode')";
+	$insert = "INSERT INTO acc_temp (acc_no,first,middle,last,contact_no,birthday,address,emp_no,username,password,email,image,valid_id,vax,verification,qr,type,v_code) VALUES ('$accnum','$first','$mid','$last','$pnum','$bday','$add','$empno','$user','$pass','$email','$img','$v_idpdf','$vaxpdf','$verif','$file','$acctype','$gcode')";
 	if (mysqli_query($connect, $insert)) {
 		require "toSendverif.php";
 	} else {
-		echo "<script>alert('Register Failed.')</script>";
+		echo json_encode(array("status" => false, "sql"=>$insert, "error"=>mysqli_error($connect)));
+		// echo "<script>alert('Register Failed.')</script>";
 	}
 	mysqli_close($connect);
 } else if ($userType == "visitor") {
@@ -208,6 +210,8 @@ if ($userType == "student") {
 	$pnum = $_POST["contact"];
 	// $cname = $_POST["contact_p"];
 	// $contnum = $_POST["contact_pnum"];
+	$bday = $_POST["dob"];
+	$add = $_POST["address"];
 	$empno = $_POST["empno"];
 	$user = $_POST["username"];
 	$pass = md5($_POST["pass"]);
@@ -283,7 +287,8 @@ if ($userType == "student") {
 	if (mysqli_query($connect, $insert)) {
 		require "toSendverif.php";
 	} else {
-		echo "<script>alert('Register Failed.')</script>";
+		echo json_encode(array("status" => false, "sql"=>$insert, "error"=>mysqli_error($connect)));
+		// echo "<script>alert('Register Failed.')</script>";
 	}
 	mysqli_close($connect);
 }

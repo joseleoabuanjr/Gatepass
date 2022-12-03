@@ -28,19 +28,19 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control" name="first" id="firstName" value="ABC" required>
+                                <input type="text" class="form-control" name="first" id="firstName" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="middleName" class="form-label">Middle Initial</label>
-                                <input type="text" class="form-control" name="middle" id="middleName" value="ABC" required>
+                                <input type="text" class="form-control" name="middle" id="middleName" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" name="last" id="lastName" value="ABC" required>
+                                <input type="text" class="form-control" name="last" id="lastName" required>
                             </div>
                         </div>
                     </div>
@@ -48,19 +48,19 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" name="email" id="email" value="a@b.com" required email>
+                                <input type="email" class="form-control" name="email" id="email" required email>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="contactNumber" class="form-label">Contact Number</label>
-                                <input type="text" class="form-control" name="contact" id="contactNumber" value="0901920392" required>
+                                <input type="text" class="form-control" name="contact" id="contactNumber" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="birthdate" class="form-label">Birthdate</label>
-                                <input type="date" class="form-control" name="dob" id="birthdate" value="01-12-2001" required>
+                                <input type="date" class="form-control" name="dob" id="birthdate" required>
                             </div>
                         </div>
                     </div>
@@ -68,7 +68,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" name="address" id="address" value="12 ABC" required>
+                                <input type="text" class="form-control" name="address" id="address" required>
                             </div>
                         </div>
                     </div>
@@ -82,15 +82,15 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="studentNo" class="form-label">Student Number</label>
-                                <input type="text" class="form-control" name="studno" id="studentNo" value="123" required>
+                                <input type="text" class="form-control" name="studno" id="studentNo" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label class="form-label">Year</label>
                                 <select class="form-select mb-3" name="year" required>
-                                    <option value="" disabled>Select Year</option>
-                                    <option value="1" selected>1</option>
+                                    <option value="" selected disabled>Select Year</option>
+                                    <option value="1">1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
@@ -101,7 +101,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="section" class="form-label">Section</label>
-                                <input type="text" class="form-control" name="section" id="section" value="1A" required>
+                                <input type="text" class="form-control" name="section" id="section" required>
                             </div>
                         </div>
                     </div>
@@ -110,8 +110,8 @@
                             <div class="mb-3">
                                 <label class="form-label">College</label>
                                 <select class="form-select mb-3" name="college" required>
-                                    <option value="" disabled>Select College</option>
-                                    <option selected value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
+                                    <option selected disabled>Select College</option>
+                                    <option value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
                                     <option value="College of Arts and Letters (CAL)">College of Arts and Letters (CAL)</option>
                                     <option value="College of Business Administration (CBA)">College of Business Administration (CBA)</option>
                                     <option value="College of Criminal Justice Education (CCJE)">College of Criminal Justice Education (CCJE)</option>
@@ -134,9 +134,9 @@
                             <div class="mb-3">
                                 <label class="form-label">Course</label>
                                 <select class="form-select mb-3" name="course" required>
-                                    <option value="" disabled>Select Course</option>
+                                    <option selected disabled>Select Course</option>
                                     <div class="op1" name="College of Architecture and Fine Arts (CAFA)" id="cafa">
-                                        <option selected class="cafa1--hidden" id="cafa1" value="Bachelor of Science in Architecture">Bachelor of Science in Architecture</option>
+                                        <option class="cafa1--hidden" id="cafa1" value="Bachelor of Science in Architecture">Bachelor of Science in Architecture</option>
                                         <option class="cafa2--hidden" id="cafa2" value="Bachelor of Landscape Architecture">Bachelor of Landscape Architecture</option>
                                         <option class="cafa3--hidden" id="cafa3" value="Bachelor of Fine Arts Major in Visual Communication">Bachelor of Fine Arts Major in Visual Communication</option>
                                     </div>
@@ -261,7 +261,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" name="username" id="username" value="useraa" required>
+                                <input type="text" class="form-control" name="username" id="username" required>
                             </div>
                         </div>
                         <div class="col">
