@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" id="accountVerificationTable">
     <h2 style="padding-top: 60px; padding-bottom:20px;">Account Verification</h2>
     <thead>
         <tr style="background-color: #4F4F4B; color:white;">
@@ -33,8 +33,8 @@
                 echo ("
                         <tr>
                             <td>".$row["acc_no"]."</td>
-                            <td>".$row["first"]." ".$row["middle"].". ".$row["last"]."</td>
-                            <td>".$row["type"]."</td>
+                            <td class='text-capitalize'>".$row["first"]." ".$row["middle"].". ".$row["last"]."</td>
+                            <td class='text-capitalize'>".$row["type"]."</td>
                     ");
                 if($row["type"] == "student"){
                     if($cor == "" || NULL && $vax == "" || NULL){

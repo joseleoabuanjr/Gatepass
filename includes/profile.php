@@ -7,7 +7,7 @@
 	$select = "SELECT * FROM user_account WHERE acc_no = $accno";
 	$result = mysqli_query($connect, $select);
 
-	while($row = mysqli_fetch_assoc($result)){
+	if($row = mysqli_fetch_assoc($result)){
 		$first = $row['first'];
 		$last = $row['last'];
 		$mid = $row['middle'];
@@ -26,7 +26,7 @@
 		$pass = $row['password'];
 		$email = $row['email'];
 		$type = $row['type'];
-		$vcode = $row['v_code'];
+		// $vcode = $row['v_code'];
 		$img = $row['image'];
 		$cor = $row['cor'];
 		$v_id = $row['valid_id'];

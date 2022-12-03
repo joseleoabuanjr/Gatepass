@@ -1,4 +1,4 @@
-<table class="table">
+<table class="table" id="appointmentRequestTable">
     <h2 style="padding-top: 60px; padding-bottom:20px;">Appointment Request</h2>
     <thead>
         <tr style="background-color: #4F4F4B; color:white;">
@@ -30,8 +30,8 @@
                 echo ("
                         <tr>
                             <td>".$row["acc_no"]."</td>
-                            <td>".$row["name"]."</td>
-                            <td>".$row["type"]."</td>
+                            <td class='text-capitalize'>".$row["name"]."</td>
+                            <td class='text-capitalize'>".$row["type"]."</td>
                             <td>".$row["reason"]."</td>
                             <td>".$row["date"]."</td>
                             <td>

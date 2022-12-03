@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table">
+    <table class="table" id="userAccountsTable">
         <h2 style="padding-top: 60px; padding-bottom:20px;">User Accounts</h2>
         <!-- <div class="searchbar">
             <input type="text" name="s_name" id="s_n" placeholder="Name">
@@ -33,8 +33,8 @@
                 echo ("
                         <tr>
                             <td>".$row["acc_no"]."</td>
-                            <td>".$row["first"]." ".$row["middle"].". ".$row["last"]."</td>
-                            <td>".$row["type"]."</td>
+                            <td class='text-capitalize'>".$row["first"]." ".$row["middle"].". ".$row["last"]."</td>
+                            <td class='text-capitalize'>".$row["type"]."</td>
                     ");
                 echo "<td>
                         <a class='btn btn-danger btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Archive</a>
