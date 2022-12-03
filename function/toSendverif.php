@@ -78,12 +78,15 @@
         $mail->send();
 
         if($mail->send()){
-            echo "<script>console.log('Sent Successfully')</script>";
-            header("location:../landing-page.php");
+            echo json_encode(array("status" => true));
+            // echo "<script>console.log('Sent Successfully')</script>";
+            // header("location:../landing-page.php");
         }
-        echo "<script>alert('Sent Failed')</script>;";
+        echo json_encode(array("status" => false));
+        // echo "<script>alert('Sent Failed')</script>;";
     }
     else{
-        echo "<script>alert('Sent Failed')</script>;";
+        echo json_encode(array("status" => false));
+        // echo "<script>alert('Sent Failed')</script>;";
     }
 ?>

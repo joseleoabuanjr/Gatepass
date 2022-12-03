@@ -108,19 +108,19 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="profile" class="form-label">Account Profile Picture</label>
-                                <input type="file" class="form-control" name="image" id="profile" required>
+                                <input type="file" accept="image/*" class="form-control" name="image" id="profile" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="vax" class="form-label">Vaccination Card</label>
-                                <input type="file" class="form-control" name="vax" id="vax" required>
+                                <input type="file" accept="image/*" class="form-control" name="vax" id="vax" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="vid" class="form-label">Valid ID Card</label>
-                                <input type="file" class="form-control" name="vid" id="vid" required>
+                                <input type="file" accept="image/*" class="form-control" name="vid" id="vid" required>
                             </div>
                         </div>
                     </div>

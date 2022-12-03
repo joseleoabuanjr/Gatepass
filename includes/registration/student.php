@@ -21,25 +21,26 @@
             <div class="progress mb-3" style="height: 4px;">
                 <div class="progress-bar" role="progressbar" style="width: 33.33%;"></div>
             </div>
-            <form method="post" action="../../function/toRegister.php?id=1" enctype="multipart/form-data">
+            <form id="registrationForm">
+                <input type="hidden" name="userType" value="student">
                 <div id="step1">
                     <div class="row row-cols-1 row-cols-md-3 g-2">
                         <div class="col">
                             <div class="mb-3">
                                 <label for="firstName" class="form-label">First Name</label>
-                                <input type="text" class="form-control" name="first" id="firstName" required>
+                                <input type="text" class="form-control" name="first" id="firstName" value="ABC" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="middleName" class="form-label">Middle Initial</label>
-                                <input type="text" class="form-control" name="middle" id="middleName" required>
+                                <input type="text" class="form-control" name="middle" id="middleName" value="ABC" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="lastName" class="form-label">Last Name</label>
-                                <input type="text" class="form-control" name="last" id="lastName" required>
+                                <input type="text" class="form-control" name="last" id="lastName" value="ABC" required>
                             </div>
                         </div>
                     </div>
@@ -47,19 +48,19 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="email" class="form-label">Email address</label>
-                                <input type="email" class="form-control" name="email" id="email" required email>
+                                <input type="email" class="form-control" name="email" id="email" value="a@b.com" required email>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="contactNumber" class="form-label">Contact Number</label>
-                                <input type="text" class="form-control" name="contact" id="contactNumber" required>
+                                <input type="text" class="form-control" name="contact" id="contactNumber" value="0901920392" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="birthdate" class="form-label">Birthdate</label>
-                                <input type="date" class="form-control" name="dob" id="birthdate" required>
+                                <input type="date" class="form-control" name="dob" id="birthdate" value="01-12-2001" required>
                             </div>
                         </div>
                     </div>
@@ -67,7 +68,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="address" class="form-label">Address</label>
-                                <input type="text" class="form-control" name="address" id="address" required>
+                                <input type="text" class="form-control" name="address" id="address" value="12 ABC" required>
                             </div>
                         </div>
                     </div>
@@ -81,15 +82,15 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="studentNo" class="form-label">Student Number</label>
-                                <input type="text" class="form-control" name="studno" id="studentNo" required>
+                                <input type="text" class="form-control" name="studno" id="studentNo" value="123" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label class="form-label">Year</label>
                                 <select class="form-select mb-3" name="year" required>
-                                    <option value="" selected disabled>Select Year</option>
-                                    <option value="1">1</option>
+                                    <option value="" disabled>Select Year</option>
+                                    <option value="1" selected>1</option>
                                     <option value="2">2</option>
                                     <option value="3">3</option>
                                     <option value="4">4</option>
@@ -100,7 +101,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="section" class="form-label">Section</label>
-                                <input type="text" class="form-control" name="section" id="section" required>
+                                <input type="text" class="form-control" name="section" id="section" value="1A" required>
                             </div>
                         </div>
                     </div>
@@ -109,8 +110,8 @@
                             <div class="mb-3">
                                 <label class="form-label">College</label>
                                 <select class="form-select mb-3" name="college" required>
-                                    <option value="" selected disabled>Select College</option>
-                                    <option value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
+                                    <option value="" disabled>Select College</option>
+                                    <option selected value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
                                     <option value="College of Arts and Letters (CAL)">College of Arts and Letters (CAL)</option>
                                     <option value="College of Business Administration (CBA)">College of Business Administration (CBA)</option>
                                     <option value="College of Criminal Justice Education (CCJE)">College of Criminal Justice Education (CCJE)</option>
@@ -133,9 +134,9 @@
                             <div class="mb-3">
                                 <label class="form-label">Course</label>
                                 <select class="form-select mb-3" name="course" required>
-                                    <option value="" selected disabled>Select Course</option>
+                                    <option value="" disabled>Select Course</option>
                                     <div class="op1" name="College of Architecture and Fine Arts (CAFA)" id="cafa">
-                                        <option class="cafa1--hidden" id="cafa1" value="Bachelor of Science in Architecture">Bachelor of Science in Architecture</option>
+                                        <option selected class="cafa1--hidden" id="cafa1" value="Bachelor of Science in Architecture">Bachelor of Science in Architecture</option>
                                         <option class="cafa2--hidden" id="cafa2" value="Bachelor of Landscape Architecture">Bachelor of Landscape Architecture</option>
                                         <option class="cafa3--hidden" id="cafa3" value="Bachelor of Fine Arts Major in Visual Communication">Bachelor of Fine Arts Major in Visual Communication</option>
                                     </div>
@@ -260,7 +261,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="username" class="form-label">Username</label>
-                                <input type="text" class="form-control" name="username" id="username" required>
+                                <input type="text" class="form-control" name="username" id="username" value="useraa" required>
                             </div>
                         </div>
                         <div class="col">
@@ -281,31 +282,31 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="profile" class="form-label">Account Profile Picture</label>
-                                <input type="file" class="form-control" name="image" id="profile" required>
+                                <input type="file" accept="image/*" class="form-control" name="image" id="profile" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="cor" class="form-label">Certificate of Registration</label>
-                                <input type="file" class="form-control" name="cor" id="cor" required>
+                                <input type="file" accept="application/pdf" class="form-control" name="cor" id="cor" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="vax" class="form-label">Vaccination Card</label>
-                                <input type="file" class="form-control" name="vax" id="vax" required>
+                                <input type="file" accept="image/*" class="form-control" name="vax" id="vax" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="vid" class="form-label">Valid ID Card</label>
-                                <input type="file" class="form-control" name="vid" id="vid" required>
+                                <input type="file" accept="image/*" class="form-control" name="vid" id="vid" required>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="alert alert-danger" role="alert" id="errorAlert">
-                    {{ errorMessage }}
-                </div> -->
+                    <div class="alert alert-danger" role="alert" id="errorAlert">
+                        {{ errorMessage }}
+                    </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-between">
                         <div class="form-text fw-bolder">Already have an account? <a href="../../landing-page.php" class="text-info text-decoration-none" style="cursor: pointer;">Log in</a></div>
                         <div>
@@ -322,9 +323,9 @@
 
 
             </form>
-            <!-- <div class="alert alert-success mt-3" role="alert" id="successAlert">
-                Registration Completed! Proceed to <a href="../login/login.php" class="alert-link text-decoration-none">Log in page</a>.
-            </div> -->
+            <div class="alert alert-success mt-3" role="alert" id="successAlert">
+                Registration Completed! Proceed to <a href="../../landing-page.php" class="alert-link text-decoration-none">Log in page</a>.
+            </div>
         </div>
 
     </div>

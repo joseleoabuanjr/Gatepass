@@ -1,4 +1,4 @@
-<div class="container d-flex justify-content-center align-items-center flex-column" style="height:auto;padding-bottom:40px;">
+<div class="container">
     <?php
     $accno = $_SESSION["accno"];
     $select = "SELECT * FROM user_account WHERE acc_no = $accno";
@@ -394,4 +394,6 @@
         mysqli_close($connect);
         ?>
     </div>
+</div>
+<div class="py-4 mt-5 text-bg-dark text-center">
 </div>

@@ -6,7 +6,7 @@
 	<body>
 		<?php
 		session_start();
-			$id=$_GET['id'];
+			$userType = $_POST["userType"];
 			$_SESSION["passw"] = $_POST["pass"];
 
 			//include qr api
@@ -15,23 +15,23 @@
 			//db connection
 			require_once "connect.php";
 			
-			if($id== 1){
+			if($userType == "student"){
 				$accnum="";
 				$verif = "unverified";
 				$first = $_POST["first"];
 				$mid = $_POST["middle"];
 				$last = $_POST["last"];
 				$pnum = $_POST["contact"];
-				$cname = $_POST["contact_p"];
+				// $cname = $_POST["contact_p"];
 				$bday = $_POST["dob"];
 				$add = $_POST["address"];
-				$contnum = $_POST["contact_pnum"];
+				// $contnum = $_POST["contact_pnum"];
 				$studno = $_POST["studno"];
 				$col = $_POST["college"];
 				$course = $_POST["course"];
 				$yr = $_POST["year"];
 				$sec = $_POST["section"];
-				$user = $_POST["user"];
+				$user = $_POST["username"];
 				$pass = md5($_POST["pass"]);
 				$email = $_POST["email"];
 				$acctype = "student";
@@ -115,21 +115,22 @@
 					require "toSendverif.php";
 				}
 				else{
-					echo "<script>alert('Register Failed.')</script>";	
+					echo json_encode(array("status" => false));
+					// echo "<script>alert('Register Failed.')</script>";	
 				}
 				mysqli_close($connect);
 			}
-			else if($id==2){
+			else if($userType == "employee"){
 				$accnum="";
 				$verif = "unverified";
 				$first = $_POST["first"];
 				$mid = $_POST["middle"];
 				$last = $_POST["last"];
 				$pnum = $_POST["contact"];
-				$cname = $_POST["contact_p"];
-				$contnum = $_POST["contact_pnum"];
+				// $cname = $_POST["contact_p"];
+				// $contnum = $_POST["contact_pnum"];
 				$empno = $_POST["empno"];
-				$user = $_POST["user"];
+				$user = $_POST["username"];
 				$pass = md5($_POST["pass"]);
 				$email = $_POST["email"];
 				$acctype = "employee";
@@ -210,17 +211,17 @@
 				}
 				mysqli_close($connect);
 			}
-			else if($id==3){
+			else if($userType == "visitor"){
 				$accnum="";
 				$verif = "unverified";
 				$first = $_POST["first"];
 				$mid = $_POST["middle"];
 				$last = $_POST["last"];
 				$pnum = $_POST["contact"];
-				$cname = $_POST["contact_p"];
-				$contnum = $_POST["contact_pnum"];
+				// $cname = $_POST["contact_p"];
+				// $contnum = $_POST["contact_pnum"];
 				$empno = $_POST["empno"];
-				$user = $_POST["user"];
+				$user = $_POST["username"];
 				$pass = md5($_POST["pass"]);
 				$email = $_POST["email"];
 				$acctype = "visitor";

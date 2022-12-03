@@ -21,7 +21,7 @@
             <div class="progress mb-3" style="height: 4px;">
                 <div class="progress-bar" role="progressbar" style="width: 50%;"></div>
             </div>
-            <form method="post" action="../../function/toRegister.php?id=2" enctype="multipart/form-data">
+            <form id="registrationForm">
                 <div id="step1">
                     <div class="row row-cols-1 row-cols-md-3 g-2">
                         <div class="col">
@@ -108,25 +108,25 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="profile" class="form-label">Account Profile Picture</label>
-                                <input type="file" class="form-control" name="image" id="profile" required>
+                                <input type="file" accept="image/*" class="form-control" name="image" id="profile" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="vax" class="form-label">Vaccination Card</label>
-                                <input type="file" class="form-control" name="vax" id="vax" required>
+                                <input type="file" accept="image/*" class="form-control" name="vax" id="vax" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="vid" class="form-label">Valid ID Card</label>
-                                <input type="file" class="form-control" name="vid" id="vid" required>
+                                <input type="file" accept="image/*" class="form-control" name="vid" id="vid" required>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="alert alert-danger" role="alert" id="errorAlert">
-                    {{ errorMessage }}
-                </div> -->
+                    <div class="alert alert-danger" role="alert" id="errorAlert">
+                        {{ errorMessage }}
+                    </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-between">
                         <div class="form-text fw-bolder">Already have an account? <a href="../../landing-page.php" class="text-info text-decoration-none" style="cursor: pointer;">Log in</a></div>
                         <div>
