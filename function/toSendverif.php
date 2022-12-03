@@ -81,12 +81,12 @@
             echo json_encode(array("status" => true));
             // echo "<script>console.log('Sent Successfully')</script>";
             // header("location:../landing-page.php");
+        } else {
+            echo json_encode(array("status" => false));
         }
-        echo json_encode(array("status" => false));
         // echo "<script>alert('Sent Failed')</script>;";
     }
     else{
         echo json_encode(array("status" => false));
         // echo "<script>alert('Sent Failed')</script>;";
     }
-?>

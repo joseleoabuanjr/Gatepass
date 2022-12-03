@@ -21,7 +21,8 @@
             <div class="progress mb-3" style="height: 4px;">
                 <div class="progress-bar" role="progressbar" style="width: 50%;"></div>
             </div>
-            <form method="post" action="../../function/toRegister.php?id=3" enctype="multipart/form-data">
+            <form id="registrationForm">
+                <input type="hidden" name="userType" value="visitor">
                 <div id="step1">
                     <div class="row row-cols-1 row-cols-md-3 g-2">
                         <div class="col">

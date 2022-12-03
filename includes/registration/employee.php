@@ -22,6 +22,7 @@
                 <div class="progress-bar" role="progressbar" style="width: 50%;"></div>
             </div>
             <form id="registrationForm">
+                <input type="hidden" name="userType" value="employee">
                 <div id="step1">
                     <div class="row row-cols-1 row-cols-md-3 g-2">
                         <div class="col">
