@@ -10,7 +10,7 @@
                     </div> -->
                     <thead>
                         <tr style="background-color: #4F4F4B; color:white;">
-                            <th>Valid ID Card</th>
+                            <th>No.</th>
                             <th>Purpose of Appointment</th>
                             <th>Date of Appointment</th>
                             <th>Appointment Status</th>

@@ -42,12 +42,12 @@
         }
         $name = $first." ".$mid.". ".$last;
 
-        $text = $id.":".$reqid.":".$name.":".rand(10,99);//Only the student number will  be saved in the QR Code;
-				//If you want every information be stored in the QR Code use the code below instead;
+        // $text = $id.":".$reqid.":".$name.":".rand(10,99);//Only the student number will  be saved in the QR Code;
+		// 		//If you want every information be stored in the QR Code use the code below instead;
 				
-        $path = '../Images/'; //name of folder where to store all QR Images
-        $file = $path.$id.".png"; //format of filename for each QR Images created. Ex: Images/2022123456.png;
-        QRcode::png($text, $file, 'L', 5, 2); //generates QR Images, Parameters are (Text Contents, File Name, ECC, QRSize, FrameSize);
+        // $path = '../Images/'; //name of folder where to store all QR Images
+        // $file = $path.$id.".png"; //format of filename for each QR Images created. Ex: Images/2022123456.png;
+        // QRcode::png($text, $file, 'L', 5, 2); //generates QR Images, Parameters are (Text Contents, File Name, ECC, QRSize, FrameSize);
 
         //--REQUEST CREATION;
         if($pps == "Other"){

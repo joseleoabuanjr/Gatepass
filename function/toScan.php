@@ -31,6 +31,7 @@
 			$qrwhole = $_REQUEST["qr"];
 			$qrsplit = explode(":",$qrwhole);
 			$qraccno = intval($qrsplit[0]);
+			
 			$select = "SELECT * FROM user_account WHERE acc_no = '$qraccno'";
 			$result = mysqli_query($connect,$select);
 			
@@ -44,7 +45,6 @@
 					$acc_no = $row["acc_no"];
         			$name = $row["first"]." ".$row["middle"]." ".$row["last"];
         			$type = $row["type"];
-					$id = $row["acc_no"];
 					if($scan == "granted"){
 
 						$tz = 'Asia/Manila';
