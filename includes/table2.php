@@ -18,7 +18,7 @@
             require_once "../function/connect.php";
             
             //read all row from database table
-            $select = "SELECT * FROM user_account WHERE verified = 'pending'";
+            $select = "SELECT * FROM user_account WHERE verification = 'pending'";
             $result = mysqli_query($connect,$select);
 
             if(!$result){
@@ -39,29 +39,29 @@
                 if($row["type"] == "student"){
                     if($cor == "" || NULL && $vax == "" || NULL){
                         echo ("
-                            <td></td><td></td><td></td>
+                            <td>N/A</td><td>N/A</td><td>N/A</td>
                         ");
                     }
                     else{
                         if($cor == "" || NULL && !($vax == "" || NULL) ){
                             echo ("
-                                <td></td>
-                                <td></td>
-                                <td><a class='btn btn-secondary' target='_blank' href='viewvax.php?id=".$row["acc_no"]."'>View</a></td>
+                                <td>N/A</td>
+                                <td>N/A</td>
+                                <td><a class='btn btn-secondary' target='_blank' href='../viewvax.php?id=".$row["acc_no"]."'>View</a></td>
                             ");
                         }
                         else if($vax == "" || NULL && !($cor== "" || NULL)){
                             echo ("
-                                <td><a class='btn btn-secondary' target='_blank' href='viewcor.php?id=".$row["acc_no"]."'>View</a></td>
-                                <td></td>
-                                <td></td>
+                                <td><a class='btn btn-secondary' target='_blank' href='../viewcor.php?id=".$row["acc_no"]."'>View</a></td>
+                                <td>N/A</td>
+                                <td>N/A</td>
                             ");
                         }
                         else{
                             echo ("
-                                <td><a class='btn btn-secondary' target='_blank' href='viewcor.php?id=".$row["acc_no"]."'>View</a></td>
-                                <td></td>
-                                <td><a class='btn btn-secondary' target='_blank' href='viewvax.php?id=".$row["acc_no"]."'>View</a></td>
+                                <td><a class='btn btn-secondary' target='_blank' href='../viewcor.php?id=".$row["acc_no"]."'>View</a></td>
+                                <td>N/A</td>
+                                <td><a class='btn btn-secondary' target='_blank' href='../viewvax.php?id=".$row["acc_no"]."'>View</a></td>
                             ");
                         }
                     }
@@ -69,36 +69,36 @@
                 else if($row["type"] == "employee" || "visitor"){
                     if($v_id == "" || NULL && $vax == "" || NULL){
                         echo ("
-                            <td></td><td></td><td></td>
+                            <td>N/A</td><td>N/A</td><td>N/A</td>
                         ");
                     }
                     else{
                         if($v_id == "" || NULL && !($vax == "" || NULL) ){
                             echo ("
-                                <td></td>
-                                <td></td>
-                                <td><a class='btn btn-secondary' target='_blank' href='viewvax.php?id=".$row["acc_no"]."'>View</a></td>
+                                <td>N/A</td>
+                                <td>N/A</td>
+                                <td><a class='btn btn-secondary' target='_blank' href='../viewvax.php?id=".$row["acc_no"]."'>View</a></td>
                             ");
                         }
                         else if($vax == "" || NULL && !($v_id == "" || NULL)){
                             echo ("
-                                <td></td>
-                                <td><a class='btn btn-secondary' target='_blank' href='view_vid.php?id=".$row["acc_no"]."'>View</a></td>
-                                <td></td>
+                                <td>N/A</td>
+                                <td><a class='btn btn-secondary' target='_blank' href='../view_vid.php?id=".$row["acc_no"]."'>View</a></td>
+                                <td>N/A</td>
                             ");
                         }
                         else{
                             echo ("
-                                <td></td>
-                                <td><a class='btn btn-secondary' target='_blank' href='view_vid.php?id=".$row["acc_no"]."'>View</a></td>
-                                <td><a class='btn btn-secondary' target='_blank' href='viewvax.php?id=".$row["acc_no"]."'>View</a></td>
+                                <td>N/A</td>
+                                <td><a class='btn btn-secondary' target='_blank' href='../view_vid.php?id=".$row["acc_no"]."'>View</a></td>
+                                <td><a class='btn btn-secondary' target='_blank' href='../viewvax.php?id=".$row["acc_no"]."'>View</a></td>
                             ");
                         }
                     }
                 }
                 echo "<td>
-                        <a class='btn btn-primary btn-sm' href='function/tofv_Approve.php?id=".$row['acc_no']."'>Approve</a>
-                        <a class='btn btn-danger btn-sm' href='function/tofv_Denied.php?id=".$row['acc_no']."'>Deny</a>
+                        <a class='btn btn-primary btn-sm' href='../function/tofv_Approve.php?id=".$row['acc_no']."'>Approve</a>
+                        <a class='btn btn-danger btn-sm' href='../function/tofv_Denied.php?id=".$row['acc_no']."'>Deny</a>
                     </td>
                 </tr>";
                     

@@ -13,7 +13,6 @@
                             <th>Valid ID Card</th>
                             <th>Purpose of Appointment</th>
                             <th>Date of Appointment</th>
-                            <th>Date of Expiration</th>
                             <th>Appointment Status</th>
                             <th>QR CODE</th>
                             <th>Actions</th>
@@ -41,11 +40,15 @@
                                     <tr>
                                         <td>".($count+1)."</td>
                                         <td>".$row["reason"]."</td>
-                                        <td>".$row["date_apt"]."</td>
-                                        <td>".$row["apt_exp"]."</td>
-                                        <td>".$row["apt_stats"]."</td>
-                                        <td><a class='btn btn-secondary' target='_blank' href='viewqr.php?id=".$row["acc_no"]."'>View</a></td>
+                                        <td>".$row["date"]."</td>
+                                        <td>".$row["status"]."</td>
                                 ");
+                                if($row['qr']!=NULL || ""){
+                                    echo ("<td><a class='btn btn-secondary' target='_blank' href='viewqr.php?id=".$row["acc_no"]."&reqid=".$row["req_id"]."'>View</a></td>");
+                                }
+                                else{
+                                    echo ("<td>N/A</td>");
+                                }
                             echo "<td>
                                     <a class='btn btn-danger' href='function/toapt-cancel.php?id=".$row['acc_no']."&req=".$row["req_id"]."'>Cancel</a>
                                 </td>
@@ -55,6 +58,7 @@
                             if($count ==9){
                                 break;
                             }
+                            
                             $count +=1;
                         }
                     ?>

@@ -19,7 +19,7 @@
 			$_SESSION["username"] = $r["username"];
 			$_SESSION["password"] = $r["password"];
 		}
-		header("location:../admin/admin.php");
+		header("location:../admin/adminx1.php");
 	}
 	else{
 		$select = "SELECT * FROM acc_temp WHERE username='$user'and password='$pass'";

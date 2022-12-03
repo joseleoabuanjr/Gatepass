@@ -4,8 +4,9 @@ require_once "function/connect.php";
 session_start();
 
 $id =$_GET['id'];
+$reqid = $_GET['reqid'];
 
-$select = "SELECT * FROM appointment WHERE acc_no = $id";
+$select = "SELECT * FROM appointment WHERE acc_no = $id AND req_id = $reqid";
 $result = mysqli_query($connect,$select);
 if (mysqli_num_rows($result) == 1) 
 {
@@ -17,7 +18,7 @@ if (mysqli_num_rows($result) == 1)
 			header("refresh: 2; url=index.php");
 		}
 		else{
-			echo '<img src="Images/'.$qr.'" height="300" width="300">';
+			echo '<center><img src="Images/'.$qr.'" height="300" width="300"></center>';
 		}
 		
     }

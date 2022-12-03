@@ -9,7 +9,7 @@
                 <a class="nav-link" href="" id="tl1">Users</a>
                 <a class="nav-link" href="" id="tl2">Verification</a>
                 <a class="nav-link" href="" id="tl3">Appointments</a>
-                <a class="nav-link" href="function/toLogout.php">Logout</a>
+                <a class="nav-link" href="../function/toLogout.php">Logout</a>
             </div>
         </div>
     </div>

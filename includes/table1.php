@@ -9,7 +9,6 @@
                 <th>Account Number</th>
                 <th>Name</th>
                 <th>Account Type</th>
-                <th>Account Status</th>
                 <th>Action</th>
             </tr>
         </thead>
@@ -31,13 +30,11 @@
                 $cor = $row["cor"];
                 $vax = $row["vax"];
                 $v_id = $row["valid_id"];
-                $req = $row["req_status"];
                 echo ("
                         <tr>
                             <td>".$row["acc_no"]."</td>
                             <td>".$row["first"]." ".$row["middle"].". ".$row["last"]."</td>
                             <td>".$row["type"]."</td>
-                            <td>".$row["verified"]."</td>
                     ");
                 echo "<td>
                         <a class='btn btn-danger btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Archive</a>

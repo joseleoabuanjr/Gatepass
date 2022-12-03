@@ -17,7 +17,7 @@
             require_once "../function/connect.php";
             
             //read all row from database table
-            $select = "SELECT * FROM user_account WHERE req_status = 'pending'";
+            $select = "SELECT * FROM appointment WHERE  status = 'pending'";
             $result = mysqli_query($connect,$select);
 
             if(!$result){
@@ -29,10 +29,10 @@
                 echo ("
                         <tr>
                             <td>".$row["acc_no"]."</td>
-                            <td>".$row["first"]." ".$row["middle"].". ".$row["last"]."</td>
+                            <td>".$row["name"]."</td>
                             <td>".$row["type"]."</td>
                             <td>".$row["reason"]."</td>
-                            <td>".$row["date_apt"]."</td>
+                            <td>".$row["date"]."</td>
                             <td>
                                 <a class='btn btn-primary btn-sm' href='function/toapt_Approve.php?id=".$row['acc_no']."'>Approve</a>
                                 <a class='btn btn-danger btn-sm' href='function/toapt_Denied.php?id=".$row['acc_no']."'>Deny</a>
