@@ -18,7 +18,7 @@
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script>
         $(document).ready(function () {
-            $("#userAccountsTable, #accountVerificationTable, #appointmentRequestTable").DataTable();
+            $("#userAccountsTable, #accountVerificationTable, #appointmentRequestTable, #timeinoutTable").DataTable();
         });
     </script>
 </head>
@@ -28,6 +28,7 @@
         <div class="table1" id="tbl1"><?php require '../includes/table1.php'; ?></div>
         <div class="table2--hidden" id="tbl2"><?php require '../includes/table2.php'; ?></div>
         <div class="table3--hidden" id="tbl3"><?php require '../includes/table3.php'; ?></div>
+        <div class="table4--hidden" id="tbl4"><?php require '../includes/table4.php'; ?></div>
         <!-- <?php require 'includes/admin-create.php'; ?> -->
     </div>
 

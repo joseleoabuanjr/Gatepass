@@ -38,6 +38,7 @@
                     ");
                 echo "<td>
                         <a class='btn btn-danger btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Archive</a>
+                        <a class='btn btn-secondary btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Block</a>
                     </td>
                 </tr>";
                     
