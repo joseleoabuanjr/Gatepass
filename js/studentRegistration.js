@@ -39,15 +39,16 @@ $(document).ready(function () {
                     console.log(response);
                     if (response.status) {
                         $("#successAlert").fadeIn();
-                        $("#registrationForm").reset();
+                        $("#registrationForm").trigger("reset");
+                        $("#registerSpinner").hide();
                     } else {
                         $("#errorAlert").html("An error has occurred during the registration process");
                         $("#errorAlert").fadeIn();
                     }
                 }, error: function (response) {
                     console.error(response.responseText);
-                    $("#errorAlert").html(response.responseText);
-                    $("#errorAlert").fadeIn();
+                    // $("#errorAlert").html(response.responseText);
+                    // $("#errorAlert").fadeIn();
                 }, beforeSend: function() {
                     $("#registerSpinner").show();
                 }
