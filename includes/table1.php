@@ -1,5 +1,5 @@
 <div class="table-responsive">
-    <table class="table" id="userAccountsTable">
+    <table class="table shadow-sm table-striped table-hover" id="userAccountsTable">
         <h2 style="padding-top: 60px; padding-bottom:20px;">User Accounts</h2>
         <!-- <div class="searchbar">
             <input type="text" name="s_name" id="s_n" placeholder="Name">

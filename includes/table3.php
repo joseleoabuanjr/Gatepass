@@ -1,4 +1,4 @@
-<table class="table" id="appointmentRequestTable">
+<table class="table shadow-sm table-striped table-hover" id="appointmentRequestTable">
     <h2 style="padding-top: 60px; padding-bottom:20px;">Appointment Request</h2>
     <thead>
         <tr style="background-color: #4F4F4B; color:white;">

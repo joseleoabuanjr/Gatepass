@@ -1,4 +1,4 @@
-<table class="table" id="accountVerificationTable">
+<table class="table shados-sm table-striped table-hover" id="accountVerificationTable">
     <h2 style="padding-top: 60px; padding-bottom:20px;">Account Verification</h2>
     <thead>
         <tr style="background-color: #4F4F4B; color:white;">
