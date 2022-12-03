@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
         tab2.classList.remove("tab2--hidden");
         tab2.classList.add("tab2");
     });
-    document.querySelector("#tab3").addEventListener("click", (e) => {
+    document.querySelector("#ta3").addEventListener("click", (e) => {
         e.preventDefault();
         //hide
         tab1.classList.remove("tab1");
