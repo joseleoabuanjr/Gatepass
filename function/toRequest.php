@@ -7,8 +7,8 @@
     $id = $_GET['id'];
     $pps = $_POST['purpose'];
     $date= $_POST['date'];
-    $scan_s = "denied";
-    $apt_s = "pending";
+    $s_stats = "denied";
+    $status = "pending";
     $exp = date_create($date);
     
     // Use date_add() function to add date object
