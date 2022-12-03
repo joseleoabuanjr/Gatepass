@@ -2,15 +2,31 @@
     margin: 0%;
     padding: 0%;
     box-sizing: border-box;
-    font-family: 'Open Sans';
+    /* font-family: 'Open Sans'; */
 }
 body{
-    background-color: #840E0E;
+    background-color: #fff7f7;
     background-size:cover;
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center
 }
+
+nav {
+    background-image: url("../resources/bg1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.init {
+    font-size: 27px;
+}
+
+.navbar-brand {
+    font-family: 'Open Sans';
+}
+
 .btn-p{
     background-color: #d62121;
     font-size: 16px;

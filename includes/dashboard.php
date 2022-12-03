@@ -1,45 +1,42 @@
 <div class="container d-flex justify-content-center align-items-center flex-column" style="height:auto;padding-bottom:40px;">
-    <?php 
-        $accno = $_SESSION["accno"];
-        $select = "SELECT * FROM user_account WHERE acc_no = $accno";
-        $result = mysqli_query($connect, $select);
+    <?php
+    $accno = $_SESSION["accno"];
+    $select = "SELECT * FROM user_account WHERE acc_no = $accno";
+    $result = mysqli_query($connect, $select);
 
-        if (mysqli_num_rows($result) > 0) {
-
-            while ($row = mysqli_fetch_assoc($result)) {
-                if($row['verification']=="unverified"){
-                    echo '
-                    <div style="width:100%;padding-top:80px;">
-                        <div class="alert alert-warning" role="alert">
+    if (mysqli_num_rows($result) > 0) {
+        if ($row = mysqli_fetch_assoc($result)) {
+            if ($row['verification'] == "unverified") {
+                echo '
+                    <div class="w-100 pt-4">
+                        <div class="alert text-center fw-bold alert-warning shadow-sm" role="alert">
                             Your account is not yet fully verified. Please <a href="">verify</a> now.
                         </div>
                     </div>
                     <div class="titlepg" style="width:100%; padding-top:20px;">
                         <h1>My Dashboard</h1>
                     </div> 
-                    '; 
-                }
-                else if($row['verification']=="pending"){
-                    echo '
-                    <div style="width:100%;padding-top:80px;">
-                        <div class="alert alert-warning" role="alert">
+                    ';
+            } else if ($row['verification'] == "pending") {
+                echo '
+                    <div class="w-100 pt-4">
+                        <div class="alert text-center fw-bold alert-warning shadow" role="alert">
                             Your account verification status is pending. Please wait until your account is fully verified.
                         </div>
                     </div>
-                    <div class="titlepg" style="width:100%; padding-top:20px;">
+                    <div class="titlepg pt-4 w-100"">
                         <h1>My Dashboard</h1>
                     </div> 
-                    '; 
-                }
-                else{
-                    echo'
+                    ';
+            } else {
+                echo '
                     <div class="titlepg" style="width:100%; padding-top:100px;">
                         <h1>My Dashboard</h1>
                     </div>
                 ';
-                }
             }
         }
+    }
     ?>
     <div class="container d-flex justify-content-center align-items-start" style="width:100%;height: 100%;">
         <?php
@@ -62,7 +59,7 @@
                     $mid = $row["middle"];
                     $last = $row["last"];
                     $col = $row["college"];
-                    $course =$row["course"];
+                    $course = $row["course"];
                     $year = $row["year"];
                     $section = $row["section"];
 
@@ -77,23 +74,22 @@
                                 </div>
                                 <div class="d-flex justify-content-left align-items-left flex-column" style="padding-left:20px; width:100%">
                                     <div class="ctype">
-                                    '.strtoupper($type).'
+                                    ' . strtoupper($type) . '
                                     </div>
                                     <div class="wc">
-                                        Welcome! '.ucfirst($first).'
+                                        Welcome! ' . ucfirst($first) . '
                                     </div>
                                 </div>
                             </div>
                             <div style="width:100%;padding:40px 0;">
                     ');
-                    if($row['verification']=="pending"){
+                    if ($row['verification'] == "pending") {
                         echo '
                                 <div class="status2">Pending Verification</div>
                             </div>
                         </div>
                         ';
-                    }
-                    else if($row['verification']=="verified"){
+                    } else if ($row['verification'] == "verified") {
                         echo '
                                 <div class="status3">Verified</div>
                             </div>
@@ -102,13 +98,12 @@
                                     <h2>Your QR Code</h2>
                                 </div>
                                 <div>
-                                    <img src="Images/'.$qr.'" height="150" width="150">
+                                    <img src="Images/' . $qr . '" height="150" width="150">
                                 </div>
                             </div>
                         </div>
                         ';
-                    }
-                    else{
+                    } else {
                         echo '
                                 <div class="status1">Unverified</div>
                             </div>
@@ -141,19 +136,19 @@
                                     </div>
                                     <div class="t-info" style="width:100%;">
                                         <div class="info-v" style="padding:10px">
-                                            '.$studno.'
+                                            ' . $studno . '
                                         </div>
                                         <div class="info-v" style="padding:10px">
-                                            '.$first.' '.$mid.'. '.$last.'
+                                            ' . $first . ' ' . $mid . '. ' . $last . '
                                         </div>
                                         <div class="info-v" style="padding:10px">
-                                            '.$col.'
+                                            ' . $col . '
                                         </div>
                                         <div class="info-v" style="padding:10px">
-                                            '.$course.'
+                                            ' . $course . '
                                         </div>
                                         <div class="info-v" style="padding:10px">
-                                            '.$year.$section.'
+                                            ' . $year . $section . '
                                         </div>
                                     </div>
                                 </div>
@@ -175,8 +170,7 @@
                             </div>
                         </div>
                     ');
-                }
-                else if ($row['type'] == "employee") {
+                } else if ($row['type'] == "employee") {
                     $qr = $row["qr"];
                     $img = $row["image"];
                     $type = $row["type"];
@@ -185,8 +179,8 @@
                     $mid = $row["middle"];
                     $last = $row["last"];
                     $col = "none";
-                    
-                    
+
+
                     $bday = $row["birthday"];
                     $add = $row["address"];
                     $tempbday = date_create($bday);
@@ -200,23 +194,22 @@
                                 </div>
                                 <div class="d-flex justify-content-left align-items-left flex-column" style="padding-left:20px; width:100%">
                                     <div class="ctype">
-                                    '.strtoupper($type).'
+                                    ' . strtoupper($type) . '
                                     </div>
                                     <div class="wc">
-                                        Welcome! '.ucfirst($first).'
+                                        Welcome! ' . ucfirst($first) . '
                                     </div>
                                 </div>
                             </div>
                             <div style="width:100%;padding:40px 0;">
                     ');
-                    if($row['verification']=="pending"){
+                    if ($row['verification'] == "pending") {
                         echo '
                                 <div class="status2">Pending Verification</div>
                             </div>
                         </div>
                         ';
-                    }
-                    else if($row['verification']=="verified"){
+                    } else if ($row['verification'] == "verified") {
                         echo '
                                 <div class="status3">Verified</div>
                             </div>
@@ -225,13 +218,12 @@
                                     <h2>Your QR Code</h2>
                                 </div>
                                 <div>
-                                    <img src="Images/'.$qr.'" height="150" width="150">
+                                    <img src="Images/' . $qr . '" height="150" width="150">
                                 </div>
                             </div>
                         </div>
                         ';
-                    }
-                    else{
+                    } else {
                         echo '
                                 <div class="status1">Unverified</div>
                             </div>
@@ -255,16 +247,16 @@
                                     </div>
                                     <div class="t-info" style="width:100%;">
                                         <div class="info-v" style="padding:10px">
-                                            '.$empno.'
+                                            ' . $empno . '
                                         </div>
                                         <div class="info-v" style="padding:10px">
-                                            '.$first.' '.$mid.'. '.$last.'
+                                            ' . $first . ' ' . $mid . '. ' . $last . '
                                         </div>
                                         <div class="info-v" style="padding:10px">
-                                            '.$bday.'
+                                            ' . $bday . '
                                         </div>
                                         <div class="info-v" style="padding:10px">
-                                            '.$add.'
+                                            ' . $add . '
                                         </div>
                                     </div>
                                 </div>
@@ -286,8 +278,7 @@
                             </div>
                         </div>
                     ');
-                } 
-                else if ($row['type'] == "visitor") {
+                } else if ($row['type'] == "visitor") {
                     $qr = $row["qr"];
                     $img = $row["image"];
                     $type = $row["type"];
@@ -309,23 +300,22 @@
                                 </div>
                                 <div class="d-flex justify-content-left align-items-left flex-column" style="padding-left:20px; width:100%">
                                     <div class="ctype">
-                                    '.strtoupper($type).'
+                                    ' . strtoupper($type) . '
                                     </div>
                                     <div class="wc">
-                                        Welcome! '.ucfirst($first).'
+                                        Welcome! ' . ucfirst($first) . '
                                     </div>
                                 </div>
                             </div>
                             <div style="width:100%;padding:40px 0;">
                     ');
-                    if($row['verification']=="pending"){
+                    if ($row['verification'] == "pending") {
                         echo '
                                 <div class="status2">Pending Verification</div>
                             </div>
                         </div>
                         ';
-                    }
-                    else if($row['verification']=="verified"){
+                    } else if ($row['verification'] == "verified") {
                         echo '
                                 <div class="status3">Verified</div>
                             </div>
@@ -334,13 +324,12 @@
                                     <h2>Your QR Code</h2>
                                 </div>
                                 <div>
-                                    <img src="Images/'.$qr.'" height="150" width="150">
+                                    <img src="Images/' . $qr . '" height="150" width="150">
                                 </div>
                             </div>
                         </div>
                         ';
-                    }
-                    else{
+                    } else {
                         echo '
                                 <div class="status1">Unverified</div>
                             </div>
@@ -364,16 +353,16 @@
                                     </div>
                                     <div class="t-info" style="width:100%;">
                                         <div class="info-v" style="padding:10px">
-                                            '.$accno.'
+                                            ' . $accno . '
                                         </div>
                                         <div class="info-v" style="padding:10px">
-                                            '.$first.' '.$mid.'. '.$last.'
+                                            ' . $first . ' ' . $mid . '. ' . $last . '
                                         </div>
                                         <div class="info-v" style="padding:10px">
-                                            '.$bday.'
+                                            ' . $bday . '
                                         </div>
                                         <div class="info-v" style="padding:10px">
-                                            '.$add.'
+                                            ' . $add . '
                                         </div>
                                     </div>
                                 </div>
@@ -395,13 +384,11 @@
                             </div>
                         </div>
                     ');
-                } 
-                else {
+                } else {
                     echo "NO RESULTS FOUND.";
                 }
             }
-        } 
-        else {
+        } else {
             echo "NO RESULTS FOUND.";
         }
         mysqli_close($connect);
