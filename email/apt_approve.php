@@ -67,7 +67,7 @@
 
         if($mail->send()){
             echo "<script>console.log('Sent Successfully')</script>";
-            header("refresh: 0; url='../admin.php'");
+            header("refresh: 0; url='../admin/admin.php'");
         }
     }
     else{

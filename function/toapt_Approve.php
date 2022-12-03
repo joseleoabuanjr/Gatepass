@@ -1,9 +1,10 @@
 <?php
-    // //include qr api
-    // require_once "../phpqrcode/qrlib.php";
+    //include qr api
+    require_once "../phpqrcode/qrlib.php";
     include 'connect.php';
 
     $id = $_GET["id"];
+    $reqid = $_GET["reqid"];
     $status = "approved";
 
     //--CHECKING DATA
@@ -25,14 +26,14 @@
         }
         $name = $first." ".$mid.". ".$last;
 
-        $text = $id.":".$reqid.":".$name.":".rand(10,99);//Only the student number will  be saved in the QR Code;
+        $text = $id.":".$reqid.":".$name.":".rand(10,9999);//Only the student number will  be saved in the QR Code;
 				//If you want every information be stored in the QR Code use the code below instead;
 				
         $path = '../Images/'; //name of folder where to store all QR Images
         $file = $path.$id.".png"; //format of filename for each QR Images created. Ex: Images/2022123456.png;
         QRcode::png($text, $file, 'L', 5, 2); //generates QR Images, Parameters are (Text Contents, File Name, ECC, QRSize, FrameSize);
         
-        $update = "UPDATE appointment SET req_status = '$status' WHERE acc_no = $id";
+        $update = "UPDATE appointment SET status = '$status', qr ='$file' WHERE acc_no = $id AND req_id = '$reqid'";
 
         if(mysqli_query($connect,$update))
         {
