@@ -80,30 +80,31 @@
 							{
 								echo"<script>console.log('Time In Success')</script>";
 								//end ng attendance
-								echo ("
-									<body onload='autoClose();'style='background-color:#d4edda;'>
-										<center>
-											<div class='cont' style='width:100%; height:95vh;display:flex; justify-content:center; align-items:center;'>
-												<div style='background-color:white;display:flex; justify-content:center; align-items:center; padding:20px;'>
-													<div style='display:flex; justify-content:center; align-items:center;'>
-														<img src='data:image;base64,".$img."' height='250' width='250' onload='granted()'>
-													</div>
-													<div style='display:flex; justify-content:flex-start;flex-direction:column; align-content:center;text-align: left; padding-left:20px;'>
-														<h2>Student No.: " . $acc_no . "</h2>
-														<h2>Name.: " . $name . "</h2>
-														<h2>Status: Granted</h2>
-													</div>
-												</div>
-											</div>
-										</center>
-									</body>
-								");
 							}
 							else
 							{
 								echo"<script>console.log('Time In Error')";
 							}	
 						}
+
+						echo ("
+							<body onload='autoClose();'style='background-color:#d4edda;'>
+								<center>
+									<div class='cont' style='width:100%; height:95vh;display:flex; justify-content:center; align-items:center;'>
+										<div style='background-color:white;display:flex; justify-content:center; align-items:center; padding:20px;'>
+											<div style='display:flex; justify-content:center; align-items:center;'>
+												<img src='data:image;base64,".$img."' height='250' width='250' onload='granted()'>
+											</div>
+											<div style='display:flex; justify-content:flex-start;flex-direction:column; align-content:center;text-align: left; padding-left:20px;'>
+												<h2>Student No.: " . $acc_no . "</h2>
+												<h2>Name.: " . $name . "</h2>
+												<h2>Status: Granted</h2>
+											</div>
+										</div>
+									</div>
+								</center>
+							</body>
+						");
 					}
 
 				}
