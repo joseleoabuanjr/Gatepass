@@ -70,7 +70,7 @@
         <form class="border rounded-3" method="post" action="function/toRequest.php?id=<?php echo ("$id"); ?>" enctype="multipart/form-data" style="width: 100%; padding:40px">
             <h1 style="margin-bottom: 20px;">Appointment Request</h1>
             <div class="form-floating"  style="margin-bottom: 10px;">
-                <input type="date" name="date" id="date1" class="form-control">
+                <input type="date" min="2022-12-03" name="date" id="date1" class="form-control">
                 <label>Date of Appointment:</label>
             <div class="msg" id="msguser"></div>
             </div>
