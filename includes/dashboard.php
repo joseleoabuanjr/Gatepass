@@ -55,6 +55,8 @@
                     $qr = $row["qr"];
                     $img = $row["image"];
                     $type = $row["type"];
+                    $bday = $row["birthday"];
+                    $add = $row["address"];
                     $studno = $row["stud_no"];
                     $first = $row["first"];
                     $mid = $row["middle"];
@@ -63,6 +65,9 @@
                     $course =$row["course"];
                     $year = $row["year"];
                     $section = $row["section"];
+
+                    $tempbday = date_create($bday);
+                    $bday = date_format($tempbday, "F/d/Y");
 
                     echo ('
                         <div class"d-flex justify-content-center" style="width:40%; height:100%; padding-top:50px;">
@@ -180,6 +185,12 @@
                     $mid = $row["middle"];
                     $last = $row["last"];
                     $col = "none";
+                    
+                    
+                    $bday = $row["birthday"];
+                    $add = $row["address"];
+                    $tempbday = date_create($bday);
+                    $bday = date_format($tempbday, "F/d/Y");
 
                     echo ('
                         <div class"d-flex justify-content-center" style="width:40%; height:100%; padding-top:50px;">
@@ -249,6 +260,12 @@
                                         <div class="info-v" style="padding:10px">
                                             '.$first.' '.$mid.'. '.$last.'
                                         </div>
+                                        <div class="info-v" style="padding:10px">
+                                            '.$bday.'
+                                        </div>
+                                        <div class="info-v" style="padding:10px">
+                                            '.$add.'
+                                        </div>
                                     </div>
                                 </div>
                                 <div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
@@ -278,6 +295,11 @@
                     $first = $row["first"];
                     $mid = $row["middle"];
                     $last = $row["last"];
+
+                    $bday = $row["birthday"];
+                    $add = $row["address"];
+                    $tempbday = date_create($bday);
+                    $bday = date_format($tempbday, "F d, Y");
 
                     echo ('
                         <div class"d-flex justify-content-center" style="width:40%; height:100%; padding-top:50px;">
@@ -346,6 +368,12 @@
                                         </div>
                                         <div class="info-v" style="padding:10px">
                                             '.$first.' '.$mid.'. '.$last.'
+                                        </div>
+                                        <div class="info-v" style="padding:10px">
+                                            '.$bday.'
+                                        </div>
+                                        <div class="info-v" style="padding:10px">
+                                            '.$add.'
                                         </div>
                                     </div>
                                 </div>
