@@ -298,6 +298,7 @@
 								</body>
 							");
 						}
+
 					}
 					else if($status == "denied" || "blocked"){
 						echo ("
