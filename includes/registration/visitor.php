@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Registration</title>
+    <title>Visitor Registration</title>
     <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <link rel="stylesheet" href="../../css/registration.css">
@@ -16,12 +16,12 @@
             <div class="mb-3 text-center">
                 <img class="" src="../../resources/bulsulogo.png" alt="" height="50">
                 <h3 class="m-1">BulSU GatePass</h3>
-                <h5 class="mb-3 text-uppercase">Employee Registration</h5>
+                <h5 class="mb-3 text-uppercase">Visitor Registration</h5>
             </div>
             <div class="progress mb-3" style="height: 4px;">
                 <div class="progress-bar" role="progressbar" style="width: 50%;"></div>
             </div>
-            <form method="post" action="../../function/toRegister.php?id=2" enctype="multipart/form-data">
+            <form method="post" action="../../function/toRegister.php?id=3" enctype="multipart/form-data">
                 <div id="step1">
                     <div class="row row-cols-1 row-cols-md-3 g-2">
                         <div class="col">
@@ -152,7 +152,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="../../js/employeeRegistration.js"></script>
+    <script src="../../js/visitorRegistration.js"></script>
 </body>
 
 </html>
