@@ -24,6 +24,13 @@
                         require_once "function/connect.php";
 
                         $accno= $_SESSION["accno"];
+                        //Get Current Time
+                        $tz = 'Asia/Manila';
+                        $timestamp = time();
+                        $dt = new DateTime("now", new DateTimeZone($tz));
+                        $dt ->setTimestamp($timestamp);
+                        $curdate = $dt->format('Y-m-d');
+                        $mindate = date('Y-m-d', strtotime($curdate. ' + 1 days'));
 
                         //read all row from database table
                         $select = "SELECT * FROM appointment WHERE acc_no ='$accno'";
@@ -70,7 +77,7 @@
         <form class="border rounded-3" method="post" action="function/toRequest.php?id=<?php echo ("$id"); ?>" enctype="multipart/form-data" style="width: 100%; padding:40px">
             <h1 style="margin-bottom: 20px;">Appointment Request</h1>
             <div class="form-floating"  style="margin-bottom: 10px;">
-                <input type="date" min="2022-12-03" name="date" id="date1" class="form-control">
+                <input type="date" min="<?php echo $mindate; ?>" name="date" id="date1" class="form-control">
                 <label>Date of Appointment:</label>
             <div class="msg" id="msguser"></div>
             </div>
