@@ -1,54 +1,117 @@
 <div class="container">
+    <?php
+    $accno = $_SESSION["accno"];
+    $select = "SELECT * FROM user_account WHERE acc_no = $accno";
+    $result = mysqli_query($connect, $select);
 
-    <div class="container py-4">
+    if (mysqli_num_rows($result) > 0) {
+        if ($row = mysqli_fetch_assoc($result)) {
+            $qr = $row["qr"];
+            $img = $row["image"];
+            $type = $row["type"];
+            $bday = $row["birthday"];
+            $add = $row["address"];
+            $studno = $row["stud_no"];
+            $empno = $row["emp_no"];
+            $first = $row["first"];
+            $mid = $row["middle"];
+            $last = $row["last"];
+            $col = $row["college"];
+            $course = $row["course"];
+            $year = $row["year"];
+            $section = $row["section"];
+            $contactNo = $row["contact_no"];
+            $email = $row["email"];
+
+            $idNum = $studno;
+            if ($type == "employee") {
+                $idNum = $empno;
+            }
+
+            $status = $row['verification'];
+            $statusColor = "text-bg-success";
+            if ($status != "verified") {
+                $statusColor = "text-bg-warning";
+            }
+
+            $tempbday = date_create($bday);
+            $bday = date_format($tempbday, "F d, Y");
+            if ($status == "unverified") {
+                echo '
+                    <div class="w-100 pt-4">
+                        <div class="alert text-center fw-bold alert-warning shadow-sm" role="alert">
+                            Your account is not yet fully verified. Please <a href="">verify</a> now.
+                        </div>
+                    </div>
+                    ';
+            } else if ($status == "pending") {
+                echo '
+                    <div class="w-100 pt-4">
+                        <div class="alert text-center fw-bold alert-warning shadow" role="alert">
+                            Your account verification status is pending. Please wait until your account is fully verified.
+                        </div>
+                    </div>
+                    ';
+            }
+        }
+    }
+    ?>
+
+    <div class="py-4">
         <header class="pb-3 mb-4 border-bottom">
-            <a href="/" class="d-flex align-items-center text-dark text-decoration-none">
+            <div class="d-flex align-items-center text-dark text-decoration-none">
                 <span class="fs-4">My Dashboard</span>
-            </a>
+            </div>
         </header>
 
         <div class="p-5 mb-4 bg-light shadow-sm rounded-3">
             <div class="row g-2">
                 <div class="col-10">
                     <div class="row">
-                        <div class="col d-flex align-items-center">
-                            <img src="resources/3.png" class="img-fluid rounded-circle">
+                        <div class="col-12 col-md-4 d-flex align-items-center">
+                            <img src="data:image;base64,<?php echo $img; ?>" class="img-fluid rounded-circle">
                         </div>
-                        <div class="col-8 d-flex align-items-center">
+                        <div class="col-12 col-md-8 d-flex align-items-center">
                             <div class="container-fluid py-5">
-                                <small class="fw-bold text-secondary">221000001</small> <span class="badge text-bg-success">Verified</span>
-                                <h1 class="display-5 fw-bold">Jose Leo Abuan</h1>
-                                <h6><i class="fas fa-phone me-3"></i>09050778422</h6>
-                                <h6><i class="fas fa-envelope me-3"></i>leoabuan112201@gmail.com</h6>
-                                <h6 class="text-success text-uppercase"><i class="fas fa-users me-3"></i>Visitor</h6>
-                                
+                                <small class="fw-bold text-secondary"><?php echo $idNum; ?></small> <span class="badge <?php echo $statusColor; ?> text-capitalize"><?php echo $status; ?></span>
+                                <h1 class="display-5 fw-bold text-capitalize"><?php echo $first . ' ' . $last; ?></h1>
+                                <h6><i class="fas fa-phone me-3"></i><?php echo $contactNo; ?></h6>
+                                <h6><i class="fas fa-envelope me-3"></i><?php echo $email; ?></h6>
+                                <h6 class="text-uppercase"><i class="fas fa-users me-3"></i><?php echo $type; ?></h6>
+
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col d-flex align-items-center border-1 p-1">
-                    <div class="text-center">
-                        <img src="Images/221000001.png" class="img-fluid mx-auto">
-                        <button class="btn btn-sm btn-dark">Download</button>
+                <?php
+                if ($status == "verified") {
+                    echo '
+                    <div class="col d-flex align-items-center">
+                        <div class="text-center">
+                            <img src="Images/' . $qr . '" class="img-fluid mx-auto">
+                            <a href="Images/' . $qr . '" class="btn btn-sm btn-dark" download>Download</a>
+                        </div>
                     </div>
-                </div>
-            </div>
+                    ';
+                }
+                ?>
 
+            </div>
         </div>
 
         <div class="row align-items-md-stretch">
             <div class="col-md-6">
                 <div class="h-100 p-5 text-bg-dark rounded-3 shadow-sm">
                     <h2>Profile Summary</h2>
-                    <div class="row row-cols-2">    
+                    <div class="row row-cols-1 row-cols-md-2">
                         <div class="col">Contact Number: </div>
-                        <div class="col">09050778422</div>
+                        <div class="col"><?php echo $contactNo; ?></div>
                         <div class="col">Email Address: </div>
-                        <div class="col">leoabuan112201@gmail.com</div>
+                        <div class="col"><?php echo $email; ?></div>
                         <div class="col">Address: </div>
-                        <div class="col">Malolos</div>
+                        <div class="col"><?php echo $add; ?></div>
                         <div class="col">Birthdate: </div>
-                        <div class="col">December 19, 2000</div>
+                        <div class="col"><?php echo $bday; ?></div>
 
                     </div>
                 </div>
@@ -56,10 +119,24 @@
             <div class="col-md-6">
                 <div class="h-100 p-5 bg-light border rounded-3 shadow-sm">
                     <h2>Appointment Summary</h2>
-                    <h4 class="text-primary">Friday, December 9, 2022</h4>
+                    <?php
+                    $select = "SELECT * FROM appointment WHERE acc_no = $accno";
+                    $result = mysqli_query($connect, $select);
+
+                    if (mysqli_num_rows($result) > 0) {
+                        while ($row = mysqli_fetch_assoc($result)) {
+                            $date = $row["date"];
+                            $reason = $row["reason"];
+                            $temp = date_create($date);
+                            $date = date_format($temp, "l, F d, Y");
+
+                        }
+                    }
+                    ?>
+                    <h4 class="text-primary"><?php echo $date; ?></h4>
                     <ul>
-                        <li>Request for Certificate of Registration</li>
-                        <li>Request for Certificate of Grade</li>
+                        <li><?php echo $reason; ?></li>
+                        
                     </ul>
                 </div>
             </div>
