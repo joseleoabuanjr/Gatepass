@@ -129,28 +129,30 @@
                             $reason = $row["reason"];
                             $temp = date_create($date);
                             $date = date_format($temp, "l, F d, Y");
-
                         }
                     }
                     ?>
                     <h4 class="text-primary"><?php echo $date; ?></h4>
                     <ul>
                         <li><?php echo $reason; ?></li>
-                        
+
                     </ul>
                 </div>
             </div>
         </div>
+    </div>
+    <!-- END OF DASHBOARD V2 -->
 
-        <?php
-        $accno = $_SESSION["accno"];
-        $select = "SELECT * FROM user_account WHERE acc_no = $accno";
-        $result = mysqli_query($connect, $select);
 
-        if (mysqli_num_rows($result) > 0) {
-            if ($row = mysqli_fetch_assoc($result)) {
-                if ($row['verification'] == "unverified") {
-                    echo '
+    <?php
+    $accno = $_SESSION["accno"];
+    $select = "SELECT * FROM user_account WHERE acc_no = $accno";
+    $result = mysqli_query($connect, $select);
+
+    if (mysqli_num_rows($result) > 0) {
+        if ($row = mysqli_fetch_assoc($result)) {
+            if ($row['verification'] == "unverified") {
+                echo '
                     <div class="w-100 pt-4">
                         <div class="alert text-center fw-bold alert-warning shadow-sm" role="alert">
                             Your account is not yet fully verified. Please <a href="">verify</a> now.
@@ -160,8 +162,8 @@
                         <h1>My Dashboard</h1>
                     </div> 
                     ';
-                } else if ($row['verification'] == "pending") {
-                    echo '
+            } else if ($row['verification'] == "pending") {
+                echo '
                     <div class="w-100 pt-4">
                         <div class="alert text-center fw-bold alert-warning shadow" role="alert">
                             Your account verification status is pending. Please wait until your account is fully verified.
@@ -171,45 +173,45 @@
                         <h1>My Dashboard</h1>
                     </div> 
                     ';
-                } else {
-                    echo '
+            } else {
+                echo '
                     <div class="titlepg" style="width:100%; padding-top:100px;">
                         <h1>My Dashboard</h1>
                     </div>
                 ';
-                }
             }
         }
-        ?>
-        <div class="container d-flex justify-content-center align-items-start" style="width:100%;height: 100%;">
-            <?php
+    }
+    ?>
+    <div class="container d-flex justify-content-center align-items-start" style="width:100%;height: 100%;">
+        <?php
 
-            $accno = $_SESSION["accno"];
-            $select = "SELECT * FROM user_account WHERE acc_no = $accno";
-            $result = mysqli_query($connect, $select);
+        $accno = $_SESSION["accno"];
+        $select = "SELECT * FROM user_account WHERE acc_no = $accno";
+        $result = mysqli_query($connect, $select);
 
-            if (mysqli_num_rows($result) > 0) {
+        if (mysqli_num_rows($result) > 0) {
 
-                while ($row = mysqli_fetch_assoc($result)) {
-                    if ($row['type'] == "student") {
-                        $qr = $row["qr"];
-                        $img = $row["image"];
-                        $type = $row["type"];
-                        $bday = $row["birthday"];
-                        $add = $row["address"];
-                        $studno = $row["stud_no"];
-                        $first = $row["first"];
-                        $mid = $row["middle"];
-                        $last = $row["last"];
-                        $col = $row["college"];
-                        $course = $row["course"];
-                        $year = $row["year"];
-                        $section = $row["section"];
+            while ($row = mysqli_fetch_assoc($result)) {
+                if ($row['type'] == "student") {
+                    $qr = $row["qr"];
+                    $img = $row["image"];
+                    $type = $row["type"];
+                    $bday = $row["birthday"];
+                    $add = $row["address"];
+                    $studno = $row["stud_no"];
+                    $first = $row["first"];
+                    $mid = $row["middle"];
+                    $last = $row["last"];
+                    $col = $row["college"];
+                    $course = $row["course"];
+                    $year = $row["year"];
+                    $section = $row["section"];
 
-                        $tempbday = date_create($bday);
-                        $bday = date_format($tempbday, "F/d/Y");
+                    $tempbday = date_create($bday);
+                    $bday = date_format($tempbday, "F/d/Y");
 
-                        echo ('
+                    echo ('
                         <div class="">
                             <div class="d-flex justify-content-left align-items-center" style="width:100%;">
                                 <div style="width:60%">
@@ -226,14 +228,14 @@
                             </div>
                             <div style="width:100%;padding:40px 0;">
                     ');
-                        if ($row['verification'] == "pending") {
-                            echo '
+                    if ($row['verification'] == "pending") {
+                        echo '
                                 <div class="status2">Pending Verification</div>
                             </div>
                         </div>
                         ';
-                        } else if ($row['verification'] == "verified") {
-                            echo '
+                    } else if ($row['verification'] == "verified") {
+                        echo '
                                 <div class="status3">Verified</div>
                             </div>
                             <div class="d-none justify-content-center align-items-center flex-column" style="width:100%;">
@@ -246,14 +248,14 @@
                             </div>
                         </div>
                         ';
-                        } else {
-                            echo '
+                    } else {
+                        echo '
                                 <div class="status1">Unverified</div>
                             </div>
                         </div>
                         ';
-                        }
-                        echo ('
+                    }
+                    echo ('
                         <div class"blur d-flex justify-content-center flex-column" style="width:90%; height:100%; padding-top:50px; padding-left:40px;">
                             <div class="d-flex justify-content-left align-items-start flex-column" style="width:100%; height:500px; border:1px solid black; padding:40px">
                                 <div class="titleinfo" style="padding-bottom:10px;">
@@ -313,23 +315,23 @@
                             </div>
                         </div>
                     ');
-                    } else if ($row['type'] == "employee") {
-                        $qr = $row["qr"];
-                        $img = $row["image"];
-                        $type = $row["type"];
-                        $empno = $row["emp_no"];
-                        $first = $row["first"];
-                        $mid = $row["middle"];
-                        $last = $row["last"];
-                        $col = "none";
+                } else if ($row['type'] == "employee") {
+                    $qr = $row["qr"];
+                    $img = $row["image"];
+                    $type = $row["type"];
+                    $empno = $row["emp_no"];
+                    $first = $row["first"];
+                    $mid = $row["middle"];
+                    $last = $row["last"];
+                    $col = "none";
 
 
-                        $bday = $row["birthday"];
-                        $add = $row["address"];
-                        $tempbday = date_create($bday);
-                        $bday = date_format($tempbday, "F/d/Y");
+                    $bday = $row["birthday"];
+                    $add = $row["address"];
+                    $tempbday = date_create($bday);
+                    $bday = date_format($tempbday, "F/d/Y");
 
-                        echo ('
+                    echo ('
                         <div class"d-flex justify-content-center" style="width:40%; height:100%; padding-top:50px;">
                             <div class="d-flex justify-content-left align-items-center" style="width:100%;">
                                 <div style="width:60%">
@@ -346,14 +348,14 @@
                             </div>
                             <div style="width:100%;padding:40px 0;">
                     ');
-                        if ($row['verification'] == "pending") {
-                            echo '
+                    if ($row['verification'] == "pending") {
+                        echo '
                                 <div class="status2">Pending Verification</div>
                             </div>
                         </div>
                         ';
-                        } else if ($row['verification'] == "verified") {
-                            echo '
+                    } else if ($row['verification'] == "verified") {
+                        echo '
                                 <div class="status3">Verified</div>
                             </div>
                             <div class="d-none justify-content-center align-items-center flex-column" style="width:100%;">
@@ -366,14 +368,14 @@
                             </div>
                         </div>
                         ';
-                        } else {
-                            echo '
+                    } else {
+                        echo '
                                 <div class="status1">Unverified</div>
                             </div>
                         </div>
                         ';
-                        }
-                        echo ('
+                    }
+                    echo ('
                         <div class"blur d-flex justify-content-center flex-column" style="width:90%; height:100%; padding-top:50px; padding-left:40px;">
                             <div class="d-flex justify-content-left align-items-start flex-column" style="width:100%; height:500px; border:1px solid black; padding:40px">
                                 <div class="titleinfo" style="padding-bottom:10px;">
@@ -421,21 +423,21 @@
                             </div>
                         </div>
                     ');
-                    } else if ($row['type'] == "visitor") {
-                        $qr = $row["qr"];
-                        $img = $row["image"];
-                        $type = $row["type"];
-                        $studno = $row["stud_no"];
-                        $first = $row["first"];
-                        $mid = $row["middle"];
-                        $last = $row["last"];
+                } else if ($row['type'] == "visitor") {
+                    $qr = $row["qr"];
+                    $img = $row["image"];
+                    $type = $row["type"];
+                    $studno = $row["stud_no"];
+                    $first = $row["first"];
+                    $mid = $row["middle"];
+                    $last = $row["last"];
 
-                        $bday = $row["birthday"];
-                        $add = $row["address"];
-                        $tempbday = date_create($bday);
-                        $bday = date_format($tempbday, "F d, Y");
+                    $bday = $row["birthday"];
+                    $add = $row["address"];
+                    $tempbday = date_create($bday);
+                    $bday = date_format($tempbday, "F d, Y");
 
-                        echo ('
+                    echo ('
                         <div class"d-flex justify-content-center" style="width:40%; height:100%; padding-top:50px;">
                             <div class="d-flex justify-content-left align-items-center" style="width:100%;">
                                 <div style="width:60%">
@@ -452,14 +454,14 @@
                             </div>
                             <div style="width:100%;padding:40px 0;">
                     ');
-                        if ($row['verification'] == "pending") {
-                            echo '
+                    if ($row['verification'] == "pending") {
+                        echo '
                                 <div class="status2">Pending Verification</div>
                             </div>
                         </div>
                         ';
-                        } else if ($row['verification'] == "verified") {
-                            echo '
+                    } else if ($row['verification'] == "verified") {
+                        echo '
                                 <div class="status3">Verified</div>
                             </div>
                             <div class="d-flex justify-content-center align-items-center flex-column" style="width:100%;">
@@ -472,14 +474,14 @@
                             </div>
                         </div>
                         ';
-                        } else {
-                            echo '
+                    } else {
+                        echo '
                                 <div class="status1">Unverified</div>
                             </div>
                         </div>
                         ';
-                        }
-                        echo ('
+                    }
+                    echo ('
                         <div class"blur d-flex justify-content-center flex-column" style="width:90%; height:100%; padding-top:50px; padding-left:40px;">
                             <div class=" d-flex justify-content-left align-items-start flex-column" style="width:100%; height:500px; border:1px solid black;padding:40px">
                                 <div class="titleinfo" style="padding-bottom:10px;">
@@ -527,16 +529,17 @@
                             </div>
                         </div>
                     ');
-                    } else {
-                        echo "NO RESULTS FOUND.";
-                    }
+                } else {
+                    echo "NO RESULTS FOUND.";
                 }
-            } else {
-                echo "NO RESULTS FOUND.";
             }
-            mysqli_close($connect);
-            ?>
-        </div>
+        } else {
+            echo "NO RESULTS FOUND.";
+        }
+        mysqli_close($connect);
+        ?>
     </div>
-    <div class="py-4 mt-5 text-bg-dark text-center">
-    </div>
+</div>
+
+<footer class="py-4 mt-5 text-bg-dark text-center">
+</footer>

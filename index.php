@@ -58,9 +58,9 @@ $select = "SELECT * FROM user_account Where acc_no = $id";
 		?>
 		<input type="hidden" name="type" id="type" value="<?php echo $type?>"></input>
 	</div>
-	<script type="text/javascript" src="js/mainScriptx1.js"></script>
 	<!-- Javascripts -->
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="js/mainScriptx1.js"></script>
 </body>
 
 </html>
