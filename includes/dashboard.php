@@ -131,10 +131,15 @@
                             $date = date_format($temp, "l, F d, Y");
                         }
                     }
+                        $exploded = explode(',',$reason);
                     ?>
                     <h4 class="text-primary"><?php echo $date; ?></h4>
                     <ul>
-                        <li><?php echo $reason; ?></li>
+                    <?php 
+                        foreach($exploded as $reason){
+                            echo "<li>".$reason."</li>";
+                        }
+                    ?>
 
                     </ul>
                 </div>

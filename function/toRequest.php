@@ -5,10 +5,18 @@
     require 'connect.php';
 
     $id = $_GET['id'];
-    $pps = $_POST['purpose'];
+    // $pps = $_POST['purpose'];
     $date= $_POST['date'];
     $s_stats = "denied";
     $status = "pending";
+
+    $pps="";  
+    foreach($_POST['reason'] as $ppstemp){
+        $pps .= $ppstemp.",";
+    }
+    $exploded = explode(',', trim($pps, ','));
+    $pps = implode(', ', $exploded);
+    print_r($pps);
 
     $select = "SELECT COALESCE(MAX(req_id),0)+1 FROM appointment WHERE acc_no = '$id';";
     $result = mysqli_query($connect,$select); 
@@ -55,7 +63,6 @@
         }
         else{
             $reason = $pps;
-            
         }
         //insert data to appt_request table form user_account table;
         $insert = "INSERT INTO appointment (id,req_id,acc_no,name,type,reason,status,date,qr_status) VALUES ('$apptid','$reqid','$accno','$name','$type','$reason','$status','$date','$s_stats')";

@@ -74,7 +74,7 @@
                 <label>Date of Appointment:</label>
             <div class="msg" id="msguser"></div>
             </div>
-            <div class="form-floating">
+            <!-- <div class="form-floating">
                 <select class="form-select" name="purpose" id="purpose-s">
                     <option selected disabled>Select Purpose</option>
                     <option value="Request of Transcript of Records (TOR)">Request of Transcript of Records (TOR)</option>
@@ -87,32 +87,63 @@
                     <option value="Other">Other</option>
                 </select>
                 <label for="floatingSelect">Purpose of Appointment:</label>
+            </div> -->
+            <h4>Purpose of Appointment:</h4>
+            <div class="form-check">
+                <input class="form-check-input" name="reason[]" type="checkbox" value="Request of Transcript of Records (TOR)" id="check1">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Request of Transcript of Records (TOR)
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="reason[]" type="checkbox" value="Claiming of Graduation Picture" id="check2">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Claiming of Graduation Picture
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="reason[]" type="checkbox" value="Request of Form 137" id="check3">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Request of Form 137
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="reason[]" type="checkbox" value="Request of Good Moral Certificate" id="check4">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Request of Good Moral Certificate
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="reason[]" type="checkbox" value="Request for Dry Seal of Documents" id="check5">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Request for Dry Seal of Documents
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="reason[]" type="checkbox" value="Payment to University Cashier" id="check6">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Payment to University Cashier
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="reason[]" type="checkbox" value="Inquiries to Registrar\'s Office" id="check7">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Inquiries to Registrar's Office
+                </label>
+            </div>
+            <div class="form-check">
+                <input class="form-check-input" name="reason[]" type="checkbox" value="Other" id="check8">
+                <label class="form-check-label" for="flexCheckDefault">
+                    Other
+                </label>
             </div>
             <div class="cont-p--hidden" id="txt-1" style="margin-top: 10px;">
-            <div class="form-floating">
-                <textarea class="form-control" name="reason" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                <label for="floatingTextarea2">Other</label>
-            </div>
-            </div>
-            <button type="submit" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop"  id="reg1" style=" width:100%; margin-top: 20px;">Submit Request</button>
-            <!-- Modal -->
-            <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                <div class="modal-header">
-                    <h1 class="modal-title fs-5" id="staticBackdropLabel">Modal title</h1>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    ...
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary">Understood</button>
-                </div>
+                <div class="form-floating">
+                    <textarea class="form-control" name="othertxt" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
+                    <label for="floatingTextarea2">Other</label>
                 </div>
             </div>
-            </div>
+            <button type="submit" class="btn btn-primary" id="reg1" style=" width:100%; margin-top: 20px;">Submit Request</button>
         </form>
         
     </div>

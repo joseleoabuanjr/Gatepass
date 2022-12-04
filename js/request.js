@@ -1,7 +1,7 @@
-var ppse = document.querySelector('#purpose-s');
+var ppse = document.querySelector('#check8');
 var text1 = document.querySelector('#txt-1');
-ppse.addEventListener('change', function(){
-    if (ppse.value == "Other"){
+ppse.addEventListener('click', function(){
+    if (ppse.checked == true){
         text1.classList.remove("cont-p--hidden");
         text1.classList.add("cont-p");
     }
