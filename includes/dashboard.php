@@ -132,16 +132,16 @@
                             }
                             $exploded = explode(',', $reason);
 
-                            echo '<h4 class="text-primary"><?php echo $date; ?></h4>
+                            echo '<h4 class="text-primary">'. $date .'</h4>
                             <ul>';
                             foreach ($exploded as $reason) {
                                 echo "<li>" . $reason . "</li>";
                             }
                             echo '</ul>';
                         } else {
+                            echo '<button type="button" class="btn btn-outline-secondary" id="appointmentBtn">Set an Appointment</button>';
                         }
                         ?>
-                        <button type="button" class="btn btn-outline-secondary" id="appointmentBtn">Set an Appointment</button>
                     </div>
                 </div>
             <?php } ?>
