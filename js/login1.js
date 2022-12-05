@@ -15,8 +15,8 @@ $(document).ready(function () {
     $("#forgotPasswordForm").submit(function (event) {
         event.preventDefault();
         $.ajax({
-            url: "function/toCheckEmail.php",
-            type: "post",
+            url: "function/toforgotpass.php",
+            type: "POST",
             data: {
                 email: $("#fpEmail").val(),
                 'forgot-password': true
@@ -27,9 +27,10 @@ $(document).ready(function () {
                 $("#forgotbtn").attr("disabled", "disabled");
             },
             success: function (response) {
+                console.log(response);
                 if (response.status) {
                     $("#successAlertFP").fadeIn();
-                    $("#successAlertFP").html(response.msg);
+                    // $("#successAlertFP").html(response.msg);
                     $("#errorAlertFP").hide();
                     $("#forgotPasswordForm").trigger("reset");
                 } else {
@@ -39,6 +40,8 @@ $(document).ready(function () {
                 }
                 $("#fPSpinner").hide();
                 $("#forgotbtn").removeAttr("disabled");
+            }, error: function (response) {
+                console.error(response);
             }
         });
     });
