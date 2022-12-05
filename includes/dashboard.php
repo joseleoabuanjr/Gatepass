@@ -100,7 +100,7 @@
         </div>
 
         <div class="row align-items-md-stretch">
-            <div class="col-md-6">
+            <div class="col">
                 <div class="h-100 p-5 text-bg-dark rounded-3 shadow-sm">
                     <h2>Profile Summary</h2>
                     <div class="row row-cols-1 row-cols-md-2">
@@ -112,41 +112,49 @@
                         <div class="col"><?php echo $add; ?></div>
                         <div class="col">Birthdate: </div>
                         <div class="col"><?php echo $bday; ?></div>
-
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="h-100 p-5 bg-light border rounded-3 shadow-sm">
-                    <h2>Appointment Summary</h2>
-                    <?php
-                    $select = "SELECT * FROM appointment WHERE acc_no = $accno";
-                    $result = mysqli_query($connect, $select);
+            <?php if ($type == "visitor") { ?>
+                <div class="col-md-6">
+                    <div class="h-100 p-5 bg-light border rounded-3 shadow-sm">
+                        <h2>Appointment Summary</h2>
+                        <?php
+                        $select = "SELECT * FROM appointment WHERE acc_no = $accno";
+                        $result = mysqli_query($connect, $select);
 
-                    if (mysqli_num_rows($result) > 0) {
-                        while ($row = mysqli_fetch_assoc($result)) {
-                            $date = $row["date"];
-                            $reason = $row["reason"];
-                            $temp = date_create($date);
-                            $date = date_format($temp, "l, F d, Y");
-                        }
-                    }
-                        $exploded = explode(',',$reason);
-                    ?>
-                    <h4 class="text-primary"><?php echo $date; ?></h4>
-                    <ul>
-                    <?php 
-                        foreach($exploded as $reason){
-                            echo "<li>".$reason."</li>";
-                        }
-                    ?>
+                        if (mysqli_num_rows($result) > 0) {
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $date = $row["date"];
+                                $reason = $row["reason"];
+                                $temp = date_create($date);
+                                $date = date_format($temp, "l, F d, Y");
+                            }
+                            $exploded = explode(',', $reason);
 
-                    </ul>
+                            echo '<h4 class="text-primary"><?php echo $date; ?></h4>
+                            <ul>';
+                            foreach ($exploded as $reason) {
+                                echo "<li>" . $reason . "</li>";
+                            }
+                            echo '</ul>';
+                        } else {
+                        }
+                        ?>
+                        <button type="button" class="btn btn-outline-secondary" id="appointmentBtn">Set an Appointment</button>
+                    </div>
                 </div>
-            </div>
+            <?php } ?>
+
         </div>
     </div>
+
+
+    <!--                     -->
+    <!--                     -->
     <!-- END OF DASHBOARD V2 -->
+    <!--                     -->
+    <!--                     -->
 
 
     <?php
