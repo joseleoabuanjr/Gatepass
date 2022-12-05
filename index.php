@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!isset($_SESSION["accno"])) {
+	header("Location: landing-page.php");
+}
 require_once "function/connect.php";
 $id = $_SESSION['accno'];
 
