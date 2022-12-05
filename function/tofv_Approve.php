@@ -13,12 +13,12 @@
     // $file = $path.$idqr.".png"; 	//format of filename for each QR Images created. Ex: Images/2022123456.png;
     // QRcode::png($text, $file, 'L', 5, 2); //generates QR Images, Parameters are (Text Contents, File Name, ECC, QRSize, FrameSize);
 
-    $update = "UPDATE user_account SET verified = '$status' WHERE acc_no = $id";
+    $update = "UPDATE user_account SET verification= '$status' WHERE acc_no = $id";
 
     if(mysqli_query($connect,$update))
     {
         echo "<script>alert('Update Success.')</script>";
-        require "../email/apt_approve.php";
+        require "../email/apt_approved.php";
     }
     else
     {
