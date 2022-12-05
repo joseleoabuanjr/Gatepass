@@ -89,12 +89,7 @@ if ($userType == "student") {
 	} else {
 		$accnum = $num1;
 	}
-	//================================================Generate QR Code;
-	$text = $accnum; //Only the student number will  be saved in the QR Code;
-	//If you want every information be stored in the QR Code use the code below instead;
-	$path = '../Images/'; //name of folder where to store all QR Images
-	$file = $path . $accnum . ".png"; //format of filename for each QR Images created. Ex: Images/2022123456.png;
-	QRcode::png($text, $file, 'L', 5, 2); //generates QR Images, Parameters are (Text Contents, File Name, ECC, QRSize, FrameSize);
+	
 
 	$gcode = rand(10, 99) . rand(10, 99) . rand(10, 99);		//generate verification code;
 
@@ -102,6 +97,15 @@ if ($userType == "student") {
 	$first = ucfirst(lcfirst($first));
 	$last = ucfirst(lcfirst($last));
 	$mid = ucfirst(lcfirst($mid));
+
+	$name = $first." ".$mid.". ".$last;
+
+	//================================================Generate QR Code;
+	$text = $accnum.":".$name.":".$studno; //Only the student number will  be saved in the QR Code;
+	//If you want every information be stored in the QR Code use the code below instead;
+	$path = '../Images/'; //name of folder where to store all QR Images
+	$file = $path . $accnum . ".png"; //format of filename for each QR Images created. Ex: Images/2022123456.png;
+	QRcode::png($text, $file, 'L', 5, 2); //generates QR Images, Parameters are (Text Contents, File Name, ECC, QRSize, FrameSize);
 
 	$insert = "INSERT INTO acc_temp (acc_no,first,middle,last,contact_no,birthday,address,stud_no,college,course,year,section,username,password,email,image,cor,valid_id,vax,verification,qr,type,v_code) VALUES ('$accnum','$first','$mid','$last','$pnum','$bday','$add','$studno','$col','$course','$yr','$sec','$user','$pass','$email','$img','$corpdf','$v_idpdf','$vaxpdf','$verif','$file','$acctype','$gcode')";
 	if (mysqli_query($connect, $insert)) {
@@ -179,12 +183,6 @@ if ($userType == "student") {
 	} else {
 		$accnum = $num1;
 	}
-	//================================================Generate QR Code;
-	$text = $accnum; //Only the student number will  be saved in the QR Code;
-	//If you want every information be stored in the QR Code use the code below instead;
-	$path = '../Images/'; //name of folder where to store all QR Images
-	$file = $path . $accnum . ".png"; //format of filename for each QR Images created. Ex: Images/2022123456.png;
-	QRcode::png($text, $file, 'L', 5, 2); //generates QR Images, Parameters are (Text Contents, File Name, ECC, QRSize, FrameSize);
 
 	$gcode = rand(10, 99) . rand(10, 99) . rand(10, 99);		//generate verification code;
 
@@ -192,6 +190,15 @@ if ($userType == "student") {
 	$first = ucfirst(lcfirst($first));
 	$last = ucfirst(lcfirst($last));
 	$mid = ucfirst(lcfirst($mid));
+
+	$name = $first." ".$mid.". ".$last;
+
+	//================================================Generate QR Code;
+	$text = $accnum.":".$name.":".$empno; //Only the student number will  be saved in the QR Code;
+	//If you want every information be stored in the QR Code use the code below instead;
+	$path = '../Images/'; //name of folder where to store all QR Images
+	$file = $path . $accnum . ".png"; //format of filename for each QR Images created. Ex: Images/2022123456.png;
+	QRcode::png($text, $file, 'L', 5, 2); //generates QR Images, Parameters are (Text Contents, File Name, ECC, QRSize, FrameSize);
 
 	$insert = "INSERT INTO acc_temp (acc_no,first,middle,last,contact_no,birthday,address,emp_no,username,password,email,image,valid_id,vax,verification,qr,type,v_code) VALUES ('$accnum','$first','$mid','$last','$pnum','$bday','$add','$empno','$user','$pass','$email','$img','$v_idpdf','$vaxpdf','$verif','$file','$acctype','$gcode')";
 	if (mysqli_query($connect, $insert)) {
