@@ -30,15 +30,21 @@
 		<?php				
 			require_once "connect.php";
 			$qrwhole = $_REQUEST["qr"];
-			$qrsplit = explode(":",$qrwhole);
-			$qraccno = intval($qrsplit[0]);
-			$reqid = intval($qrsplit[1]);
 
+			if(strpos($qrwhole, ":") !== false){
+				$qrsplit = explode(":",$qrwhole);
+				$qraccno = intval($qrsplit[0]);
+				$reqid = intval($qrsplit[1]);
+			} else{
+				$qraccno = $qrwhole;
+			}
+			
 			//check if user have an appointment(Visitor);
 			$select = "SELECT * FROM appointment WHERE type = 'visitor'";
 			$result = mysqli_query($connect,$select);
 			
 			if (mysqli_num_rows($result) > 0){
+				
 				//if have result
 				//loop that will stop after displaying all the records fetched from database ;
 				while($row = mysqli_fetch_assoc($result)){
