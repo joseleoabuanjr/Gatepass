@@ -36,8 +36,8 @@
                             <td class='text-capitalize'>".$row["first"]." ".$row["middle"].". ".$row["last"]."</td>
                             <td class='text-capitalize'>".$row["type"]."</td>
                     ");
+                    // <a class='btn btn-danger btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Archive</a>
                 echo "<td>
-                        <a class='btn btn-danger btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Archive</a>
                         <a class='btn btn-secondary btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Block</a>
                     </td>
                 </tr>";
