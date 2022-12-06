@@ -48,9 +48,10 @@ $bday = date_format($date, "Y-m-d");
 				<a class="list-group-item list-group-item-action" href="#profilePicture">Avatar</a>
 				<a class="list-group-item list-group-item-action" href="#personalInfoSection">Personal Information</a>
 				<a class="list-group-item list-group-item-action" href="#educationalInfoSection">Educational Information</a>
-				<a class="list-group-item list-group-item-action" href="#cedential">Credential</a>
+				<a class="list-group-item list-group-item-action" href="#credential">Credential</a>
 				<a class="list-group-item list-group-item-action" href="#account">Account</a>
 			</div>
+			<button type="submit" class="btn btn-success w-100 mt-2">Save Changes</button>
 		</div>
 		<div class="col-8">
 			<div style="overflow-y: scroll; height: 90vh;" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0" data-bs-offset="56">
@@ -58,15 +59,12 @@ $bday = date_format($date, "Y-m-d");
 					<div id="profilePicture" class="pt-5 pb-3">
 						<h4>Profile Picture</h4>
 						<div class="d-flex justify-content-start">
-							<!-- <div style="width:30%; margin:20px;"> -->
-								<img class="img-thumbnail" width="180px" height="180px" src="data:image;base64,<?php echo ($img); ?>">
-							<!-- </div> -->
-							<div class="">
+							<img class="img-thumbnail" width="180px" height="180px" src="data:image;base64,<?php echo ($img); ?>">
+							<div>
 								<ul>
 									<li>Please select a jpg/jpeg or png file format to upload image to be your profile picture</li>
 									<li>Image size must be 2x2 only</li>
 								</ul>
-								<!-- <p> -Please select a jpg/jpeg or png file format to upload image to be your profile picture <br> -Image size must be 2x2 only</p> -->
 								<div class="form-floating">
 									<input type="file" name="image" class="form-control ms-2" style="height: 80px;padding-top:40px; padding-left:40px" id="img1" accept="image/png, image/jpeg" onchange="return checkImage1()">
 									<label>Upload Account Profile Picture</label>
@@ -137,19 +135,26 @@ $bday = date_format($date, "Y-m-d");
 					<div id="educationalInfoSection" class="py-3">
 						<h4>Educational Information</h4>
 						<div class="row row-cols-1 row-cols-md-3 g-2">
-							<div class="col">
+							<div class="col-md-6">
 								<div class="mb-3">
 									<label for="studno" class="form-label">Student Number</label>
 									<input type="text" class="form-control" name="studno" id="studno" value="<?php echo ($studno); ?>" >
 								</div>
 							</div>
-							<div class="col">
+							<div class="col-md-3">
 								<div class="mb-3">
 									<label for="year" class="form-label">Year</label>
-									<input type="text" class="form-control" name="year" id="year" value="<?php echo ($yr); ?>" >
+									<select class="form-select mb-3" name="year" required>
+										<option value="<?php echo ($col); ?>" selected disabled hidden><?php echo ($yr); ?></option>
+										<option value="1">1</option>
+										<option value="2">2</option>
+										<option value="3">3</option>
+										<option value="4">4</option>
+										<option value="5">5</option>
+									</select>
 								</div>
 							</div>
-							<div class="col">
+							<div class="col-md-3">
 								<div class="mb-3">
 									<label for="section" class="form-label">Section</label>
 									<input type="text" class="form-control" name="section" id="section" value="<?php echo ($sec); ?>" >
@@ -162,7 +167,6 @@ $bday = date_format($date, "Y-m-d");
 									<label for="college" class="form-label">College</label>
 									<select class="form-select mb-3" name="college" >
 										<option value="<?php echo ($col); ?>" selected disabled hidden><?php echo ($col); ?></option>
-
 										<option value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
 										<option value="College of Arts and Letters (CAL)">College of Arts and Letters (CAL)</option>
 										<option value="College of Business Administration (CBA)">College of Business Administration (CBA)</option>
@@ -303,111 +307,95 @@ $bday = date_format($date, "Y-m-d");
 
 						</div>
 					</div>
-					<div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
-						<button type="submit" id="save1" class="btn btn-primary">Save</button>
+					<div id="credential" class="py-3">
+						<h4>Credentials</h4>
+						<div class="mb-3">
+							<h6>Certificate of Registration</h6>
+							<div class="input-group mb-1">
+								<input type="text" class="form-control" value="<?php echo ($cor); ?>" disabled>
+								<a class='btn btn-secondary px-3' target="_blank" href='viewcor.php?id=<?php echo $accno ?>'>View</a>
+							</div>
+							<div class="form-floating">
+								<input type="file" name="cor" accept="application/pdf" class="form-control" id="cor1" style="height: 80px;padding-top:40px; padding-left:40px" required>
+								<label>Update Certificate of Registration</label>
+								<div class="msg" id="message"></div>
+							</div>
+						</div>
+						<div class="mb-3">
+							<h6>Vaccination Card</h6>
+							<div class="input-group mb-1">
+								<input type="text" class="form-control" value="<?php echo ($vax); ?>" disabled>
+								<a class='btn btn-secondary px-3' target="_blank" href='viewvax.php?id=<?php echo $vax ?>'>View</a>
+							</div>
+							<div class="form-floating">
+								<input type="file" name="vax" accept="application/pdf" class="form-control" id="vax1" style="height: 80px;padding-top:40px; padding-left:40px" required>
+								<label>Update Vaccination Card</label>
+								<div class="msg" id="message"></div>
+							</div>
+						</div>
+						<div class="mb-3">
+							<h6>Valid ID Card</h6>
+							<div class="input-group mb-1">
+								<input type="text" class="form-control" value="<?php echo ($v_id); ?>" disabled>
+								<a class='btn btn-secondary px-3' target="_blank" href='view_vid.php?id=<?php echo $v_id ?>'>View</a>
+							</div>
+							<div class="form-floating">
+								<input type="file" name="vid" accept="application/pdf" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" required>
+								<label>Update Valid ID Card</label>
+								<div class="msg" id="message"></div>
+							</div>
+						</div>
+					</div>
+					<div id="account" class="py-3 mb-5">
+						<h4>Account Information</h4>
+						<div class="row row-cols-1 row-cols-md-2 g-2">
+							<div class="col-md-5">
+								<div class="mb-3">
+									<label for="user" class="form-label">Username</label>
+									<input type="text" class="form-control" name="user" id="user" value="<?php echo ($user); ?>" required>
+								</div>
+							</div>
+							<div class="col-md-7">
+								<div class="mb-3">
+									<label for="email" class="form-label">Email</label>
+									<input type="email" class="form-control" name="email" id="email" value="<?php echo ($email); ?>" required>
+								</div>
+							</div>
+						</div>
+						<div class="mb-3">
+							<label for="pass" class="form-label">Password</label>
+							<div class="input-group mb-1">
+								<input type="passsword" class="form-control" name="pass">
+								<button type="button" class='btn btn-secondary px-3' data-bs-toggle="collapse" data-bs-target="#changePass">Change Password</button>
+							</div>
+						</div>
+
+						<div id="changePass" class="collapse">
+							<div class="row row-cols-1 row-cols-md-2 g-2">
+								<div class="col">
+									<div class="mb-3">
+										<label for="newPassword" class="form-label">New Password</label>
+										<input type="password" class="form-control" name="npass" id="newPassword" minlength="8" required disabled>
+									</div>
+								</div>
+								<div class="col">
+									<div class="mb-3">
+										<label for="confirmPassword" class="form-label">Re-type New Password</label>
+										<input type="password" class="form-control" name="npass1" id="confirmPassword" minlength="8" required disabled>
+									</div>
+								</div>
+							</div>
+						</div>
 					</div>
 				</form>
 
-				<div id="cedential">
-					<form method="post" action="" enctype="multipart/form-data" class="d-flex flex-column justify-content-center" style="width: 80%; margin-bottom: 40px;">
-						<h2>Credentials</h2>
-						<div style="width: 80%; margin-left:20px;">
-							<div class="form-group">
-								<h5>Certificate of Registration</h5>
-								<div class="d-flex">
-									<input type="text" name="CoR" class="form-control" value="<?php echo ($cor); ?>" style="margin-bottom: 10px; margin-right: 10px;" disabled id="cor">
-									<a class='btn btn-secondary' target="_blank" href='viewcor.php?id=<?php echo $accno ?>' style="height:40px;">View</a>
-								</div>
-							</div>
-							<div class="form-floating">
-								<input type="file" name="cor" accept="application/pdf" class="form-control" id="cor1" style="height: 80px;padding-top:40px; padding-left:40px" >
-								<label>Certificate of Registration</label>
-								<div class="msg" id="message"></div>
-							</div>
-							<div class="form-group">
-								<h5>Vaccination Card</h5>
-								<div class="d-flex">
-									<input type="text" name="vaxx" class="form-control" value="<?php echo ($vax); ?>" style="margin-bottom: 10px; margin-right: 10px;" disabled id="vaxx">
-									<a class='btn btn-secondary' target="_blank" href='viewvax.php?id=<?php echo $accno ?>' style="height:40px;">View</a>
-								</div>
-							</div>
-							<div class="form-floating">
-								<input type="file" name="vax" class="form-control" id="vax1" style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" >
-								<label>Vaccination Card</label>
-								<div class="msg" id="message"></div>
-							</div>
-							<div class="form-group">
-								<h5>Valid ID Card</h5>
-								<div class="d-flex">
-									<input type="text" name="V_id" class="form-control" value="<?php echo ($v_id); ?>" style="margin-bottom: 10px; margin-right: 10px;" disabled>
-									<a class='btn btn-secondary' target="_blank" href='view_vid.php?id=<?php echo $accno ?>' style="height:40px;">View</a>
-								</div>
-							</div>
-							<div class="form-floating">
-								<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" >
-								<label>Valid ID Card</label>
-								<div class="msg" id="message"></div>
-							</div>
-						</div>
-						<div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
-							<button type="submit" id="save3" class="btn btn-primary">Save</button>
-						</div>
-					</form>
-				</div>
-				<div id="account">
-					<form method="post" action="" enctype="multipart/form-data" class="d-flex flex-column justify-content-center" style="width: 80%; margin-bottom: 40px;">
-						<h2>Account Information</h2>
-						<h5>Username & Email</h5>
-						<div class="form-floating">
-							<input type="text" name="user" class="form-control" id="username1" value="<?php echo ($user); ?>" disabled>
-							<label>Username</label>
-							<div class="msg" id="message"></div>
-						</div>
-						<div class="form-floating">
-							<input type="text" name="email" id="email1" class="form-control" value="<?php echo ($email); ?>">
-							<label>Email Address</label>
-							<div class="msg" id="message"></div>
-						</div>
-						<h5>Change Password</h5>
-						<div class="form-floating">
-							<input type="password" name="pass" id="pass1" class="form-control" value="<?php echo ($p); ?>" disabled>
-							<label>Password</label>
-							<div class="msg" id="message"></div>
-						</div>
-						<div class="form-floating">
-							<input type="text" name="npass" id="npass1" class="form-control">
-							<label>New Password</label>
-							<div class="msg" id="message"></div>
-						</div>
-						<div class="form-floating">
-							<input type="text" name="npass" id="npass1" class="form-control">
-							<label>Confirm New Password</label>
-							<div class="msg" id="message"></div>
-						</div>
-						<div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
-							<button type="submit" id="save4" class="btn btn-primary">Save</button>
-						</div>
-					</form>
-				</div>
+
+
 			</div>
 		</div>
 	</div>
 </div>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<script>
-	$(document).ready(function() {
-		$('body').scrollspy({
-			target: "#scrollProfile",
-			offset: 50
-		});
-	});
+
 </script>
-
-<!--                     -->
-<!--                     -->
-<!-- END OF PROFILE V2 -->
-<!--                     -->
-<!--                     -->
-
