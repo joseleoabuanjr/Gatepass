@@ -53,7 +53,7 @@
     $mail->Body    = '
     <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
         <p style="margin-bottom: 20px;">
-        <br>Hi '.$lst.', '.$fst.',
+        <br>Hi '.$name.',
         <br>
         <br>We would like to inform you that your Request for Account Verification was Denied.
         <br>Your Information was considered Invalid. If you wish to Try Again, Please send another Account Verification Request.
@@ -63,7 +63,11 @@
     </div>    
     ';
     //send mail
-    $mail->send();
-    
-    header("refresh: 0; url=../admin.php?");
+    if($mail->send()){
+        echo json_encode(array("status" => true));
+    }
+    else{
+        echo json_encode(array("status" => false));
+    }
+    // header("refresh: 0; url=../admin.php?");
 ?>

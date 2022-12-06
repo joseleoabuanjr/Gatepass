@@ -1,5 +1,5 @@
 <?php
-    $id=$_GET['id'];
+    $id=$_POST['accno'];
 
     //connect to database
     require_once "connect.php";
@@ -18,10 +18,12 @@
             require "../email/fv_denied.php";
 		}
         else{
-                echo "<script>alert('Denied Failed.')</script>";	
+            echo json_encode(array("status" => false, "sql"=>$update, "error"=>mysqli_error($connect)));
+                // echo "<script>alert('Denied Failed.')</script>";	
         }
 	}
     else{
-        echo "<script>alert('No Result')</script>";
+        echo json_encode(array("status" => false, "sql"=>$select1));
+        // echo "<script>alert('No Result')</script>";
     }
 ?>

@@ -5,10 +5,10 @@ $(document).ready(function () {
     $("#successAlertFP").hide();
 
     $('#forgotPasswordModal').on('show.bs.modal', function (e) {
-        let userType = $("[name='userType']:checked").val();
+        // let userType = $("[name='userType']:checked").val();
         $("#errorAlertFP").hide();
         $("#successAlertFP").hide();
-        $("#modalUserType").html(userType);
+        // $("#modalUserType").html(userType);
         $("#forgotPasswordForm").trigger("reset");
     })
 
