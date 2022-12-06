@@ -3,7 +3,7 @@
     // require_once "../phpqrcode/qrlib.php";
     include 'connect.php';
 
-    $id = $_GET["id"];
+    $id = $_POST['accno1'];
     $status = "verified";
 
     // $text = $id;	//Only the student number will  be saved in the QR Code;
@@ -17,11 +17,10 @@
 
     if(mysqli_query($connect,$update))
     {
-        echo "<script>alert('Update Success.')</script>";
         require "../email/apt_approved.php";
     }
     else
     {
-        echo "<script>alert('Update Failed.')</script>";	
+        echo json_encode(array("status" => false, "sql"=>$update, "error"=>mysqli_error($connect)));
     }
 ?>

@@ -62,15 +62,16 @@
             </div>    
             ';
         }
-        //send mail
-        $mail->send();
 
         if($mail->send()){
-            echo "<script>console.log('Sent Successfully')</script>";
-            header("refresh: 0; url='../admin.php'");
+            echo json_encode(array("status" => true));
+            // header("refresh: 0; url='../admin.php'");
+        }
+        else{
+            echo json_encode(array("status" => false));
         }
     }
     else{
-        echo "<script>alert('Sent Failed1')</script>;";
+        // echo "<script>alert('Sent Failed1')</script>;";
     }
 ?>

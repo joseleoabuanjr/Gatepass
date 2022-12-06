@@ -1,9 +1,51 @@
 $(document).ready(function () {
-    $("#fPSpinner").hide();
-    $("#errorAlert").hide();
-    $("#errorAlertFP").hide();
-    $("#successAlertFP").hide();
+    $("#fPSpinnerA").hide();
+    $("#errorAlertA").hide();
+    $("#errorAlertA").hide();
+    $("#successAlertA").hide();
+    $("#fPSpinnerD").hide();
+    $("#errorAlertD").hide();
+    $("#errorAlertD").hide();
+    $("#successAlertD").hide();
+    // Approve----------------
+    $(".approveBtn").click(function (e) { 
+        e.preventDefault();
+        var accNo1 = $(this).data("accno1");
+        $("#acccNoModal").html(accNo1);
+        $("#approveBtnModal").data("accno1", accNo1);
+        $("#approveModal").modal("show");
+        $("#approveBtnModal").show();
+    });
+    $("#approveBtnModal").click(function (e) { 
+        e.preventDefault();
+        var accno1 = $(this).data("accno1");
+        $.ajax({
+            type: "post",
+            url: "../function/tofv_Approved.php",
+            data: {accno1: accno1},
+            dataType: "JSON",
+            success: function (response) {
+                if (response.status) {
+                    $("#successAlertA").fadeIn();
+                    $("#errorAlertA").hide();
+                    $("#approveBtnModal").hide();
+                }
+                else {
+                    $("#errorAlertA").fadeIn();
+                    // $("#errorAlertFP").html(response.msg);
+                    $("#successAlertA").hide();
+                    
+                }
+                $("#fPSpinnerA").hide();
+            }, error: function (err) {
+                console.error(err);
+            }, beforeSend: function() {
+                $("#fPSpinnerA").show();
+            }
+        });
+    });
 
+    // Deny ---------
     $(".denyBtn").click(function (e) { 
         e.preventDefault();
         var accNo = $(this).data("accno");
@@ -23,22 +65,22 @@ $(document).ready(function () {
             dataType: "JSON",
             success: function (response) {
                 if (response.status) {
-                    $("#successAlertFP").fadeIn();
-                    $("#errorAlertFP").hide();
+                    $("#successAlertD").fadeIn();
+                    $("#errorAlertD").hide();
                     $("#denyBtnModal").hide();
                 }
                 else {
-                    $("#errorAlertFP").fadeIn();
+                    $("#errorAlertD").fadeIn();
                     // $("#errorAlertFP").html(response.msg);
-                    $("#successAlertFP").hide();
+                    $("#successAlertD").hide();
                     
                 }
-                $("#fPSpinner").hide();
+                $("#fPSpinnerD").hide();
                 
             }, error: function (err) {
                 console.error(err);
             }, beforeSend: function() {
-                $("#fPSpinner").show();
+                $("#fPSpinnerD").show();
             }
         });
     });

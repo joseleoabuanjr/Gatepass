@@ -1,4 +1,4 @@
-<table class="table shados-sm table-striped table-hover" id="accountVerificationTable">
+<table class="table shadow-sm table-striped table-hover display compact" id="accountVerificationTable">
     <h2 style="padding-top: 60px; padding-bottom:20px;">Account Verification</h2>
     <thead>
         <tr style="background-color: #4F4F4B; color:white;">
@@ -33,7 +33,7 @@
             echo ("
                         <tr>
                             <td>" . $row["acc_no"] . "</td>
-                            <td class='text-capitalize'>" . $row["first"] . " " . $row["middle"] . ". " . $row["last"] . "</td>
+                            <td class='text-capitalize'>" . $row["first"] . " " . $row["middle"].". " . $row["last"] . "</td>
                             <td class='text-capitalize'>" . $row["type"] . "</td>
                     ");
             if ($row["type"] == "student") {
@@ -46,19 +46,19 @@
                         echo ("
                                 <td>N/A</td>
                                 <td>N/A</td>
-                                <td><a class='btn btn-secondary' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
+                                <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
                             ");
                     } else if ($vax == "" || NULL && !($cor == "" || NULL)) {
                         echo ("
-                                <td><a class='btn btn-secondary' target='_blank' href='../viewcor.php?id=" . $row["acc_no"] . "'>View</a></td>
+                                <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewcor.php?id=" . $row["acc_no"] . "'>View</a></td>
                                 <td>N/A</td>
                                 <td>N/A</td>
                             ");
                     } else {
                         echo ("
-                                <td><a class='btn btn-secondary' target='_blank' href='../viewcor.php?id=" . $row["acc_no"] . "'>View</a></td>
+                                <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewcor.php?id=" . $row["acc_no"] . "'>View</a></td>
                                 <td>N/A</td>
-                                <td><a class='btn btn-secondary' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
+                                <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
                             ");
                     }
                 }
@@ -72,29 +72,27 @@
                         echo ("
                                 <td>N/A</td>
                                 <td>N/A</td>
-                                <td><a class='btn btn-secondary' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
+                                <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
                             ");
                     } else if ($vax == "" || NULL && !($v_id == "" || NULL)) {
                         echo ("
                                 <td>N/A</td>
-                                <td><a class='btn btn-secondary' target='_blank' href='../view_vid.php?id=" . $row["acc_no"] . "'>View</a></td>
+                                <td><a class='btn btn-secondary btn-sm' target='_blank' href='../view_vid.php?id=" . $row["acc_no"] . "'>View</a></td>
                                 <td>N/A</td>
                             ");
                     } else {
                         echo ("
                                 <td>N/A</td>
-                                <td><a class='btn btn-secondary' target='_blank' href='../view_vid.php?id=" . $row["acc_no"] . "'>View</a></td>
-                                <td><a class='btn btn-secondary' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
+                                <td><a class='btn btn-secondary btn-sm' target='_blank' href='../view_vid.php?id=" . $row["acc_no"] . "'>View</a></td>
+                                <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
                             ");
                     }
                 }
             }
             echo "<td>
-                        <a class='btn btn-primary btn-sm' href='../function/tofv_Approve.php?id=" . $row['acc_no'] . "'>Approve</a>
                         <!-- Button trigger modal -->
+                        <button type='button' class='btn btn-success approveBtn btn-sm' data-accNo1='" . $row['acc_no'] . "'>Approve</button>
                         <button type='button' class='btn btn-danger denyBtn btn-sm' data-accNo='" . $row['acc_no'] . "'>Deny</button>
-
-                        <a class='d-none btn btn-danger btn-sm' href='../function/tofv_Denied.php?id=" . $row['acc_no'] . "'>Deny</a>
                     </td>
                 </tr>";
 
@@ -106,8 +104,37 @@
         }
         ?>
 
+        <!-- Approve Modal -->
+        <div class="modal fade" id="approveModal" tabindex="-1" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Confirmation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Are you sure you want to approve Account No. <span id="acccNoModal"></span>?</p>
+                        <div class="alert alert-success my-1" role="alert" id="successAlertA">
+                            User has been successfully denied.
+                        </div>
+                        <div class="alert alert-danger my-1" role="alert" id="errorAlertA">
+                            Denied Failed.
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success" id="approveBtnModal">
+                            Approve
+                            <div id="fPSpinnerA" class="spinner-border spinner-border-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </button>
+                    </div>
+                </div>
+            </div> 
+        </div><!-- Approve modal -->
 
-        <!-- Forgot Password Modal -->
+        <!-- Deny Modal -->
         <div class="modal fade" id="denyModal" tabindex="-1" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -116,11 +143,11 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure you want to deny <span id="acccNoModal"></span>?</p>
-                        <div class="alert alert-success my-1" role="alert" id="successAlertFP">
+                        <p>Are you sure you want to deny Account No. <span id="acccNoModal"></span>?</p>
+                        <div class="alert alert-success my-1" role="alert" id="successAlertD">
                             User has been successfully denied.
                         </div>
-                        <div class="alert alert-danger my-1" role="alert" id="errorAlertFP">
+                        <div class="alert alert-danger my-1" role="alert" id="errorAlertD">
                             Denied Failed.
                         </div>
                     </div>
@@ -128,15 +155,15 @@
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
                         <button type="submit" class="btn btn-danger" id="denyBtnModal">
                             Deny
-                            <div id="fPSpinner" class="spinner-border spinner-border-sm" role="status">
+                            <div id="fPSpinnerD" class="spinner-border spinner-border-sm" role="status">
                                 <span class="visually-hidden">Loading...</span>
                             </div>
                         </button>
                     </div>
                 </div>
             </div> 
-        </div><!-- Forgot Password modal -->
-        </div>
+        </div><!-- Deny modal -->
+    </div>
     </tbody>
 </table>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
