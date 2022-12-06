@@ -48,12 +48,12 @@ $bday = date_format($date, "Y-m-d");
 				<a class="list-group-item list-group-item-action" href="#profilePicture">Avatar</a>
 				<a class="list-group-item list-group-item-action" href="#personalInfoSection">Personal Information</a>
 				<a class="list-group-item list-group-item-action" href="#educationalInfoSection">Educational Information</a>
-				<a class="list-group-item list-group-item-action" href="#list-item-3">Credential</a>
-				<a class="list-group-item list-group-item-action" href="#list-item-4">Account</a>
+				<a class="list-group-item list-group-item-action" href="#cedential">Credential</a>
+				<a class="list-group-item list-group-item-action" href="#account">Account</a>
 			</div>
 		</div>
 		<div class="col-8">
-			<div style="overflow-y: scroll; height: 90vh;" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0">
+			<div style="overflow-y: scroll; height: 90vh;" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0" data-bs-offset="56">
 				<form method="post" action="" enctype="multipart/form-data" class="d-flex flex-column justify-content-center w-75">
 					<div id="profilePicture" class="pt-5 pb-3">
 						<h4>Profile Picture</h4>
@@ -305,7 +305,7 @@ $bday = date_format($date, "Y-m-d");
 					</div>
 				</form>
 
-				<div id="list-item-3">
+				<div id="cedential">
 					<form method="post" action="" enctype="multipart/form-data" class="d-flex flex-column justify-content-center" style="width: 80%; margin-bottom: 40px;">
 						<h2>Credentials</h2>
 						<div style="width: 80%; margin-left:20px;">
@@ -351,22 +351,34 @@ $bday = date_format($date, "Y-m-d");
 						</div>
 					</form>
 				</div>
-				<div id="list-item-4">
+				<div id="account">
 					<form method="post" action="" enctype="multipart/form-data" class="d-flex flex-column justify-content-center" style="width: 80%; margin-bottom: 40px;">
 						<h2>Account Information</h2>
+						<h5>Username & Email</h5>
 						<div class="form-floating">
 							<input type="text" name="user" class="form-control" id="username1" value="<?php echo ($user); ?>" disabled>
 							<label>Username</label>
 							<div class="msg" id="message"></div>
 						</div>
 						<div class="form-floating">
+							<input type="text" name="email" id="email1" class="form-control" value="<?php echo ($email); ?>">
+							<label>Email Address</label>
+							<div class="msg" id="message"></div>
+						</div>
+						<h5>Change Password</h5>
+						<div class="form-floating">
 							<input type="password" name="pass" id="pass1" class="form-control" value="<?php echo ($p); ?>" disabled>
 							<label>Password</label>
 							<div class="msg" id="message"></div>
 						</div>
 						<div class="form-floating">
-							<input type="text" name="email" id="email1" class="form-control" value="<?php echo ($email); ?>">
-							<label>Email Address</label>
+							<input type="text" name="npass" id="npass1" class="form-control">
+							<label>New Password</label>
+							<div class="msg" id="message"></div>
+						</div>
+						<div class="form-floating">
+							<input type="text" name="npass" id="npass1" class="form-control">
+							<label>Confirm New Password</label>
 							<div class="msg" id="message"></div>
 						</div>
 						<div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
@@ -389,7 +401,6 @@ $bday = date_format($date, "Y-m-d");
 		});
 	});
 </script>
-
 
 <!--                     -->
 <!--                     -->
