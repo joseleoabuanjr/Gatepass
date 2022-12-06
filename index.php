@@ -1,67 +1,95 @@
-<?php
-session_start();
-if (!isset($_SESSION["accno"])) {
-	header("Location: landing-page.php");
-}
-require_once "function/connect.php";
-$id = $_SESSION['accno'];
-
-$select = "SELECT * FROM user_account Where acc_no = $id";
-$result = mysqli_query($connect, $select);
-$count =  mysqli_num_rows($result);
-
-if ($count == 1) {
-	while ($row = mysqli_fetch_assoc($result)) {
-		$type = $row['type'];
-	}
-}
-?>
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
-	<title>Account Information</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-	<link rel="stylesheet" href="css/indexx.css">
+    <title>BulSU Gatepass</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/landing.css">
 </head>
 
 <body>
-	<?php require_once 'includes/navbar.php'; ?>
-	<div class="tab1" id="tab1"><?php require_once 'includes/dashboard.php'; ?></div>
-	<div class="tab2--hidden" id="tab2"><?php require_once 'includes/profile.php'; ?></div>
-	<div class="tab3--hidden" id="tab3">
-		<?php
-		//read data from database table
-		$select = "SELECT * FROM user_account WHERE acc_no =$id";
-		$result = mysqli_query($connect, $select);
+    <div class="glass-effect">
 
-		while ($row = mysqli_fetch_assoc($result)) {
-			$status = $row['verification'];
-		}
-		if ($status == "verified") {
-			require_once "includes/request.php";
-		} else if ($status == "unverified") {
-			echo ('<script type="text/javascript" src="js/profilebtn.js"></script>');
-			require_once "includes/nf_verified.php";
-		} else if ($status == "pending") {
-			require_once "includes/nf_verified.php";
-		} else {
-			echo "<script>alert(Error)</script>";
-		}
-		?>
-		<input type="hidden" name="type" id="type" value="<?php echo $type ?>"></input>
-	</div>
+        <div class="d-flex align-items-center vh-100">
+            <main class="form-signin w-100 m-auto text-center">
+                <form id="loginForm">
+                    <div class="text-light">
+                        <img class="" src="resources/bulsulogo.png" alt="" height="100">
+                        <h1 class="h3 m-1">BulSU GatePass</h1>
+                        <hr>
+                        <h5 class="mb-3">SIGN IN</h5>
+                    </div>
 
-	<!-- Javascripts -->
-	<script type="text/javascript" src="js/mainScriptx1.js"></script>
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-	<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-	<script type="text/javascript" src="js/request.js"></script>
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="name@example.com">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        <label for="password">Password</label>
+                    </div>
+
+                    <button type="button" class="btn btn-link link-light text-decoration-none" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">
+                        Forgot Password?
+                    </button>
+                    <div class="alert alert-danger my-1 p-2" role="alert" id="errorAlert">Invalid Username or Password
+                    </div>
+                    <button class="w-100 btn btn-lg btn-warning my-2" type="submit">Sign in</button>
+                    <button class="btn btn-link link-light text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                        Create an Account
+                    </button>
+                    <div class="collapse" id="collapseExample">
+                        <a href="includes/registration/student.php" class="btn btn-sm btn-outline-warning">Student</a>
+                        <a href="includes/registration/employee.php" class="btn btn-sm btn-outline-warning">Employee</a>
+                        <a href="includes/registration/visitor.php" class="btn btn-sm btn-outline-warning">Visitor</a>
+                    </div>
+                    <p class="mt-5 text-muted">BulSU GatePass &copy; 2022</p>
+                </form>
+            </main>
+        </div>
+    </div>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Forgot Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="forgotPasswordForm">
+                    <div class="modal-body">
+                        <p>Enter your <span class="fw-bold text-uppercase">REGISTERED <span id="modalUserType"></span>
+                                EMAIL</span></p>
+                        <p>We will send to your new password to your email.</p>
+                        <input type="email" name="fpEmail" id="fpEmail" class="form-control" placeholder="Registered Email" required>
+                        <div class="alert alert-danger my-1" role="alert" id="errorAlertFP">
+                            You have entered unregistered email address!
+                        </div>
+                        <div class="alert alert-success my-1" role="alert" id="successAlertFP">
+                            Your new password has been sent to your email address
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success" id="forgotbtn">
+                            Send Email
+                            <div id="fPSpinner" class="spinner-border spinner-border-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="js/login1.js"></script>
 </body>
 
 </html>

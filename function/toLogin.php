@@ -47,7 +47,7 @@ if ($count == 1) {
 				$_SESSION["pass"] = $p;
 			}
 			$pageid = $_SESSION["accno"];
-			echo json_encode(array("status" => true, "location" => "index.php?id='$pageid'"));
+			echo json_encode(array("status" => true, "location" => "dashboard.php"));
 			// header("Location: ../index.php?id='$pageid'");
 
 		} else {

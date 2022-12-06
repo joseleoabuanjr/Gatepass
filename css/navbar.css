@@ -1,0 +1,14 @@
+nav {
+    background-image: url("../resources/bg1.png");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
+
+.init {
+    font-size: 27px;
+}
+
+.navbar-brand {
+    font-family: 'Open Sans';
+}

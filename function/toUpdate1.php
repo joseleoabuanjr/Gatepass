@@ -132,7 +132,7 @@
                 if(mysqli_query($connect,$update))
                 {
                     echo "<script>alert('Update Success.')</script>";
-                    header("refresh: 0; url='../index.php'");
+                    header("refresh: 0; url='../appointment.php'");
                 }
                 else
                 {

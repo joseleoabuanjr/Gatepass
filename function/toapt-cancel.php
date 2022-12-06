@@ -26,7 +26,7 @@
                 }
             }
 			echo "<script>alert('Cancel Success')</script>";	
-            header("refresh: 0; url= ../index.php");	
+            header("refresh: 0; url= ../appointment.php");	
 		}
         else{
                 echo "<script>alert('Delete Failed.')</script>";	
