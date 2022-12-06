@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
 <?php
 require_once "function/connect.php";
 
@@ -15,10 +24,9 @@ if (mysqli_num_rows($result) == 1)
 		$qr = $row["qr"]; 
 		if($qr == NULL || ""){
 			echo "No results found.";
-			header("refresh: 2; url=index.php");
 		}
 		else{
-			echo '<center><img src="Images/'.$qr.'" height="300" width="300"></center>';
+			echo '<img class="img-fluid" alt="Responsive image" src="Images/'.$qr.'">';
 		}
 		
     }
@@ -30,3 +38,5 @@ else
 
 mysqli_close($connect);
 ?>
+</body>
+</html>
