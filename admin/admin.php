@@ -1,3 +1,9 @@
+<?php
+session_start();
+if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
+	header("Location: ../landing-page.php");
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>

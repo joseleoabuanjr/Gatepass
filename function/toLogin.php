@@ -14,8 +14,8 @@ $count =  mysqli_num_rows($result);
 if ($count == 1) {
 
 	while ($row = mysqli_fetch_assoc($result)) {
-		$_SESSION["username"] = $row["username"];
-		$_SESSION["password"] = $row["password"];
+		$_SESSION["useradmin"] = $row["username"];
+		$_SESSION["passadmin"] = $row["password"];
 	}
 	echo json_encode(array("status" => true, "location" => "admin/admin.php"));
 	// header("location:../admin/admin.php");
