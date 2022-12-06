@@ -3,7 +3,7 @@
     // require_once "../phpqrcode/qrlib.php";
     include 'connect.php';
 
-    $id = $_GET["id"];
+    $id = $_POST["accno"];
     $status = "blocked";
 
     // $text = $id;	//Only the student number will  be saved in the QR Code;
@@ -15,13 +15,9 @@
 
     $update = "UPDATE user_account SET verification= '$status' WHERE acc_no = $id";
 
-    if(mysqli_query($connect,$update))
-    {
-        echo "<script>alert('Update Success.')</script>";
+    if (mysqli_query($connect, $update)) {
         require "../email/userblocked.php";
-    }
-    else
-    {
-        echo "<script>alert('Update Failed.')</script>";	
+    } else {
+        echo json_encode(array("status" => false, "sql" => $update, "error" => mysqli_error($connect)));
     }
 ?>

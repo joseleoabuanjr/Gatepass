@@ -91,7 +91,7 @@
             }
             echo "<td>
                         <!-- Button trigger modal -->
-                        <button type='button' class='btn btn-success approveBtn btn-sm' data-accNo1='" . $row['acc_no'] . "'>Approve</button>
+                        <button type='button' class='btn btn-success approveBtn btn-sm' data-accno='" . $row['acc_no'] . "'>Approve</button>
                         <button type='button' class='btn btn-danger denyBtn btn-sm' data-accNo='" . $row['acc_no'] . "'>Deny</button>
                     </td>
                 </tr>";
@@ -113,12 +113,12 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Are you sure you want to approve Account No. <span id="acccNoModal"></span>?</p>
+                        <p>Are you sure you want to approve Account No. <span id="accNoModalApp"></span>?</p>
                         <div class="alert alert-success my-1" role="alert" id="successAlertA">
-                            User has been successfully denied.
+                            User has been successfully approve.
                         </div>
                         <div class="alert alert-danger my-1" role="alert" id="errorAlertA">
-                            Denied Failed.
+                        Approve Failed.
                         </div>
                     </div>
                     <div class="modal-footer">
