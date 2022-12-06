@@ -7,7 +7,7 @@
 	<title>Document</title>
 </head>
 <body>
-<?php
+	<?php
 require_once "function/connect.php";
 
 session_start();
@@ -26,7 +26,7 @@ if (mysqli_num_rows($result) == 1)
 			echo "No results found.";
 		}
 		else{
-			echo '<img class="img-fluid" alt="Responsive image" src="Images/'.$qr.'">';
+			echo '<center><img style="width:100%; height:auto" src="Images/'.$qr.'"></center>';
 		}
 		
     }
