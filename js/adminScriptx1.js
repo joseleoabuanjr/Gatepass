@@ -59,7 +59,6 @@ document.addEventListener("DOMContentLoaded", () => {
         table3.classList.remove("table3");
         table3.classList.add("table3--hidden");
 
-
         //show
         table4.classList.remove("table4--hidden");
         table4.classList.add("table4");

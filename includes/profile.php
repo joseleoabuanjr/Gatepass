@@ -54,7 +54,7 @@ $bday = date_format($date, "Y-m-d");
 		</div>
 		<div class="col-8">
 			<div style="overflow-y: scroll; height: 90vh;" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0" data-bs-offset="56">
-				<form method="post" action="" enctype="multipart/form-data" class="d-flex flex-column justify-content-center w-75">
+				<form method="post" action="function/toupdate_p.php" enctype="multipart/form-data" class="d-flex flex-column justify-content-center w-75">
 					<div id="profilePicture" class="pt-5 pb-3">
 						<h4>Profile Picture</h4>
 						<div class="d-flex justify-content-start">
@@ -81,19 +81,19 @@ $bday = date_format($date, "Y-m-d");
 							<div class="col">
 								<div class="mb-3">
 									<label for="firstName" class="form-label">First Name</label>
-									<input type="text" class="form-control" name="first" id="firstName" value="<?php echo ($first); ?>" required>
+									<input type="text" class="form-control" name="first" id="firstName" value="<?php echo ($first); ?>" >
 								</div>
 							</div>
 							<div class="col">
 								<div class="mb-3">
 									<label for="middleName" class="form-label">Middle Initial</label>
-									<input type="text" class="form-control" name="middle" id="middleName" value="<?php echo ($mid); ?>" required>
+									<input type="text" class="form-control" name="middle" id="middleName" value="<?php echo ($mid); ?>" >
 								</div>
 							</div>
 							<div class="col">
 								<div class="mb-3">
 									<label for="lastName" class="form-label">Last Name</label>
-									<input type="text" class="form-control" name="last" id="lastName" value="<?php echo ($last); ?>" required>
+									<input type="text" class="form-control" name="last" id="lastName" value="<?php echo ($last); ?>" >
 								</div>
 							</div>
 						</div>
@@ -101,13 +101,13 @@ $bday = date_format($date, "Y-m-d");
 							<div class="col">
 								<div class="mb-3">
 									<label for="contact" class="form-label">Contact Number</label>
-									<input type="text" class="form-control" name="contact" id="contact" value="<?php echo ($pnum); ?>" required>
+									<input type="text" class="form-control" name="contact" id="contact" value="<?php echo ($pnum); ?>" >
 								</div>
 							</div>
 							<div class="col">
 								<div class="mb-3">
 									<label for="dob" class="form-label">Date of Birth</label>
-									<input type="date" class="form-control" name="dob" id="dob" value="<?php echo ($bday); ?>" required>
+									<input type="date" class="form-control" name="dob" id="dob" value="<?php echo ($bday); ?>" >
 								</div>
 							</div>
 						</div>
@@ -115,7 +115,7 @@ $bday = date_format($date, "Y-m-d");
 							<div class="col">
 								<div class="mb-3">
 									<label for="address" class="form-label">Address</label>
-									<input type="text" class="form-control" name="address" id="address" value="<?php echo ($add); ?>" required>
+									<input type="text" class="form-control" name="address" id="address" value="<?php echo ($add); ?>" >
 								</div>
 							</div>
 						</div>
@@ -123,13 +123,13 @@ $bday = date_format($date, "Y-m-d");
 							<div class="col">
 								<div class="mb-3">
 									<label for="contact_p" class="form-label">Emergency Contact Person</label>
-									<input type="text" class="form-control" name="contact_p" id="contact_p" value="<?php echo ($cname); ?>" required>
+									<input type="text" class="form-control" name="contact_p" id="contact_p" value="<?php echo ($cname); ?>" >
 								</div>
 							</div>
 							<div class="col">
 								<div class="mb-3">
 									<label for="contact_pnum" class="form-label">Emergency Contact Number</label>
-									<input type="text" class="form-control" name="contact_pnum" id="contact_pnum" value="<?php echo ($contnum); ?>" required>
+									<input type="text" class="form-control" name="contact_pnum" id="contact_pnum" value="<?php echo ($contnum); ?>" >
 								</div>
 							</div>
 						</div>
@@ -140,19 +140,19 @@ $bday = date_format($date, "Y-m-d");
 							<div class="col">
 								<div class="mb-3">
 									<label for="studno" class="form-label">Student Number</label>
-									<input type="text" class="form-control" name="studno" id="studno" value="<?php echo ($studno); ?>" required>
+									<input type="text" class="form-control" name="studno" id="studno" value="<?php echo ($studno); ?>" >
 								</div>
 							</div>
 							<div class="col">
 								<div class="mb-3">
 									<label for="year" class="form-label">Year</label>
-									<input type="text" class="form-control" name="year" id="year" value="<?php echo ($yr); ?>" required>
+									<input type="text" class="form-control" name="year" id="year" value="<?php echo ($yr); ?>" >
 								</div>
 							</div>
 							<div class="col">
 								<div class="mb-3">
 									<label for="section" class="form-label">Section</label>
-									<input type="text" class="form-control" name="section" id="section" value="<?php echo ($sec); ?>" required>
+									<input type="text" class="form-control" name="section" id="section" value="<?php echo ($sec); ?>" >
 								</div>
 							</div>
 						</div>
@@ -160,7 +160,7 @@ $bday = date_format($date, "Y-m-d");
 							<div class="col">
 								<div class="mb-3">
 									<label for="college" class="form-label">College</label>
-									<select class="form-select mb-3" name="college" required>
+									<select class="form-select mb-3" name="college" >
 										<option value="<?php echo ($col); ?>" selected disabled hidden><?php echo ($col); ?></option>
 
 										<option value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
@@ -187,7 +187,7 @@ $bday = date_format($date, "Y-m-d");
 							<div class="col">
 								<div class="mb-3">
 									<label for="course" class="form-label">Course</label>
-									<select class="form-select mb-3" name="course" required>
+									<select class="form-select mb-3" name="course" >
 										<option value="<?php echo ($course); ?>" selected disabled hidden><?php echo ($course); ?></option>
 										<div class="op1" name="College of Architecture and Fine Arts (CAFA)" id="cafa">
 											<option class="cafa1--hidden" id="cafa1" value="Bachelor of Science in Architecture">Bachelor of Science in Architecture</option>
@@ -303,6 +303,9 @@ $bday = date_format($date, "Y-m-d");
 
 						</div>
 					</div>
+					<div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
+						<button type="submit" id="save1" class="btn btn-primary">Save</button>
+					</div>
 				</form>
 
 				<div id="cedential">
@@ -317,7 +320,7 @@ $bday = date_format($date, "Y-m-d");
 								</div>
 							</div>
 							<div class="form-floating">
-								<input type="file" name="cor" accept="application/pdf" class="form-control" id="cor1" style="height: 80px;padding-top:40px; padding-left:40px" required>
+								<input type="file" name="cor" accept="application/pdf" class="form-control" id="cor1" style="height: 80px;padding-top:40px; padding-left:40px" >
 								<label>Certificate of Registration</label>
 								<div class="msg" id="message"></div>
 							</div>
@@ -329,7 +332,7 @@ $bday = date_format($date, "Y-m-d");
 								</div>
 							</div>
 							<div class="form-floating">
-								<input type="file" name="vax" class="form-control" id="vax1" style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" required>
+								<input type="file" name="vax" class="form-control" id="vax1" style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" >
 								<label>Vaccination Card</label>
 								<div class="msg" id="message"></div>
 							</div>
@@ -341,7 +344,7 @@ $bday = date_format($date, "Y-m-d");
 								</div>
 							</div>
 							<div class="form-floating">
-								<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" required>
+								<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" >
 								<label>Valid ID Card</label>
 								<div class="msg" id="message"></div>
 							</div>
@@ -408,190 +411,3 @@ $bday = date_format($date, "Y-m-d");
 <!--                     -->
 <!--                     -->
 
-
-
-<!-- <div class="container d-flex" style="width: 100%; height: 100%; margin-top:100px;">
-	<h1>Profile Information</h1>
-</div>
-<div class="container d-flex" style="width: 100%; height: 100%;">
-	<div class="d-flex justify-content-start align-items-start flex-column w-25 pt-5">
-		<div class="d-flex flex-column w-100 pe-2">
-			<button type="button" class="btn btn-primary btn-sm" id="infobtn1" style="margin-bottom:10px;">Information</button>
-			<button type="button" class="btn btn-primary btn-sm" id="infobtn2" style="margin-bottom:10px;">Avatar</button>
-			<button type="button" class="btn btn-primary btn-sm" id="infobtn3" style="margin-bottom:10px;">Credential</button>
-			<button type="button" class="btn btn-primary btn-sm" id="infobtn3" style="margin-bottom:10px;">Account</button>
-		</div>
-	</div>
-	<div class="pf1 pt-5" style="width:100%">
-		<div class="d-flex justify-content-center align-items-center flex-column ms-5 pt-5" style="border:2px black solid; margin-bottom: 40px;">
-			<form method="post" action="" enctype="multipart/form-data" class="d-flex flex-column justify-content-center" style="width: 80%; margin-bottom: 40px;">
-				<h2>Personal Information</h2>
-				<div class="form-floating">
-					<input type="text" name="first" id="fst1" class="form-control" placeholder="Enter first name" value="<?php echo ($first); ?>" required>
-					<label>First Name</label>
-					<div class="msg" id="message"></div>
-				</div>
-				<div class="form-floating">
-					<input type="text" name="middle" id="mid1" class="form-control" placeholder="Enter middle initial" value="<?php echo ($mid); ?>" required>
-					<label>Middle Initial (M.I.)</label>
-					<div class="msg" id="message"></div>
-				</div>
-				<div class="form-floating">
-					<input type="text" name="last" id="lst1" class="form-control" placeholder="Enter last name" value="<?php echo ($last); ?>" required>
-					<label>Last Name</label>
-					<div class="msg" id="message"></div>
-				</div>
-				<div class="form-floating">
-					<input type="text" name="contact" id="cont1" class="form-control" placeholder="Enter Phone Number" value="<?php echo ($pnum); ?>" required>
-					<label>Phone Number</label>
-					<div class="msg" id="message"></div>
-				</div>
-				<div class="form-floating">
-					<input type="text" name="dob" id="dob" class="form-control" placeholder="Enter Birthday" onfocus="(this.type='date')" onblur="if(!this.value)this.type='text'" value="<?php echo ($bday); ?>" required>
-					<label>Date of Birth</label>
-					<div class="msg" id="message"></div>
-				</div>
-				<div class="form-floating">
-					<input type="text" name="address" id="address1" class="form-control" placeholder="Enter Address" value="<?php echo ($add); ?>" required>
-					<label>Address</label>
-					<div class="msg" id="message"></div>
-				</div>
-				<div class="form-floating">
-					<input type="text" name="contact_p" id="cperson1" class="form-control" placeholder="Enter Name of Contact Person" value="<?php echo ($cname); ?>" required>
-					<label>Contact Person (In Case of Emergency)</label>
-					<div class="msg" id="message"></div>
-				</div>
-				<div class="form-floating">
-					<input type="text" name="contact_pnum" id="contp1" class="form-control" placeholder="Enter Phone Number of Contact Person" value="<?php echo ($contnum); ?>" required>
-					<label>Emergency Contact Number</label>
-					<div class="msg" id="message"></div>
-				</div>
-				<h2>Educational Information</h2>
-				<div class="form-floating">
-					<input type="text" name="studno" id="stud1" class="form-control" placeholder="Enter student no." value="<?php echo ($studno); ?>" required>
-					<label>Student Number</label>
-					<div class="msg" id="message"></div>
-				</div>
-				<div class="form-floating">
-					<input type="text" name="college" id="col" class="form-control" value="<?php echo ($col); ?>" required>
-					<label>College</label>
-					<div class="msg" id="message"></div>
-				</div>
-				<div class="form-floating">
-					<input type="text" name="course" id="course" class="form-control" value="<?php echo ($course); ?>" required>
-					<label>Course</label>
-					<div class="msg" id="message"></div>
-				</div>
-				<div class="form-floating">
-					<input type="text" name="year" id="year" class="form-control" value="<?php echo ($yr); ?>" required>
-					<label>Year</label>
-					<div class="msg" id="message"></div>
-				</div>
-				<div class="form-floating">
-					<input type="text" name="section" class="form-control" placeholder="Enter username" id="section" value="<?php echo ($sec); ?>" required>
-					<label>Section</label>
-					<div class="msg13" id="message"></div>
-				</div>
-				<div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
-					<button type="submit" id="save1" class="btn btn-primary">Save</button>
-				</div>
-			</form>
-		</div>
-	</div>
-	<div class="pf2 pt-5" style="width:100%">
-		<div class="d-flex justify-content-center align-items-center flex-column ms-5 pt-5" style="border:2px black solid; margin-bottom: 40px;">
-			<form method="post" action="" enctype="multipart/form-data" class="d-flex flex-column justify-content-center" style="width: 80%; margin-bottom: 40px;">
-				<h2>Update Account Profile Picture</h2>
-				<div class="d-flex">
-					<div style="width:30%; margin:20px;">
-						<img class="img-thumbnail" src="data:image;base64,<?php echo ($img); ?>">
-					</div>
-					<div class="d-flex flex-column">
-						<p style="margin: 20px;"> -Please select a jpg/jpeg or png file format to upload image to be your profile picture <br> -Image size must be 2x2 only</p>
-						<div class="form-floating">
-							<input type="file" name="image" class="form-control" id="img1" style="height: 80px;padding-top:40px; padding-left:40px" accept="image/png, image/jpeg" onchange="return checkImage1()" required>
-							<label>Upload Account Profile Picture</label>
-							<div class="msg" id="message"></div>
-						</div>
-					</div>
-				</div>
-				<div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
-					<button type="submit" id="save2" class="btn btn-primary">Save</button>
-				</div>
-			</form>
-		</div>
-	</div>
-	<div class="pf3 pt-5" style="width:100%">
-		<div class="d-flex justify-content-center align-items-center flex-column ms-5 pt-5" style="border:2px black solid; margin-bottom: 40px;">
-			<form method="post" action="" enctype="multipart/form-data" class="d-flex flex-column justify-content-center" style="width: 80%; margin-bottom: 40px;">
-				<h2>Credentials</h2>
-				<div style="width: 80%; margin-left:20px;">
-					<div class="form-group">
-						<h5>Certificate of Registration</h5>
-						<div class="d-flex">
-							<input type="text" name="CoR" class="form-control" value="<?php echo ($cor); ?>" style="margin-bottom: 10px; margin-right: 10px;" disabled id="cor">
-							<a class='btn btn-secondary' target="_blank" href='viewcor.php?id=<?php echo $accno ?>' style="height:40px;">View</a>
-						</div>
-					</div>
-					<div class="form-floating">
-						<input type="file" name="cor" accept="application/pdf" class="form-control" id="cor1" style="height: 80px;padding-top:40px; padding-left:40px" required>
-						<label>Certificate of Registration</label>
-						<div class="msg" id="message"></div>
-					</div>
-					<div class="form-group">
-						<h5>Vaccination Card</h5>
-						<div class="d-flex">
-							<input type="text" name="vaxx" class="form-control" value="<?php echo ($vax); ?>" style="margin-bottom: 10px; margin-right: 10px;" disabled id="vaxx">
-							<a class='btn btn-secondary' target="_blank" href='viewvax.php?id=<?php echo $accno ?>' style="height:40px;">View</a>
-						</div>
-					</div>
-					<div class="form-floating">
-						<input type="file" name="vax" class="form-control" id="vax1" style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" required>
-						<label>Vaccination Card</label>
-						<div class="msg" id="message"></div>
-					</div>
-					<div class="form-group">
-						<h5>Valid ID Card</h5>
-						<div class="d-flex">
-							<input type="text" name="V_id" class="form-control" value="<?php echo ($v_id); ?>" style="margin-bottom: 10px; margin-right: 10px;" disabled>
-							<a class='btn btn-secondary' target="_blank" href='view_vid.php?id=<?php echo $accno ?>' style="height:40px;">View</a>
-						</div>
-					</div>
-					<div class="form-floating">
-						<input type="file" name="vid" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px" accept="application/pdf" required>
-						<label>Valid ID Card</label>
-						<div class="msg" id="message"></div>
-					</div>
-				</div>
-				<div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
-					<button type="submit" id="save3" class="btn btn-primary">Save</button>
-				</div>
-			</form>
-		</div>
-	</div>
-	<div class="pf4 pt-5 " style="width:100%">
-		<div class="d-flex justify-content-center align-items-center flex-column ms-5 pt-5" style="border:2px black solid; margin-bottom: 40px;">
-			<form method="post" action="" enctype="multipart/form-data" class="d-flex flex-column justify-content-center" style="width: 80%; margin-bottom: 40px;">
-				<h2>Account Information</h2>
-				<div class="form-floating">
-					<input type="text" name="user" class="form-control" id="username1" value="<?php echo ($user); ?>" disabled>
-					<label>Username</label>
-					<div class="msg" id="message"></div>
-				</div>
-				<div class="form-floating">
-					<input type="password" name="pass" id="pass1" class="form-control" value="<?php echo ($p); ?>" disabled>
-					<label>Password</label>
-					<div class="msg" id="message"></div>
-				</div>
-				<div class="form-floating">
-					<input type="text" name="email" id="email1" class="form-control" value="<?php echo ($email); ?>">
-					<label>Email Address</label>
-					<div class="msg" id="message"></div>
-				</div>
-				<div class="d-flex justify-content-end" style="width:100%;padding-top:10px;">
-					<button type="submit" id="save4" class="btn btn-primary">Save</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</div> -->
