@@ -17,7 +17,7 @@ if ($count == 1) {
 		$_SESSION["useradmin"] = $row["username"];
 		$_SESSION["passadmin"] = $row["password"];
 	}
-	echo json_encode(array("status" => true, "location" => "admin/admin.php"));
+	echo json_encode(array("status" => true, "location" => "admin/user.php"));
 	// header("location:../admin/admin.php");
 } else {
 	$select = "SELECT * FROM acc_temp WHERE username='$user'and password='$pass'";

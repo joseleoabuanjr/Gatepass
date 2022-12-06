@@ -6,10 +6,10 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="" id="tl1">Users</a>
-                <a class="nav-link" href="" id="tl2">Verification</a>
-                <a class="nav-link" href="" id="tl3">Appointments</a>
-                <a class="nav-link" href="" id="tl4">Time-in/out</a>
+                <a class="nav-link" href="user.php" id="tl1">Users</a>
+                <a class="nav-link" href="verification.php" id="tl2">Verification</a>
+                <a class="nav-link" href="appointment.php" id="tl3">Appointments</a>
+                <a class="nav-link" href="time_inout.php" id="tl4">Time-in/out</a>
                 <a class="nav-link" href="../function/toLogout.php">Logout</a>
             </div>
         </div>

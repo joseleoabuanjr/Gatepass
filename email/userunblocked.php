@@ -55,7 +55,7 @@
                 <br>
                 <br>Hi '.$lst.', '.$fst.',
                 <br>
-                <br>We would like to inform you that your account is Blocked by the admin. 
+                <br>We would like to inform you that your account is Unblocked by the admin. 
                 <br>
                 <br>
                 <br>- BulSU Gate Pass Team</p>
