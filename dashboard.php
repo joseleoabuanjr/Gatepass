@@ -56,6 +56,8 @@ $id = $_SESSION['accno'];
                 $statusColor = "text-bg-success";
                 if ($status != "verified") {
                     $statusColor = "text-bg-warning";
+                }if ($status == "blocked") {
+                    $statusColor = "text-bg-secondary";
                 }
 
                 $tempbday = date_create($bday);
@@ -73,6 +75,15 @@ $id = $_SESSION['accno'];
                         <div class="w-100 pt-4">
                             <div class="alert text-center fw-bold alert-warning shadow" role="alert">
                                 Your account verification status is pending. Please wait until your account is fully verified.
+                            </div>
+                        </div>
+                        ';
+                }
+                else if ($status == "blocked") {
+                    echo '
+                        <div class="w-100 pt-4">
+                            <div class="alert text-center fw-bold alert-dark shadow" role="alert">
+                                Your account has been blocked by the admin.
                             </div>
                         </div>
                         ';
@@ -163,7 +174,7 @@ $id = $_SESSION['accno'];
                                 }
                                 echo '</ul>';
                             } else {
-                                echo '<button type="button" class="btn btn-outline-secondary" id="appointmentBtn" onclick="window.location.href=\'appointment.php\'">Set an Appointment</button>';
+                                echo '<a href="appointment.php" class="btn btn-outline-secondary '.$disable.'" id="appointmentBtn">Set an Appointment</a>';
                             }
                             ?>
                         </div>

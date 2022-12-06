@@ -6,7 +6,14 @@ $count =  mysqli_num_rows($result);
 if ($count == 1) {
 	while ($row = mysqli_fetch_assoc($result)) {
 		$type = $row['type'];
+        $stats = $row['verification'];
 	}
+    if($stats == "blocked"){
+        $disable = 'disabled';
+    }
+    else{
+        $disable = "";
+    }
 }
 ?>
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark " style="background-color: #763435; height: 50px">
@@ -17,8 +24,8 @@ if ($count == 1) {
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="dashboard.php" id="ta1">Dashboard</a>
-                <a class="nav-link" href="profile.php" id="ta2">Profile</a>
+                <a class="nav-link <?php echo $disable ?>" href="dashboard.php" id="ta1" >Dashboard</a>
+                <a class="nav-link <?php echo $disable ?>" href="profile.php" id="ta2" >Profile</a>
                 <?php 
                     if($type == 'student') { 
                         
@@ -27,7 +34,7 @@ if ($count == 1) {
                         
                     }
                     else{
-                        echo ('<a class="nav-link" href="appointment.php" id="ta3">Appointments</a>');
+                        echo ('<a class="nav-link '.$disable.'" href="appointment.php" id="ta3">Appointments</a>');
                     }
                 ?>
                 <a class="nav-link" href="function/toLogout.php">Logout</a>
