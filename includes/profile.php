@@ -388,9 +388,6 @@ $bday = date_format($date, "Y-m-d");
 						</div>
 					</div>
 				</form>
-
-
-
 			</div>
 		</div>
 	</div>
