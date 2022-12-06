@@ -19,9 +19,9 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
     <!-- Javascript -->
-    <script type="text/javascript" src="../js/adminScriptx1.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="../js/adminScriptx1.js"></script>
     <script>
         $(document).ready(function () {
             $("#userAccountsTable, #accountVerificationTable, #appointmentRequestTable, #timeinoutTable").DataTable();

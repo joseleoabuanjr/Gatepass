@@ -63,11 +63,10 @@
             ';
         }
         //send mail
-        $mail->send();
-
         if($mail->send()){
-            echo "<script>console.log('Sent Successfully')</script>";
-            header("refresh: 0; url='../admin/user.php'");
+            echo json_encode(array("status" => true));
+        } else{
+            echo json_encode(array("status" => false, "msg" => "Sent Failed"));
         }
     }
     else{

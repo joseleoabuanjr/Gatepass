@@ -1,44 +1,41 @@
 $(document).ready(function () {
-    $("#fPSpinnerA").hide();
-    $("#errorAlertA").hide();
-    $("#successAlertA").hide();
-    $("#fPSpinnerD").hide();
-    $("#errorAlertD").hide();
-    $("#successAlertD").hide();
+    $("#fPSpinner").hide();
+    $("#errorAlert").hide();
+    $("#successAlert").hide();
     // Approve----------------
-    $(".approveBtn").click(function (e) {
+    $(".dropBtn").click(function (e) {
         e.preventDefault();
         var accNo = $(this).data("accno");
         $("#accNoModalApp").html(accNo);
-        $("#approveBtnModal").data("accno", accNo);
-        $("#approveModal").modal("show");
-        $("#approveBtnModal").show();
+        $("#dropBtnModal").data("accno", accNo);
+        $("#statusModal").modal("show");
+        $("#dropBtnModal").show();
     });
-    $("#approveBtnModal").click(function (e) {
+    $("#dropBtnModal").click(function (e) {
         e.preventDefault();
         var accno = $(this).data("accno");
         $.ajax({
             type: "post",
-            url: "../function/tofv_Approved.php",
+            url: "../function/toblock.php",
             data: { accno: accno },
             dataType: "JSON",
             success: function (response) {
                 if (response.status) {
-                    $("#successAlertA").fadeIn();
-                    $("#errorAlertA").hide();
-                    $("#approveBtnModal").hide();
+                    $("#successAlert").fadeIn();
+                    $("#errorAlert").hide();
+                    $("#dropBtnModal").hide();
                 }
                 else {
-                    $("#errorAlertA").fadeIn();
+                    $("#errorAlert").fadeIn();
                     // $("#errorAlertFP").html(response.msg);
-                    $("#successAlertA").hide();
+                    $("#successAlert").hide();
 
                 }
                 $("#fPSpinnerA").hide();
             }, error: function (err) {
                 console.error(err);
             }, beforeSend: function () {
-                $("#fPSpinnerA").show();
+                $("#fPSpinner").show();
             }
         });
     });

@@ -62,7 +62,9 @@
     </div>
     ';
     //send mail
-    $mail->send();
-    
-    header("refresh: 0; url=../admin.php?");
+    if($mail->send()){
+        echo json_encode(array("status" => true));
+    }  else{
+        echo json_encode(array("status" => false));
+    }
 ?>

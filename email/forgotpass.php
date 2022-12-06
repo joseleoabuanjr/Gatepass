@@ -64,16 +64,13 @@
             ';
         }
         //send mail
-        $mail->send();
-
         if($mail->send()){
             echo json_encode(array("status" => true));
-            // echo "<script>console.log('Sent Successfully')</script>";
-            // header("refresh: 0; url='../landing-page.php'");
+        } else{
+            echo json_encode(array("status" => false, "msg" => "Sent Failed"));
         }
     }
     else{
-        // echo "<script>alert('Sent Failed1')</script>;";
         echo json_encode(array("status" => false, "msg" => "Sent Failed"));
     }
 ?>
