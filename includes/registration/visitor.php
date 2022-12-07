@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-between">
-                        <div class="form-text fw-bolder">Already have an account? <a href="../../landing-page.php" class="text-info text-decoration-none" style="cursor: pointer;">Log in</a></div>
+                        <div class="form-text fw-bolder">Already have an account? <a href="../../index.php" class="text-info text-decoration-none" style="cursor: pointer;">Log in</a></div>
                         <button class="btn btn-primary me-md-2 px-5 nextBtn" data-ctr="1" type="button">Next</button>
                     </div>
                 </div>
@@ -129,7 +129,7 @@
                     {{ errorMessage }}
                 </div> -->
                     <div class="d-grid gap-2 d-md-flex justify-content-md-between">
-                        <div class="form-text fw-bolder">Already have an account? <a href="../../landing-page.php" class="text-info text-decoration-none" style="cursor: pointer;">Log in</a></div>
+                        <div class="form-text fw-bolder">Already have an account? <a href="../../index.php" class="text-info text-decoration-none" style="cursor: pointer;">Log in</a></div>
                         <div>
                             <button class="btn btn-secondary me-md-2 px-5 prevBtn" data-ctr="2" type="button">Prev</button>
                             <button class="btn btn-primary me-md-2 px-5" type="submit">
@@ -145,7 +145,7 @@
 
             </form>
             <div class="alert alert-success mt-3" role="alert" id="successAlert">
-                Registration Completed! Proceed to <a href="../../landing-page.php" class="alert-link text-decoration-none">Log in page</a>.
+                Registration Completed! Proceed to <a href="../../index.php" class="alert-link text-decoration-none">Log in page</a>.
             </div>
         </div>
 

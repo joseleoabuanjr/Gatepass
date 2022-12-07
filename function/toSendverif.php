@@ -74,8 +74,6 @@
             </div>
             ';
         }
-        //send mail
-        $mail->send();
 
         if($mail->send()){
             echo json_encode(array("status" => true));

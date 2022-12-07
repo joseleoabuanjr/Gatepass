@@ -70,31 +70,12 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                                     <td class='text-capitalize'>" . $row["type"] . "</td>
                             ");
                     if ($row["type"] == "student") {
-                        if ($cor == "" || NULL && $vax == "" || NULL) {
-                            echo ("
-                                    <td>N/A</td><td>N/A</td><td>N/A</td>
-                                ");
-                        } else {
-                            if ($cor == "" || NULL && !($vax == "" || NULL)) {
-                                echo ("
-                                        <td>N/A</td>
-                                        <td>N/A</td>
-                                        <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
-                                    ");
-                            } else if ($vax == "" || NULL && !($cor == "" || NULL)) {
-                                echo ("
-                                        <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewcor.php?id=" . $row["acc_no"] . "'>View</a></td>
-                                        <td>N/A</td>
-                                        <td>N/A</td>
-                                    ");
-                            } else {
-                                echo ("
-                                        <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewcor.php?id=" . $row["acc_no"] . "'>View</a></td>
-                                        <td>N/A</td>
-                                        <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
-                                    ");
-                            }
-                        }
+                        echo ("
+                                <td> <a class='btn btn-secondary btn-sm' target='_blank' href='../viewcor.php?id=" . $row["acc_no"] . "'>View</a> </td>
+                                <td> <a class='btn btn-secondary btn-sm' target='_blank' href='../view_vid.php?id=" . $row["acc_no"] . "'> View </a></td>
+                                <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
+                            ");
+                        
                     } else if ($row["type"] == "employee" || "visitor") {
                         if ($v_id == "" || NULL && $vax == "" || NULL) {
                             echo ("

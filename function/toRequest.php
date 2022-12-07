@@ -24,11 +24,12 @@
         //convert to integer before passing of value;
         $reqid = (int)$row["COALESCE(MAX(req_id),0)+1"];
     }
-    $select = "SELECT COALESCE(MAX(id),0)+1 FROM appointment WHERE acc_no = '$id';";
+    $select = "SELECT COALESCE(MAX(id),0)+1 FROM appointment";
     $result = mysqli_query($connect,$select); 
     while($row = mysqli_fetch_assoc($result)){
         //convert to integer before passing of value;
         $apptid = (int)$row["COALESCE(MAX(id),0)+1"];
+        print json_encode($apptid);
     }
 
     //--CHECKING DATA

@@ -89,7 +89,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                     // <a class='btn btn-danger btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Archive</a>
                     if ($row['verification'] == "blocked") {
                         echo "<td>
-                            <button class='btn btn-secondary btn-sm statusBtn' data-status='verified' data-accno='" . $row['acc_no'] . "'>Unblock</button>
+                            <button class='btn btn-secondary btn-sm statusBtn' data-status='unblocked' data-accno='" . $row['acc_no'] . "'>Unblock</button>
                         </td>
                         </tr>";
                     } else {
