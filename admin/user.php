@@ -38,14 +38,14 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
             </div> -->
             <thead>
                 <tr style="background-color: #4F4F4B; color:white;">
-                    <th>Account Number</th>
-                    <th>Name</th>
-                    <th>Account Type</th>
-                    <th>Status</th>
-                    <th>Course</th>
-                    <th>Year</th>
-                    <th>Section</th>
-                    <th>Action</th>
+                    <th class="text-center">Account Number</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Account Type</th>
+                    <th class="text-center">Status</th>
+                    <th class="text-center">Course</th>
+                    <th class="text-center">Year</th>
+                    <th class="text-center">Section</th>
+                    <th class="text-center">Action</th>
                 </tr>
             </thead>
             <tbody>

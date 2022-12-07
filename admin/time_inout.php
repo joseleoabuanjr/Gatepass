@@ -31,14 +31,16 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
     <div class="container table-responsive">
         <table class="table shadow-sm table-striped table-hover display compact" id="timeinoutTable">
             <h2 style="padding-top: 60px; padding-bottom:20px;">Time In and Out</h2>
+            <div class="d-flex justify-content-end" style="margin-bottom:10px;"><button type="button" class="btn btn-primary btn-sm d-print-none" onclick="window.print()">Print Records</button></div>
+            
             <thead>
                 <tr style="background-color: #4F4F4B; color:white;">
-                    <th>Account Number</th>
-                    <th>Name</th>
-                    <th>Account Type</th>
-                    <th>In/Out</th>
-                    <th>Date & Time</th>
-                    <th>Reason</th>
+                    <th class="text-center">Account Number</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Account Type</th>
+                    <th class="text-center">In/Out</th>
+                    <th class="text-center">Date & Time</th>
+                    <th class="text-center">Reason</th>
                 </tr>
             </thead>
                 

@@ -35,13 +35,13 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
             <h2 style="padding-top: 60px; padding-bottom:20px;">Account Verification</h2>
             <thead>
                 <tr style="background-color: #4F4F4B; color:white;">
-                    <th>Account Number</th>
-                    <th>Name</th>
-                    <th>Account Type</th>
-                    <th>Certificate of Registration</th>
-                    <th>Valid ID Card</th>
-                    <th>Vaccination Card</th>
-                    <th>Actions</th>
+                    <th class="text-center">Account Number</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Account Type</th>
+                    <th class="text-center">Certificate of Registration</th>
+                    <th class="text-center">Valid ID Card</th>
+                    <th class="text-center">Vaccination Card</th>
+                    <th class="text-center">Actions</th>
                 </tr>
             </thead>
 
@@ -125,7 +125,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                     echo "<td>
                                 <!-- Button trigger modal -->
                                 <div class='btn-group' role='group'>
-                                    <button type='button' class='btn btn-success statusBtn btn-sm' data-status='verified' data-accno='" . $row['acc_no'] . "'>Approve</button>
+                                    <button type='button' class='btn btn-primary statusBtn btn-sm' data-status='verified' data-accno='" . $row['acc_no'] . "'>Approve</button>
                                     <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='unverified' data-accno='" . $row['acc_no'] . "'>Deny</button>
                                 </div>
                             </td>

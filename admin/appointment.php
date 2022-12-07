@@ -37,12 +37,12 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
             <h2 style="padding-top: 60px; padding-bottom:20px;">Appointment Request</h2>
             <thead>
                 <tr style="background-color: #4F4F4B; color:white;">
-                    <th>Account Number</th>
-                    <th>Name</th>
-                    <th>Account Type</th>
-                    <th>Purpose of Appointment</th>
-                    <th>Date of Appointment</th>
-                    <th>Actions</th>
+                    <th class="text-center">Account Number</th>
+                    <th class="text-center">Name</th>
+                    <th class="text-center">Account Type</th>
+                    <th class="text-center">Purpose of Appointment</th>
+                    <th class="text-center">Date of Appointment</th>
+                    <th class="text-center">Actions</th>
                 </tr>
             </thead>
 
@@ -71,7 +71,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                                     <td>" . $row["date"] . "</td>
                                     <td>
                                     <div class='btn-group' role='group'>
-                                        <button type='button' class='btn btn-success statusBtn btn-sm' data-status='approved' data-accno='" . $row['acc_no'] . "' data-reqid='" . $reqid . "'>Approve</button>
+                                        <button type='button' class='btn btn-primary statusBtn btn-sm' data-status='approved' data-accno='" . $row['acc_no'] . "' data-reqid='" . $reqid . "'>Approve</button>
                                         <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='denied' data-accno='" . $row['acc_no'] . "' data-reqid='" . $reqid . "'>Deny</button>
                                     </div>
                                     </td>
