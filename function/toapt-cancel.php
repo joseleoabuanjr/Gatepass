@@ -19,13 +19,10 @@
             $filename = $qrfile;
             if($filename != NULL|| ""){
                 if (unlink($filename)) {
-                    echo 'The file ' . $filename . ' was deleted successfully!';
                 }
                 else {
-                    echo 'There was a error deleting the file ' . $filename;
                 }
             }
-			echo "<script>alert('Cancel Success')</script>";	
             header("refresh: 0; url= ../appointment.php");	
 		}
         else{
