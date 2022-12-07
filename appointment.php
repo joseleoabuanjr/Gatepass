@@ -51,7 +51,7 @@ $id = $_SESSION['accno'];
                             <div class="d-flex justify-content-between">
                                 <h2 style="padding-bottom:20px;">Appointments Requests</h2>
                                 <div>
-                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#requestModal">Request an Appointment</button>
+                                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#requestModal">Request an Appointment</button>
                                 </div>
                             </div>
                             <table class="table pt-2" id="appointmentTable">

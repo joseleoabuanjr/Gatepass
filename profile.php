@@ -73,7 +73,7 @@ $bday = date_format($date, "Y-m-d");
                 <div class="row">
                     <div class="col-4">
                         <div id="list-example" class="list-group pt-5">
-                            <a class="list-group-item list-group-item-action" href="#profilePicture">Avatar</a>
+                            <a class="list-group-item list-group-item-action" href="#profilePicture">Profile Picture</a>
                             <a class="list-group-item list-group-item-action" href="#personalInfoSection">Personal Information</a>
                             <a class="list-group-item list-group-item-action" href="#educationalInfoSection">Educational Information</a>
                             <a class="list-group-item list-group-item-action" href="#credential">Credential</a>
@@ -83,10 +83,10 @@ $bday = date_format($date, "Y-m-d");
                     </div>
                     <div class="col-8">
                         <div style="overflow-y: scroll; height: 90vh;" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0" data-bs-offset="56">
-                            <div class="w-75">
-                                <div id="profilePicture" class="pt-5 pb-3">
-                                    <h4>Profile Picture</h4>
-                                    <div class="d-flex justify-content-start">
+                            <div class="container" style="width:90%;">
+                                <div id="profilePicture" class="pt-5 pb-3 mb-5">
+                                    <h2>Profile Picture</h2>
+                                    <div class="d-flex justify-content-start pt-3">
                                         <img class="img-thumbnail" width="180px" height="180px" src="data:image;base64,<?php echo ($img); ?>">
                                         <div>
                                             <ul>
@@ -94,31 +94,31 @@ $bday = date_format($date, "Y-m-d");
                                                 <li>Image size must be 2x2 only</li>
                                             </ul>
                                             <div class="form-floating">
-                                                <input type="file" name="image" class="form-control ms-2" style="height: 80px;padding-top:40px; padding-left:40px" id="img1" accept="image/png, image/jpeg" onchange="return checkImage1()">
-                                                <label>Upload Account Profile Picture</label>
+                                                <input type="file" name="image" class="form-control ms-2 ps-5" style="height: 80px;padding-top:40px; padding-left:40px" id="img1" accept="image/png, image/jpeg" onchange="return checkImage1()">
+                                                <label class="ms-3">Upload Account Profile Picture</label>
                                                 <div class="msg" id="message"></div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="personalInfoSection" class="py-3">
-                                    <h4>Personal Information</h4>
-                                    <div class="row row-cols-1 row-cols-md-3 g-2">
+                                <div id="personalInfoSection" class="py-3 mb-5">
+                                    <h2>Personal Information</h2>
+                                    <div class="row row-cols-1 row-cols-md-3 g-2 pt-3">
                                         <div class="col">
                                             <div class="mb-3">
-                                                <label for="firstName" class="form-label">First Name</label>
+                                                <h6 for="firstName" class="form-label">First Name</h6>
                                                 <input type="text" class="form-control" name="first" id="firstName" value="<?php echo ($first); ?>">
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="mb-3">
-                                                <label for="middleName" class="form-label">Middle Initial</label>
+                                                <h6 for="middleName" class="form-label">Middle Initial</h6>
                                                 <input type="text" class="form-control" name="middle" id="middleName" value="<?php echo ($mid); ?>">
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="mb-3">
-                                                <label for="lastName" class="form-label">Last Name</label>
+                                                <h6 for="lastName" class="form-label">Last Name</h6>
                                                 <input type="text" class="form-control" name="last" id="lastName" value="<?php echo ($last); ?>">
                                             </div>
                                         </div>
@@ -126,13 +126,13 @@ $bday = date_format($date, "Y-m-d");
                                     <div class="row row-cols-1 row-cols-md-2 g-2">
                                         <div class="col">
                                             <div class="mb-3">
-                                                <label for="contact" class="form-label">Contact Number</label>
+                                                <h6 for="contact" class="form-label">Contact Number</h6>
                                                 <input type="text" class="form-control" name="contact" id="contact" value="<?php echo ($pnum); ?>">
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="mb-3">
-                                                <label for="dob" class="form-label">Date of Birth</label>
+                                                <h6 for="dob" class="form-label">Date of Birth</h6>
                                                 <input type="date" class="form-control" name="dob" id="dob" value="<?php echo ($bday); ?>">
                                             </div>
                                         </div>
@@ -140,7 +140,7 @@ $bday = date_format($date, "Y-m-d");
                                     <div class="row row-cols-1 row-cols-md-1 g-2">
                                         <div class="col">
                                             <div class="mb-3">
-                                                <label for="address" class="form-label">Address</label>
+                                                <h6 for="address" class="form-label">Address</h6>
                                                 <input type="text" class="form-control" name="address" id="address" value="<?php echo ($add); ?>">
                                             </div>
                                         </div>
@@ -148,30 +148,30 @@ $bday = date_format($date, "Y-m-d");
                                     <div class="row row-cols-1 row-cols-md-2 g-2">
                                         <div class="col">
                                             <div class="mb-3">
-                                                <label for="contact_p" class="form-label">Emergency Contact Person</label>
+                                                <h6 for="contact_p" class="form-label">Emergency Contact Person</h6>
                                                 <input type="text" class="form-control" name="contact_p" id="contact_p" value="<?php echo ($cname); ?>">
                                             </div>
                                         </div>
                                         <div class="col">
                                             <div class="mb-3">
-                                                <label for="contact_pnum" class="form-label">Emergency Contact Number</label>
+                                                <h6 for="contact_pnum" class="form-label">Emergency Contact Number</h6>
                                                 <input type="text" class="form-control" name="contact_pnum" id="contact_pnum" value="<?php echo ($contnum); ?>">
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div id="educationalInfoSection" class="py-3">
-                                    <h4>Educational Information</h4>
-                                    <div class="row row-cols-1 row-cols-md-3 g-2">
+                                <div id="educationalInfoSection" class="py-3 mb-5">
+                                    <h2>Educational Information</h2>
+                                    <div class="row row-cols-1 row-cols-md-3 g-2 pt-3">
                                         <div class="col-md-6">
                                             <div class="mb-3">
-                                                <label for="studno" class="form-label">Student Number</label>
+                                                <h6 for="studno" class="form-label">Student Number</h6>
                                                 <input type="text" class="form-control" name="studno" id="studno" value="<?php echo ($studno); ?>">
                                             </div>
                                         </div>
                                         <div class="col-md-3">
                                             <div class="mb-3">
-                                                <label for="year" class="form-label">Year</label>
+                                                <h6 for="year" class="form-label">Year</h6>
                                                 <select class="form-select mb-3" name="year" required>
                                                     <option <?php echo ($yr == "1") ? "selected":"" ?> value="1">1</option>
                                                     <option <?php echo ($yr == "2") ? "selected":"" ?> value="2">2</option>
@@ -183,7 +183,7 @@ $bday = date_format($date, "Y-m-d");
                                         </div>
                                         <div class="col-md-3">
                                             <div class="mb-3">
-                                                <label for="section" class="form-label">Section</label>
+                                                <h6 for="section" class="form-label">Section</h6>
                                                 <input type="text" class="form-control" name="section" id="section" value="<?php echo ($sec); ?>">
                                             </div>
                                         </div>
@@ -191,7 +191,7 @@ $bday = date_format($date, "Y-m-d");
                                     <div class="row row-cols-1 row-cols-md-1 g-2">
                                         <div class="col">
                                             <div class="mb-3">
-                                                <label for="college" class="form-label">College</label>
+                                                <h6 for="college" class="form-label">College</h6>
                                                 <select class="form-select mb-3" name="college">
                                                     <option <?php echo ($col == "College of Architecture and Fine Arts (CAFA)") ? "selected":"" ?> value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
                                                     <option <?php echo ($col == "College of Arts and Letters (CAL)") ? "selected":"" ?> value="College of Arts and Letters (CAL)">College of Arts and Letters (CAL)</option>
@@ -216,7 +216,7 @@ $bday = date_format($date, "Y-m-d");
                                     <div class="row row-cols-1 row-cols-md-1 g-2">
                                         <div class="col">
                                             <div class="mb-3">
-                                                <label for="course" class="form-label">Course <?php echo $course; ?></label>
+                                                <h6 for="course" class="form-label">Course</h6>
                                                 <select class="form-select mb-3" name="course">
                                                     <div class="op1" name="College of Architecture and Fine Arts (CAFA)">
                                                         <option class="cafa1--hidden" <?php echo ($course == "Bachelor of Science in Architecture") ? "selected" : "" ?> value="Bachelor of Science in Architecture">Bachelor of Science in Architecture</option>
@@ -333,9 +333,9 @@ $bday = date_format($date, "Y-m-d");
 
                                     </div>
                                 </div>
-                                <div id="credential" class="py-3">
-                                    <h4>Credentials</h4>
-                                    <div class="mb-3">
+                                <div id="credential" class="py-3 mb-5">
+                                    <h2 class="mb-3">Credentials</h2>
+                                    <div class="mb-3 pt-3">
                                         <h6>Certificate of Registration</h6>
                                         <div class="input-group mb-1">
                                             <input type="text" class="form-control" value="<?php echo ($cor); ?>" disabled>
@@ -373,23 +373,23 @@ $bday = date_format($date, "Y-m-d");
                                     </div>
                                 </div>
                                 <div id="account" class="py-3 mb-5">
-                                    <h4>Account Information</h4>
-                                    <div class="row row-cols-1 row-cols-md-2 g-2">
+                                    <h2>Account Information</h2>
+                                    <div class="row row-cols-1 row-cols-md-2 g-2 pt-3">
                                         <div class="col-md-5">
                                             <div class="mb-3">
-                                                <label for="user" class="form-label">Username</label>
+                                                <h6 for="user" class="form-label">Username</h6>
                                                 <input type="text" class="form-control" name="user" id="user" value="<?php echo ($user); ?>" required>
                                             </div>
                                         </div>
                                         <div class="col-md-7">
                                             <div class="mb-3">
-                                                <label for="email" class="form-label">Email</label>
+                                                <h6 for="email" class="form-label">Email</h6>
                                                 <input type="email" class="form-control" name="email" id="email" value="<?php echo ($email); ?>" required>
                                             </div>
                                         </div>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="pass" class="form-label">Password</label>
+                                        <h6 for="pass" class="form-label">Password</h6>
                                         <div class="input-group mb-1">
                                             <input type="password" class="form-control" name="pass" required>
                                             <button type="button" class='btn btn-secondary px-3' data-bs-toggle="collapse" data-bs-target="#changePass">Change Password</button>
@@ -400,13 +400,13 @@ $bday = date_format($date, "Y-m-d");
                                         <div class="row row-cols-1 row-cols-md-2 g-2">
                                             <div class="col">
                                                 <div class="mb-3">
-                                                    <label for="newPassword" class="form-label">New Password</label>
+                                                    <h6 for="newPassword" class="form-label">New Password</h6>
                                                     <input type="password" class="form-control" name="npass" id="newPassword" minlength="8" required disabled>
                                                 </div>
                                             </div>
                                             <div class="col">
                                                 <div class="mb-3">
-                                                    <label for="confirmPassword" class="form-label">Re-type New Password</label>
+                                                    <h6 for="confirmPassword" class="form-label">Re-type New Password</h6>
                                                     <input type="password" class="form-control" name="npass1" id="confirmPassword" minlength="8" required disabled>
                                                 </div>
                                             </div>
