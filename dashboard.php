@@ -29,6 +29,14 @@ $id = $_SESSION['accno'];
 	<div class="container">
     <?php
         $accno = $_SESSION["accno"];
+        
+        $select = "SELECT*FROM appointment WHERE date =(SELECT MIN(date) FROM appointment WHERE acc_no = $accno AND status = 'approved')";
+        $result = mysqli_query($connect,$select); 
+        while($row = mysqli_fetch_assoc($result)){
+            $req_id = $row['req_id'];
+            $qrv = $row['qr'];
+        }
+
         $select = "SELECT * FROM user_account WHERE acc_no = $accno";
         $result = mysqli_query($connect, $select);
 
@@ -120,14 +128,30 @@ $id = $_SESSION['accno'];
                     </div>
                     <?php
                     if ($status == "verified") {
-                        echo '
-                        <div class="col d-flex align-items-center">
-                            <div class="text-center">
-                                <img src="Images/' . $qr . '" class="img-fluid mx-auto">
-                                <a href="Images/' . $qr . '" class="btn btn-sm btn-dark" download>Download</a>
+                        if ($type == "visitor"){
+                            $select = "SELECT * FROM appointment WHERE acc_no = $accno AND status = 'approved'";
+                            $result = mysqli_query($connect, $select);
+                            if (mysqli_num_rows($result) > 0) {
+                                echo '
+                                <div class="col d-flex align-items-center">
+                                    <div class="text-center">
+                                        <img src="Images/' . $qrv . '" class="img-fluid mx-auto">
+                                        <a href="Images/' . $qrv . '" class="btn btn-sm btn-dark" download>Download</a>
+                                    </div>
+                                </div>
+                                ';
+                            }
+                        }
+                        else{
+                            echo '
+                            <div class="col d-flex align-items-center">
+                                <div class="text-center">
+                                    <img src="Images/' . $qr . '" class="img-fluid mx-auto">
+                                    <a href="Images/' . $qr . '" class="btn btn-sm btn-dark" download>Download</a>
+                                </div>
                             </div>
-                        </div>
-                        ';
+                            ';
+                        }
                     }
                     ?>
 
@@ -155,8 +179,8 @@ $id = $_SESSION['accno'];
                         <div class="h-100 p-5 bg-light border rounded-3 shadow-sm">
                             <h2>Appointment Summary</h2>
                             <?php
-                            $select = "SELECT * FROM appointment WHERE acc_no = $accno";
-                            $result = mysqli_query($connect, $select);
+                            $select = "SELECT*FROM appointment WHERE date =(SELECT MIN(date) FROM appointment WHERE acc_no = $accno AND status = 'approved')";
+                            $result = mysqli_query($connect,$select); 
 
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
