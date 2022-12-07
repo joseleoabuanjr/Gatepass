@@ -48,29 +48,29 @@
             $mail->isHTML(true);
 
             //mail content
-            $mail->Subject = 'Fully Verification';
+            $mail->Subject = 'Account Status';
             $mail->Body    = '
             <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
                 <p style="margin-bottom: 20px;">
                 <br>
                 <br>Hi '.$lst.', '.$fst.',
                 <br>
-                <br>We would like to inform you that your account is Unblocked by the admin. 
+                <br>We would like to inform you that your account is <span style="text-transform: uppercase; font-weight: bold;">'.$status.'</span> by the admin. 
                 <br>
                 <br>
                 <br>- BulSU Gate Pass Team</p>
+                
             </div>    
             ';
         }
         //send mail
-        $mail->send();
-
         if($mail->send()){
-            echo "<script>console.log('Sent Successfully')</script>";
-            header("refresh: 0; url='../admin/user.php'");
+            echo json_encode(array("status" => true));
+        } else{
+            echo json_encode(array("status" => false, "msg" => "Sent Failed"));
         }
     }
     else{
-        echo "<script>alert('Sent Failed1')</script>;";
+        echo json_encode(array("status" => false, "msg" => "Sent Failed"));
     }
 ?>

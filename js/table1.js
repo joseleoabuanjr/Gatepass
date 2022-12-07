@@ -1,37 +1,45 @@
 $(document).ready(function () {
     $("#fPSpinner").hide();
     $("#errorAlert").hide();
-    $("#successAlert").hide();
-    // Approve----------------
-    $(".dropBtn").click(function (e) {
-        e.preventDefault();
-        var accNo = $(this).data("accno");
-        $("#accNoModalApp").html(accNo);
-        $("#dropBtnModal").data("accno", accNo);
-        $("#statusModal").modal("show");
-        $("#dropBtnModal").show();
-    });
-    $("#dropBtnModal").click(function (e) {
+
+    $(".statusBtn").click(function (e) {
         e.preventDefault();
         var accno = $(this).data("accno");
+        var status = $(this).data("status");
+        $("#accNoModal").html(accno);
+        $(".status").html(status);
+        $("#statusBtnModal").data("accno", accno);
+        $("#statusBtnModal").data("status", status);
+        $("#statusModal").modal("show");
+    });
+    $("#statusBtnModal").click(function (e) {
+        e.preventDefault();
+        var accno = $(this).data("accno");
+        var status = $(this).data("status");
+        console.log(accno);
         $.ajax({
             type: "post",
-            url: "../function/toblock.php",
-            data: { accno: accno },
+            url: "../function/toUpdateStatus.php",
+            data: {
+                SET_USER_STATUS: true,
+                accno: accno,
+                status: status
+            },
             dataType: "JSON",
             success: function (response) {
+                console.log(response);
                 if (response.status) {
                     $("#successAlert").fadeIn();
                     $("#errorAlert").hide();
                     $("#dropBtnModal").hide();
+                    $("#statusModal").modal("hide");
+                    location.reload();
                 }
                 else {
                     $("#errorAlert").fadeIn();
                     // $("#errorAlertFP").html(response.msg);
-                    $("#successAlert").hide();
-
                 }
-                $("#fPSpinnerA").hide();
+                $("#fPSpinner").hide();
             }, error: function (err) {
                 console.error(err);
             }, beforeSend: function () {
@@ -40,43 +48,4 @@ $(document).ready(function () {
         });
     });
 
-    // Deny ---------
-    $(".denyBtn").click(function (e) {
-        e.preventDefault();
-        var accNo = $(this).data("accno");
-        $("#acccNoModal").html(accNo);
-        $("#denyBtnModal").data("accno", accNo);
-        $("#denyModal").modal("show");
-        $("#denyBtnModal").show();
-    });
-
-    $("#denyBtnModal").click(function (e) {
-        e.preventDefault();
-        var accno = $(this).data("accno");
-        $.ajax({
-            type: "post",
-            url: "../function/tofv_Denied.php",
-            data: { accno: accno },
-            dataType: "JSON",
-            success: function (response) {
-                if (response.status) {
-                    $("#successAlertD").fadeIn();
-                    $("#errorAlertD").hide();
-                    $("#denyBtnModal").hide();
-                }
-                else {
-                    $("#errorAlertD").fadeIn();
-                    // $("#errorAlertFP").html(response.msg);
-                    $("#successAlertD").hide();
-
-                }
-                $("#fPSpinnerD").hide();
-
-            }, error: function (err) {
-                console.error(err);
-            }, beforeSend: function () {
-                $("#fPSpinnerD").show();
-            }
-        });
-    });
 });

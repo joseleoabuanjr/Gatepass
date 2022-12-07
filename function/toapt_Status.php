@@ -34,7 +34,7 @@ if ($status == "approved") {
         $update = "UPDATE appointment SET status = '$status', qr ='$file' WHERE acc_no = $id AND req_id = '$reqid'";
 
         if (mysqli_query($connect, $update)) {
-            require "../email/fv_approved.php";
+            require "../email/apt_approved.php";
         } else {
             echo json_encode(array("status" => false, "sql" => $update, "error" => mysqli_error($connect)));
         }
