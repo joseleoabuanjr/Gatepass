@@ -54,7 +54,7 @@ $id = $_SESSION['accno'];
                                     <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#requestModal">Request an Appointment</button>
                                 </div>
                             </div>
-                            <table class="table pt-2" id="appointmentTable">
+                            <table class="table pt-2 shadow-sm table-striped table-hover display compact" id="appointmentTable">
                                 <thead>
                                     <tr style="background-color: #4F4F4B; color:white;">
                                         <th>No.</th>
