@@ -32,7 +32,7 @@
 				{
 					var qrwhole = document.getElementById("text").value=c;
 			
-						visitInfo = window.open("function/toScan2.php?qr=" + qrwhole, "_blank");
+						visitInfo = window.open("function/toScan.php?qr=" + qrwhole, "_blank");
 						// document.onmousedown=focusWindow; 
 						// document.onmousemove=focusWindow;
 						// document.onkeyup=focusWindow;	
