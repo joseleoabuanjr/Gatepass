@@ -109,7 +109,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label class="form-label">College</label>
-                                <select class="form-select mb-3" name="college" required>
+                                <select class="form-select mb-3" name="college" id="col-s" required>
                                     <option selected disabled>Select College</option>
                                     <option value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
                                     <option value="College of Arts and Letters (CAL)">College of Arts and Letters (CAL)</option>
@@ -244,6 +244,7 @@
                                     </div>
                                     <option value="Other">Other</option>
                                 </select>
+                                <script src="../../js/college.js"></script>
                             </div>
                         </div>
 
@@ -333,6 +334,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="../../js/studentRegistration.js"></script>
+    
 </body>
 
 </html>
