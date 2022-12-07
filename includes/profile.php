@@ -326,7 +326,7 @@ $bday = date_format($date, "Y-m-d");
 								<h6>Vaccination Card</h6>
 								<div class="input-group mb-1">
 									<input type="text" class="form-control" value="<?php echo ($vax); ?>" disabled>
-									<a class='btn btn-secondary px-3' target="_blank" href='viewvax.php?id=<?php echo $vax ?>'>View</a>
+									<a class='btn btn-secondary px-3' target="_blank" href='viewvax.php?id=<?php echo $accno ?>'>View</a>
 								</div>
 								<div class="form-floating">
 									<input type="file" name="vax" accept="application/pdf" class="form-control" id="vax1" style="height: 80px;padding-top:40px; padding-left:40px">
@@ -338,7 +338,7 @@ $bday = date_format($date, "Y-m-d");
 								<h6>Valid ID Card</h6>
 								<div class="input-group mb-1">
 									<input type="text" class="form-control" value="<?php echo ($v_id); ?>" disabled>
-									<a class='btn btn-secondary px-3' target="_blank" href='view_vid.php?id=<?php echo $v_id ?>'>View</a>
+									<a class='btn btn-secondary px-3' target="_blank" href='view_vid.php?id=<?php echo $accno?>'>View</a>
 								</div>
 								<div class="form-floating">
 									<input type="file" name="vid" accept="application/pdf" class="form-control" id="vid1" style="height: 80px;padding-top:40px; padding-left:40px">
