@@ -169,7 +169,6 @@
 				}
 				else{
 					//Not Matched
-
 					$apt_status = 'denied';
 					$update = "UPDATE appointment SET qr_status = '$apt_status' WHERE acc_no = $id AND req_id = '$reqid'";
 					if(mysqli_query($connect,$update)){
