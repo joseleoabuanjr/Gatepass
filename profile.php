@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["accno"])) {
-	header("Location: index.php");
+    header("Location: index.php");
 }
 require_once "function/connect.php";
 
@@ -13,34 +13,34 @@ $select = "SELECT * FROM user_account WHERE acc_no = $accno";
 $result = mysqli_query($connect, $select);
 
 if ($row = mysqli_fetch_assoc($result)) {
-	$first = $row['first'];
-	$last = $row['last'];
-	$mid = $row['middle'];
-	$pnum = $row['contact_no'];
-	$bday = $row['birthday'];
-	$add = $row['address'];
-	$cname = $row['cp_name'];
-	$contnum = $row['cp_no'];
-	$studno = $row['stud_no'];
-	$empno = $row['emp_no'];
-	$col = $row['college'];
-	$course = $row['course'];
-	$yr = $row['year'];
-	$sec = $row['section'];
-	$user = $row['username'];
-	$pass = $row['password'];
-	$email = $row['email'];
-	$type = $row['type'];
-	// $vcode = $row['v_code'];
-	$img = $row['image'];
-	$cor = $row['cor'];
-	$v_id = $row['valid_id'];
-	$vax = $row["vax"];
-	$qr = $row['qr'];
-	$img = $row['image'];
-	$cor = $row['cor'];
-	$v_id = $row['valid_id'];
-	$vax = $row["vax"];
+    $first = $row['first'];
+    $last = $row['last'];
+    $mid = $row['middle'];
+    $pnum = $row['contact_no'];
+    $bday = $row['birthday'];
+    $add = $row['address'];
+    $cname = $row['cp_name'];
+    $contnum = $row['cp_no'];
+    $studno = $row['stud_no'];
+    $empno = $row['emp_no'];
+    $col = $row['college'];
+    $course = $row['course'];
+    $yr = $row['year'];
+    $sec = $row['section'];
+    $user = $row['username'];
+    $pass = $row['password'];
+    $email = $row['email'];
+    $type = $row['type'];
+    // $vcode = $row['v_code'];
+    $img = $row['image'];
+    $cor = $row['cor'];
+    $v_id = $row['valid_id'];
+    $vax = $row["vax"];
+    $qr = $row['qr'];
+    $img = $row['image'];
+    $cor = $row['cor'];
+    $v_id = $row['valid_id'];
+    $vax = $row["vax"];
 }
 $date = date_create($bday);
 $bday = date_format($date, "Y-m-d");
@@ -50,13 +50,13 @@ $bday = date_format($date, "Y-m-d");
 <html>
 
 <head>
-	<title>Account Information</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Account Information</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!----------- CSS ------------>
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/profile.css">
@@ -64,9 +64,10 @@ $bday = date_format($date, "Y-m-d");
     <!----------- Javascript ------------>
 
 </head>
+
 <body>
-	<?php require_once 'includes/navbar.php'; ?>
-	<div class="container">
+    <?php require_once 'includes/navbar.php'; ?>
+    <div class="container">
         <div id="error"></div>
         <div id="scrollProfile" class="container">
             <form id="profileForm" method="post" action="function/toupdate_p.php" enctype="multipart/form-data">
@@ -79,7 +80,7 @@ $bday = date_format($date, "Y-m-d");
                             <a class="list-group-item list-group-item-action" href="#credential">Credential</a>
                             <a class="list-group-item list-group-item-action" href="#account">Account</a>
                         </div>
-                        <button type="submit" class="btn btn-success w-100 mt-2">Save Changes</button>
+                        <button type="submit" class="btn btn-success w-100 mt-2">Save Changes <span id="spinnerSave" class="spinner-border spinner-border-sm" role="status"></span></button>
                     </div>
                     <div class="col-8">
                         <div style="overflow-y: scroll; height: 90vh;" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0" data-bs-offset="56">
@@ -173,11 +174,11 @@ $bday = date_format($date, "Y-m-d");
                                             <div class="mb-3">
                                                 <h6 for="year" class="form-label">Year</h6>
                                                 <select class="form-select mb-3" name="year" required>
-                                                    <option <?php echo ($yr == "1") ? "selected":"" ?> value="1">1</option>
-                                                    <option <?php echo ($yr == "2") ? "selected":"" ?> value="2">2</option>
-                                                    <option <?php echo ($yr == "3") ? "selected":"" ?> value="3">3</option>
-                                                    <option <?php echo ($yr == "4") ? "selected":"" ?> value="4">4</option>
-                                                    <option <?php echo ($yr == "5") ? "selected":"" ?> value="5">5</option>
+                                                    <option <?php echo ($yr == "1") ? "selected" : "" ?> value="1">1</option>
+                                                    <option <?php echo ($yr == "2") ? "selected" : "" ?> value="2">2</option>
+                                                    <option <?php echo ($yr == "3") ? "selected" : "" ?> value="3">3</option>
+                                                    <option <?php echo ($yr == "4") ? "selected" : "" ?> value="4">4</option>
+                                                    <option <?php echo ($yr == "5") ? "selected" : "" ?> value="5">5</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -193,22 +194,22 @@ $bday = date_format($date, "Y-m-d");
                                             <div class="mb-3">
                                                 <h6 for="college" class="form-label">College</h6>
                                                 <select class="form-select mb-3" name="college">
-                                                    <option <?php echo ($col == "College of Architecture and Fine Arts (CAFA)") ? "selected":"" ?> value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
-                                                    <option <?php echo ($col == "College of Arts and Letters (CAL)") ? "selected":"" ?> value="College of Arts and Letters (CAL)">College of Arts and Letters (CAL)</option>
-                                                    <option <?php echo ($col == "College of Business Administration (CBA)") ? "selected":"" ?> value="College of Business Administration (CBA)">College of Business Administration (CBA)</option>
-                                                    <option <?php echo ($col == "College of Criminal Justice Education (CCJE)") ? "selected":"" ?> value="College of Criminal Justice Education (CCJE)">College of Criminal Justice Education (CCJE)</option>
-                                                    <option <?php echo ($col == "College of Hospitality and Tourism Management (CHTM)") ? "selected":"" ?> value="College of Hospitality and Tourism Management (CHTM)">College of Hospitality and Tourism Management (CHTM)</option>
-                                                    <option <?php echo ($col == "College of Information and Communications Technology (CICT)") ? "selected":"" ?> value="College of Information and Communications Technology (CICT)">College of Information and Communications Technology (CICT)</option>
-                                                    <option <?php echo ($col == "College of Industrial Technology (CIT)") ? "selected":"" ?> value="College of Industrial Technology (CIT)">College of Industrial Technology (CIT)</option>
-                                                    <option <?php echo ($col == "College of Law (CLAW)") ? "selected":"" ?> value="College of Law (CLAW)">College of Law (CLAW)</option>
-                                                    <option <?php echo ($col == "College of Nursing (CN)") ? "selected":"" ?> value="College of Nursing (CN)">College of Nursing (CN)</option>
-                                                    <option <?php echo ($col == "College of Engineering (COE)") ? "selected":"" ?> value="College of Engineering (COE)">College of Engineering (COE)</option>
-                                                    <option <?php echo ($col == "College of Education (COED)") ? "selected":"" ?> value="College of Education (COED)">College of Education (COED)</option>
-                                                    <option <?php echo ($col == "College of Science (CS)") ? "selected":"" ?> value="College of Science (CS)">College of Science (CS)</option>
-                                                    <option <?php echo ($col == "College of Sports Exercise and Recreation (CSER)") ? "selected":"" ?> value="College of Sports Exercise and Recreation (CSER)">College of Sports Exercise and Recreation (CSER)</option>
-                                                    <option <?php echo ($col == "College of Social Sciences and Philosophy (CSSP)") ? "selected":"" ?> value="College of Social Sciences and Philosophy (CSSP)">College of Social Sciences and Philosophy (CSSP)</option>
-                                                    <option <?php echo ($col == "Graduate School (GS)") ? "selected":"" ?> value="Graduate School (GS)">Graduate School (GS)</option>
-                                                    <option <?php echo ($col == "Other") ? "selected":"" ?> value="Other">Other</option>
+                                                    <option <?php echo ($col == "College of Architecture and Fine Arts (CAFA)") ? "selected" : "" ?> value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
+                                                    <option <?php echo ($col == "College of Arts and Letters (CAL)") ? "selected" : "" ?> value="College of Arts and Letters (CAL)">College of Arts and Letters (CAL)</option>
+                                                    <option <?php echo ($col == "College of Business Administration (CBA)") ? "selected" : "" ?> value="College of Business Administration (CBA)">College of Business Administration (CBA)</option>
+                                                    <option <?php echo ($col == "College of Criminal Justice Education (CCJE)") ? "selected" : "" ?> value="College of Criminal Justice Education (CCJE)">College of Criminal Justice Education (CCJE)</option>
+                                                    <option <?php echo ($col == "College of Hospitality and Tourism Management (CHTM)") ? "selected" : "" ?> value="College of Hospitality and Tourism Management (CHTM)">College of Hospitality and Tourism Management (CHTM)</option>
+                                                    <option <?php echo ($col == "College of Information and Communications Technology (CICT)") ? "selected" : "" ?> value="College of Information and Communications Technology (CICT)">College of Information and Communications Technology (CICT)</option>
+                                                    <option <?php echo ($col == "College of Industrial Technology (CIT)") ? "selected" : "" ?> value="College of Industrial Technology (CIT)">College of Industrial Technology (CIT)</option>
+                                                    <option <?php echo ($col == "College of Law (CLAW)") ? "selected" : "" ?> value="College of Law (CLAW)">College of Law (CLAW)</option>
+                                                    <option <?php echo ($col == "College of Nursing (CN)") ? "selected" : "" ?> value="College of Nursing (CN)">College of Nursing (CN)</option>
+                                                    <option <?php echo ($col == "College of Engineering (COE)") ? "selected" : "" ?> value="College of Engineering (COE)">College of Engineering (COE)</option>
+                                                    <option <?php echo ($col == "College of Education (COED)") ? "selected" : "" ?> value="College of Education (COED)">College of Education (COED)</option>
+                                                    <option <?php echo ($col == "College of Science (CS)") ? "selected" : "" ?> value="College of Science (CS)">College of Science (CS)</option>
+                                                    <option <?php echo ($col == "College of Sports Exercise and Recreation (CSER)") ? "selected" : "" ?> value="College of Sports Exercise and Recreation (CSER)">College of Sports Exercise and Recreation (CSER)</option>
+                                                    <option <?php echo ($col == "College of Social Sciences and Philosophy (CSSP)") ? "selected" : "" ?> value="College of Social Sciences and Philosophy (CSSP)">College of Social Sciences and Philosophy (CSSP)</option>
+                                                    <option <?php echo ($col == "Graduate School (GS)") ? "selected" : "" ?> value="Graduate School (GS)">Graduate School (GS)</option>
+                                                    <option <?php echo ($col == "Other") ? "selected" : "" ?> value="Other">Other</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -433,7 +434,7 @@ $bday = date_format($date, "Y-m-d");
     </div>
     <script>
         $(document).ready(function() {
-
+            $("#spinnerSave").hide();
             $("#changePass").on("show.bs.collapse", function() {
                 $("#confirmPassword").removeAttr("disabled");
                 $("#newPassword").removeAttr("disabled");
@@ -459,28 +460,30 @@ $bday = date_format($date, "Y-m-d");
                         if (response.status) {
                             $("#liveToast").addClass("text-bg-success");
                             $("#liveToast").removeClass("text-bg-danger");
-                            // location.reload();
-                            // $("#tab1").removeClass("tab1");
-                            // $("#tab1").addClass("tab1--hidden");
+                            location.reload();
                         } else {
                             $("#liveToast").removeClass("text-bg-success");
                             $("#liveToast").addClass("text-bg-danger");
                         }
                         $(".toast-body").html(response.msg);
                         $("#liveToast").toast("show");
+                        $("#spinnerSave").hide();
                     },
                     error: function(response) {
                         console.error(response);
                         console.error(response.responseText);
                         $("#error").html(response.responseText);
+                    }, beforeSend: function() {
+                        $("#spinnerSave").show();
                     }
                 });
             });
         });
     </script>
 
-	<!-- Javascripts -->
-	
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!-- Javascripts -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
+
 </html>
