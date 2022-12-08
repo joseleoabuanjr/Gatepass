@@ -20,10 +20,16 @@ $(document).ready(function () {
         var accno = $(this).data("accno");
         var status = $(this).data("status");
         var reqid = $(this).data("reqid");
-        console.log(reqid);
+        var location = "../function/toapt_Status.php";
+        if (status == "cancel") {
+            location = "function/toapt-cancel.php";
+        }
+
+        console.log(location);
+        console.log(status);
         $.ajax({
             type: "post",
-            url: "../function/toapt_Status.php",
+            url: location,
             data: {
                 // SET_USER_STATUS: true,
                 accno: accno,
@@ -38,7 +44,7 @@ $(document).ready(function () {
                     $("#errorAlert").hide();
                     $("#dropBtnModal").hide();
                     $("#statusModal").modal("hide");
-                    location.reload();
+                    window.location.reload();
                 }
                 else {
                     $("#errorAlert").fadeIn();

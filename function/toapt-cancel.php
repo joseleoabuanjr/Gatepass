@@ -1,6 +1,6 @@
 <?php
-    $id=$_GET['id'];
-    $reqid=$_GET['req'];
+    $id=$_POST['accno'];
+    $reqid=$_POST['reqid'];
     //connect to database
     require_once "connect.php";
     
@@ -23,13 +23,12 @@
                 else {
                 }
             }
-            header("refresh: 0; url= ../appointment.php");	
+            echo json_encode(array("status" => true));
 		}
-        else{
-                echo "<script>alert('Delete Failed.')</script>";	
+        else {
+            echo json_encode(array("status" => false));
         }
 	}
     else{
-        echo "<script>alert('No Result')</script>";
-    }    
-?>
+        echo json_encode(array("status" => false));
+    }
