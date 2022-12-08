@@ -59,4 +59,25 @@ $(document).ready(function () {
         });
     });
 
+    var inputs = document.querySelectorAll('[name="reason[]"]')
+    var radioForCheckboxes = document.getElementById('radio-for-checkboxes')
+    function checkCheckboxes () {
+        var isAtLeastOneCheckboxSelected = false;
+        for(var i = inputs.length-1; i >= 0; --i) {
+            if (inputs[i].checked) isAtLeastOneCheckboxSelected = true;
+        }
+        radioForCheckboxes.checked = isAtLeastOneCheckboxSelected
+    }
+    for(var i = inputs.length-1; i >= 0; --i) {
+        inputs[i].addEventListener('change', checkCheckboxes)
+    }
+
+    $("#txt-1").hide();
+    $("#check8").click(function() {
+        if($(this).is(":checked")) {
+            $("#txt-1").show();
+        } else {
+            $("#txt-1").hide();
+        }
+    });
 });

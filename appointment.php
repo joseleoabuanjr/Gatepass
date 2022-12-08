@@ -92,7 +92,7 @@ $id = $_SESSION['accno'];
 
                                         echo (" 
                                             <tr>
-                                                <td>" . ($count + 1) . "</td>
+                                                <td class='text-center text-bold'>" . ($count + 1) . "</td>
                                                 <td>" . $row["reason"] . "</td>
                                                 <td>" . $row["date"] . "</td>
                                                 <td>" . $row["status"] . "</td>
@@ -112,7 +112,7 @@ $id = $_SESSION['accno'];
                                         //     break;
                                         // }
 
-                                        // $count += 1;
+                                        $count += 1;
                                     }
                                     ?>
                                 </tbody>
@@ -134,63 +134,66 @@ $id = $_SESSION['accno'];
                     <div class="modal-body">
                         <form class="p-3" method="post" action="function/toRequest.php?id=<?php echo ("$id"); ?>" enctype="multipart/form-data">
                             <div class="form-floating" style="margin-bottom: 10px;">
-                                <input type="date" min="<?php echo $mindate; ?>" name="date" id="date1" class="form-control">
+                                <input type="date" min="<?php echo $mindate; ?>" name="date" id="date1" class="form-control" required>
                                 <label>Date of Appointment:</label>
                                 <div class="msg" id="msguser"></div>
                             </div>
+                            <div class="options">
                             <h4>Purpose of Appointment:</h4>
-                            <div class="form-check">
-                                <input class="form-check-input" name="reason[]" type="checkbox" value="Request of Transcript of Records (TOR)" id="check1">
-                                <label class="form-check-label" for="check1">
-                                    Request of Transcript of Records (TOR)
-                                </label>
+                                <input id="radio-for-checkboxes" type="radio" name="radio-for-required-checkboxes" required style="position: absolute;margin: 0;top: 0;left: 0;width: 305px;height: 160px; -webkit-appearance: none;pointer-events: none; border: none; background: none;">
+                                <div class="form-check">
+                                    <input class="form-check-input" name="reason[]" type="checkbox" value="Request of Transcript of Records (TOR)" id="check1">
+                                    <label class="form-check-label" for="check1">
+                                        Request of Transcript of Records (TOR)
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="reason[]" type="checkbox" value="Claiming of Graduation Picture" id="check2">
+                                    <label class="form-check-label" for="check2">
+                                        Claiming of Graduation Picture
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="reason[]" type="checkbox" value="Request of Form 137" id="check3">
+                                    <label class="form-check-label" for="check3">
+                                        Request of Form 137
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="reason[]" type="checkbox" value="Request of Good Moral Certificate" id="check4">
+                                    <label class="form-check-label" for="check4">
+                                        Request of Good Moral Certificate
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="reason[]" type="checkbox" value="Request for Dry Seal of Documents" id="check5">
+                                    <label class="form-check-label" for="check5">
+                                        Request for Dry Seal of Documents
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="reason[]" type="checkbox" value="Payment to University Cashier" id="check6">
+                                    <label class="form-check-label" for="check6">
+                                        Payment to University Cashier
+                                    </label>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" name="reason[]" type="checkbox" value="Inquiries to Registrar\'s Office" id="check7">
+                                    <label class="form-check-label" for="check7">
+                                        Inquiries to Registrar's Office
+                                    </label>
+                                </div>
+                                <div class="form-check" id="other">
+                                    <input class="form-check-input" name="reason[]" type="checkbox" value="Other" id="check8">
+                                    <label class="form-check-label" for="check8">
+                                        Other
+                                    </label>
+                                </div>
                             </div>
-                            <div class="form-check">
-                                <input class="form-check-input" name="reason[]" type="checkbox" value="Claiming of Graduation Picture" id="check2">
-                                <label class="form-check-label" for="check2">
-                                    Claiming of Graduation Picture
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" name="reason[]" type="checkbox" value="Request of Form 137" id="check3">
-                                <label class="form-check-label" for="check3">
-                                    Request of Form 137
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" name="reason[]" type="checkbox" value="Request of Good Moral Certificate" id="check4">
-                                <label class="form-check-label" for="check4">
-                                    Request of Good Moral Certificate
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" name="reason[]" type="checkbox" value="Request for Dry Seal of Documents" id="check5">
-                                <label class="form-check-label" for="check5">
-                                    Request for Dry Seal of Documents
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" name="reason[]" type="checkbox" value="Payment to University Cashier" id="check6">
-                                <label class="form-check-label" for="check6">
-                                    Payment to University Cashier
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" name="reason[]" type="checkbox" value="Inquiries to Registrar\'s Office" id="check7">
-                                <label class="form-check-label" for="check7">
-                                    Inquiries to Registrar's Office
-                                </label>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" name="reason[]" type="checkbox" value="Other" id="check8">
-                                <label class="form-check-label" for="check8">
-                                    Other
-                                </label>
-                            </div>
-                            <div class="cont-p--hidden" id="txt-1" style="margin-top: 10px;">
+                            <div class="cont-p" id="txt-1" style="margin-top: 10px;">
                                 <div class="form-floating">
-                                    <textarea class="form-control" name="othertxt" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px"></textarea>
-                                    <label for="floatingTextarea2">Other</label>
+                                    <textarea class="form-control" name="othertxt" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 100px" required></textarea>
+                                    <label for="floatingTextarea2">Type your reason here</label>
                                 </div>
                             </div>
                             <button type="submit" class="btn btn-primary" id="reg1" style=" width:100%; margin-top: 20px;">Submit Request</button>
