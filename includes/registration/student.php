@@ -54,7 +54,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="contactNumber" class="form-label">Contact Number</label>
-                                <input type="text" class="form-control" name="contact" id="contactNumber" required>
+                                <input type="text" class="form-control" placeholder="09xxxxxxxx" name="contact" id="contactNumber" required>
                             </div>
                         </div>
                         <div class="col">
@@ -82,7 +82,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="studentNo" class="form-label">Student Number</label>
-                                <input type="text" class="form-control" name="studno" id="studentNo" required>
+                                <input type="text" class="form-control" placeholder="ex.(2045115011)" name="studno" id="studentNo" required>
                             </div>
                         </div>
                         <div class="col">
