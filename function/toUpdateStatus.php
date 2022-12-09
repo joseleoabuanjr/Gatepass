@@ -5,7 +5,11 @@ include 'connect.php';
 
 $id = $_POST["accno"];
 $status = $_POST["status"];
-$qrstats = $_POST["qrstatus"];
+if(isset($_POST["qrstatus"])){
+    $qrstats = $_POST["qrstatus"];
+}else{
+    $qrstats = 'granted';
+}
 
 if($status == "unblocked"){
     $status = "verified";
