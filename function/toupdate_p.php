@@ -27,10 +27,6 @@ if ($_POST['pass'] == $_SESSION['pass']) {
     $pnum = $_POST["contact"];
     $bday = $_POST["dob"];
     $add = $_POST["address"];
-    $col = $_POST["college"];
-    $course = $_POST["course"];
-    $yr = $_POST["year"];
-    $sec = $_POST["section"];
 
     $query = "UPDATE user_account SET email = '$email', first = '$first', last = '$last',  contact_no = '$pnum', birthday = '$bday', address = '$add', ";
 
@@ -38,20 +34,38 @@ if ($_POST['pass'] == $_SESSION['pass']) {
         $img = base64_encode(file_get_contents(addslashes($_FILES["image"]["tmp_name"])));
         $query .= "image = '$img', ";
     }
-    if (isset($_POST["studno"])){
-        $query .= "stud_no = '$studno', ";
-    }
-    if (isset($_POST["college"])){
-        $query .= "college = '$col', ";
-    }
-    if (isset($_POST["course"])){
-        $query .= "course = '$course', ";
-    }
-    if (isset($_POST["year"])){
-        $query .= "year = '$yr', ";
-    }
-    if (isset($_POST["section"])){
-        $query .= "section = '$sec', ";
+    if($type == 'student'){
+        if (isset($_POST["studno"])){
+            $studno = $_POST["studno"];
+            $query .= "stud_no = '$studno', ";
+        }
+        if (isset($_POST["college"])){
+            $col = $_POST["college"];
+            $query .= "college = '$col', ";
+        }
+        if (isset($_POST["course"])){
+            $course = $_POST["course"];
+            $query .= "course = '$course', ";
+        }
+        if (isset($_POST["year"])){
+            $yr = $_POST["year"];
+            $query .= "year = '$yr', ";
+        }
+        if (isset($_POST["section"])){
+            $sec = $_POST["section"];
+            $query .= "section = '$sec', ";
+        }
+        if ($_FILES["cor"]["error"] == 0 && $_FILES["cor"]["size"] != 0) {
+            $corpdf = $_FILES['cor']['name']; //additional codes para sa PDF
+            $corpdf_type = $_FILES['cor']['type']; //additional codes para sa PDF
+            $corpdf_size = $_FILES['cor']['size']; //additional codes para sa PDF
+            $corpdf_tem_loc = $_FILES['cor']['tmp_name']; //additional codes para sa PDF
+            $corpdf_store = "../files/" . $corpdf; //additional codes para sa PDF
+    
+            $query .= "cor = '$corpdf', ";
+    
+            move_uploaded_file($corpdf_tem_loc, $corpdf_store);
+        }
     }
     if (isset($_POST["mid"])) {
         $mid = $_POST["mid"];
@@ -72,17 +86,6 @@ if ($_POST['pass'] == $_SESSION['pass']) {
     if ($npassValid) {
         $newPass = md5($_POST['npass']);
         $query .= "password = '$newPass', ";
-    }
-    if ($_FILES["cor"]["error"] == 0 && $_FILES["cor"]["size"] != 0) {
-        $corpdf = $_FILES['cor']['name']; //additional codes para sa PDF
-        $corpdf_type = $_FILES['cor']['type']; //additional codes para sa PDF
-        $corpdf_size = $_FILES['cor']['size']; //additional codes para sa PDF
-        $corpdf_tem_loc = $_FILES['cor']['tmp_name']; //additional codes para sa PDF
-        $corpdf_store = "../files/" . $corpdf; //additional codes para sa PDF
-
-        $query .= "cor = '$corpdf', ";
-
-        move_uploaded_file($corpdf_tem_loc, $corpdf_store);
     }
     if ($_FILES["vax"]["error"] == 0 && $_FILES["vax"]["size"] != 0) {
         $vaxpdf = $_FILES['vax']['name']; //additional codes para sa PDF
