@@ -93,8 +93,8 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
             <div class="modal-content rounded-3">
                 <div class="modal-body p-4 text-center">
                     <h5 class="">Confirmation</h5>
-                    <p class="mb-1">Are you sure you want to <span class="status"></span> account No. <span id="accNoModal"></span></span>?</p>
-                    <p class="mb-0 text-danger fw-bolder">*This action is cannot be undone!</p>
+                    <p class="mb-1">Are you sure you want to set "<span class="status"></span>" on account No. <span id="accNoModal"></span></span>?</p>
+                    <!-- <p class="mb-0 text-danger fw-bolder">*This action is cannot be undone!</p> -->
                     <div class="alert alert-danger my-1" role="alert" id="errorAlert">
                         <span class="status text-capitalize"></span> Failed.
                     </div>

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,24 +15,27 @@
 
 	session_start();
 
-	$id =$_GET['id'];
+	$id = $_GET['id'];
 
 	$select = "SELECT * FROM user_account WHERE acc_no = $id";
 	$result = mysqli_query($connect,$select);
 
-	if (mysqli_num_rows($result) > 0) {
-		while($row = mysqli_fetch_assoc($result)) {
+	if (mysqli_num_rows($result) == 1) 
+	{
+		while($row = mysqli_fetch_assoc($result)) 
+		{
 			$vid = $row["valid_id"]; //yung attach baguhin mo sa kung ano name ng column mo
 			if($vid == NULL || ""){
 				echo "No results found.";
 				header("refresh: 2; url=index.php");
 			}
 			else{
-				echo '<div class="d-flex justify-content-center align-items-center" style="height:100vh;"><embed type="application/pdf" target="_blank" src="files/'.$vid.'"width="100%" height="100%"></div>'; //eto pag display nung PDF galing SQL
+				echo '<div class="container d-flex justify-content-center align-items-center" style="height:100vh;"><img class="rounded mx-auto d-block" style="height:500px" src="files/'.$vid.'"></div>'; //eto pag display nung PDF galing SQL
 			}
 		}
 	} 
-	else{
+	else 
+	{
 		echo "No results found.";
 	}
 

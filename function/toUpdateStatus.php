@@ -7,6 +7,9 @@ $id = $_POST["accno"];
 $status = $_POST["status"];
 $qrstats = $_POST["qrstatus"];
 
+if($status == "unblocked"){
+    $status = "verified";
+}
 if (isset($_POST["SET_USER_STATUS"])) {
     $update = "UPDATE user_account SET verification= '$status', qr_status= '$qrstats' WHERE acc_no = $id";
     if (mysqli_query($connect, $update)) {

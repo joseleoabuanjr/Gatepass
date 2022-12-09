@@ -182,6 +182,13 @@ $bday = date_format($date, "Y-m-d");
                                 if ($type == "student"){
                                     echo ' 
                                     <div id="educationalInfoSection" class="py-3 mb-5">
+                                    ';
+                                }else{
+                                    echo ' 
+                                    <div id="educationalInfoSection" class="d-none py-3 mb-5">
+                                    ';
+                                }
+                                ?>
                                         <h2>Educational Information</h2>
                                         <div class="row row-cols-1 row-cols-md-3 g-2 pt-3">
                                             <div class="col-md-6">
@@ -354,19 +361,23 @@ $bday = date_format($date, "Y-m-d");
 
                                         </div>
                                     </div>
-                                    ';
-                                }
-                                ?>
                                 <div id="credential" class="py-3 mb-5">
                                     <h2 class="mb-3">Credentials</h2>
-                                    <div class="mb-3 pt-3">
-                                        <?php 
-                                        if($type == "student"){
-                                            echo ('
+                                    <?php 
+                                    if($type == "student"){
+                                        echo ('
+                                            <div class="mb-3 pt-3">
+                                        ');
+                                    }else{
+                                        echo ('
+                                            <div class="d-none mb-3 pt-3">
+                                        ');
+                                    }
+                                    ?>
                                                 <h6>Certificate of Registration</h6>
                                                 <div class="input-group mb-1">
-                                                    <input type="text" class="form-control" value="'.$cor.'" disabled>
-                                                    <a class="btn btn-secondary px-3" target="_blank" href="viewcor.php?id='.$accno.'>View</a>
+                                                    <input type="text" class="form-control" value="<?php echo $cor?>" disabled>
+                                                    <a class="btn btn-secondary px-3" target="_blank" href="viewcor.php?id=<?php echo $accno?>">View</a>
                                                 </div>
                                         
                                                 <div class="form-floating">
@@ -375,9 +386,7 @@ $bday = date_format($date, "Y-m-d");
                                                     <div class="msg" id="message"></div>
                                                 </div>
                                             </div>
-                                            ');
-                                        }
-                                        ?>
+                                            
                                     <div class="mb-3">
                                         <h6>Vaccination Card</h6>
                                         <div class="input-group mb-1">
