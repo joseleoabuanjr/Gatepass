@@ -95,7 +95,7 @@
 						}
 						//If table is empty;
 						if(mysqli_num_rows ($result) == 0){
-							$update = "timein";
+							$update = "Time In";
 							$insert = "INSERT INTO time_inout (account_no,name,type,in_out, time,reason) VALUES ('$acc_no','$name','$type','$update', '$date','$reason')";
 							if(mysqli_query($connect,$insert))
 							{
@@ -109,13 +109,13 @@
 						//If Not Empty;
 						else{
 							//Check if latest value is equal to Time in;
-							if($in_out == "timein"){
+							if($in_out == "Time In"){
 
 								//If True then update value to time out;
-								$update = "timeout";
+								$update = "Time Out";
 								$insert = "INSERT INTO time_inout (account_no,name,type,in_out, time,reason) VALUES ('$acc_no','$name','$type','$update', '$date','$reason')";
 								if(mysqli_query($connect,$insert)){
-									echo"<script>console.log('Time In Success')</script>";
+									echo"<script>console.log('Time out Success')</script>";
 								}
 								else
 								{
@@ -123,10 +123,10 @@
 								}	
 							}
 							//Check if latest value is equal to Time out;
-							else if($in_out == "timeout"){
+							else if($in_out == "Time Out"){
 
 								//If True then update value to time out;
-								$update = "timein";
+								$update = "Time In";
 								$insert = "INSERT INTO time_inout (account_no,name,type,in_out, time,reason) VALUES ('$acc_no','$name','$type','$update', '$date','$reason')";
 								if(mysqli_query($connect,$insert)){
 									echo"<script>console.log('Time In Success')</script>";
@@ -153,7 +153,7 @@
 												<h2>Student Number: " . $acc_no . "</h2>
 												<h2>Name: " . $name . "</h2>
 												<h2>Purpose: " . $reason . "</h2>
-												<h2>Status: Granted</h2>
+												<h2>Status: ".$update."</h2>
 											</div>
 										</div>
 									</div>
