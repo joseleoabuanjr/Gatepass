@@ -40,9 +40,8 @@
 			}
 			
 			//check if user have an appointment(Visitor);
-			$select = "SELECT * FROM appointment WHERE type = 'visitor'";
+			$select = "SELECT * FROM appointment WHERE type = 'visitor' AND status = 'approved' AND acc_no = '$qraccno' AND req_id = '$reqid'";
 			$result = mysqli_query($connect,$select);
-			
 			if (mysqli_num_rows($result) > 0){
 				
 				//if have result
@@ -76,11 +75,11 @@
 				//Date of Appointment
 				$dummy = date_create($date);
 				$aptdate = $dummy->format('Y-m-d'); 
-
+				echo "<script>console.log('$aptdate---$curdate---$date')</script>";
 				//If Current Date is Matched with Appointment Date;
 				if ($curdate == $aptdate){ 
 					//Matched Date
-
+					
 					$apt_status = 'granted';
 					$update = "UPDATE appointment SET qr_status = '$apt_status' WHERE acc_no = $id AND req_id = '$reqid'";
 
@@ -201,7 +200,7 @@
 				//if none. Check user is in database table(Student and Employee);
 				$select = "SELECT * FROM user_account WHERE acc_no = '$qraccno'";
 				$result = mysqli_query($connect,$select);
-				
+				echo "<script>console.log($select)</script>";
 				if (mysqli_num_rows($result) > 0){
 					//loop that will stop after displaying all the records fetched from database ;
 					//Get values;
