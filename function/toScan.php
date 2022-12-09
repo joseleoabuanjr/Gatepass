@@ -5,7 +5,7 @@
 		<script>
 			
 			function autoClose(){
-				// setTimeout(closeWindow,4000);
+				setTimeout(closeWindow,1000);
 			}
 			function closeWindow(){
 				window.close();
@@ -150,7 +150,7 @@
 												<img src='data:image;base64,".$img."' height='250' width='250' onload='granted()'>
 											</div>
 											<div style='display:flex; justify-content:flex-start;flex-direction:column; align-content:center;text-align: left; padding-left:20px;'>
-												<h2>Student Number: " . $acc_no . "</h2>
+												<h2>Account Number: " . $acc_no . "</h2>
 												<h2>Name: " . $name . "</h2>
 												<h2>Purpose: " . $reason . "</h2>
 												<h2>Status: ".$update."</h2>
@@ -180,7 +180,7 @@
 												<img src='data:image;base64,".$img."' height='250' width='250' onload='denied()'>
 											</div>
 											<div style='display:flex; justify-content:flex-start;flex-direction:column; align-content:center;text-align: left; padding-left:20px;'>
-												<h2>Student No.: " . $acc_no . "</h2>
+												<h2>Account Number: " . $acc_no . "</h2>
 												<h2>Name.: " . $name . "</h2>
 												<h2>Status: Denied</h2>
 											</div>
@@ -200,13 +200,11 @@
 				//if none. Check user is in database table(Student and Employee);
 				$select = "SELECT * FROM user_account WHERE acc_no = '$qraccno'";
 				$result = mysqli_query($connect,$select);
-				echo "<script>console.log($select)</script>";
 				if (mysqli_num_rows($result) > 0){
 					//loop that will stop after displaying all the records fetched from database ;
 					//Get values;
 					while($row = mysqli_fetch_assoc($result)){
 						$img = $row["image"];
-						$status = $row["status"];
 						$acc_no = $row["acc_no"];
 						$name = $row["first"]." ".$row["middle"]." ".$row["last"];
 						$type = $row["type"];
@@ -214,9 +212,10 @@
 						$sec = $row["section"];
 						$course = $row["course"];
 						$college = $row["college"];
+						$qrstats = $row["qr_status"];
 					}
 					//Scan is Granted Function;
-					if($status == "granted"){
+					if($qrstats == "granted"){
 						//=============Time In Out============//
 						// Time In And OUt Function;
 						$tz = 'Asia/Manila';
@@ -226,14 +225,14 @@
 						$date = $dt->format('Y-m-d h:i:s a');
 						
 						//Check time_inout table and get value;
-						$select = "SELECT * FROM time_inout WHERE account_no = $id";
+						$select = "SELECT * FROM time_inout WHERE account_no = $acc_no";
 						$result = mysqli_query($connect,$select);
 						while($row = mysqli_fetch_assoc($result)){
 							$in_out = $row["in_out"];
 						}
 						//If table is empty;
 						if(mysqli_num_rows ($result) == 0){
-							$update = "timein";
+							$update = "Time In";
 							$insert = "INSERT INTO time_inout (account_no,name,type,in_out, time) VALUES ('$acc_no','$name','$type','$update', '$date')";
 							if(mysqli_query($connect,$insert))
 							{
@@ -247,10 +246,10 @@
 						//If Not Empty;
 						else{
 							//Check if latest value is equal to Time in;
-							if($in_out == "timein"){
+							if($in_out == "Time In"){
 
 								//If True then update value to time out;
-								$update = "timeout";
+								$update = "Time Out";
 								$insert = "INSERT INTO time_inout (account_no,name,type,in_out, time) VALUES ('$acc_no','$name','$type','$update', '$date')";
 								if(mysqli_query($connect,$insert)){
 									echo"<script>console.log('Time In Success')</script>";
@@ -261,20 +260,20 @@
 								}	
 							}
 							//Check if latest value is equal to Time out;
-							else if($in_out == "timeout"){
+							else if($in_out == "Time Out"){
 
 								//If True then update value to time out;
-								$update = "timein";
+								$update = "Time In";
 								$insert = "INSERT INTO time_inout (account_no,name,type,in_out, time) VALUES ('$acc_no','$name','$type','$update', '$date')";
 								if(mysqli_query($connect,$insert)){
 									echo"<script>console.log('Time In Success')</script>";
 								}
 								else{
-									echo"<script>console.log('Time In Error')";
+									echo"<script>console.log('Time In Error')</script>";
 								}	
 							}
 							else{
-								echo"<script>console.log('Failed!')";
+								echo"<script>console.log('Failed!')</script>";
 								}
 						}
 						//==========Time In Out End ============//
@@ -290,11 +289,31 @@
 													<img src='data:image;base64,".$img."' height='250' width='250' onload='granted()'>
 												</div>
 												<div style='display:flex; justify-content:flex-start;flex-direction:column; align-content:center;text-align: left; padding-left:20px;'>
-													<h2>Student Number: " . $acc_no . "</h2>
+													<h2>Account Number: " . $acc_no . "</h2>
 													<h2>Name: " . $name . "</h2>
 													<h2>Course: " . $course . "</h2>
 													<h2>Year & Section: " .$yr.strtoupper($sec). "</h2>
-													<h2>Status: Granted</h2>
+													<h2>Status: ".$update."</h2>
+												</div>
+											</div>
+										</div>
+									</center>
+								</body>
+							");
+						}else if($type == 'employee'){
+							// Display User details From Scanned Qr;
+							echo ("
+								<body onload='autoClose();'style='background-color:#d4edda;'>
+									<center>
+										<div class='cont' style='width:100%; height:95vh;display:flex; justify-content:center; align-items:center;'>
+											<div style='background-color:white;display:flex; justify-content:center; align-items:center; padding:20px;'>
+												<div style='display:flex; justify-content:center; align-items:center;'>
+													<img src='data:image;base64,".$img."' height='250' width='250' onload='granted()'>
+												</div>
+												<div style='display:flex; justify-content:flex-start;flex-direction:column; align-content:center;text-align: left; padding-left:20px;'>
+													<h2>Account Number: " . $acc_no . "</h2>
+													<h2>Name: " . $name . "</h2>
+													<h2>Status: ".$update."</h2>
 												</div>
 											</div>
 										</div>
@@ -304,7 +323,7 @@
 						}
 
 					}
-					else if($status == "denied" || "blocked"){
+					else if($qrstats =="blocked"){
 						echo ("
 							<body onload='autoClose();'style='background-color:#f8d7da;'>
 								<center>
@@ -314,9 +333,9 @@
 												<img src='data:image;base64,".$img."' height='250' width='250' onload='denied()'>
 											</div>
 											<div style='display:flex; justify-content:flex-start;flex-direction:column; align-content:center;text-align: left; padding-left:20px;'>
-												<h2>Student No.: " . $acc_no . "</h2>
+												<h2> Account Number: " . $acc_no . "</h2>
 												<h2>Name.: " . $name . "</h2>
-												<h2>Status: Denied</h2>
+												<h2>Status: ".ucfirst($qrstats)."</h2>
 											</div>
 										</div>
 									</div>

@@ -5,7 +5,7 @@ include 'connect.php';
 
 $id = $_POST['accno'];
 $status = "verified";
-
+$qrstatus = "granted";
 // $text = $id;	//Only the student number will  be saved in the QR Code;
 //                 //If you want every information be stored in the QR Code use the code below instead;
 // $idqr = $id.rand(10,99);
@@ -13,7 +13,7 @@ $status = "verified";
 // $file = $path.$idqr.".png"; 	//format of filename for each QR Images created. Ex: Images/2022123456.png;
 // QRcode::png($text, $file, 'L', 5, 2); //generates QR Images, Parameters are (Text Contents, File Name, ECC, QRSize, FrameSize);
 
-$update = "UPDATE user_account SET verification= '$status' WHERE acc_no = $id";
+$update = "UPDATE user_account SET verification= '$status', qr_status = '$qrstatus' WHERE acc_no = $id";
 
 if (mysqli_query($connect, $update)) {
     require "../email/apt_approved.php";

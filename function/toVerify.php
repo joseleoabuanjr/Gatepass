@@ -45,6 +45,7 @@
                 $v_id = $row['valid_id'];
                 $vax = $row["vax"];
                 $qr = $row['qr'];
+                
             }
 
         //Validate inputed verification code with database verification code;
