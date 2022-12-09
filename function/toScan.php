@@ -152,8 +152,8 @@
 											<div style='display:flex; justify-content:flex-start;flex-direction:column; align-content:center;text-align: left; padding-left:20px;'>
 												<h2>Account Number: " . $acc_no . "</h2>
 												<h2>Name: " . $name . "</h2>
-												<h2>Purpose: " . $reason . "</h2>
 												<h2>Status: ".$update."</h2>
+												<h2>Purpose: " . $reason . "</h2>
 											</div>
 										</div>
 									</div>

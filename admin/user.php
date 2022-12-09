@@ -31,7 +31,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 <body>
     <?php require_once '../includes/navbar-admin.php'; ?>
     <div class="container table-responsive">
-        <table class="table shadow-sm table-striped table-hover display compact" id="userAccountsTable">
+        <table class="table pt-2 shadow-sm table-striped table-hover display compact" id="userAccountsTable">
             <h2 style="padding-top: 60px; padding-bottom:20px;">User Accounts</h2>
             <!-- <div class="searchbar">
                 <input type="text" name="s_name" id="s_n" placeholder="Name">
@@ -48,7 +48,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                     <th class="text-center">Action</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class="text-center">
                 <?php
                 //connect to database
                 require_once "../function/connect.php";

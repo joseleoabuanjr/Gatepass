@@ -57,12 +57,12 @@ $id = $_SESSION['accno'];
                             <table class="table pt-2 shadow-sm table-striped table-hover display compact" id="appointmentTable">
                                 <thead>
                                     <tr style="background-color: #4F4F4B; color:white;">
-                                        <th>No.</th>
+                                        <th class='text-center'>No.</th>
                                         <th>Purpose of Appointment</th>
-                                        <th>Date of Appointment</th>
-                                        <th>Appointment Status</th>
-                                        <th>QR CODE</th>
-                                        <th>Actions</th>
+                                        <th class='text-center'>Date of Appointment</th>
+                                        <th class='text-center'>Appointment Status</th>
+                                        <th class='text-center'>QR CODE</th>
+                                        <th class='text-center'>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -89,20 +89,26 @@ $id = $_SESSION['accno'];
 
                                     $count = 0;
                                     while ($row = mysqli_fetch_assoc($result)) {
-
+                                        $reason = $row['reason'];
+                                        $exploded = explode(',', $reason);
                                         echo (" 
                                             <tr>
-                                                <td class='text-center text-bold'>" . ($count + 1) . "</td>
-                                                <td>" . $row["reason"] . "</td>
-                                                <td>" . $row["date"] . "</td>
-                                                <td>" . $row["status"] . "</td>
+                                                <td class='text-center text-bold'>" . ($count + 1) . "</td>");
+                                        echo '<td>';
+                                        foreach ($exploded as $reason) {
+                                            echo "<ul><li>" . $reason . "</li></ul>";
+                                        }
+                                        echo '</td>';
+                                        echo ("
+                                                <td class='text-center'>" . $row["date"] . "</td>
+                                                <td class='text-center'> " . $row["status"] . "</td>
                                         ");
                                         if ($row['qr'] != NULL || "") {
                                             echo ("<td><a class='btn btn-secondary' target='_blank' href='viewqr.php?id=" . $row["acc_no"] . "&reqid=" . $row["req_id"] . "'>View</a></td>");
                                         } else {
                                             echo ("<td>N/A</td>");
                                         }
-                                        echo "<td>
+                                        echo "<td class='text-center'>
                                             <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='cancel' data-accno='" . $row['acc_no'] . "' data-reqid='" . $row["req_id"] . "'>Cancel</button>
                                         </td>
                                     </tr>";

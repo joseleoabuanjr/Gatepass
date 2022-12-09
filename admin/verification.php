@@ -31,15 +31,19 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 <body>
     <?php require_once '../includes/navbar-admin.php'; ?>
     <div class="container table-responsive">
-        <table class="table shadow-sm table-striped table-hover display compact" id="accountVerificationTable">
+        <table class="table pt-2 shadow-sm table-striped table-hover display compact" id="accountVerificationTable">
             <h2 style="padding-top: 60px; padding-bottom:20px;">Account Verification</h2>
             <thead>
                 <tr style="background-color: #4F4F4B; color:white;">
                     <th class="text-center">Account Number</th>
                     <th class="text-center">Name</th>
                     <th class="text-center">Account Type</th>
+                    <th class="text-center">Student Number</th>
+                    <th class="text-center">Employee Number</th>
+                    <th class="text-center">Contact Number</th>
+                    <th class="text-center">Profile Picture</th>
                     <th class="text-center">Certificate of Registration</th>
-                    <th class="text-center">Valid ID Card</th>
+                    <th class="text-center">Valid ID</th>
                     <th class="text-center">Vaccination Card</th>
                     <th class="text-center">Actions</th>
                 </tr>
@@ -64,19 +68,33 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                     $vax = $row["vax"];
                     $v_id = $row["valid_id"];
                     echo ("
-                                <tr>
+                                <tr class='text-center'>
                                     <td>" . $row["acc_no"] . "</td>
                                     <td class='text-capitalize'>" . $row["first"] . " " . $row["middle"] . ". " . $row["last"] . "</td>
                                     <td class='text-capitalize'>" . $row["type"] . "</td>
                             ");
                     if ($row["type"] == "student") {
                         echo ("
+                                <td>".$row['stud_no']."</td>
+                                <td>N/A</td>
+                                <td>".$row["contact_no"]."</td>
+                                <td> <a class='btn btn-secondary btn-sm' target='_blank' href='../viewpfp.php?id=" . $row["acc_no"] . "'>View</a> </td>
                                 <td> <a class='btn btn-secondary btn-sm' target='_blank' href='../viewcor.php?id=" . $row["acc_no"] . "'>View</a> </td>
                                 <td> <a class='btn btn-secondary btn-sm' target='_blank' href='../view_vid.php?id=" . $row["acc_no"] . "'> View </a></td>
                                 <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
                             ");
                         
                     } else if ($row["type"] == "employee" || "visitor") {
+                        echo"<td>N/A</td>";
+                        if ($row["type"] == "employee") {
+                            echo "<td>".$row['emp_no']."</td>";
+                        }else{
+                            echo "<td>N/A</td>";
+                        }
+                            echo"    
+                                <td>".$row["contact_no"]."</td>
+                                <td> <a class='btn btn-secondary btn-sm' target='_blank' href='../viewpfp.php?id=" . $row["acc_no"] . "'>View</a> </td>
+                        ";
                         if ($v_id == "" || NULL && $vax == "" || NULL) {
                             echo ("
                                     <td>N/A</td><td>N/A</td><td>N/A</td>

@@ -9,9 +9,19 @@ if ($count == 1) {
         $stats = $row['verification'];
 	}
     if($stats == "blocked"){
+        $disable2 = 'disabled';
+        $disable = "";
+    }
+    else if($stats == "pending"){
         $disable = 'disabled';
+        $disable2 = '';
+    }
+    else if($stats == "unverified"){
+        $disable = 'disabled';
+        $disable2 = '';
     }
     else{
+        $disable2 = "";
         $disable = "";
     }
 }
@@ -24,8 +34,8 @@ if ($count == 1) {
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link <?php echo $disable ?>" href="dashboard.php" id="ta1" >Dashboard</a>
-                <a class="nav-link <?php echo $disable ?>" href="profile.php" id="ta2" >Profile</a>
+                <a class="nav-link" href="dashboard.php" id="ta1" >Dashboard</a>
+                <a class="nav-link <?php echo $disable2?>" href="profile.php" id="ta2" >Profile</a>
                 <?php 
                     if($type == 'student') { 
                         
@@ -34,7 +44,7 @@ if ($count == 1) {
                         
                     }
                     else{
-                        echo ('<a class="nav-link '.$disable.'" href="appointment.php" id="ta3">Appointments</a>');
+                        echo ('<a class="nav-link '.$disable2.=$disable.'" href="appointment.php" id="ta3">Appointments</a>');
                     }
                 ?>
                 <a class="nav-link" href="function/toLogout.php">Logout</a>

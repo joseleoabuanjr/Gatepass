@@ -29,7 +29,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 <body>
     <?php require_once '../includes/navbar-admin.php'; ?>
     <div class="container table-responsive">
-        <table class="table shadow-sm table-striped table-hover display compact" id="timeinoutTable">
+        <table class="table pt-2 shadow-sm table-striped table-hover display compact" id="timeinoutTable">
             <h2 style="padding-top: 60px; padding-bottom:20px;">Time In and Out</h2>
             <div class="d-flex justify-content-end" style="margin-bottom:10px;"><button type="button" class="btn btn-primary btn-sm d-print-none" onclick="window.print()">Print Records</button></div>
             
@@ -61,15 +61,22 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                     while($row = mysqli_fetch_assoc($result)){
                         $temp = date_create($row["time"]);
                         $dt = date_format($temp, "F d, Y H:i A");
+                        $reason = $row["reason"];
+                        $exploded = explode(',', $reason);
                         echo ("
                                 <tr>
-                                    <td>".$row["account_no"]."</td>
-                                    <td class='text-capitalize'>".$row["name"]."</td>
-                                    <td class='text-capitalize'>".$row["type"]."</td>
-                                    <td class='text-capitalize'>".$row["in_out"]."</td>
-                                    <td>".$dt."</td>
-                                    <td>".$row["reason"]."</td>
-                                </tr>");
+                                    <td class='text-center'>".$row["account_no"]."</td>
+                                    <td class='text-capitalize text-center'>".$row["name"]."</td>
+                                    <td class='text-capitalize text-center'>".$row["type"]."</td>
+                                    <td class='text-capitalize text-center'>".$row["in_out"]."</td>
+                                    <td class='text-center'>".$dt."</td>");
+                                echo '<td>';
+                                if($reason != NULL){
+                                    foreach ($exploded as $reason) {
+                                        echo "<ul><li>" . $reason . "</li></ul>";
+                                    }
+                                }
+                                echo '</td></tr>';
                             
                         //read 10 row of data from database table
                     }

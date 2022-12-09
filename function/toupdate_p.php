@@ -7,6 +7,14 @@ $npassSet = false;
 $npassValid = false;
 
 if ($_POST['pass'] == $_SESSION['pass']) {
+
+    $select = "SELECT * FROM user_account WHERE acc_no = $id";
+	$result = mysqli_query($connect,$select);
+    while($row = mysqli_fetch_assoc($result)){
+        $type = $row["type"];
+        $stats = $row["verification"];
+    }
+
     if (isset($_POST['npass'])) {
         $npassSet = true;
         if ($_POST['npass'] == $_POST['npass1']) {
@@ -16,7 +24,6 @@ if ($_POST['pass'] == $_SESSION['pass']) {
     $email = $_POST["email"];
     $first = $_POST["first"];
     $last = $_POST["last"];
-    $studno = $_POST["studno"];
     $pnum = $_POST["contact"];
     $bday = $_POST["dob"];
     $add = $_POST["address"];
@@ -25,11 +32,26 @@ if ($_POST['pass'] == $_SESSION['pass']) {
     $yr = $_POST["year"];
     $sec = $_POST["section"];
 
-    $query = "UPDATE user_account SET email = '$email', first = '$first', last = '$last', stud_no = '$studno', contact_no = '$pnum', birthday = '$bday', address = '$add', college = '$col', course = '$course', year = '$yr', section = '$sec', ";
+    $query = "UPDATE user_account SET email = '$email', first = '$first', last = '$last',  contact_no = '$pnum', birthday = '$bday', address = '$add', ";
 
     if ($_FILES["image"]["error"] == 0 && $_FILES["image"]["size"] != 0) {
         $img = base64_encode(file_get_contents(addslashes($_FILES["image"]["tmp_name"])));
         $query .= "image = '$img', ";
+    }
+    if (isset($_POST["studno"])){
+        $query .= "stud_no = '$studno', ";
+    }
+    if (isset($_POST["college"])){
+        $query .= "college = '$col', ";
+    }
+    if (isset($_POST["course"])){
+        $query .= "course = '$course', ";
+    }
+    if (isset($_POST["year"])){
+        $query .= "year = '$yr', ";
+    }
+    if (isset($_POST["section"])){
+        $query .= "section = '$sec', ";
     }
     if (isset($_POST["mid"])) {
         $mid = $_POST["mid"];
@@ -83,6 +105,10 @@ if ($_POST['pass'] == $_SESSION['pass']) {
         $query .= "valid_id = '$v_idpdf', ";
 
         move_uploaded_file($v_idpdf_tem_loc, $v_idpdf_store);
+    }
+    if($stats == "unverified"){
+        $stats = 'pending';
+        $query .= "verification = '$stats', ";
     }
     $query = substr($query, 0, -2);
     // $query = rtrim($query, ',');

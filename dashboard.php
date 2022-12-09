@@ -64,7 +64,11 @@ $id = $_SESSION['accno'];
                 $statusColor = "text-bg-success";
                 if ($status != "verified") {
                     $statusColor = "text-bg-warning";
-                }if ($status == "blocked") {
+                }
+                if ($status == "unverified") {
+                    $statusColor = "text-bg-danger";
+                }
+                if ($status == "blocked") {
                     $statusColor = "text-bg-secondary";
                 }
 
@@ -73,8 +77,8 @@ $id = $_SESSION['accno'];
                 if ($status == "unverified") {
                     echo '
                         <div class="w-100 pt-4">
-                            <div class="alert text-center fw-bold alert-warning shadow-sm" role="alert">
-                                Your account is not yet fully verified. Please <a href="">verify</a> now.
+                            <div class="alert text-center fw-bold alert-danger shadow-sm" role="alert">
+                                Your account is not yet fully verified. Please <a href="profile.php">verify</a> now.
                             </div>
                         </div>
                         ';
