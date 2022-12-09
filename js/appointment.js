@@ -76,6 +76,7 @@ $(document).ready(function () {
     $("#check8").click(function() {
         if($(this).is(":checked")) {
             $("#txt-1").show();
+            $("#txt-1").prop('required',true);
         } else {
             $("#txt-1").hide();
         }

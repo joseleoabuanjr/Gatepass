@@ -202,7 +202,7 @@ $id = $_SESSION['accno'];
                                 }
                                 echo '</ul>';
                             } else {
-                                echo '<a href="appointment.php" class="btn btn-outline-secondary '.$disable.'" id="appointmentBtn">Set an Appointment</a>';
+                                echo '<a href="appointment.php" class="btn btn-outline-secondary mt-3 '.$disable.'" id="appointmentBtn">Set an Appointment</a>';
                             }
                             ?>
                         </div>

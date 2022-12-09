@@ -34,7 +34,7 @@ if ($count == 1) {
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
-                <a class="nav-link" href="dashboard.php" id="ta1" >Dashboard</a>
+                <a class="nav-link <?php echo $disable2?>" href="dashboard.php" id="ta1" >Dashboard</a>
                 <a class="nav-link <?php echo $disable2?>" href="profile.php" id="ta2" >Profile</a>
                 <?php 
                     if($type == 'student') { 
