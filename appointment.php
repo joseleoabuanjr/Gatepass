@@ -104,7 +104,7 @@ $id = $_SESSION['accno'];
                                                 <td class='text-center'> " . $row["status"] . "</td>
                                         ");
                                         if ($row['qr'] != NULL || "") {
-                                            echo ("<td><a class='btn btn-secondary' target='_blank' href='viewqr.php?id=" . $row["acc_no"] . "&reqid=" . $row["req_id"] . "'>View</a></td>");
+                                            echo ("<td><a class='btn btn-sm btn-secondary' target='_blank' href='viewqr.php?id=" . $row["acc_no"] . "&reqid=" . $row["req_id"] . "'>View</a></td>");
                                         } else {
                                             echo ("<td>N/A</td>");
                                         }
