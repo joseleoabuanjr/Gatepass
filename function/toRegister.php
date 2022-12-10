@@ -219,7 +219,6 @@ if ($userType == "student") {
 	// $contnum = $_POST["contact_pnum"];
 	$bday = $_POST["dob"];
 	$add = $_POST["address"];
-	$empno = $_POST["emp_no"];
 	$user = $_POST["username"];
 	$pass = md5($_POST["pass"]);
 	$email = $_POST["email"];
