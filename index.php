@@ -20,7 +20,7 @@
                         <img class="" src="resources/bulsulogo.png" alt="" height="100">
                         <h1 class="h3 m-1">BulSU Gatepass</h1>
                         <hr>
-                        <h5 class="mb-3">SIGN IN</h5>
+                        <h5 class="mb-3">LOG IN</h5>
                     </div>
 
                     <div class="form-floating">
@@ -37,7 +37,7 @@
                     </button>
                     <div class="alert alert-danger my-1 p-2" role="alert" id="errorAlert">Invalid Username or Password
                     </div>
-                    <button class="w-100 btn btn-lg btn-warning my-2" type="submit">Sign in</button>
+                    <button class="w-100 btn btn-lg btn-warning my-2" type="submit">Log in</button>
                     <button class="btn btn-link link-light text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                         Create an Account
                     </button>
