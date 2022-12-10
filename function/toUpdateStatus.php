@@ -10,7 +10,6 @@ if(isset($_POST["qrstatus"])){
 }else{
     $qrstats = 'granted';
 }
-
 if($status == "unblocked"){
     $status = "verified";
 }
