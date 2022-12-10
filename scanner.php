@@ -85,7 +85,6 @@
 		<div class="col-8 p-0">
 			<div class="scanner">
 				<form style="height: 99vh;">
-					<!-- <div>SCAN QR CODE HERE</div> -->
 					<video class="border h-100 w-100" id="preview"></video>
 					<input type="hidden" name="text" id="text"></input>
 				</form>
