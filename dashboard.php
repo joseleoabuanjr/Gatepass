@@ -174,7 +174,7 @@ $id = $_SESSION['accno'];
                             <div class="col"><?php echo $email; ?></div>
                             <div class="col">Address: </div>
                             <div class="col"><?php echo $add; ?></div>
-                            <div class="col">Birthdate: </div>
+                            <div class="col">Date of Birth: </div>
                             <div class="col"><?php echo $bday; ?></div>
                         </div>
                     </div>

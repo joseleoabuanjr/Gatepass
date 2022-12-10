@@ -57,19 +57,19 @@
                 <p style="margin-bottom: 20px;">
                 Verification Code: '.$gcode.'
                 <br>
-                <br>Hi '.$lst.', '.$fst.',
+                <br>Hi '.$fst.' '.$lst.', 
                 <br>
-                <br>We would like to thank you for registering to Bulacan State University Gate Pass. 
+                <br>We would like to thank you for registering to Bulacan State University Gatepass. 
                 <br>
                 <br>Here are your account details:
                 <br>Username: '.$usern.'
                 <br>Password: '.$passw.'
                 <br>
                 <br>To complete your registration process, we just need to verify that this e-mail address belongs to you.
-                <br>Please enter the verification code above in your BulSU Gate Pass.
+                <br>Please enter the verification code above in your BulSU Gatepass.
                 <br>
                 <br> Thanks,
-                <br>BulSU Gate Pass Team</p>
+                <br>BulSU Gatepass Team</p>
                 <a href="http://localhost/Gatepass/verification.php?id='.$id.'"><button type="submit" class="btn btn-primary">Verify</button></a>
             </div>
             ';

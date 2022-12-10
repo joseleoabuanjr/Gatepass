@@ -61,6 +61,7 @@ $bday = date_format($date, "Y-m-d");
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <link rel="stylesheet" href="css/navbar.css">
     <link rel="stylesheet" href="css/profile.css">
+    <link rel="stylesheet" href="css/college.css">
     <!----------- Javascript ------------>
 
 </head>
@@ -111,7 +112,7 @@ $bday = date_format($date, "Y-m-d");
                                             </ul>
                                             <div class="form-floating">
                                                 <input type="file" name="image" class="form-control ms-2 ps-5" style="height: 80px;padding-top:40px; padding-left:40px" id="img1" accept="image/png, image/jpeg" onchange="return checkImage1()">
-                                                <label class="ms-3">Upload Account Profile Picture</label>
+                                                <label class="ms-3">Upload New Account Profile Picture</label>
                                                 <div class="msg" id="message"></div>
                                             </div>
                                         </div>
@@ -172,7 +173,7 @@ $bday = date_format($date, "Y-m-d");
                                         <div class="col">
                                             <div class="mb-3">
                                                 <h6 for="contact_pnum" class="form-label">Emergency Contact Number</h6>
-                                                <input type="text" class="form-control" name="contact_pnum" id="contact_pnum" value="<?php echo ($contnum); ?>">
+                                                <input type="text" class="form-control" name="contact_pnum" id="contact_pnum" value="<?php echo ($contnum); ?>" placeholder="Ex: 09123456789">
                                             </div>
                                         </div>
                                     </div>
@@ -219,7 +220,7 @@ $bday = date_format($date, "Y-m-d");
                                             <div class="col">
                                                 <div class="mb-3">
                                                     <h6 for="college" class="form-label">College</h6>
-                                                    <select class="form-select mb-3" name="college">
+                                                    <select class="form-select mb-3" name="college" id="col-s">
                                                         <option <?php echo ($col == "College of Architecture and Fine Arts (CAFA)") ? "selected" : "" ?> value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
                                                         <option <?php echo ($col == "College of Arts and Letters (CAL)") ? "selected" : "" ?> value="College of Arts and Letters (CAL)">College of Arts and Letters (CAL)</option>
                                                         <option <?php echo ($col == "College of Business Administration (CBA)") ? "selected" : "" ?> value="College of Business Administration (CBA)">College of Business Administration (CBA)</option>
@@ -522,6 +523,7 @@ $bday = date_format($date, "Y-m-d");
     <!-- Javascripts -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <script src="js/college.js"></script>
 </body>
 
 </html>

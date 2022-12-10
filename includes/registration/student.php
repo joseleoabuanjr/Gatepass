@@ -59,7 +59,7 @@
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <label for="birthdate" class="form-label">Birthdate</label>
+                                <label for="birthdate" class="form-label">Date of Birth</label>
                                 <input type="date" class="form-control" name="dob" id="birthdate" required>
                             </div>
                         </div>
@@ -82,7 +82,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="studentNo" class="form-label">Student Number</label>
-                                <input type="text" class="form-control" placeholder="Ex:(2045115011)" name="studno" id="studentNo" required>
+                                <input type="text" class="form-control" placeholder="Ex:2045115011" name="studno" id="studentNo" required>
                             </div>
                         </div>
                         <div class="col">
@@ -126,7 +126,6 @@
                                     <option value="College of Sports Exercise and Recreation (CSER)">College of Sports Exercise and Recreation (CSER)</option>
                                     <option value="College of Social Sciences and Philosophy (CSSP)">College of Social Sciences and Philosophy (CSSP)</option>
                                     <option value="Graduate School (GS)">Graduate School (GS)</option>
-                                    <option value="Other">Other</option>
                                 </select>
                             </div>
                         </div>
@@ -242,7 +241,6 @@
                                         <option class="gs12" id="gs12" value="Master of Information Technology">Master of Information Technology</option>
                                         <option class="gs13" id="gs13" value="Master of Manufacturing Engineering">Master of Manufacturing Engineering</option>
                                     </div>
-                                    <option value="Other">Other</option>
                                 </select>
                                 <script src="../../js/college.js"></script>
                             </div>

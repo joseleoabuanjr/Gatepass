@@ -2,7 +2,7 @@ $(document).ready(function () {
     $("#step2").hide();
     $("#step3").hide();
     $("#errorAlert").hide();
-    $("#successAlert").show();
+    $("#successAlert").hide();
     $("#registerSpinner").hide();
     var progress = 33.33;
     $(".nextBtn").click(function (e) {
