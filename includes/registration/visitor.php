@@ -47,7 +47,7 @@
                     <div class="row row-cols-1 row-cols-md-3 g-2">
                         <div class="col">
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email address</label>
+                                <label for="email" class="form-label">Email Address</label>
                                 <input type="email" class="form-control" name="email" id="email" required email>
                             </div>
                         </div>
