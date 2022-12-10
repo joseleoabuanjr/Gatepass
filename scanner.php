@@ -65,7 +65,7 @@
 		<div class="col-4 text-center d-flex align-items-center justify-content-center">
 			<div class="text-light">
 				<img class="" src="resources/bulsulogo.png" alt="" height="100">
-				<h1 class="h3 m-1">BulSU GatePass</h1>
+				<h1 class="h3 m-1">BulSU Gatepass</h1>
 				<hr>
 				<h5 class="my-5">SCAN QR CODE</h5>
 				<div class="datetime h4">

@@ -18,7 +18,7 @@
                 <form id="loginForm">
                     <div class="text-light">
                         <img class="" src="resources/bulsulogo.png" alt="" height="100">
-                        <h1 class="h3 m-1">BulSU GatePass</h1>
+                        <h1 class="h3 m-1">BulSU Gatepass</h1>
                         <hr>
                         <h5 class="mb-3">SIGN IN</h5>
                     </div>
@@ -46,7 +46,7 @@
                         <a href="includes/registration/employee.php" class="btn btn-sm btn-outline-warning">Employee</a>
                         <a href="includes/registration/visitor.php" class="btn btn-sm btn-outline-warning">Visitor</a>
                     </div>
-                    <p class="mt-5 text-muted">BulSU GatePass &copy; 2022</p>
+                    <p class="mt-5 text-muted">BulSU Gatepass &copy; 2022</p>
                 </form>
             </main>
         </div>
