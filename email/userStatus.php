@@ -42,7 +42,18 @@
 
             $fst = ucfirst($row["first"]);
             $lst = ucfirst($row["last"]);
-            
+            $name = $fst." ".$lst;
+            $text = "";
+            if($status == 'blocked'){
+                $text = "<br>Possible reason's:
+                            <ul>
+                            <li>suspended</li>
+                            <li>not following rules</li>
+                            </ul>";
+            }else if ($status == 'verified'){
+                $status = 'unblock';
+            }
+
             //Recipients
             $mail->addAddress($row["email"]); //Add a recipient;
             $mail->isHTML(true);
@@ -52,15 +63,17 @@
             $mail->Body    = '
             <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
                 <p style="margin-bottom: 20px;">
+                <br>Hi '.$name.',
                 <br>
-                <br>Hi '.$lst.', '.$fst.',
+                <br>We would like to notify you that your account has been '.$status.' by the Admin.
                 <br>
-                <br>We would like to inform you that your account is <span style="text-transform: uppercase; font-weight: bold;">'.$status.'</span> by the admin. 
+                '.$text.'
                 <br>
+                <br>For more information or if you wish to contact us. You may send an email or visit the University Office.
+                <br>Thanks,        
                 <br>
-                <br>- BulSU Gate Pass Team</p>
-                
-            </div>    
+                <br> -BulSU Gate Pass Team</p>
+            </div>   
             ';
         }
         //send mail

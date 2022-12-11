@@ -14,6 +14,10 @@ if($status == "unblock"){
     $status = "verified";
 }else if ($status == "block"){
     $status = "blocked";
+}else if ($status == "approve"){
+    $status = "verified";
+}else if ( $status == "deny"){
+    $status = "unverified";
 }
 if (isset($_POST["SET_USER_STATUS"])) {
     $update = "UPDATE user_account SET verification= '$status', qr_status= '$qrstats' WHERE acc_no = $id";
