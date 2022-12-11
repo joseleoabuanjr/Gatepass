@@ -10,8 +10,10 @@ if(isset($_POST["qrstatus"])){
 }else{
     $qrstats = 'granted';
 }
-if($status == "unblocked"){
+if($status == "unblock"){
     $status = "verified";
+}else if ($status == "block"){
+    $status = "blocked";
 }
 if (isset($_POST["SET_USER_STATUS"])) {
     $update = "UPDATE user_account SET verification= '$status', qr_status= '$qrstats' WHERE acc_no = $id";
