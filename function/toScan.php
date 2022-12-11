@@ -432,6 +432,7 @@ if (mysqli_num_rows($result) > 0) {
 				<body onload="autoClose(); denied();" class="bg-danger">
 					<div class="cont d-flex justify-content-center align-items-center vh-100">
 						<div class="text-bg-light shadow-lg rounded-3 p-5" style="width: 800px;">
+							<h5>Denied</h5>
 							<div class="display-1 fw-bold text-center">No Result Found</div>
 						</div>
 					</div>

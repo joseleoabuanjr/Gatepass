@@ -41,6 +41,7 @@
 
 		function focusWindow() {
 			if (!visitInfo.closed)
+				window.location.reload();
 				visitInfo.focus();
 		}
 	</script>
