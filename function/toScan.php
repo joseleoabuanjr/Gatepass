@@ -7,7 +7,7 @@
 
 	<script>
 		function autoClose() {
-			setTimeout(closeWindow, 1000);
+			setTimeout(closeWindow, 2000);
 		}
 
 		function closeWindow() {
@@ -18,7 +18,6 @@
 			const audio = new Audio();
 			audio.src = "../sounds/denied.mp3";
 			audio.play();
-
 			// insert this to chrome shorcut, properties, target " --autoplay-policy=no-user-gesture-required" or "--disable-features=PreloadMediaEngagementData, MediaEngagementBypassAutoplayPolicies"
 		}
 
@@ -26,7 +25,6 @@
 			const audio = new Audio();
 			audio.src = "../sounds/granted.mp3";
 			audio.play();
-
 			//to make auto play sounds;
 			// insert this to chrome shorcut, properties, target " --autoplay-policy=no-user-gesture-required" or "--disable-features=PreloadMediaEngagementData, MediaEngagementBypassAutoplayPolicies"
 		}
@@ -141,12 +139,12 @@ if (mysqli_num_rows($result) > 0) {
 			//==========Time In Out End ============//
 			// Display User details From Scanned Qr;
 			echo ('
-				<body onload="autoClose();" class="bg-success">
+				<body onload="autoClose(); granted();" class="bg-success">
 					<div class="cont d-flex justify-content-center align-items-center vh-100">
 						<div class="text-bg-light shadow-lg rounded-3 p-5" style="width: 800px;">
 							<div class="row">
 								<div class="col-12 col-md-4 d-flex align-items-center">
-									<img src="data:image;base64,' . $img . '" class="img-fluid img-thumbnail" onload="granted()">
+									<img src="data:image;base64,' . $img . '" class="img-fluid img-thumbnail">
 								</div>
 								<div class="col-12 col-md-8 d-flex align-items-center">
 									<div class="container-fluid py-5">
@@ -188,12 +186,12 @@ if (mysqli_num_rows($result) > 0) {
 		$update = "UPDATE appointment SET qr_status = '$apt_status' WHERE acc_no = $id AND req_id = '$reqid'";
 		if (mysqli_query($connect, $update)) {
 			echo ('
-				<body onload="autoClose();" class="bg-danger">
+				<body onload="autoClose(); denied();" class="bg-danger">
 					<div class="cont d-flex justify-content-center align-items-center vh-100">
 						<div class="text-bg-light shadow-lg rounded-3 p-5" style="width: 800px;">
 							<div class="row">
 								<div class="col-12 col-md-4 d-flex align-items-center">
-									<img src="data:image;base64,' . $img . '" class="img-fluid img-thumbnail" onload="granted()">
+									<img src="data:image;base64,' . $img . '" class="img-fluid img-thumbnail">
 								</div>
 								<div class="col-12 col-md-8 d-flex align-items-center">
 									<div class="container-fluid py-5">
@@ -307,12 +305,12 @@ if (mysqli_num_rows($result) > 0) {
 			if ($type == 'student') {
 				// Display User details From Scanned Qr;
 				echo ('
-				<body onload="autoClose();" class="bg-success">
+				<body onload="autoClose(); granted();" class="bg-success">
 					<div class="cont d-flex justify-content-center align-items-center vh-100">
 						<div class="text-bg-light shadow-lg rounded-3 p-5" style="width: 800px;">
 							<div class="row">
 								<div class="col-12 col-md-4 d-flex align-items-center">
-									<img src="data:image;base64,' . $img . '" class="img-fluid img-thumbnail" onload="granted()">
+									<img src="data:image;base64,' . $img . '" class="img-fluid img-thumbnail">
 								</div>
 								<div class="col-12 col-md-8 d-flex align-items-center">
 									<div class="container-fluid py-5">
@@ -351,12 +349,12 @@ if (mysqli_num_rows($result) > 0) {
 			} else if ($type == 'employee') {
 				// Display User details From Scanned Qr;
 				echo ('
-				<body onload="autoClose();" class="bg-success">
+				<body onload="autoClose(); granted();" class="bg-success">
 					<div class="cont d-flex justify-content-center align-items-center vh-100">
 						<div class="text-bg-light shadow-lg rounded-3 p-5" style="width: 800px;">
 							<div class="row">
 								<div class="col-12 col-md-4 d-flex align-items-center">
-									<img src="data:image;base64,' . $img . '" class="img-fluid img-thumbnail" onload="granted()">
+									<img src="data:image;base64,' . $img . '" class="img-fluid img-thumbnail">
 								</div>
 								<div class="col-12 col-md-8 d-flex align-items-center">
 									<div class="container-fluid py-5">
@@ -391,12 +389,12 @@ if (mysqli_num_rows($result) > 0) {
 			}
 		} else if ($qrstats == "blocked") {
 			echo ('
-				<body onload="autoClose();" class="bg-danger">
+				<body onload="autoClose(); denied();" class="bg-danger">
 					<div class="cont d-flex justify-content-center align-items-center vh-100">
 						<div class="text-bg-light shadow-lg rounded-3 p-5" style="width: 800px;">
 							<div class="row">
 								<div class="col-12 col-md-4 d-flex align-items-center">
-									<img src="data:image;base64,' . $img . '" class="img-fluid img-thumbnail" onload="granted()">
+									<img src="data:image;base64,' . $img . '" class="img-fluid img-thumbnail">
 								</div>
 								<div class="col-12 col-md-8 d-flex align-items-center">
 									<div class="container-fluid py-5">
@@ -431,7 +429,7 @@ if (mysqli_num_rows($result) > 0) {
 		}
 	} else {
 		echo ('
-				<body onload="autoClose();" class="bg-danger">
+				<body onload="autoClose(); denied();" class="bg-danger">
 					<div class="cont d-flex justify-content-center align-items-center vh-100">
 						<div class="text-bg-light shadow-lg rounded-3 p-5" style="width: 800px;">
 							<div class="display-1 fw-bold text-center">No Result Found</div>
