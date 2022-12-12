@@ -358,7 +358,7 @@ $bday = date_format($date, "Y-m-d");
                                                     </select>
                                                 </div>
                                             </div>
-
+                                            <script src="js/college.js"></script>
                                         </div>
                                     </div>
                                 <div id="credential" class="py-3 mb-5">
@@ -523,7 +523,6 @@ $bday = date_format($date, "Y-m-d");
     <!-- Javascripts -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-    <script src="js/college.js"></script>
 </body>
 
 </html>
