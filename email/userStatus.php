@@ -44,14 +44,13 @@
             $lst = ucfirst($row["last"]);
             $name = $fst." ".$lst;
             $text = "";
+            $footertxt = "For more information or if you wish to contact us. You may send an email or visit the University Office.";
             if($status == 'blocked'){
-                $text = "<br>Possible reason's:
-                            <ul>
-                            <li>suspended</li>
-                            <li>not following rules</li>
-                            </ul>";
-            }else if ($status == 'verified'){
-                $status = 'unblock';
+                $text = "Your account may have been blocked for several reasons such as; active suspension, incorrect information provided, system maintenance, etc.";
+                $footertxt = "If you wish to unblock your account you may reach technical support via bulsua.qrgatepass@gmail.com or visit the university for direct support.";
+
+            }else if ($statusemail == 'unblock'){
+                $status = 'unblocked';
             }
 
             //Recipients
@@ -59,20 +58,17 @@
             $mail->isHTML(true);
 
             //mail content
-            $mail->Subject = 'Account Status';
-            $mail->Body    = '
-            <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+            $mail->Subject = $subject;
+            $mail->Body    = '<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
                 <p style="margin-bottom: 20px;">
-                <br>Hi '.$name.',
-                <br>
+                <br>Hi '.$name.',<br>
                 <br>We would like to notify you that your account has been '.$status.' by the Admin.
+                <br>'.$text.'
                 <br>
-                '.$text.'
+                <br>'.$footertxt.'
+                <br>Thanks,
                 <br>
-                <br>For more information or if you wish to contact us. You may send an email or visit the University Office.
-                <br>Thanks,        
-                <br>
-                <br> -BulSU Gate Pass Team</p>
+                <br> -BulSU Gatepass Team</p>
             </div>   
             ';
         }

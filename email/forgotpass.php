@@ -53,13 +53,13 @@
             <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
                 <p style="margin-bottom: 20px;">
                 <br>
-                <br>Hi '.$lst.', '.$fst.',
+                <br>Hi '.$fst.' '.$lst.',
                 <br>
                 <br>This is your temporay password :'.$temp_pass.'
                 <br>After logging in go to your profile and change your password.
                 <br>
                 <br>
-                <br>- BulSU Gate Pass Team</p>
+                <br> -BulSU Gatepass Team</p>
             </div>    
             ';
         }
