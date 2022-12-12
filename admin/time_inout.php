@@ -60,7 +60,8 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                     $count = 0;
                     while($row = mysqli_fetch_assoc($result)){
                         $temp = date_create($row["time"]);
-                        $dt = date_format($temp, "F d, Y H:i A");
+                        $dt = date_format($temp, "F d, Y h:i A");
+
                         $reason = $row["reason"];
                         $exploded = explode(',', $reason);
                         echo ("

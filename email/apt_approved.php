@@ -53,12 +53,14 @@
             <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
                 <p style="margin-bottom: 20px;">
                 <br>
-                <br>Hi '.$lst.', '.$fst.',
+                <br>Hi '.$fst.' '.$lst.', 
                 <br>
-                <br>We would like to inform you that your Appointment Request was Approved.
+                <br>We would like to notify you that your appointment request has been approved by the Admin.
                 <br>
+                <br>For more information or if you wish to contact us. You may send an email or visit the University Office.
+                <br>Thanks,
                 <br>
-                <br>- BulSU Gate Pass Team</p>
+                <br> -BulSU Gate Pass Team</p>
             </div>    
             ';
         }

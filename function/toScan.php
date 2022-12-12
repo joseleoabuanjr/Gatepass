@@ -7,7 +7,7 @@
 
 	<script>
 		function autoClose() {
-			setTimeout(closeWindow, 2000);
+			// setTimeout(closeWindow, 2000);
 		}
 
 		function closeWindow() {
@@ -34,20 +34,19 @@
 <?php
 require_once "connect.php";
 $qrwhole = $_REQUEST["qr"];
-
 if (strpos($qrwhole, ":") !== false) {
 	$qrsplit = explode(":", $qrwhole);
 	$qraccno = intval($qrsplit[0]);
 	$reqid = intval($qrsplit[1]);
 } else {
 	$qraccno = $qrwhole;
+	
 }
 
 //check if user have an appointment(Visitor);
-$select = "SELECT * FROM appointment WHERE type = 'visitor' AND status = 'approved' AND acc_no = '$qraccno' AND req_id = '$reqid'";
+$select = "SELECT * FROM appointment WHERE type = 'visitor' AND acc_no = '$qraccno' AND req_id = '$reqid'";
 $result = mysqli_query($connect, $select);
 if (mysqli_num_rows($result) > 0) {
-
 	//if have result
 	//loop that will stop after displaying all the records fetched from database ;
 	while ($row = mysqli_fetch_assoc($result)) {
@@ -89,7 +88,6 @@ if (mysqli_num_rows($result) > 0) {
 
 		if (mysqli_query($connect, $update)) {
 			$date = $dt->format('Y-m-d h:i:s a');
-
 			//=============Time In Out============//
 			//Check time_inout table and get value;
 			$select = "SELECT * FROM time_inout WHERE account_no = $id";
@@ -139,7 +137,7 @@ if (mysqli_num_rows($result) > 0) {
 			//==========Time In Out End ============//
 			// Display User details From Scanned Qr;
 			echo ('
-				<body onload="autoClose(); granted();" class="bg-success">
+				<body onload="granted(); autoClose();" class="bg-success">
 					<div class="cont d-flex justify-content-center align-items-center vh-100">
 						<div class="text-bg-light shadow-lg rounded-3 p-5" style="width: 800px;">
 							<div class="row">
@@ -186,7 +184,7 @@ if (mysqli_num_rows($result) > 0) {
 		$update = "UPDATE appointment SET qr_status = '$apt_status' WHERE acc_no = $id AND req_id = '$reqid'";
 		if (mysqli_query($connect, $update)) {
 			echo ('
-				<body onload="autoClose(); denied();" class="bg-danger">
+				<body onload="denied(); autoClose();" class="bg-danger">
 					<div class="cont d-flex justify-content-center align-items-center vh-100">
 						<div class="text-bg-light shadow-lg rounded-3 p-5" style="width: 800px;">
 							<div class="row">
@@ -305,7 +303,7 @@ if (mysqli_num_rows($result) > 0) {
 			if ($type == 'student') {
 				// Display User details From Scanned Qr;
 				echo ('
-				<body onload="autoClose(); granted();" class="bg-success">
+				<body onload="granted(); autoClose();" class="bg-success">
 					<div class="cont d-flex justify-content-center align-items-center vh-100">
 						<div class="text-bg-light shadow-lg rounded-3 p-5" style="width: 800px;">
 							<div class="row">
@@ -349,7 +347,7 @@ if (mysqli_num_rows($result) > 0) {
 			} else if ($type == 'employee') {
 				// Display User details From Scanned Qr;
 				echo ('
-				<body onload="autoClose(); granted();" class="bg-success">
+				<body onload="granted(); autoClose();" class="bg-success">
 					<div class="cont d-flex justify-content-center align-items-center vh-100">
 						<div class="text-bg-light shadow-lg rounded-3 p-5" style="width: 800px;">
 							<div class="row">
@@ -387,9 +385,31 @@ if (mysqli_num_rows($result) > 0) {
 				// 	</body>
 				// ");
 			}
-		} else if ($qrstats == "blocked") {
+		} else if ($type == 'employee'){
 			echo ('
-				<body onload="autoClose(); denied();" class="bg-danger">
+				<body onload="denied(); autoClose();" class="bg-danger">
+					<div class="cont d-flex justify-content-center align-items-center vh-100">
+						<div class="text-bg-light shadow-lg rounded-3 p-5" style="width: 800px;">
+							<div class="row">
+								<div class="col-12 col-md-4 d-flex align-items-center">
+									<img src="data:image;base64,' . $img . '" class="img-fluid img-thumbnail">
+								</div>
+								<div class="col-12 col-md-8 d-flex align-items-center">
+									<div class="container-fluid py-5">
+										<h5 class="fw-bold text-secondary">' . $acc_no . '</h5>
+										<h1 class="fw-bold text-capitalize">' . $name . '</h1>
+										<h3>Status: ' . ucfirst($qrstats) . '</h3>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</body>
+				');
+		}
+		else if ($qrstats == "blocked") {
+			echo ('
+				<body onload="denied(); autoClose();" class="bg-danger">
 					<div class="cont d-flex justify-content-center align-items-center vh-100">
 						<div class="text-bg-light shadow-lg rounded-3 p-5" style="width: 800px;">
 							<div class="row">
@@ -429,7 +449,7 @@ if (mysqli_num_rows($result) > 0) {
 		}
 	} else {
 		echo ('
-				<body onload="autoClose(); denied();" class="bg-danger">
+				<body onload="denied(); autoClose();" class="bg-danger">
 					<div class="cont d-flex justify-content-center align-items-center vh-100">
 						<div class="text-bg-light shadow-lg rounded-3 p-5" style="width: 800px;">
 							<h5>Denied</h5>

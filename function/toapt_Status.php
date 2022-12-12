@@ -7,6 +7,12 @@ $id = $_POST["accno"];
 $reqid = $_POST["reqid"];
 $status = $_POST["status"];
 
+if ($status == "approve"){
+    $status = "approved";
+}else if ( $status == "deny"){
+    $status = "denied";
+}
+
 if ($status == "approved") {
     $select = "SELECT * FROM user_account WHERE acc_no = $id";
     $result = mysqli_query($connect, $select);

@@ -55,10 +55,13 @@
         <p style="margin-bottom: 20px;">
         <br>Hi '.$name.' ,
         <br>
-        <br>We would like to inform you that your Appointment Request was Denied.
-        <br>If you wish to Try Again, Please send another Appointment Request.
+        <br>We would like to notify you that your appointment request has been dennied by the Admin.
+        <br>If you wish to Try Again, Please submit another Appointment Request.
         <br>
-        <br>- BulSU Gate Pass Team</p>
+        <br>For more information or if you wish to contact us. You may send an email or visit the University Office.
+        <br>Thanks,
+        <br>
+        <br> -BulSU Gate Pass Team</p>
     </div>
     ';
     //send mail
