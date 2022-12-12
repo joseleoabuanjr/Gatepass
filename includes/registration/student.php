@@ -82,7 +82,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="studentNo" class="form-label">Student Number</label>
-                                <input type="text" class="form-control" placeholder="Ex:2045115011" name="studno" id="studentNo" required>
+                                <input type="text" class="form-control" placeholder="Ex: 2045115011" name="studno" id="studentNo" required>
                             </div>
                         </div>
                         <div class="col">
@@ -245,10 +245,9 @@
                                 <script src="../../js/college.js"></script>
                             </div>
                         </div>
-
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-between mt-5">
-                        <div class="form-text fw-bolder">Already have an account? <a href="../../landing-page.php" class="text-info text-decoration-none" style="cursor: pointer;">Log in</a></div>
+                        <div class="form-text fw-bolder">Already have an account? <a href="../../index.php" class="text-info text-decoration-none" style="cursor: pointer;">Log in</a></div>
                         <div>
                             <button class="btn btn-secondary me-md-2 px-5 prevBtn" data-ctr="2" type="button">Prev</button>
                             <button class="btn btn-primary me-md-2 px-5 nextBtn" data-ctr="2" type="button">Next</button>

@@ -42,12 +42,13 @@ $(document).ready(function () {
                         $("#registrationForm").trigger("reset");
                         $("#registerSpinner").hide();
                     } else {
-                        $("#errorAlert").html("An error has occurred during the registration process");
+                        $("#errorAlert").html(response.msg);
                         $("#errorAlert").fadeIn();
+                        $("#registerSpinner").hide();
                     }
                 }, error: function (response) {
-                    console.error(response.responseText);
-                    // $("#errorAlert").html(response.responseText);
+                    console.error(response.msg);
+                    // $("#errorAlert").html(response.msg);
                     // $("#errorAlert").fadeIn();
                 }, beforeSend: function() {
                     $("#registerSpinner").show();
