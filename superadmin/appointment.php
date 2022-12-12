@@ -32,7 +32,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 
 <body>
     <?php require_once '../includes/navbar-admin.php'; ?>
-    <div class="container table-responsive">
+    <div class="container table-responsive" style="margin-bottom:100px;">
         <table class="table pt-2 shadow-sm table-striped table-hover display compact" id="appointmentRequestTable">
             <h2 style="padding-top: 60px; padding-bottom:20px;">Appointment Request</h2>
             <thead>
@@ -111,7 +111,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
         </div>
     </div>
     <!-- Status modal -->
-    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 </body>
 
 </html>

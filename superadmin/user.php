@@ -30,7 +30,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 
 <body>
     <?php require_once '../includes/navbar-admin.php'; ?>
-    <div class="container table-responsive">
+    <div class="container table-responsive" style="margin-bottom:100px;">
         <table class="table pt-2 shadow-sm table-striped table-hover display compact" id="userAccountsTable">
             <h2 style="padding-top: 60px; padding-bottom:20px;">User Accounts</h2>
             <!-- <div class="searchbar">
