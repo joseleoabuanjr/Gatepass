@@ -69,7 +69,7 @@
                 <br>Please enter the verification code above in your BulSU Gatepass.
                 <br>
                 <br> Thanks,
-                <br>BulSU Gatepass Team</p>
+                <br> -BulSU Gatepass Team</p>
                 <a href="http://localhost/Gatepass/verification.php?id='.$id.'"><button type="submit" class="btn btn-primary">Verify</button></a>
             </div>
             ';

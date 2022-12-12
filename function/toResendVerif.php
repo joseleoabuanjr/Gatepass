@@ -65,7 +65,7 @@
                     <p style="margin-bottom: 20px;">
                     Code: '.$gcode.'
                     <br>
-                    <br>Hi '.$lst.', '.$fst.',
+                    <br>Hi '.$fst.' '.$lst.', 
                     <br>
                     <br>We would like to thank you for registering to Bulacan State University Gate Pass. 
                     <br>
@@ -77,7 +77,7 @@
                     <br>Please enter the verification code above in your BulSU Gate Pass.
                     <br>
                     <br> Thanks,
-                    <br>BulSU Gate Pass Team</p>
+                    <br> -BulSU Gate Pass Team</p>
                     <a href="http://localhost/Gatepass/pages/verification.php?id='.$id.'"><button type="submit" class="btn btn-primary">Verify</button></a>
                 </div>
                     
