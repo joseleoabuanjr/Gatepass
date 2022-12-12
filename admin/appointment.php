@@ -32,7 +32,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 
 <body>
     <?php require_once '../includes/navbar-admin.php'; ?>
-    <div class="container table-responsive">
+    <div class="container table-responsive" >
         <table class="table pt-2 shadow-sm table-striped table-hover display compact" id="appointmentRequestTable">
             <h2 style="padding-top: 60px; padding-bottom:20px;">Appointment Request</h2>
             <thead>

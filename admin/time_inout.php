@@ -28,7 +28,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 </head>
 <body>
     <?php require_once '../includes/navbar-admin.php'; ?>
-    <div class="container table-responsive">
+    <div class="container table-responsive" style="margin-bottom:100px;">
         <table class="table pt-2 shadow-sm table-striped table-hover display compact" id="timeinoutTable">
             <h2 style="padding-top: 60px; padding-bottom:20px;">Time In and Out</h2>
             <div class="d-flex justify-content-end" style="margin-bottom:10px;"><button type="button" class="btn btn-primary btn-sm d-print-none" onclick="window.print()">Print Records</button></div>
