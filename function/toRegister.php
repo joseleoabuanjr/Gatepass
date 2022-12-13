@@ -2,7 +2,8 @@
 session_start();
 $userType = $_POST["userType"];
 $_SESSION["passw"] = $_POST["pass"];
-
+$emaildata = "";
+$userdata ="";
 //include qr api
 require_once "../phpqrcode/qrlib.php";
 
@@ -19,8 +20,8 @@ while ($row = mysqli_fetch_assoc($result)) {
 	$emaildata = $row['email'];
 	$userdata = $row['username'];
 }
-$corpdf_name = $_FILES['cor']['name']; //additional codes para sa PDF
-$corfile = pathinfo($corpdf_name, PATHINFO_EXTENSION);
+// $corpdf_name = $_FILES['cor']['name']; //additional codes para sa PDF
+// $corfile = pathinfo($corpdf_name, PATHINFO_EXTENSION);
 
 if ($emaildata == $email){
 	echo json_encode(array("status" => false, "msg"=>'Email address is already exist'));

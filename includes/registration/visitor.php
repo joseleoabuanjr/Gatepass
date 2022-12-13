@@ -34,7 +34,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="middleName" class="form-label">Middle Initial</label>
-                                <input type="text" class="form-control" name="middle" id="middleName" required>
+                                <input type="text" class="form-control" name="middle" id="middleName" >
                             </div>
                         </div>
                         <div class="col">
@@ -119,9 +119,9 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="alert alert-danger" role="alert" id="errorAlert">
+                    <div class="alert alert-danger" role="alert" id="errorAlert">
                     {{ errorMessage }}
-                </div> -->
+                </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-between">
                         <div class="form-text fw-bolder">Already have an account? <a href="../../index.php" class="text-info text-decoration-none" style="cursor: pointer;">Log in</a></div>
                         <div>
