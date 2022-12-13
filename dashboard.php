@@ -5,7 +5,6 @@ if (!isset($_SESSION["accno"])) {
 }
 require_once "function/connect.php";
 $id = $_SESSION['accno'];
-
 ?>
 <!doctype html>
 <html>
