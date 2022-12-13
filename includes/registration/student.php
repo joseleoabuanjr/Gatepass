@@ -34,7 +34,7 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="middleName" class="form-label">Middle Initial</label>
-                                <input type="text" class="form-control" name="middle" id="middleName" required>
+                                <input type="text" class="form-control" name="middle" id="middleName">
                             </div>
                         </div>
                         <div class="col">
