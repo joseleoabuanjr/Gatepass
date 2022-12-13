@@ -7,7 +7,7 @@
 
 	<script>
 		function autoClose() {
-			// setTimeout(closeWindow, 2000);
+			setTimeout(closeWindow, 2000);
 		}
 
 		function closeWindow() {

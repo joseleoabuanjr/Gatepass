@@ -35,7 +35,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
             <div class="glass-effect d-flex align-items-center vh-100">
                 <div class="container bg-white shadow-lg py-3 px-3" style="width: 600px;">
                     <div class="mb-3 text-center">
-                        <img class="" src="../../resources/bulsulogo.png" alt="" height="50">
+                        <img class="" src="../resources/bulsulogo.png" alt="" height="50">
                         <h3 class="m-1">BulSU Gatepass</h3>
                         <h5 class="mb-3 text-uppercase">Admin Registration</h5>
                     </div>
@@ -96,18 +96,23 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                                 {{ errorMessage }}
                             </div>
                         </div>
+                        <button class="btn btn-primary me-md-2 px-5" type="submit">
+                            <span>Register</span>
+                            <div id="registerSpinner" class="spinner-border spinner-border-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </button>
                         </form>
                     <div class="alert alert-success mt-3" role="alert" id="successAlert">
-                        Registration Completed! Proceed to <a href="../../index.php" class="alert-link">Log in</a> page.
+                        Registration Completed!
                     </div>
                 </div>
-
             </div>
         </div>
         <div style="margin:100px 0px; border-top:2px black solid;"></div>
         <div class="container table-responsive" style="margin-bottom:100px;">
             <table class="table pt-2 shadow-sm table-striped table-hover display compact" id="userAccountsTable">
-                <h2 style="padding-top: 60px; padding-bottom:20px;">User Accounts</h2>
+                <h2 style="padding-top: 60px; padding-bottom:20px;">Admin Accounts</h2>
                 <!-- <div class="searchbar">
                     <input type="text" name="s_name" id="s_n" placeholder="Name">
                 </div> -->
@@ -180,6 +185,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="../js/table1.js"></script>
+    <script src="../js/adminRegistration.js"></script>
 </body>
 
 </html>

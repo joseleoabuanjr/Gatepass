@@ -1,37 +1,83 @@
 <!doctype html>
 <html lang="en">
+
 <head>
     <title>BulSU Gatepass</title>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-
-    <!-- CSS -->
-	<link rel="stylesheet" href="css/landingx.css">
-
+    <link rel="stylesheet" href="../css/landing.css">
 </head>
+
 <body>
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-        <form method="post" action="function/toLogin.php" class="d-flex flex-column justify-content-center" onsubmit="return validate()" style="width: 400px;">
-            <h1 style="margin-bottom: 20px;">Login</h1>
-            <div class="form-floating"  style="margin-bottom: 10px;">
-                <input type="text" name="username" id="userlog" class="form-control" placeholder="Enter username">
-                <label>Username</label>
-            <div class="msg" id="msguser"></div>
-            </div>
-            <div class="form-floating" style="margin-bottom: 10px;">
-                <input type="password" name="password" id="passlog"
-                class="form-control" placeholder="Enter password" >
-                <label>Password</label>
-            <div class="msg" id="msgpass"></div>
-                <a href="../Gatepass/forgotpassword_email.php">Forgot Password?</a>
-            </div>
-                <button type="submit" class="btn btn-primary" id="logbtn" style="margin-top: 20px;">Submit</button>
-        </form>
+    <div class="glass-effect">
+
+        <div class="d-flex align-items-center vh-100">
+            <main class="form-signin w-100 m-auto text-center">
+                <form id="loginForm">
+                    <div class="text-light">
+                        <img class="" src="../resources/bulsulogo.png" alt="" height="100">
+                        <h1 class="h3 m-1">BulSU Gatepass<br>[Super Admin]</h1>
+                        <hr>
+                        <h5 class="mb-3">LOGIN</h5>
+                    </div>
+
+                    <div class="form-floating">
+                        <input type="text" class="form-control" id="username" name="username" placeholder="name@example.com">
+                        <label for="username">Username</label>
+                    </div>
+                    <div class="form-floating">
+                        <input type="password" class="form-control" id="password" name="password" placeholder="Password">
+                        <label for="password">Password</label>
+                    </div>
+                    <div class="alert alert-danger my-1 p-2" role="alert" id="errorAlert">Invalid Username or Password
+                    </div>
+                    <button class="w-100 btn btn-lg btn-warning my-2" type="submit">Login</button>
+                    <p class="mt-5 text-muted">BulSU Gatepass &copy; 2022</p>
+                </form>
+            </main>
+        </div>
     </div>
-    <script type="text/javascript" src="js/login1.js"></script>
+
+    <!-- Forgot Password Modal -->
+    <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Forgot Password</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <form id="forgotPasswordForm">
+                    <div class="modal-body">
+                        <p>Enter your <span class="fw-bold text-uppercase">REGISTERED <span id="modalUserType"></span>
+                                EMAIL</span></p>
+                        <p>We will send to your new password to your email.</p>
+                        <input type="email" name="fpEmail" id="fpEmail" class="form-control" placeholder="Registered Email" required>
+                        <div class="alert alert-danger my-1" role="alert" id="errorAlertFP">
+                            You have entered unregistered email address!
+                        </div>
+                        <div class="alert alert-success my-1" role="alert" id="successAlertFP">
+                            Your new password has been sent to your email address
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-success" id="forgotbtn">
+                            Send Email
+                            <div id="fPSpinner" class="spinner-border spinner-border-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="../js/login-sadmin.js"></script>
 </body>
+
 </html>
