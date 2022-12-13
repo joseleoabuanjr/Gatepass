@@ -16,8 +16,14 @@ if ($count == 1) {
 	while ($row = mysqli_fetch_assoc($result)) {
 		$_SESSION["useradmin"] = $row["username"];
 		$_SESSION["passadmin"] = $row["password"];
+		$_SESSION["admintype"] = $row["type"];
+		$admintype = $_SESSION["admintype"];
 	}
-	echo json_encode(array("status" => true, "location" => "admin/user.php"));
+	if($admintype == 'superadmin'){
+		echo json_encode(array("status" => true, "location" => "user.php"));
+	}elseif($admintype == 'admin'){
+		echo json_encode(array("status" => true, "location" => "user.php"));
+	}
 	// header("location:../admin/admin.php");
 } else {
 	$select = "SELECT * FROM acc_temp WHERE username='$user'and password='$pass'";
