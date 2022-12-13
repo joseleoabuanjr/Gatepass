@@ -30,8 +30,8 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 
 <body>
     <?php require_once '../includes/navbar-sadmin.php'; ?>
-    <div class="d-flex">
-        <div class="container bg-dark" style="width: 600px; padding:0 60px;">
+    <div class="container">
+        <div class="container " style="width: 600px;">
             <div class="glass-effect d-flex align-items-center vh-100">
                 <div class="container bg-white shadow-lg py-3 px-3" style="width: 600px;">
                     <div class="mb-3 text-center">
@@ -104,7 +104,8 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 
             </div>
         </div>
-        <div class="container table-responsive" style="margin-bottom:100px; padding:80px">
+        <div style="margin:100px 0px; border-top:2px black solid;"></div>
+        <div class="container table-responsive" style="margin-bottom:100px;">
             <table class="table pt-2 shadow-sm table-striped table-hover display compact" id="userAccountsTable">
                 <h2 style="padding-top: 60px; padding-bottom:20px;">User Accounts</h2>
                 <!-- <div class="searchbar">

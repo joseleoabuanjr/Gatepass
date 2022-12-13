@@ -20,9 +20,9 @@ if ($count == 1) {
 		$admintype = $_SESSION["admintype"];
 	}
 	if($admintype == 'superadmin'){
-		echo json_encode(array("status" => true, "location" => "user.php"));
+		echo json_encode(array("status" => true, "location" => "dashboard.php"));
 	}elseif($admintype == 'admin'){
-		echo json_encode(array("status" => true, "location" => "user.php"));
+		echo json_encode(array("status" => true, "location" => "dashboard.php"));
 	}
 	// header("location:../admin/admin.php");
 } else {
