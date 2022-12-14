@@ -23,7 +23,7 @@ if ($count == 1) {
 	if($admintype == 'superadmin'){
 		echo json_encode(array("status" => true, "location" => "user.php"));
 	}elseif($admintype == 'admin'){
-		echo json_encode(array("status" => true, "location" => "../admin/user.php"));
+		echo json_encode(array("status" => true, "location" => "user.php"));
 	}
 	// header("location:../admin/admin.php");
 } else {

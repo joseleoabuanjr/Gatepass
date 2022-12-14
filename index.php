@@ -14,9 +14,9 @@
     <div class="glass-effect">
 
         <div class="d-flex align-items-center vh-100">
-            <main class="form-signin w-100 m-auto text-center">
+            <main class="form-signin w-100 m-auto text-center pt-4">
                 <form id="loginForm">
-                    <div class="">
+                    <div class="text-white">
                         <img class="" src="resources/bulsulogo.png" alt="" height="100">
                         <h1 class="h3 m-1">BulSU Gatepass</h1>
                         <hr>
@@ -42,9 +42,9 @@
                         Create an Account
                     </button>
                     <div class="collapse" id="collapseExample">
-                        <a href="includes/registration/student.php" class="btn btn-sm btn-outline-dark">Student</a>
-                        <a href="includes/registration/employee.php" class="btn btn-sm btn-outline-dark">Employee</a>
-                        <a href="includes/registration/visitor.php" class="btn btn-sm btn-outline-dark">Visitor</a>
+                        <a href="includes/registration/student.php" class="btn btn-sm btn-outline-warning">Student</a>
+                        <a href="includes/registration/employee.php" class="btn btn-sm btn-outline-warning">Employee</a>
+                        <a href="includes/registration/visitor.php" class="btn btn-sm btn-outline-warning">Visitor</a>
                     </div>
                     <p class="mt-5 text-muted">BulSU Gatepass &copy; 2022</p>
                 </form>
