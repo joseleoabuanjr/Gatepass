@@ -33,7 +33,7 @@
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <label for="middleName" class="form-label">Middle Initial</label>
+                                <label for="middleName" class="form-label">Middle Initial (Optional)</label>
                                 <input type="text" class="form-control" name="middle" id="middleName">
                             </div>
                         </div>
@@ -74,7 +74,7 @@
                     </div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-between">
                         <div class="form-text fw-bolder">Already have an account? <a href="../../index.php" class="text-info text-decoration-none" style="cursor: pointer;">Log in</a></div>
-                        <button class="btn btn-primary me-md-2 px-5 nextBtn" data-ctr="1" type="button">Next</button>
+                        <button class="btn btn-primary me-md-2 px-5 nextBtn-1" data-ctr="1" type="button">Next</button>
                     </div>
                 </div>
                 <div id="step2">
@@ -250,7 +250,7 @@
                         <div class="form-text fw-bolder">Already have an account? <a href="../../index.php" class="text-info text-decoration-none" style="cursor: pointer;">Log in</a></div>
                         <div>
                             <button class="btn btn-secondary me-md-2 px-5 prevBtn" data-ctr="2" type="button">Prev</button>
-                            <button class="btn btn-primary me-md-2 px-5 nextBtn" data-ctr="2" type="button">Next</button>
+                            <button class="btn btn-primary me-md-2 px-5 nextBtn-2" data-ctr="2" type="button">Next</button>
                         </div>
                     </div>
                 </div>

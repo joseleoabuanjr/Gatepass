@@ -5,12 +5,71 @@ $(document).ready(function () {
     $("#successAlert").hide();
     $("#registerSpinner").hide();
     var progress = 33.33;
-    $(".nextBtn").click(function (e) {
+    $(".nextBtn-1").click(function (e) {
         e.preventDefault();
-        var ctr = $(this).data("ctr");
-        $("#step" + ctr).hide();
-        $("#step" + (parseInt(ctr) + 1)).fadeIn();
-        $(".progress-bar").width((progress += 33.33) + "%");
+        console.log($("#registrationForm"));
+        var form = $("#registrationForm")[0];
+        if (form[1].checkValidity()) {
+            if (form[3].checkValidity()) {
+                if (form[4].checkValidity()) {
+                    if (form[5].checkValidity()) {
+                        if (form[6].checkValidity()) {
+                            if (form[7].checkValidity()) {
+                                var ctr = $(this).data("ctr");
+                                $("#step" + ctr).hide();
+                                $("#step" + (parseInt(ctr) + 1)).fadeIn();
+                                $(".progress-bar").width((progress += 33.33) + "%");
+                            } else {
+                                form[7].reportValidity()
+                            }
+                        } else {
+                            form[6].reportValidity()
+                        }
+                    } else {
+                        form[5].reportValidity()
+                    }
+                } else {
+                    form[4].reportValidity()
+                }
+            } else {
+                form[3].reportValidity()
+            }
+        } else {
+            form[1].reportValidity()
+        }
+
+    });
+
+    $(".nextBtn-2").click(function (e) {
+        e.preventDefault();
+        console.log($("#registrationForm"));
+        var form = $("#registrationForm")[0];
+        if (form[9].checkValidity()) {
+            if (form[10].checkValidity()) {
+                if (form[11].checkValidity()) {
+                    if (form[12].checkValidity()) {
+                        if (form[13].checkValidity()) {
+                            var ctr = $(this).data("ctr");
+                            $("#step" + ctr).hide();
+                            $("#step" + (parseInt(ctr) + 1)).fadeIn();
+                            $(".progress-bar").width((progress += 33.33) + "%");
+
+                        } else {
+                            form[13].reportValidity()
+                        }
+                    } else {
+                        form[12].reportValidity()
+                    }
+                } else {
+                    form[11].reportValidity()
+                }
+            } else {
+                form[10].reportValidity()
+            }
+        } else {
+            form[9].reportValidity()
+        }
+
     });
 
     $(".prevBtn").click(function (e) {
@@ -50,7 +109,7 @@ $(document).ready(function () {
                     console.error(response.responseText);
                     // $("#errorAlert").html(response.msg);
                     // $("#errorAlert").fadeIn();
-                }, beforeSend: function() {
+                }, beforeSend: function () {
                     $("#registerSpinner").show();
                 }
             });
