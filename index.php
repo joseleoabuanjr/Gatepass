@@ -16,7 +16,7 @@
         <div class="d-flex align-items-center vh-100">
             <main class="form-signin w-100 m-auto text-center">
                 <form id="loginForm">
-                    <div class="text-light">
+                    <div class="">
                         <img class="" src="resources/bulsulogo.png" alt="" height="100">
                         <h1 class="h3 m-1">BulSU Gatepass</h1>
                         <hr>
@@ -32,19 +32,19 @@
                         <label for="password">Password</label>
                     </div>
 
-                    <button type="button" class="btn btn-link link-light text-decoration-none" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">
+                    <button type="button" class="btn btn-link text-decoration-none" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal">
                         Forgot Password?
                     </button>
                     <div class="alert alert-danger my-1 p-2" role="alert" id="errorAlert">Invalid Username or Password
                     </div>
                     <button class="w-100 btn btn-lg btn-warning my-2" type="submit">Login</button>
-                    <button class="btn btn-link link-light text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+                    <button class="btn btn-link text-decoration-none" type="button" data-bs-toggle="collapse" data-bs-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
                         Create an Account
                     </button>
                     <div class="collapse" id="collapseExample">
-                        <a href="includes/registration/student.php" class="btn btn-sm btn-outline-warning">Student</a>
-                        <a href="includes/registration/employee.php" class="btn btn-sm btn-outline-warning">Employee</a>
-                        <a href="includes/registration/visitor.php" class="btn btn-sm btn-outline-warning">Visitor</a>
+                        <a href="includes/registration/student.php" class="btn btn-sm btn-outline-dark">Student</a>
+                        <a href="includes/registration/employee.php" class="btn btn-sm btn-outline-dark">Employee</a>
+                        <a href="includes/registration/visitor.php" class="btn btn-sm btn-outline-dark">Visitor</a>
                     </div>
                     <p class="mt-5 text-muted">BulSU Gatepass &copy; 2022</p>
                 </form>
