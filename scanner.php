@@ -48,21 +48,25 @@
 	<style>
 		html,
 		body {
-			height: 100%;
+			height: 100vh;
 		}
 
 		body {
-			background-image: url("resources/bg1.png");
+			background-image: url("resources/bulsu.jpg");
 			background-size: cover;
 			background-repeat: no-repeat;
 			background-position: center center;
 			background-attachment: fixed;
 		}
+		.glass-effect {
+			background: linear-gradient(1deg, rgb(27 27 27 / 81%), rgb(255 129 129 / 0%));
+			backdrop-filter: blur(3px);
+		}
 	</style>
 </head>
 
 <body onload="scanQR();reloadtime()">
-	<div class="row m-0">
+	<div class="row m-0 glass-effect h-100">
 		<div class="col-4 text-center d-flex align-items-center justify-content-center">
 			<div class="text-light">
 				<img class="" src="resources/bulsulogo.png" alt="" height="100">

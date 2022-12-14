@@ -1,5 +1,5 @@
 nav {
-    background-image: url("../resources/bg1.png");
+    background-image: url("../resources/bulsu.jpg");
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
@@ -11,4 +11,9 @@ nav {
 
 .navbar-brand {
     font-family: 'Open Sans';
+}
+.glass-effect {
+    background: linear-gradient(1deg, rgb(27 27 27 / 81%), rgb(255 129 129 / 0%));
+    backdrop-filter: blur(3px);
+
 }

@@ -12,7 +12,6 @@
 
 <body>
     <div class="glass-effect">
-
         <div class="d-flex align-items-center vh-100">
             <main class="form-signin w-100 m-auto text-center">
                 <form id="loginForm">
@@ -22,7 +21,6 @@
                         <hr>
                         <h5 class="mb-3">LOGIN</h5>
                     </div>
-
                     <div class="form-floating">
                         <input type="text" class="form-control" id="username" name="username" placeholder="name@example.com">
                         <label for="username">Username</label>
