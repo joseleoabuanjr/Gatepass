@@ -25,7 +25,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 // $corfile = pathinfo($corpdf_name, PATHINFO_EXTENSION);
 
 if ($emaildata == $email){
-	echo json_encode(array("status" => false, "msg"=>'Email address is already exist'));
+	echo json_encode(array("status" => false, "msg"=>'The email address you entered is already registered.'));
 }else if ($userdata == $user){
 	echo json_encode(array("status" => false, "msg"=>'Username is already exist'));
 }

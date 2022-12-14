@@ -61,6 +61,7 @@
                 //mail content
                 $mail->Subject = 'Verification';
                 $mail->Body    = '
+                <div class="header" style="background-image: url("../resources/emailhead.jpg");background-size:cover; background-repeat: no-repeat; background-position: center center; background-attachment: fixed; height:25%; width:100%; "></div>
                 <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
                     <p style="margin-bottom: 20px;">
                     Code: '.$gcode.'
@@ -71,7 +72,7 @@
                     <br>
                     <br>Here are your account details:
                     <br>Username: '.$usern.'
-                    <br>Password: '.$passw.'
+                    <br>Password: ***********
                     <br>
                     <br>To complete your registration process, we just need to verify that this e-mail address belongs to you.
                     <br>Please enter the verification code above in your BulSU Gate Pass.

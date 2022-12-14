@@ -108,7 +108,7 @@ $bday = date_format($date, "Y-m-d");
                                         <div>
                                             <ul>
                                                 <li>Please select a jpg/jpeg or png file format to upload image to be your profile picture</li>
-                                                <li>Image size must be 2x2 only</li>
+                                                <li>Recommended Image size is 2x2</li>
                                             </ul>
                                             <div class="form-floating">
                                                 <input type="file" name="image" class="form-control ms-2 ps-5" style="height: 80px;padding-top:40px; padding-left:40px" id="img1" accept="image/png, image/jpeg" onchange="return checkImage1()">
@@ -359,8 +359,17 @@ $bday = date_format($date, "Y-m-d");
                                         </div>
                                         <script src="js/college.js"></script>
                                     </div>
-                                    
-                                <div id="credential" class="py-3 mb-5">
+                                <?php 
+                                    if($verification == "verified"){
+                                        echo ('
+                                            <div id="credential" class="d-none py-3 mb-5">
+                                        ');
+                                    }else{
+                                        echo ('
+                                            <div id="credential" class="py-3 mb-5">
+                                        ');
+                                    }
+                                ?>   
                                     <h2 class="mb-3">Credentials</h2>
                                     <?php 
                                     if($type == "student"){

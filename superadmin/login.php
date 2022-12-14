@@ -15,7 +15,7 @@
         <div class="d-flex align-items-center vh-100">
             <main class="form-signin w-100 m-auto text-center">
                 <form id="loginForm">
-                    <div class="">
+                    <div class=" text-white">
                         <img class="" src="../resources/bulsulogo.png" alt="" height="100">
                         <h1 class="h3 m-1">BulSU Gatepass<br>[Super Admin]</h1>
                         <hr>

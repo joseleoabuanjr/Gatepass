@@ -64,10 +64,10 @@
                     <div class="modal-body">
                         <p>Enter your <span class="fw-bold text-uppercase">REGISTERED <span id="modalUserType"></span>
                                 EMAIL</span></p>
-                        <p>We will send to your new password to your email.</p>
+                        <p>A new password will be sent to your registered email address</p>
                         <input type="email" name="fpEmail" id="fpEmail" class="form-control" placeholder="Registered Email" required>
                         <div class="alert alert-danger my-1" role="alert" id="errorAlertFP">
-                            You have entered unregistered email address!
+                            You have entered an unregistered email address!
                         </div>
                         <div class="alert alert-success my-1" role="alert" id="successAlertFP">
                             Your new password has been sent to your email address
