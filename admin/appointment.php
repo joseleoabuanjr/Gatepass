@@ -50,9 +50,8 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                 <?php
                 //connect to database
                 require_once "../function/connect.php";
-                $col = $_SESSION["department"];
                 //read all row from database table
-                $select = "SELECT * FROM admin_account WHERE department == $col";
+                $select = "SELECT * FROM admin_account";
                 $result = mysqli_query($connect, $select);
 
                 if (!$result) {
@@ -86,10 +85,10 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                                 </tr>");
 
                     //read 10 row of data from database table
-                    if ($count == 9) {
-                        break;
-                    }
-                    $count += 1;
+                    // if ($count == 9) {
+                    //     break;
+                    // }
+                    // $count += 1;
                 }
                 ?>
             </tbody>

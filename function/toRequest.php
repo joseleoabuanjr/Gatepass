@@ -9,7 +9,7 @@
     $date= $_POST['date'];
     $s_stats = "denied";
     $status = "pending";
-
+    $col ="";
     $pps="";  
     foreach($_POST['reason'] as $ppstemp){
         $pps .= $ppstemp.",";
@@ -48,9 +48,11 @@
                 $mid = $row['middle'];
                 $last = $row['last'];
                 $type = $row['type'];
+                if($row['college']!= NULL){
+                    $col = $row['college'];
+                }
         }
         $name = $first." ".$mid.". ".$last;
-
         // $text = $id.":".$reqid.":".$name.":".rand(10,99);//Only the student number will  be saved in the QR Code;
 		// 		//If you want every information be stored in the QR Code use the code below instead;
 				
@@ -66,7 +68,7 @@
             $reason = $pps;
         }
         //insert data to appt_request table form user_account table;
-        $insert = "INSERT INTO appointment (id,req_id,acc_no,name,type,reason,status,date,qr_status) VALUES ('$apptid','$reqid','$accno','$name','$type','$reason','$status','$date','$s_stats')";
+        $insert = "INSERT INTO appointment (id,req_id,acc_no,name,type,reason,status,date,qr_status,college) VALUES ('$apptid','$reqid','$accno','$name','$type','$reason','$status','$date','$s_stats','$col')";
         if(mysqli_query($connect,$insert))
         {
             header("Location: ../appointment.php");

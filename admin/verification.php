@@ -54,8 +54,10 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                 //connect to database
                 require_once "../function/connect.php";
 
+                $col = $_SESSION["department"];
+
                 //read all row from database table
-                $select = "SELECT * FROM user_account WHERE verification = 'pending'";
+                $select = "SELECT * FROM user_account WHERE verification = 'pending' AND college ='$col' AND type = 'student'";
                 $result = mysqli_query($connect, $select);
 
                 if (!$result) {
