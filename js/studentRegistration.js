@@ -47,7 +47,7 @@ $(document).ready(function () {
                         $("#registerSpinner").hide();
                     }
                 }, error: function (response) {
-                    console.error(response.msg);
+                    console.error(response.responseText);
                     // $("#errorAlert").html(response.msg);
                     // $("#errorAlert").fadeIn();
                 }, beforeSend: function() {
