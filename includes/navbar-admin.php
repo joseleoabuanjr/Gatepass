@@ -30,13 +30,12 @@ if ($count == 1) {
                                 More
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="#">Admin</a></li>
                                 <li><a class="dropdown-item" href="../scanner.php">QR-Scanner</a></li>
                             </ul>
                         </div>');
                     }
                 ?>
-                <a class="nav-link" href="../function/toLogout.php">Logout</a>
+                <a class="nav-link" href="../function/toLogout-admin.php">Logout</a>
             </div>
             
         </div>

@@ -9,7 +9,7 @@ $(document).ready(function () {
         var data = $(this).serializeArray();
         $.ajax({
             type: "POST",
-            url: "../function/toLogin.php",
+            url: "../function/toLogin-sadmin.php",
             data: data,
             dataType: "JSON",
             success: function (response) {

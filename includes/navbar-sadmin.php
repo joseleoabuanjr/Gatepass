@@ -9,6 +9,11 @@ if ($count == 1) {
 		$type = $row['type'];
 	}
 }
+
+//read all row from database table
+$select = "SELECT * FROM appointment WHERE status = 'pending'";
+$result = mysqli_query($connect, $select);
+$count =  mysqli_num_rows($result);
 ?>
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark " style="background-color: #763435; height: 50px">
     <div class="container d-flex justify-content-between">
@@ -20,7 +25,12 @@ if ($count == 1) {
             <div class="navbar-nav">
                 <a class="nav-link" href="user.php" id="tl1">Users</a>
                 <a class="nav-link" href="verification.php" id="tl2">Verification</a>
-                <a class="nav-link" href="appointment.php" id="tl3">Appointments</a>
+                <a class="nav-link position-relative" href="appointment.php" id="tl3">Appointments
+                    <?php if($count != 0){
+                        echo '<span class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger">
+                        '.$count.'</span>';
+                    } ?>
+                    </a>
                 <a class="nav-link" href="time_inout.php" id="tl4">Time-in/out</a>
                 <?php 
                     if($type == 'superadmin') { 

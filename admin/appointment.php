@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
-    header("Location: ../index.php");
+    header("Location: ../admin/login.php");
 }
 ?>
 <!DOCTYPE html>
@@ -50,6 +50,14 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                 <?php
                 //connect to database
                 require_once "../function/connect.php";
+                $col = $_SESSION["department"];
+                //read all row from database table
+                $select = "SELECT * FROM admin_account WHERE department == $col";
+                $result = mysqli_query($connect, $select);
+
+                if (!$result) {
+                    die("Invalid query: " . $connect->connect_error);
+                }
 
                 //read all row from database table
                 $select = "SELECT * FROM appointment WHERE status = 'pending'";

@@ -11,7 +11,8 @@ require_once "connect.php";
 
 $email = $_POST["email"];
 $user = $_POST["username"];
-
+$emaildata="";
+$userdata = "";
 //checking post value
 $select = "SELECT * FROM user_account WHERE email = '$email' OR username = '$user'";
 $result = mysqli_query($connect, $select);
