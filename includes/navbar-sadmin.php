@@ -24,6 +24,7 @@ $count =  mysqli_num_rows($result);
             </button>
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
+                    <a class="nav-link" href="dashboard.php" id="tl1">Dashboard</a>
                     <a class="nav-link" href="user.php" id="tl1">Users</a>
                     <a class="nav-link" href="verification.php" id="tl2">Verifications</a>
                     <a class="nav-link position-relative" href="appointment.php" id="tl3">Appointments
