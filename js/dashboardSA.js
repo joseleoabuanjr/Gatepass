@@ -1,6 +1,6 @@
 $(document).ready(function () {
     
-    //count pending students
+    //count pending students for verification
     $.ajax({
         type: "POST",
         url: "../function/dashboardSAProcess.php",
@@ -13,7 +13,7 @@ $(document).ready(function () {
         }
     });
 
-    //count pending employees
+    //count pending employees for verification
     $.ajax({
         type: "POST",
         url: "../function/dashboardSAProcess.php",
@@ -25,12 +25,45 @@ $(document).ready(function () {
         }
     });
 
+    //count pending visitors for verification
     $.ajax({
         type: "POST",
         url: "../function/dashboardSAProcess.php",
         data: {getPendingVisitors: true},
         success: function (response) {
             $("#pendingVisitors").html(response);
+        }
+    });
+
+
+
+    //APPOINTMENT
+    // count students
+    $.ajax({
+        type: "POST",
+        url: "../function/dashboardSAProcess.php",
+        data: {getAppointmentStudents: true},
+        success: function (response) {
+            $("#pendingApptStudents").html(response);
+        }
+    });
+
+    // count employees
+    $.ajax({
+        type: "POST",
+        url: "../function/dashboardSAProcess.php",
+        data: {getAppointmentEmployees: true},
+        success: function (response) {
+            $("#pendingApptEmployees").html(response);
+        }
+    });
+    // count vsitors
+    $.ajax({
+        type: "POST",
+        url: "../function/dashboardSAProcess.php",
+        data: {getAppointmentVisitors: true},
+        success: function (response) {
+            $("#pendingApptVisitors").html(response);
         }
     });
 });

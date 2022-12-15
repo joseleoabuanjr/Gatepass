@@ -38,16 +38,19 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                 <span class="fs-3">Dashboard</span>
             </div>
         </header>
-        <div class="row mb-4">
+        <div class="row mb-2">
+            <h5>No. of Pending Accounts for Verification: </h5>
+        </div>
+        <div class="row mb-2">
             <div class="col">
                 <div class="card">
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <h3>Pending Students</h3>
+                                <h5>Students</h5>
                             </div>
                             <div class="col">
-                                <h3><span id="pendingStudents"></h3>
+                                <h5><span id="pendingStudents"></h5>
                             </div>
                         </div>
 
@@ -59,10 +62,10 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <h3>Pending Employees</h3>
+                                <h5>Employees</h5>
                             </div>
                             <div class="col">
-                                <h3><span id="pendingEmployees"></h3>
+                                <h5><span id="pendingEmployees"></h5>
                             </div>
                         </div>
                     </div>
@@ -73,17 +76,67 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                     <div class="card-body">
                         <div class="row">
                             <div class="col">
-                                <h3>Pending Vsitors</h3>
+                                <h5>Visitors</h5>
                             </div>
                             <div class="col">
-                                <h3><span id="pendingVisitors"></h3>
+                                <h5><span id="pendingVisitors"></h5>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="row">
+        <!-- APPOINTMENTS -->
+        <div class="row mb-2">
+            <h5>No. of Pending Appointments: </h5>
+        </div>
+        <div class="row mb-2">
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5>Students</h5>
+                            </div>
+                            <div class="col">
+                                <h5><span id="pendingApptStudents"></h5>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5>Employees</h5>
+                            </div>
+                            <div class="col">
+                                <h5><span id="pendingApptEmployees"></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col">
+                                <h5>Visitors</h5>
+                            </div>
+                            <div class="col">
+                                <h5><span id="pendingApptVisitors"></h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- TABLE -->
+        <!-- <div class="row">
             <div class="col">
                 <div class="card">
                     <div class="card-header" style="background-color: #4F4F4B; color:white;">
@@ -99,7 +152,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                     </div>
                 </div>
             </div>
-        </div>
+        </div> -->
 
 </body>
 

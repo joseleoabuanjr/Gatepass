@@ -36,3 +36,40 @@ if (isset($_POST['getPendingVisitors'])) {
         }
     }
 }
+
+//appointment
+if (isset($_POST['getAppointmentStudents'])) {
+    $sql = "SELECT COUNT(acc_no) as appointmentStudents
+        FROM appointment
+        WHERE type='student' AND status='pending'";
+    $result =  mysqli_query($connect, $sql);
+    if (mysqli_num_rows($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo $row['appointmentStudents'];
+        }
+    }
+}
+
+if (isset($_POST['getAppointmentEmployees'])) {
+    $sql = "SELECT COUNT(acc_no) as appointmentEmployees
+        FROM appointment
+        WHERE type='employee' AND status='pending'";
+    $result =  mysqli_query($connect, $sql);
+    if (mysqli_num_rows($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo $row['appointmentEmployees'];
+        }
+    }
+}
+
+if (isset($_POST['getAppointmentVisitors'])) {
+    $sql = "SELECT COUNT(acc_no) as appointmentVisitors
+        FROM appointment
+        WHERE type='visitor' AND status='pending'";
+    $result =  mysqli_query($connect, $sql);
+    if (mysqli_num_rows($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            echo $row['appointmentVisitors'];
+        }
+    }
+}
