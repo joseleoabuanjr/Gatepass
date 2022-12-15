@@ -59,7 +59,7 @@
                 $delete = "DELETE FROM acc_temp WHERE acc_no = $id;";
 
                 if(mysqli_query($connect,$delete)){
-                    header("refresh: 0; url=tologin.php");
+                    header("refresh: 0; url=../dashboard.php");
                 }
 			}
             else{

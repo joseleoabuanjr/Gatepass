@@ -49,16 +49,18 @@ $prop=2;
 </head>
 
 <body>
-    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
-        <form method="post" action="function/toVerify.php?id=<?php echo ($id); ?>" enctype="multipart/form-data" style="width: 450px" class="text-bg-light p-5 rounded-2">
+    <div class="glass-effect d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <div class="">
+        <form method="post" action="function/toVerify.php?id=<?php echo ($id); ?>" enctype="multipart/form-data" style="width: 450px" class="form-signin text-white p-5 rounded-2">
             <h1 style="margin-bottom: 20px;">Email Verification</h1>
             <p>Verification code has been sent to: <span class="fw-bold"><?php echo censor($email); ?></span></p>
             <div class="form-group" style="margin-bottom: 10px;">
                 <input type="text" name="vcode" class="form-control" placeholder="Enter verification code" required>
-                <a href="function/toResendVerif.php?id=<?php echo ($id); ?>" class="text-secondary ms-1 mt-2" id="rsend1">Resend Verification Code</a>
+                <a href="function/toResendVerif.php?id=<?php echo ($id); ?>" class="text-primary ms-1 mt-2" id="rsend1">Resend Verification Code</a>
             </div>
             <button type="submit" class="btn btn-primary mt-2 w-100" id="ver1">Submit</button>
         </form>
+        </div>
     </div>
 </body>
 

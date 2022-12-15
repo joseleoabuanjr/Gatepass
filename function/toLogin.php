@@ -1,8 +1,10 @@
 <?php
 session_start();
-$user = $_POST["username"];
-$pass = md5($_POST["password"]);
-$p = $_POST["password"];
+	$p = $_SESSION["pass"];
+	
+	$user = $_POST["username"];
+	$pass = md5($_POST["password"]);
+
 
 include 'connect.php';
 

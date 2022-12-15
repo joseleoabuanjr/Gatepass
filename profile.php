@@ -68,7 +68,7 @@ $bday = date_format($date, "Y-m-d");
 
 <body>
     <?php require_once 'includes/navbar.php'; ?>
-    <div class="container">
+    <div class="container" >
         <header class="pb-3 mb-4 border-bottom mt-5">
             <div class="d-flex align-items-center text-dark text-decoration-none">
                 <span class="fs-3">My Profile Information</span>
@@ -85,7 +85,7 @@ $bday = date_format($date, "Y-m-d");
                 }
         ?>
         <div id="error"></div>
-        <div id="scrollProfile" class="">
+        <div id="scrollProfile" >
             <form id="profileForm" method="post" action="function/toupdate_p.php" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-4">
@@ -112,7 +112,7 @@ $bday = date_format($date, "Y-m-d");
                         <button type="submit" class="btn btn-success w-100 mt-2">Save Changes <span id="spinnerSave" class="spinner-border spinner-border-sm" role="status"></span></button>
                     </div>
                     <div class="col-8">
-                        <div style="overflow-y: scroll; height: 90vh;" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0" data-bs-offset="56">
+                        <div style="overflow-y: scroll; height: 100vh;" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0" data-bs-offset="56">
                             <div class="container" style="width:90%;">
                                 <div id="profilePicture" class="pt-5 pb-3 mb-5">
                                     <h2>Profile Picture</h2>

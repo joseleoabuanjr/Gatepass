@@ -64,9 +64,9 @@ $(document).ready(function () {
                 }
             },
             error: function (response) {
-                $("#errorAlert").html(response.responseText);
+                // $("#errorAlert").html(response.responseText);
                 // $("#errorAlert").html("We encounter a problem when logging your account. Contact developer for more info");
-                $("#errorAlert").show();
+                // $("#errorAlert").show();
                 console.log(response);
             }
         });
