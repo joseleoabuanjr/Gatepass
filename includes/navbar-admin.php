@@ -20,7 +20,7 @@ if ($count == 1) {
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" href="user.php" id="tl1">Users</a>
-                <a class="nav-link" href="verification.php" id="tl2">Verification</a>
+                <a class="nav-link" href="verification.php" id="tl2">Verifications</a>
                 <a class="nav-link" href="appointment.php" id="tl3">Appointments</a>
                 <a class="nav-link" href="time_inout.php" id="tl4">Time-in/out</a>
                 <?php 
@@ -31,7 +31,7 @@ if ($count == 1) {
                                 More
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../scanner.php">QR-Scanner</a></li>
+                                <li><a class="dropdown-item" href="../scanner.php">Kiosk Scanner</a></li>
                             </ul>
                         </div>');
                     }

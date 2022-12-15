@@ -25,7 +25,7 @@ $count =  mysqli_num_rows($result);
             <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
                     <a class="nav-link" href="user.php" id="tl1">Users</a>
-                    <a class="nav-link" href="verification.php" id="tl2">Verification</a>
+                    <a class="nav-link" href="verification.php" id="tl2">Verifications</a>
                     <a class="nav-link position-relative" href="appointment.php" id="tl3">Appointments
                         <?php if($count != 0){
                             echo '<span class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger">
@@ -41,8 +41,8 @@ $count =  mysqli_num_rows($result);
                                     More
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="admin.php">Admin</a></li>
-                                    <li><a class="dropdown-item" href="../scanner.php">QR-Scanner</a></li>
+                                    <li><a class="dropdown-item" href="admin.php">Create Admin</a></li>
+                                    <li><a class="dropdown-item" href="../scanner.php">Kiosk Scanner</a></li>
                                 </ul>
                             </div>');
                         }
