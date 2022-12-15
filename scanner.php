@@ -34,9 +34,10 @@
 				var qrwhole = document.getElementById("text").value = c;
 
 				visitInfo = window.open("function/toScan.php?qr=" + qrwhole, "_blank");
-				// document.onmousedown=focusWindow; 
-				// document.onmousemove=focusWindow;
-				// document.onkeyup=focusWindow;	
+				document.onmousedown=focusWindow; 
+				document.onmousemove=focusWindow;
+				document.onkeyup=focusWindow;
+				
 			})
 		}
 
@@ -66,7 +67,7 @@
 	</style>
 </head>
 
-<body onload="scanQR();reloadtime()">
+<body onload="scanQR(); reloadtime()">
 	<div class="row m-0 glass-effect h-100">
 		<div class="col-4 text-center d-flex align-items-center justify-content-center">
 			<div class="text-light">
