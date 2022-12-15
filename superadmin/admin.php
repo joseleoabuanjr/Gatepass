@@ -32,7 +32,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
     <?php require_once '../includes/navbar-sadmin.php'; ?>
     <div class="container">
         <div class="container " style="width: 600px;">
-            <div class="glass-effect d-flex align-items-center vh-100">
+            <div class="d-flex align-items-center vh-100">
                 <div class="container bg-white shadow-lg py-3 px-3" style="width: 600px;">
                     <div class="mb-3 text-center">
                         <img class="" src="../resources/bulsulogo.png" alt="" height="50">

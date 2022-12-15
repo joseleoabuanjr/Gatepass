@@ -49,7 +49,6 @@ $count =  mysqli_num_rows($result);
                     ?>
                     <a class="nav-link" href="../function/toLogout-sadmin.php">Logout</a>
                 </div>
-                
             </div>
         </div>
     </div>

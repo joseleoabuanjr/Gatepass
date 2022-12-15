@@ -30,90 +30,108 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 
 <body>
     <?php require_once '../includes/navbar-sadmin.php'; ?>
-    <div class="container table-responsive text-white" style="margin-bottom:100px;">
-        <table class="table pt-2 shadow-sm table-striped table-hover display compact" id="userAccountsTable">
-            <h2 style="padding-top: 60px; padding-bottom:20px;">User Accounts</h2>
-            <!-- <div class="searchbar">
-                <input type="text" name="s_name" id="s_n" placeholder="Name">
-            </div> -->
-            <thead>
-                <tr style="background-color: #4F4F4B; color:white;">
-                    <th class="text-center">Account Number</th>
-                    <th class="text-center">Name</th>
-                    <th class="text-center">Account Type</th>
-                    <th class="text-center">Status</th>
-                    <th class="text-center">Course</th>
-                    <th class="text-center">Year</th>
-                    <th class="text-center">Section</th>
-                    <th class="text-center">Action</th>
-                </tr>
-            </thead>
-            <tbody class="text-center">
-                <?php
-                //connect to database
-                require_once "../function/connect.php";
+        <div class="container" style="padding-bottom:20px;">
+            <header class="pb-3 mb-4 border-bottom mt-5">
+                <div class="d-flex align-items-center text-dark text-decoration-none">
+                    <span class="fs-3">User Accounts</span>
+                </div>
+            </header>
+            <div class="card">
+                <div class="card-header" style="background-color: #4F4F4B; color:white;">
+                    <div class="row align-items-center">
+                        <div class="col col-sm-8 ps-5 py-2"></div>
+                        <div class="col col-sm-3">
+                        </div>
+                        <div class="col col-sm-auto p-0"></div>
+                    </div>
+                </div>
+                <div class="card-body">
+                    <div class="table table-responsive">
+                        <table class="table pt-2 shadow table-striped table-hover display compact" id="userAccountsTable">
+                            <thead>
+                                <tr class="text-bg-warning"style="background-color: #4F4F4B; color:white;"">
+                                    <th class="text-center">Account Number</th>
+                                    <th class="text-center">Name</th>
+                                    <th class="text-center">Account Type</th>
+                                    <th class="text-center">Status</th>
+                                    <th class="text-center">Course</th>
+                                    <th class="text-center">Year</th>
+                                    <th class="text-center">Section</th>
+                                    <th class="text-center">Action</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-center">
+                                <?php
+                                //connect to database
+                                require_once "../function/connect.php";
 
-                //read all row from database table
-                $select = "SELECT * FROM user_account";
-                $result = mysqli_query($connect, $select);
+                                //read all row from database table
+                                $select = "SELECT * FROM user_account";
+                                $result = mysqli_query($connect, $select);
 
-                if (!$result) {
-                    die("Invalid query: " . $connect->connect_error);
-                }
+                                if (!$result) {
+                                    die("Invalid query: " . $connect->connect_error);
+                                }
 
-                $count = 0;
-                while ($row = mysqli_fetch_assoc($result)) {
-                    $studno = $row['stud_no'];
-                    $empno = $row['emp_no'];
-                    $course = $row['course'];
-                    $section = $row['section'];
-                    $year = $row['year'];
-                    echo ("
-                            <tr>
-                                <td>" . $row["acc_no"] . "</td>
-                                <td class='text-capitalize'>" . $row["first"] . " " . $row["middle"] . ". " . $row["last"] . "</td>
-                                <td class='text-capitalize'>" . $row["type"] . "</td>
-                                <td class='text-capitalize'>" . $row["verification"] . "</td>
-                        ");
-                    if ($row["type"] == "student") {
-                        echo "
-                                <td class='text-capitalize'>" . $row["course"] . "</td>
-                                <td class='text-capitalize'>" . $row["year"] . "</td>
-                                <td class='text-capitalize'>" . $row["section"] . "</td>";
-                    } else {
-                        echo "
-                                <td>N/A</td>
-                                <td>N/A</td>
-                                <td>N/A</td>";
-                    }
-                    // <a class='btn btn-danger btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Archive</a>
-                    if ($row['verification'] == "unverified"){
-                        echo "<td></td>";
-                    }else if ($row['verification'] == "pending"){
-                        echo "<td></td>";
-                    }else{
-                        if ($row['verification'] == "blocked") {
-                            echo "<td>
-                                <button class='btn btn-secondary btn-sm statusBtn' data-status='unblock' data-qr='granted' data-accno='" . $row['acc_no'] . "'>Unblock</button>
-                            </td>
-                            </tr>";
-                        } else {
-                            echo "<td>
-                                <button class='btn btn-danger btn-sm statusBtn' data-status='block' data-qr='blocked' data-accno='" . $row['acc_no'] . "'>Block</button>
-                            </td>
-                        </tr>";
-                        }
-                    }
+                                $count = 0;
+                                while ($row = mysqli_fetch_assoc($result)) {
+                                    $studno = $row['stud_no'];
+                                    $empno = $row['emp_no'];
+                                    $course = $row['course'];
+                                    $section = $row['section'];
+                                    $year = $row['year'];
+                                    echo ("
+                                            <tr>
+                                                <td>" . $row["acc_no"] . "</td>
+                                                <td class='text-capitalize'>" . $row["first"] . " " . $row["middle"] . ". " . $row["last"] . "</td>
+                                                <td class='text-capitalize'>" . $row["type"] . "</td>
+                                                <td class='text-capitalize'>" . $row["verification"] . "</td>
+                                        ");
+                                    if ($row["type"] == "student") {
+                                        echo "
+                                                <td class='text-capitalize'>" . $row["course"] . "</td>
+                                                <td class='text-capitalize'>" . $row["year"] . "</td>
+                                                <td class='text-capitalize'>" . $row["section"] . "</td>";
+                                    } else {
+                                        echo "
+                                                <td>N/A</td>
+                                                <td>N/A</td>
+                                                <td>N/A</td>";
+                                    }
+                                    // <a class='btn btn-danger btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Archive</a>
+                                    if ($row['verification'] == "unverified"){
+                                        echo "<td></td>";
+                                    }else if ($row['verification'] == "pending"){
+                                        echo "<td></td>";
+                                    }else{
+                                        if ($row['verification'] == "blocked") {
+                                            echo "<td>
+                                                <button class='btn btn-secondary btn-sm statusBtn' data-status='unblock' data-qr='granted' data-accno='" . $row['acc_no'] . "'>Unblock</button>
+                                            </td>
+                                            </tr>";
+                                        } else {
+                                            echo "<td>
+                                                <button class='btn btn-danger btn-sm statusBtn' data-status='block' data-qr='blocked' data-accno='" . $row['acc_no'] . "'>Block</button>
+                                            </td>
+                                        </tr>";
+                                        }
+                                    }
 
-                    //read 10 row of data from database table
-                    // if ($count == 9) {
-                    //     break;
-                    // }
-                    // $count += 1;
-                }
-                ?>
-            </tbody>
-        </table>
+                                    //read 10 row of data from database table
+                                    // if ($count == 9) {
+                                    //     break;
+                                    // }
+                                    // $count += 1;
+                                }
+                                ?>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    <div class="container table-responsive" style="margin-bottom:100px;">
+        
     </div>
 
     <!-- Status Modal -->

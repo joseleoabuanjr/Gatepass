@@ -69,6 +69,11 @@ $bday = date_format($date, "Y-m-d");
 <body>
     <?php require_once 'includes/navbar.php'; ?>
     <div class="container">
+        <header class="pb-3 mb-4 border-bottom mt-5">
+            <div class="d-flex align-items-center text-dark text-decoration-none">
+                <span class="fs-3">My Profile Information</span>
+            </div>
+        </header>
         <?php if ($status == "unverified") {
                     echo '
                         <div class="w-100 pt-4">
@@ -80,11 +85,11 @@ $bday = date_format($date, "Y-m-d");
                 }
         ?>
         <div id="error"></div>
-        <div id="scrollProfile" class="container">
+        <div id="scrollProfile" class="">
             <form id="profileForm" method="post" action="function/toupdate_p.php" enctype="multipart/form-data">
                 <div class="row">
                     <div class="col-4">
-                        <div id="list-example" class="list-group pt-5">
+                        <div id="list-example" class="list-group">
                             <a class="list-group-item list-group-item-action" href="#profilePicture">Profile Picture</a>
                             <a class="list-group-item list-group-item-action" href="#personalInfoSection">Personal Information</a>
                             <?php if($type == "student"){
@@ -93,8 +98,16 @@ $bday = date_format($date, "Y-m-d");
                                 '); 
                             }
                             ?>
-                            <a class="list-group-item list-group-item-action" href="#credential">Credential</a>
-                            <a class="list-group-item list-group-item-action" href="#account">Account</a>
+                            <?php 
+                                    if($status == "verified"){
+                                    }else{
+                                        echo ('
+                                            <a class="list-group-item list-group-item-action" href="#credential">Attachments</a>
+                                        ');
+                                    }
+                                ?>   
+                            
+                            <a class="list-group-item list-group-item-action" href="#account">Account Security</a>
                         </div>
                         <button type="submit" class="btn btn-success w-100 mt-2">Save Changes <span id="spinnerSave" class="spinner-border spinner-border-sm" role="status"></span></button>
                     </div>
@@ -360,7 +373,7 @@ $bday = date_format($date, "Y-m-d");
                                         <script src="js/college.js"></script>
                                     </div>
                                 <?php 
-                                    if($verification == "verified"){
+                                    if($status == "verified"){
                                         echo ('
                                             <div id="credential" class="d-none py-3 mb-5">
                                         ');

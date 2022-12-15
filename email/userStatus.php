@@ -60,8 +60,7 @@
             //mail content
             $mail->Subject = $subject;
             $mail->Body    = '
-            <div class="header" style="background-image: url("../resources/emailhead.jpg");background-size:cover; background-repeat: no-repeat; background-position: center center; background-attachment: fixed; height:25%; width:100%; "></div>
-            <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+            <img class="rounded mx-auto d-block" style="height:500px" src="../resources/emailhead.png">
                 <p style="margin-bottom: 20px;">
                 <br>Hi '.$name.',<br>
                 <br>We would like to notify you that your account has been '.$status.' by the Admin.

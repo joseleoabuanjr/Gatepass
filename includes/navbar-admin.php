@@ -11,6 +11,7 @@ if ($count == 1) {
 }
 ?>
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark " style="background-color: #763435; height: 50px">
+<div class="glass-effect w-100">
     <div class="container d-flex justify-content-between">
         <div class="navbar-brand" style="width:400px;"><span class="init">B</span>ULACAN <span class="init"> S</span>TATE <span class="init"> U</span>NIVERSITY <span class="init">[</span>GATEPASS<span class="init">]</span></div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,4 +41,5 @@ if ($count == 1) {
             
         </div>
     </div>
+</div>
 </nav>

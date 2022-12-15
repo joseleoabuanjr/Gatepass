@@ -27,7 +27,11 @@ if ($count == 1) {
 }
 ?>
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark " style="background-color: #763435; height: 50px">
+<div class="glass-effect w-100">
     <div class="container d-flex justify-content-between">
+        <a class="navbar-brand" href="">
+            <img src="resources/bulsulogo.png" alt="Bootstrap" width="30" height="24">
+        </a>
         <div class="navbar-brand" style="width:400px;"><span class="init">B</span>ULACAN <span class="init"> S</span>TATE <span class="init"> U</span>NIVERSITY <span class="init">[</span>GATEPASS<span class="init">]</span></div>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -36,6 +40,7 @@ if ($count == 1) {
             <div class="navbar-nav">
                 <a class="nav-link <?php echo $disable2?>" href="dashboard.php" id="ta1" >Dashboard</a>
                 <a class="nav-link <?php echo $disable2?>" href="profile.php" id="ta2" >Profile</a>
+                <div style="border-right: 1px darkgray solid;margin-right:5px;padding-right:5px;">
                 <?php 
                     if($type == 'student') { 
                         
@@ -47,8 +52,10 @@ if ($count == 1) {
                         echo ('<a class="nav-link '.$disable2.=$disable.'" href="appointment.php" id="ta3">Appointments</a>');
                     }
                 ?>
+                </div>
                 <a class="nav-link" href="function/toLogout.php">Logout</a>
             </div>
         </div>
     </div>
+</div>
 </nav>

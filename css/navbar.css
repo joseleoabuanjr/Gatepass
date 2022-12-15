@@ -3,6 +3,7 @@ nav {
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center center;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.356);
 }
 
 .init {
@@ -13,7 +14,7 @@ nav {
     font-family: 'Open Sans';
 }
 .glass-effect {
-    background: linear-gradient(1deg, rgb(27 27 27 / 81%), rgb(255 129 129 / 0%));
+    background: linear-gradient(1deg, rgba(0, 0, 0, 0.473), rgb(255 129 129 / 0%));
     backdrop-filter: blur(3px);
 
 }

@@ -105,9 +105,9 @@ $id = $_SESSION['accno'];
         ?>
 
         <div class="py-4">
-            <header class="pb-3 mb-4 border-bottom">
+            <header class="pb-3 mb-4 border-bottom mt-5">
                 <div class="d-flex align-items-center text-dark text-decoration-none">
-                    <span class="fs-4">My Dashboard</span>
+                    <span class="fs-3">My Dashboard</span>
                 </div>
             </header>
 

@@ -43,6 +43,11 @@ $id = $_SESSION['accno'];
 <body>
 	<?php require_once 'includes/navbar.php'; ?>
 	<div class="container" style="height: auto;">
+        <header class="pb-3 mb-4 border-bottom mt-5">
+            <div class="d-flex align-items-center text-dark text-decoration-none">
+                <span class="fs-3">Appointment Request</span>
+            </div>
+        </header>
         <div class="container d-flex justify-content-center align-items-center flex-column pt-4" style="height:auto;">
             <div class="d-flex flex-column justify-content-center align-items-center" style="height: 100%; width:100%;">
                 <div class="card" style="width:100%; padding:40px;margin-bottom:40px;">
@@ -51,7 +56,7 @@ $id = $_SESSION['accno'];
                             <div class="d-flex justify-content-between">
                                 <h2 style="padding-bottom:20px;">Appointments Requests</h2>
                                 <div>
-                                    <button class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#requestModal">Request an Appointment</button>
+                                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#requestModal">Request an Appointment</button>
                                 </div>
                             </div>
                             <table class="table pt-2 shadow-sm table-striped table-hover display compact" id="appointmentTable">
@@ -62,7 +67,7 @@ $id = $_SESSION['accno'];
                                         <th class='text-center'>Date of Appointment</th>
                                         <th class='text-center'>Appointment Status</th>
                                         <th class='text-center'>QR CODE</th>
-                                        <th class='text-center'>Actions</th>
+                                        <!-- <th class='text-center'>Actions</th> -->
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -108,11 +113,10 @@ $id = $_SESSION['accno'];
                                         } else {
                                             echo ("<td>N/A</td>");
                                         }
-                                        echo "<td class='text-center'>
-                                            <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='cancel' data-accno='" . $row['acc_no'] . "' data-reqid='" . $row["req_id"] . "'>Cancel</button>
-                                        </td>
-                                    </tr>";
-
+                                        echo "</tr>";
+                                        //     <td class='text-center'>
+                                        //     <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='cancel' data-accno='" . $row['acc_no'] . "' data-reqid='" . $row["req_id"] . "'>Cancel</button>
+                                        // </td>
                                         //read 10 row of data from database table
                                         // if ($count == 9) {
                                         //     break;
