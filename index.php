@@ -12,7 +12,6 @@
 
 <body>
     <div class="glass-effect">
-
         <div class="d-flex align-items-center vh-100">
             <main class="form-signin w-100 m-auto text-center pt-4">
                 <form id="loginForm">

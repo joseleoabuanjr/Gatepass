@@ -110,7 +110,7 @@ body {
 }
 
 .glass-effect {
-    background: linear-gradient(1deg, rgb(27 27 27 / 81%), rgb(255 129 129 / 0%));
+    background: linear-gradient(1deg, rgba(27, 27, 27, 0.726), rgb(255 129 129 / 0%));
     backdrop-filter: blur(3px);
 
 }

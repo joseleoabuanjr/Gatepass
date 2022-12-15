@@ -12,7 +12,7 @@
 
 <body>
     <div class="glass-effect d-flex align-items-center vh-100">
-        <div class="container bg-white shadow-lg py-3 px-5" style="width: 750px;">
+        <div class="container shadow-lg py-3 px-5 form-signin text-white" style="width: 750px;">
             <div class="mb-3 text-center">
                 <img class="" src="../../resources/bulsulogo.png" alt="" height="50">
                 <h3 class="m-1">BulSU Gatepass</h3>
