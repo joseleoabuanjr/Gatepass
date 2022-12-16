@@ -27,6 +27,8 @@ $c =  mysqli_num_rows($r);
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
+
+                <a class="nav-link" href="../admin/dashboard.php" id="tl1">Dashboard</a>
                 <a class="nav-link" href="user.php" id="tl1">Users</a>
                 <a class="nav-link position-relative" href="verification.php" id="tl2">Verifications
                 <?php if($c != 0){
