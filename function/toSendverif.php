@@ -42,7 +42,6 @@
         while($row = mysqli_fetch_assoc($result)){
 
             $usern = $row["username"];
-            $passw = $_SESSION["pass"];
             $fst = ucfirst($row["first"]);
             $lst = ucfirst($row["last"]);
             
