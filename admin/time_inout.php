@@ -32,11 +32,14 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
         </header>
         <div class="card">
             <div class="card-header bg-dark">
-                <div class="d-flex justify-content-end align-items-center">
-                    <h6 class="text-white m-0">Filter by Date & Time</h6>
-                    <div id="reportrange" class="w-auto mx-2 rounded-1" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-                        <i class="fa fa-calendar"></i>&nbsp;
-                        <span></span> <i class="fa fa-caret-down"></i>
+
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <h6 class="text-white m-0">Filter by Date & Time</h6>
+                        <div id="reportrange" class="w-auto mx-2 rounded-1" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                            <i class="fa fa-calendar"></i>&nbsp;
+                            <span></span> <i class="fa fa-caret-down"></i>
+                        </div>
                     </div>
                     <div class="col col-sm-auto p-0"><button type="button" class="btn btn-primary btn d-print-none" onclick="window.print()">Print Records</button></div>
                 </div>
@@ -98,20 +101,15 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
             cb(start, end);
 
             function displayTimeInOutTable(start, end) {
-                console.log(start);
-                console.log(end);
                 $.ajax({
                     type: "POST",
                     url: "../function/getTimeInOut.php",
                     dataType: "JSON",
                     success: function(response) {
-                        console.log(response);
                         var filtered = response.filter(function(x) {
-                            console.log(x.time);
-                            return dateCheck(start, end, x.time);
+                            return dateCheck(start, end, moment(x.time).format("L"));
                         });
-                        console.log("FILTERED:");
-                        console.log(filtered);
+                        var content = ``;
                         $.each(filtered, function(indexInArray, val) {
                             var reason = `<ul>`;
                             $.each(val.reason, function(indexInArray, res) {
@@ -124,15 +122,15 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                                 <td class='text-capitalize text-center'>${val.name}</td>
                                 <td class='text-capitalize text-center'>${val.type}</td>
                                 <td class='text-capitalize text-center'>${val.in_out}</td>
-                                <td class='text-center>${moment(val.in_out).format("llll")}</td>
-                                <td class='text-center>${reason}</td>
+                                <td class='text-center'>${moment(val.time).format("llll")}</td>
+                                <td class='text-center'>${reason}</td>
                             </tr>
 							`;
                         });
-                        $("#timeInOutTableContent").html(response);
                         if ($.fn.DataTable.isDataTable("#timeinoutTable")) {
                             $('#timeinoutTable').DataTable().clear().destroy();
                         }
+                        $("#timeInOutTableContent").html(content);
                         $("#timeinoutTable").DataTable();
                     },
                     error: function(response) {
