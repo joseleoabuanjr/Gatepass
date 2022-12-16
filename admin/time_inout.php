@@ -1,11 +1,12 @@
 <?php
 session_start();
 if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
-	header("Location: ../admin/login.php");
+    header("Location: ../admin/login.php");
 }
 ?>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,94 +17,142 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
-    <!-- Javascript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $("#userAccountsTable, #accountVerificationTable, #appointmentRequestTable, #timeinoutTable").DataTable();
-        });
-    </script>
+
 </head>
+
 <body>
     <?php require_once '../includes/navbar-admin.php'; ?>
-        <div class="container" style="padding-bottom:20px;">
-            <header class="pb-3 mb-4 border-bottom mt-5">
-                <div class="d-flex align-items-center text-dark text-decoration-none">
-                    <span class="fs-3">Time In and Out</span>
-                </div>
-            </header>
-            <div class="card">
-                <div class="card-header" style="background-color: #4F4F4B; color:white;">
-                    <div class="row align-items-center">
-                        <div class="col col-sm-8 ps-5 py-2"></div>
-                        <div class="col col-sm-3">
-                            <input type="text" id="daterange" class="form-control form-control-sm" readonly />
-                        </div>
-                        <div class="col col-sm-auto p-0"><button type="button" class="btn btn-primary btn-sm d-print-none" onclick="window.print()">Print Records</button></div>
+    <div class="container" style="padding-bottom:20px;">
+        <header class="pb-3 mb-4 border-bottom mt-5">
+            <div class="d-flex align-items-center text-dark text-decoration-none">
+                <span class="fs-3">Time In and Out</span>
+            </div>
+        </header>
+        <div class="card">
+            <div class="card-header bg-dark">
+                <div class="d-flex justify-content-end align-items-center">
+                    <h6 class="text-white m-0">Filter by Date & Time</h6>
+                    <div id="reportrange" class="w-auto mx-2 rounded-1" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                        <i class="fa fa-calendar"></i>&nbsp;
+                        <span></span> <i class="fa fa-caret-down"></i>
                     </div>
+                    <div class="col col-sm-auto p-0"><button type="button" class="btn btn-primary btn d-print-none" onclick="window.print()">Print Records</button></div>
                 </div>
-                <div class="card-body">
-                    <div class="container table-responsive">
-                        <table class="table pt-2 shadow table-striped table-hover display compact" id="timeinoutTable">
-                            <thead>
-                                <tr class="text-bg-warning"style="background-color: #4F4F4B; color:white;">
-                                    <th class="text-center">Account Number</th>
-                                    <th class="text-center">Name</th>
-                                    <th class="text-center">Account Type</th>
-                                    <th class="text-center">In/Out</th>
-                                    <th class="text-center">Date & Time</th>
-                                    <th class="text-center">Reason</th>
-                                </tr>
-                            </thead>
-                                
-                            <tbody>
-                                <?php
-                                    //connect to database
-                                    require_once "../function/connect.php";
-                                    
-                                    $col = $_SESSION["department"];
+            </div>
+            <div class="card-body">
+                <div class="container table-responsive">
+                    <table class="table pt-2 shadow table-striped table-hover display compact" id="timeinoutTable">
+                        <thead>
+                            <tr class="text-bg-warning" style="background-color: #4F4F4B; color:white;">
+                                <th class="text-center">Account Number</th>
+                                <th class="text-center">Name</th>
+                                <th class="text-center">Account Type</th>
+                                <th class="text-center">In/Out</th>
+                                <th class="text-center">Date & Time</th>
+                                <th class="text-center">Reason</th>
+                            </tr>
+                        </thead>
 
-                                    //read all row from database table
-                                    $select = "SELECT * FROM time_inout WHERE college ='$col' AND type = 'student'";
-                                    $result = mysqli_query($connect,$select);
+                        <tbody id="timeInOutTableContent">
 
-                                    if(!$result){
-                                        die("Invalid query: ".$connect->connect_error);
-                                    }
-                                    
-                                    $count = 0;
-                                    while($row = mysqli_fetch_assoc($result)){
-                                        $temp = date_create($row["time"]);
-                                        $dt = date_format($temp, "F d, Y h:i A");
-
-                                        $reason = $row["reason"];
-                                        $exploded = explode(',', $reason);
-                                        echo ("
-                                                <tr>
-                                                    <td class='text-center'>".$row["account_no"]."</td>
-                                                    <td class='text-capitalize text-center'>".$row["name"]."</td>
-                                                    <td class='text-capitalize text-center'>".$row["type"]."</td>
-                                                    <td class='text-capitalize text-center'>".$row["in_out"]."</td>
-                                                    <td class='text-center'>".$dt."</td>");
-                                                echo '<td>';
-                                                if($reason != NULL){
-                                                    foreach ($exploded as $reason) {
-                                                        echo "<ul><li>" . $reason . "</li></ul>";
-                                                    }
-                                                }
-                                                echo '</td></tr>';
-                                            
-                                        //read 10 row of data from database table
-                                    }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Javascript -->
+
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(function() {
+
+            var start = moment().subtract(29, 'days');
+            var end = moment();
+
+            function cb(start, end) {
+                $('#reportrange span').html(start.format('ll') + ' - ' + end.format('ll'));
+                displayTimeInOutTable(start.format("L"), end.format("L"));
+            }
+
+            $('#reportrange').daterangepicker({
+                startDate: start,
+                endDate: end,
+                ranges: {
+                    'Today': [moment(), moment()],
+                    'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+                    'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+                    'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+                    'This Month': [moment().startOf('month'), moment().endOf('month')],
+                    'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+                }
+            }, cb);
+
+            cb(start, end);
+
+            function displayTimeInOutTable(start, end) {
+                console.log(start);
+                console.log(end);
+                $.ajax({
+                    type: "POST",
+                    url: "../function/getTimeInOut.php",
+                    dataType: "JSON",
+                    success: function(response) {
+                        console.log(response);
+                        var filtered = response.filter(function(x) {
+                            console.log(x.time);
+                            return dateCheck(start, end, x.time);
+                        });
+                        console.log("FILTERED:");
+                        console.log(filtered);
+                        $.each(filtered, function(indexInArray, val) {
+                            var reason = `<ul>`;
+                            $.each(val.reason, function(indexInArray, res) {
+                                reason += `<li>${res}<li>`;
+                            });
+                            reason += `</ul>`;
+                            content += `
+                            <tr>
+                                <td class='text-center'>${val.account_no}</td>
+                                <td class='text-capitalize text-center'>${val.name}</td>
+                                <td class='text-capitalize text-center'>${val.type}</td>
+                                <td class='text-capitalize text-center'>${val.in_out}</td>
+                                <td class='text-center>${moment(val.in_out).format("llll")}</td>
+                                <td class='text-center>${reason}</td>
+                            </tr>
+							`;
+                        });
+                        $("#timeInOutTableContent").html(response);
+                        if ($.fn.DataTable.isDataTable("#timeinoutTable")) {
+                            $('#timeinoutTable').DataTable().clear().destroy();
+                        }
+                        $("#timeinoutTable").DataTable();
+                    },
+                    error: function(response) {
+                        console.error(response);
+                    }
+                });
+            }
+
+            function dateCheck(from, to, check) {
+                var fDate, lDate, cDate;
+                fDate = Date.parse(from);
+                lDate = Date.parse(to);
+                cDate = Date.parse(check);
+                if ((cDate <= lDate && cDate >= fDate)) {
+                    return true;
+                }
+                return false;
+            }
+        });
+    </script>
 </body>
+
 </html>
