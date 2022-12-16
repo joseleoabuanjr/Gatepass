@@ -7,7 +7,6 @@ require_once "function/connect.php";
 
 $id = $_SESSION['accno'];
 $accno = $_SESSION["accno"];
-$p = $_SESSION["pass"];
 
 $select = "SELECT * FROM user_account WHERE acc_no = $accno";
 $result = mysqli_query($connect, $select);

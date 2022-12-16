@@ -33,14 +33,9 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
     <div class="container">
         <div class="container " style="width: 600px;">
             <div class="d-flex align-items-center vh-100">
-                <div class="container bg-white shadow-lg py-3 px-3" style="width: 600px;">
-                    <div class="mb-3 text-center">
-                        <img class="" src="../resources/bulsulogo.png" alt="" height="50">
-                        <h3 class="m-1">BulSU Gatepass</h3>
-                        <h5 class="mb-3 text-uppercase">Admin Registration</h5>
-                    </div>
+                <div class="container bg-white shadow-lg py-3 px-3" >
+                        <h5 class="mb-3 text-uppercase">Create Admin Account</h5>
                         <form id="registrationForm">
-                        <input type="hidden" name="userType" value="student">
                         <div id="step1">    
                             <div class="row ">
                                 <div class="col">
