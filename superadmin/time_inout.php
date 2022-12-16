@@ -48,7 +48,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                     <div class="table">
                         <table class="table pt-2 shadow table-striped table-hover display compact" id="timeinoutTable">
                             <thead>
-                                <tr class="text-bg-warning"style="background-color: #4F4F4B; color:white;">
+                                <tr class="text-bg-warning" style="background-color: #4F4F4B; color:white;">
                                     <th class="text-center">Account Number</th>
                                     <th class="text-center">Name</th>
                                     <th class="text-center">Account Type</th>
