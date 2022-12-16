@@ -15,8 +15,7 @@ if (mysqli_num_rows($result)) {
             "name" => $row['name'],
             "type" => $row['type'],
             "in_out" => $row['in_out'],
-            "time" => $row['time'],
-            "query" => $query,
+            "time" => $row['time']
         ];
     }
 }

@@ -17,15 +17,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
-    <!-- Javascript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="../js/adminDashboard.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#userAccountsTable, #accountVerificationTable, #appointmentRequestTable, #timeinoutTable").DataTable();
-        });
-    </script>
+
 </head>
 
 <body>
@@ -43,6 +35,21 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                 <div class="h4 text-primary"><?php echo $department ?></div>
             </div>
         </header>
+        <div class="mb-3">
+            <div class="d-flex justify-content-between">
+                <h3>Time In - Out</h3>
+                <div>
+                    <select class="form-select" id="timeStatus">
+                        <option value="day">Last 7 Days</option>
+                        <option value="month">Month</option>
+                        <option value="year" selected>Year</option>
+                    </select>
+                </div>
+            </div>
+            <div style="height: 289px;">
+                <canvas id="chart1"></canvas>
+            </div>
+        </div>
         <h5>Pending Accounts for Verification</h5>
         <div class="row row-cols-3 g-3 mb-4">
             <div class="col">
@@ -90,5 +97,13 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 
     </div>
 </body>
+
+<!-- Javascript -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="../js/adminDashboard.js"></script>
 
 </html>
