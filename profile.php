@@ -156,8 +156,8 @@ $bday = date_format($date, "Y-m-d");
                                     <div class="row row-cols-1 row-cols-md-2 g-2">
                                         <div class="col">
                                             <div class="mb-3">
-                                                <h6 for="contact" class="form-label">Contact Number</h6>
-                                                <input type="text" class="form-control" name="contact" id="contact" value="<?php echo ($pnum); ?>">
+                                                <h6 for="contact" name="contactNumber" class="form-label">Contact Number</h6>
+                                                <input type="text" maxlength="11" minlength="11" class="form-control" name="contact" id="contact" value="<?php echo ($pnum); ?>">
                                             </div>
                                         </div>
                                         <div class="col">

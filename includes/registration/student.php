@@ -21,7 +21,7 @@
             <div class="progress mb-3" style="height: 4px;">
                 <div class="progress-bar" role="progressbar" style="width: 33.33%;"></div>
             </div>
-            <form id="registrationForm">
+            <form name="formReg" id="registrationForm">
                 <input type="hidden" name="userType" value="student">
                 <div id="step1">
                     <div class="row row-cols-1 row-cols-md-3 g-2">
@@ -53,8 +53,8 @@
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <label for="contactNumber" class="form-label">Contact Number</label>
-                                <input type="text" class="form-control" placeholder="Ex: 09123456789" name="contact" id="contactNumber" required>
+                                <label for="contactNumber" name="contactNumber" id="contactNum" class="form-label">Contact Number</label>
+                                <input type="text" maxlength="11" minlength="11" class="form-control" placeholder="Ex: 09123456789" name="contact" id="contactNumber" required>
                             </div>
                         </div>
                         <div class="col">
