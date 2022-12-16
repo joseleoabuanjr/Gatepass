@@ -131,7 +131,9 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                             $('#timeinoutTable').DataTable().clear().destroy();
                         }
                         $("#timeInOutTableContent").html(content);
-                        $("#timeinoutTable").DataTable();
+                        $("#timeinoutTable").DataTable({
+                            "ordering": false
+                        });
                     },
                     error: function(response) {
                         console.error(response);
