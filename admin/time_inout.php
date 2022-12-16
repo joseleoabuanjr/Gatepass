@@ -31,7 +31,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
             </div>
         </header>
         <div class="card">
-            <div class="card-header bg-dark">
+            <div class="card-header" style="background-color: #4F4F4B;">
 
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex justify-content-start align-items-center">
