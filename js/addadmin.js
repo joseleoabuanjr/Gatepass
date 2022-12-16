@@ -1,11 +1,13 @@
 $(document).ready(function () {
-    $("#step2").hide();
-    $("#step3").hide();
     $("#errorAlert").hide();
     $("#successAlert").hide();
     $("#registerSpinner").hide();
 
-    $("#registrationForm").submit(function (e) {
+    $(".addBtn").click(function (e) { 
+        e.preventDefault();
+        $("#formModal").modal("show");
+    });
+    $("#AdminForm").submit(function (e) {
         e.preventDefault();
         $("#errorAlert").fadeOut();
         var password = $("#password").val();
@@ -13,7 +15,7 @@ $(document).ready(function () {
         if (password == confirmPassword) {
             $.ajax({
                 type: "POST",
-                url: "../function/toRegadmin.php",
+                url: "../function/toaddAdmin.php",
                 data: new FormData(this),
                 contentType: false,
                 cache: false,
@@ -27,7 +29,7 @@ $(document).ready(function () {
                             $("#successAlert").hide();
                             $( "#userAccountsTable" ).load(location.href + " #userAccountsTable" );
                         }, 3000);
-                        $("#registrationForm").trigger("reset");
+                        $("#AdminForm").trigger("reset");
                         $("#registerSpinner").hide();
                     } else {
                         $("#errorAlert").html("An error has occurred during the registration process");

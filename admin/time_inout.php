@@ -32,7 +32,6 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
         </header>
         <div class="card">
             <div class="card-header" style="background-color: #4F4F4B;">
-
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="d-flex justify-content-start align-items-center">
                         <h6 class="text-white m-0">Filter by Date & Time</h6>

@@ -43,7 +43,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                         <div class="w-auto mx-2 rounded-1" style=" padding: 5px 10px; width: 100%">
                         </div>
                     </div>
-                    <div class="col col-sm-auto p-0 addBtn"><button type="button" class="btn btn-primary btn-sm">Add Admin</button></div>
+                    <div class="col col-sm-auto p-0 "><button type="button" class="btn btn-primary btn-sm addBtn">Add Admin</button></div>
                 </div>
             </div>
             <div class="card-body">
@@ -54,6 +54,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                             <th class="text-center">Username</th>
                             <th class="text-center">Type</th>
                             <th class="text-center">Department</th>
+                            <th class="text-center">Actions</th>
                         </tr>
                     </thead>
                     <tbody class="text-center">
@@ -76,6 +77,13 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                                         <td class='text-capitalize'>" . $row["username"] . "</td>
                                         <td class='text-capitalize'>" . $row["type"] . "</td>
                                         <td class='text-capitalize'>" . $row["department"] . "</td>
+                                        <td>
+                                            <div class='btn-group' role='group'>
+                                                <button type='button' class='btn btn-secondary statusBtn btn-sm'>Edit</button>
+                                                <button type='button' class='btn btn-danger statusBtn btn-sm'>Archive</button>
+                                            </div>
+                                        </td>
+                                    </tr>
                                 ");
                             //read 10 row of data from database table
                             // if ($count == 9) {
@@ -94,38 +102,39 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
     <!-- Status Modal -->
     <div class="modal fade py-5" tabindex="-1" id="formModal">
         <div class="modal-dialog">
-            <div class="modal-content rounded-3">
-                <div class="modal-header">
-                    <h5 class="modal-title">Create Admin Account</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body p-4">
-                    <form id="AdminForm">
-                        <div class="row ">
-                            <div class="col">
-                                <div class="mb-3">
-                                    <label class="form-label">College</label>
-                                    <select class="form-select mb-3" name="college" id="col-s" required>
-                                        <option selected disabled>Select College</option>
-                                        <option value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
-                                        <option value="College of Arts and Letters (CAL)">College of Arts and Letters (CAL)</option>
-                                        <option value="College of Business Administration (CBA)">College of Business Administration (CBA)</option>
-                                        <option value="College of Criminal Justice Education (CCJE)">College of Criminal Justice Education (CCJE)</option>
-                                        <option value="College of Hospitality and Tourism Management (CHTM)">College of Hospitality and Tourism Management (CHTM)</option>
-                                        <option value="College of Information and Communications Technology (CICT)">College of Information and Communications Technology (CICT)</option>
-                                        <option value="College of Industrial Technology (CIT)">College of Industrial Technology (CIT)</option>
-                                        <option value="College of Law (CLAW)">College of Law (CLAW)</option>
-                                        <option value="College of Nursing (CN)">College of Nursing (CN)</option>
-                                        <option value="College of Engineering (COE)">College of Engineering (COE)</option>
-                                        <option value="College of Education (COED)">College of Education (COED)</option>
-                                        <option value="College of Science (CS)">College of Science (CS)</option>
-                                        <option value="College of Sports Exercise and Recreation (CSER)">College of Sports Exercise and Recreation (CSER)</option>
-                                        <option value="College of Social Sciences and Philosophy (CSSP)">College of Social Sciences and Philosophy (CSSP)</option>
-                                        <option value="Graduate School (GS)">Graduate School (GS)</option>
-                                    </select>
+            <form id="AdminForm">
+                <div class="modal-content rounded-3">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create Admin Account</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body p-4">
+                        
+                            <div class="row ">
+                                <div class="col">
+                                    <div class="mb-3">
+                                        <label class="form-label">College</label>
+                                        <select class="form-select mb-3" name="college" id="col-s" required>
+                                            <option selected disabled>Select College</option>
+                                            <option value="College of Architecture and Fine Arts (CAFA)">College of Architecture and Fine Arts (CAFA)</option>
+                                            <option value="College of Arts and Letters (CAL)">College of Arts and Letters (CAL)</option>
+                                            <option value="College of Business Administration (CBA)">College of Business Administration (CBA)</option>
+                                            <option value="College of Criminal Justice Education (CCJE)">College of Criminal Justice Education (CCJE)</option>
+                                            <option value="College of Hospitality and Tourism Management (CHTM)">College of Hospitality and Tourism Management (CHTM)</option>
+                                            <option value="College of Information and Communications Technology (CICT)">College of Information and Communications Technology (CICT)</option>
+                                            <option value="College of Industrial Technology (CIT)">College of Industrial Technology (CIT)</option>
+                                            <option value="College of Law (CLAW)">College of Law (CLAW)</option>
+                                            <option value="College of Nursing (CN)">College of Nursing (CN)</option>
+                                            <option value="College of Engineering (COE)">College of Engineering (COE)</option>
+                                            <option value="College of Education (COED)">College of Education (COED)</option>
+                                            <option value="College of Science (CS)">College of Science (CS)</option>
+                                            <option value="College of Sports Exercise and Recreation (CSER)">College of Sports Exercise and Recreation (CSER)</option>
+                                            <option value="College of Social Sciences and Philosophy (CSSP)">College of Social Sciences and Philosophy (CSSP)</option>
+                                            <option value="Graduate School (GS)">Graduate School (GS)</option>
+                                        </select>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                         <div class="row">
                             <div class="col">
                                 <div class="mb-3">
@@ -154,27 +163,23 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                         <div class="alert alert-danger" role="alert" id="errorAlert">
                             {{ errorMessage }}
                         </div>
-                    </form>
-                    <div class="alert alert-danger my-1" role="alert" id="errorAlert">
-                        <span class="status text-capitalize"></span> Failed.
+                    </div>
+                    <div class="modal-footer flex-nowrap p-0">
+                        <button class="btn btn-primary me-md-2 px-5" type="submit">
+                            <span>Register</span>
+                            <div id="registerSpinner" class="spinner-border spinner-border-sm" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </button>
                     </div>
                 </div>
-                <div class="modal-footer flex-nowrap p-0">
-                    <button class="btn btn-primary me-md-2 px-5" type="submit">
-                        <span>Register</span>
-                        <div id="registerSpinner" class="spinner-border spinner-border-sm" role="status">
-                            <span class="visually-hidden">Loading...</span>
-                        </div>
-                    </button>
-                </div>
-            </div>
+            </form>
         </div>
     </div>
     <!-- Status modal -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="../js/addadmin.js"></script>
-    <script src="../js/adminRegistration.js"></script>
 </body>
 
 </html>
