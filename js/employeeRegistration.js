@@ -5,19 +5,50 @@ $(document).ready(function () {
     $("#successAlert").hide();
     $("#registerSpinner").hide();
     var progress = 50;
-    $(".nextBtn").click(function (e) { 
+    $(".nextBtn").click(function (e) {
         e.preventDefault();
-        var ctr = $(this).data("ctr");
-        $("#step"+ctr).hide();
-        $("#step"+(parseInt(ctr)+1)).fadeIn();
-        $(".progress-bar").width((progress += 50) + "%");
+        var form = $("#registrationForm")[0];
+        console.log($("#registrationForm"));
+        if (form[1].checkValidity()) {
+            if (form[3].checkValidity()) {
+                if (form[4].checkValidity()) {
+                    if (form[5].checkValidity()) {
+                        if (form[6].checkValidity()) {
+                            if (form[7].checkValidity()) {
+                                if (form[8].checkValidity()) {
+                                    var ctr = $(this).data("ctr");
+                                    $("#step" + ctr).hide();
+                                    $("#step" + (parseInt(ctr) + 1)).fadeIn();
+                                    $(".progress-bar").width((progress += 50) + "%");
+                                } else {
+                                    form[8].reportValidity()
+                                }
+                            } else {
+                                form[7].reportValidity()
+                            }
+                        } else {
+                            form[6].reportValidity()
+                        }
+                    } else {
+                        form[5].reportValidity()
+                    }
+                } else {
+                    form[4].reportValidity()
+                }
+            } else {
+                form[3].reportValidity()
+            }
+        } else {
+            form[1].reportValidity()
+        }
+
     });
 
-    $(".prevBtn").click(function (e) { 
+    $(".prevBtn").click(function (e) {
         e.preventDefault();
         var ctr = $(this).data("ctr");
-        $("#step"+ctr).hide();
-        $("#step"+(parseInt(ctr)-1)).fadeIn();
+        $("#step" + ctr).hide();
+        $("#step" + (parseInt(ctr) - 1)).fadeIn();
         $(".progress-bar").width((progress -= 50) + "%");
     });
 
@@ -49,7 +80,7 @@ $(document).ready(function () {
                     console.error(response.responseText);
                     // $("#errorAlert").html(response.responseText);
                     // $("#errorAlert").fadeIn();
-                }, beforeSend: function() {
+                }, beforeSend: function () {
                     $("#registerSpinner").show();
                 }
             });
