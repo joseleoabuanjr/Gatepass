@@ -3,8 +3,22 @@ session_start();
 require_once "../function/connect.php";
 $department = $_SESSION["department"];
 
+if (isset($_POST["getTimeInOut"])) {
+    $query = "SELECT * FROM time_inout WHERE college ='$department' AND type = 'student' ORDER BY time DESC";
+    $result = mysqli_query($connect, $query);
+    $data = array();
+    if (mysqli_num_rows($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data[] = (object) [
+                "type" => $row['type'],
+                "in_out" => $row['in_out'],
+                "time" => $row['time']
+            ];
+        }
+    }
+    echo json_encode((array) $data);
+}
 
-//verification 
 if (isset($_POST['getPendingStudents'])) {
     $sql = "SELECT COUNT(acc_no) as pendingStudents
         FROM user_account
@@ -15,7 +29,7 @@ if (isset($_POST['getPendingStudents'])) {
             echo $row['pendingStudents'];
         }
     }
-} 
+}
 
 if (isset($_POST['getPendingEmployees'])) {
     $sql = "SELECT COUNT(acc_no) as pendingEmployees
@@ -27,7 +41,7 @@ if (isset($_POST['getPendingEmployees'])) {
             echo $row['pendingEmployees'];
         }
     }
-} 
+}
 
 if (isset($_POST['getPendingVisitors'])) {
     $sql = "SELECT COUNT(acc_no) as pendingVisitors
@@ -39,7 +53,7 @@ if (isset($_POST['getPendingVisitors'])) {
             echo $row['pendingVisitors'];
         }
     }
-} 
+}
 
 //appointment
 if (isset($_POST['getAppointmentStudents'])) {
