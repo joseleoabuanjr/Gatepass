@@ -9,6 +9,14 @@ if ($count == 1) {
 		$type = $row['type'];
 	}
 }
+//read all row from database table
+$select = "SELECT * FROM appointment WHERE status = 'pending'";
+$result = mysqli_query($connect, $select);
+$count =  mysqli_num_rows($result);
+//read all row from database table
+$s = "SELECT * FROM user_account WHERE verification = 'pending'";
+$r = mysqli_query($connect, $s);
+$c =  mysqli_num_rows($r);
 ?>
 <nav class="navbar navbar-expand-lg sticky-top navbar-dark " style="background-color: #763435; height: 50px">
 <div class="glass-effect w-100">
@@ -20,8 +28,17 @@ if ($count == 1) {
         <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-link" href="user.php" id="tl1">Users</a>
-                <a class="nav-link" href="verification.php" id="tl2">Verifications</a>
-                <a class="nav-link" href="appointment.php" id="tl3">Appointments</a>
+                <a class="nav-link position-relative" href="verification.php" id="tl2">Verifications
+                <?php if($c != 0){
+                            echo '<span class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger">
+                            '.$count.'</span>';
+                        } ?>
+                </a>
+                <a class="nav-link position-relative" href="appointment.php" id="tl3">Appointments
+                    <?php if($count != 0){
+                            echo '<span class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger">
+                            '.$count.'</span>';
+                        } ?></a>
                 <a class="nav-link" href="time_inout.php" id="tl4">Time-in/out</a>
                 <?php 
                     if($type == 'superadmin') { 
