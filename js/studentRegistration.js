@@ -7,6 +7,11 @@ $(document).ready(function () {
     var progress = 33.33;
     $(".nextBtn-1").click(function (e) {
         e.preventDefault();
+        var contact = document.forms["formReg"]["contactNumber"].value;
+        if (isNaN(contact)) {
+            alert("Please Input a valid contact number.");
+            return false;
+        }
         console.log($("#registrationForm"));
         var form = $("#registrationForm")[0];
         if (form[1].checkValidity()) {
@@ -37,6 +42,8 @@ $(document).ready(function () {
         } else {
             form[1].reportValidity()
         }
+
+
 
     });
 
