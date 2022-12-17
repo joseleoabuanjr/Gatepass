@@ -5,12 +5,20 @@ require_once "connect.php";
 $id = $_SESSION["accno"];
 $npassSet = false;
 $npassValid = false;
+$email = $_POST["email"];
+$username = $_POST["user"];
+$password = md5($_POST["pass"]);
 
-if ($_POST['pass'] == $_SESSION['pass']) {
+
+if (isEmailDuplicate($connect, $email, $id)) {
+    echo json_encode(array("status" => false, "msg" => "The email address you entered is already exist."));
+} else if (isUsernameDuplicate($connect, $username, $id)) {
+    echo json_encode(array("status" => false, "msg" => "The username you entered is already exist."));
+} else if ($password == $_SESSION['password']) {
 
     $select = "SELECT * FROM user_account WHERE acc_no = $id";
-	$result = mysqli_query($connect,$select);
-    while($row = mysqli_fetch_assoc($result)){
+    $result = mysqli_query($connect, $select);
+    while ($row = mysqli_fetch_assoc($result)) {
         $type = $row["type"];
         $stats = $row["verification"];
     }
@@ -21,37 +29,33 @@ if ($_POST['pass'] == $_SESSION['pass']) {
             $npassValid = true;
         }
     }
-    $email = $_POST["email"];
+
     $first = $_POST["first"];
     $last = $_POST["last"];
     $pnum = $_POST["contact"];
     $bday = $_POST["dob"];
     $add = $_POST["address"];
 
-    $query = "UPDATE user_account SET email = '$email', first = '$first', last = '$last',  contact_no = '$pnum', birthday = '$bday', address = '$add', ";
+    $query = "UPDATE user_account SET email = '$email', first = '$first', last = '$last',  contact_no = '$pnum', birthday = '$bday', address = '$add', username = '$username', ";
 
     if ($_FILES["image"]["error"] == 0 && $_FILES["image"]["size"] != 0) {
         $img = base64_encode(file_get_contents(addslashes($_FILES["image"]["tmp_name"])));
         $query .= "image = '$img', ";
     }
-    if($type == 'student'){
-        if (isset($_POST["studno"])){
-            $studno = $_POST["studno"];
-            $query .= "stud_no = '$studno', ";
-        }
-        if (isset($_POST["college"])){
+    if ($type == 'student') {
+        if (isset($_POST["college"])) {
             $col = $_POST["college"];
             $query .= "college = '$col', ";
         }
-        if (isset($_POST["course"])){
+        if (isset($_POST["course"])) {
             $course = $_POST["course"];
             $query .= "course = '$course', ";
         }
-        if (isset($_POST["year"])){
+        if (isset($_POST["year"])) {
             $yr = $_POST["year"];
             $query .= "year = '$yr', ";
         }
-        if (isset($_POST["section"])){
+        if (isset($_POST["section"])) {
             $sec = $_POST["section"];
             $query .= "section = '$sec', ";
         }
@@ -61,9 +65,9 @@ if ($_POST['pass'] == $_SESSION['pass']) {
             $corpdf_size = $_FILES['cor']['size']; //additional codes para sa PDF
             $corpdf_tem_loc = $_FILES['cor']['tmp_name']; //additional codes para sa PDF
             $corpdf_store = "../files/" . $corpdf; //additional codes para sa PDF
-    
+
             $query .= "cor = '$corpdf', ";
-    
+
             move_uploaded_file($corpdf_tem_loc, $corpdf_store);
         }
     }
@@ -109,7 +113,7 @@ if ($_POST['pass'] == $_SESSION['pass']) {
 
         move_uploaded_file($v_idpdf_tem_loc, $v_idpdf_store);
     }
-    if($stats == "unverified"){
+    if ($stats == "unverified") {
         $stats = 'pending';
         $query .= "verification = '$stats', ";
     }
@@ -137,4 +141,19 @@ if ($_POST['pass'] == $_SESSION['pass']) {
     }
 } else {
     echo json_encode(array("status" => false, "msg" => "Incorrect Password"));
+}
+
+
+function isEmailDuplicate($connect, $email, $id)
+{
+    $query = "SELECT acc_temp.acc_no, user_account.acc_no FROM acc_temp, user_account WHERE (acc_temp.email='$email' AND acc_temp.acc_no != '$id') OR (user_account.email='$email' AND user_account.acc_no != '$id')";
+    $result = mysqli_query($connect, $query);
+    return mysqli_num_rows($result);
+}
+
+function isUsernameDuplicate($connect, $username, $id)
+{
+    $query = "SELECT acc_temp.acc_no, user_account.acc_no FROM acc_temp, user_account WHERE (acc_temp.username='$username' AND acc_temp.acc_no != '$id') OR (user_account.username='$username' AND user_account.acc_no != '$id')";
+    $result = mysqli_query($connect, $query);
+    return mysqli_num_rows($result);
 }

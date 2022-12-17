@@ -30,7 +30,6 @@ if ($row = mysqli_fetch_assoc($result)) {
     $pass = $row['password'];
     $email = $row['email'];
     $type = $row['type'];
-    // $vcode = $row['v_code'];
     $img = $row['image'];
     $cor = $row['cor'];
     $v_id = $row['valid_id'];
@@ -206,7 +205,7 @@ $bday = date_format($date, "Y-m-d");
                                             <div class="col-md-6">
                                                 <div class="mb-3">
                                                     <h6 for="studno" class="form-label">Student Number</h6>
-                                                    <input type="text" class="form-control" name="studno" id="studno" value="<?php echo ($studno); ?>">
+                                                    <input type="text" class="form-control" name="studno" id="studno" value="<?php echo ($studno); ?>" readonly>
                                                 </div>
                                             </div>
                                             <div class="col-md-3">
