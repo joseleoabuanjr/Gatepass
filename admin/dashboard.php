@@ -40,9 +40,9 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                 <h3>Time In - Out</h3>
                 <div>
                     <select class="form-select" id="timeStatus">
-                        <option value="day">Last 7 Days</option>
+                        <option value="day" selected>Last 7 Days</option>
                         <option value="month">Month</option>
-                        <option value="year" selected>Year</option>
+                        <option value="year">Year</option>
                     </select>
                 </div>
             </div>
