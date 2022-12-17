@@ -4,30 +4,49 @@ $(document).ready(function () {
     $("#errorAlert").hide();
     $("#successAlert").hide();
     $("#registerSpinner").hide();
+    $(".alertWarning").hide();
+
     var progress = 50;
     $(".nextBtn").click(function (e) {
         e.preventDefault();
+        var ctr = $(this).data("ctr");
+        $(".alertWarning").hide()
         var form = $("#registrationForm")[0];
         console.log($("#registrationForm"));
         if (form[1].checkValidity()) {
             if (form[3].checkValidity()) {
                 if (form[4].checkValidity()) {
-                    if (form[5].checkValidity()) {
-                        if (form[6].checkValidity()) {
-                            if (form[7].checkValidity()) {
-                                var ctr = $(this).data("ctr");
-                                $("#step" + ctr).hide();
-                                $("#step" + (parseInt(ctr) + 1)).fadeIn();
-                                $(".progress-bar").width((progress += 50) + "%");
+                    $.ajax({
+                        type: "POST",
+                        url: "../../function/validateInput.php",
+                        data: { checkDuplicateEmail: $("#email").val() },
+                        dataType: "json",
+                        success: function (response) {
+                            if (response.status) {
+                                $(".alertWarning").html(response.msg);
+                                $(".alertWarning").fadeIn();
                             } else {
-                                form[7].reportValidity()
+                                if (form[5].checkValidity()) {
+                                    if (form[6].checkValidity()) {
+                                        if (form[7].checkValidity()) {
+                                            $("#step" + ctr).hide();
+                                            $("#step" + (parseInt(ctr) + 1)).fadeIn();
+                                            $(".progress-bar").width((progress += 50) + "%");
+                                        } else {
+                                            form[7].reportValidity()
+                                        }
+                                    } else {
+                                        form[6].reportValidity()
+                                    }
+                                } else {
+                                    form[5].reportValidity()
+                                }
                             }
-                        } else {
-                            form[6].reportValidity()
+                        }, error: function (response) {
+                            console.error(response);
                         }
-                    } else {
-                        form[5].reportValidity()
-                    }
+                    });
+
                 } else {
                     form[4].reportValidity()
                 }

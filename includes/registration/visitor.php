@@ -72,6 +72,7 @@
                             </div>
                         </div>
                     </div>
+                    <div class="alert alert-warning alertWarning"></div>
                     <div class="d-grid gap-2 d-md-flex justify-content-md-between">
                         <div class="form-text fw-bolder">Already have an account? <a href="../../index.php" class="text-info text-decoration-none" style="cursor: pointer;">Log in</a></div>
                         <button class="btn btn-primary me-md-2 px-5 nextBtn" data-ctr="1" type="button">Next</button>

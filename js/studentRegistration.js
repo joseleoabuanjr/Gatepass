@@ -15,7 +15,6 @@ $(document).ready(function () {
             alert("Please Input a valid contact number.");
             return false;
         }
-        console.log($("#registrationForm"));
         var form = $("#registrationForm")[0];
         if (form[1].checkValidity()) {
             if (form[3].checkValidity()) {
@@ -59,16 +58,12 @@ $(document).ready(function () {
         } else {
             form[1].reportValidity()
         }
-
-
-
     });
 
     $(".nextBtn-2").click(function (e) {
         e.preventDefault();
         var ctr = $(this).data("ctr");
         $(".alertWarning").hide()
-        console.log($("#registrationForm"));
         var form = $("#registrationForm")[0];
         if (form[9].checkValidity()) {
             $.ajax({
@@ -135,7 +130,6 @@ $(document).ready(function () {
                 processData: false,
                 dataType: 'json',
                 success: function (response) {
-                    console.log(response);
                     if (response.status) {
                         $("#successAlert").fadeIn();
                         $("#registrationForm").trigger("reset");
