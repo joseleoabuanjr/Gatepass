@@ -30,115 +30,114 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 
 <body>
     <?php require_once '../includes/navbar-admin.php'; ?>
-        <div class="container" style="padding-bottom:20px;">
-            <header class="pb-3 mb-4 border-bottom mt-5">
-                <div class="d-flex align-items-center text-dark text-decoration-none">
-                    <span class="fs-3">Verification of Accounts</span>
-                </div>
-            </header>
-            <div class="card">
-                <div class="card-header" style="background-color: #4F4F4B; color:white;">
-                    <div class="row align-items-center">
-                        <div class="col col-sm-8 ps-5 py-2"></div>
-                        <div class="col col-sm-3">
-                        </div>
-                        <div class="col col-sm-auto p-0"></div>
+    <div class="container" style="padding-bottom:20px;">
+        <header class="pb-3 mb-4 border-bottom mt-5">
+            <div class="d-flex align-items-center text-dark text-decoration-none">
+                <span class="fs-3">Verification of Accounts</span>
+            </div>
+        </header>
+        <div class="card">
+            <div class="card-header" style="background-color: #4F4F4B; color:white;">
+                <div class="row align-items-center">
+                    <div class="col col-sm-8 ps-5 py-2"></div>
+                    <div class="col col-sm-3">
                     </div>
+                    <div class="col col-sm-auto p-0"></div>
                 </div>
-                <div class="card-body">
-                    <div class="container table-responsive">
-                        <table class="table pt-2 shadow table-striped table-hover display compact" id="accountVerificationTable">
-                            <thead>
-                                <tr class="text-bg-warning"style="background-color: #4F4F4B; color:white;">
-                                    <th class="text-center">Account Number</th>
-                                    <th class="text-center">Name</th>
-                                    <th class="text-center">Account Type</th>
-                                    <th class="text-center">Student Number</th>
-                                    <th class="text-center">Employee Number</th>
-                                    <th class="text-center">Contact Number</th>
-                                    <th class="text-center">Profile Picture</th>
-                                    <th class="text-center">Certificate of Registration</th>
-                                    <th class="text-center">Valid ID</th>
-                                    <th class="text-center">Vaccination Card</th>
-                                    <th class="text-center">Actions</th>
-                                </tr>
-                            </thead>
+            </div>
+            <div class="card-body">
+                <div class="container table-responsive">
+                    <table class="table pt-2 shadow table-striped table-hover display compact" id="accountVerificationTable">
+                        <thead>
+                            <tr class="text-bg-warning" style="background-color: #4F4F4B; color:white;">
+                                <th class="text-center">Account Number</th>
+                                <th class="text-center">Name</th>
+                                <th class="text-center">Account Type</th>
+                                <th class="text-center">Student Number</th>
+                                <th class="text-center">Employee Number</th>
+                                <th class="text-center">Contact Number</th>
+                                <th class="text-center">Profile Picture</th>
+                                <th class="text-center">Certificate of Registration</th>
+                                <th class="text-center">Valid ID</th>
+                                <th class="text-center">Vaccination Card</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
 
-                            <tbody>
-                                <?php
-                                //connect to database
-                                require_once "../function/connect.php";
+                        <tbody>
+                            <?php
+                            //connect to database
+                            require_once "../function/connect.php";
 
-                                $col = $_SESSION["department"];
+                            $col = $_SESSION["department"];
 
-                                //read all row from database table
-                                $select = "SELECT * FROM user_account WHERE verification = 'pending' AND college ='$col' AND type = 'student'";
-                                $result = mysqli_query($connect, $select);
+                            //read all row from database table
+                            $select = "SELECT * FROM user_account WHERE verification = 'pending' AND college ='$col' AND type = 'student'";
+                            $result = mysqli_query($connect, $select);
 
-                                if (!$result) {
-                                    die("Invalid query: " . $connect->connect_error);
-                                }
+                            if (!$result) {
+                                die("Invalid query: " . $connect->connect_error);
+                            }
 
-                                $count = 0;
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $cor = $row["cor"];
-                                    $vax = $row["vax"];
-                                    $v_id = $row["valid_id"];
-                                    echo ("
+                            $count = 0;
+                            while ($row = mysqli_fetch_assoc($result)) {
+                                $cor = $row["cor"];
+                                $vax = $row["vax"];
+                                $v_id = $row["valid_id"];
+                                echo ("
                                                 <tr class='text-center'>
                                                     <td>" . $row["acc_no"] . "</td>
                                                     <td class='text-capitalize'>" . $row["first"] . " " . $row["middle"] . ". " . $row["last"] . "</td>
                                                     <td class='text-capitalize'>" . $row["type"] . "</td>
                                             ");
-                                    if ($row["type"] == "student") {
-                                        echo ("
-                                                <td>".$row['stud_no']."</td>
+                                if ($row["type"] == "student") {
+                                    echo ("
+                                                <td>" . $row['stud_no'] . "</td>
                                                 <td>N/A</td>
-                                                <td>".$row["contact_no"]."</td>
-                                                <td> <a class='btn btn-secondary btn-sm' target='_blank' href='../viewpfp.php?id=" . $row["acc_no"] . "'>View</a> </td>
-                                                <td> <a class='btn btn-secondary btn-sm' target='_blank' href='../viewcor.php?id=" . $row["acc_no"] . "'>View</a> </td>
-                                                <td> <a class='btn btn-secondary btn-sm' target='_blank' href='../view_vid.php?id=" . $row["acc_no"] . "'> View </a></td>
-                                                <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
+                                                <td>" . $row["contact_no"] . "</td>
+                                                <td><button class='btn btn-secondary btn-sm previewImageBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                                                <td><button class='btn btn-secondary btn-sm previewCORBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                                                <td><button class='btn btn-secondary btn-sm previewVIDBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                                                <td><button class='btn btn-secondary btn-sm previewVAXBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
                                             ");
-                                        
-                                    } else if ($row["type"] == "employee" || "visitor") {
-                                        echo"<td>N/A</td>";
-                                        if ($row["type"] == "employee") {
-                                            echo "<td>".$row['emp_no']."</td>";
-                                        }else{
-                                            echo "<td>N/A</td>";
-                                        }
-                                            echo"    
-                                                <td>".$row["contact_no"]."</td>
-                                                <td> <a class='btn btn-secondary btn-sm' target='_blank' href='../viewpfp.php?id=" . $row["acc_no"] . "'>View</a> </td>
+                                } else if ($row["type"] == "employee" || "visitor") {
+                                    echo "<td>N/A</td>";
+                                    if ($row["type"] == "employee") {
+                                        echo "<td>" . $row['emp_no'] . "</td>";
+                                    } else {
+                                        echo "<td>N/A</td>";
+                                    }
+                                    echo "    
+                                                <td>" . $row["contact_no"] . "</td>
+                                                <td><button class='btn btn-secondary btn-sm previewImageBtn' data-id='" . $row["acc_no"] . "'> </td>
                                         ";
-                                        if ($v_id == "" || NULL && $vax == "" || NULL) {
-                                            echo ("
+                                    if ($v_id == "" || NULL && $vax == "" || NULL) {
+                                        echo ("
                                                     <td>N/A</td><td>N/A</td><td>N/A</td>
                                                 ");
+                                    } else {
+                                        if ($v_id == "" || NULL && !($vax == "" || NULL)) {
+                                            echo ("
+                                                        <td>N/A</td>
+                                                        <td>N/A</td>
+                                                        <td><button class='btn btn-secondary btn-sm previewVAXBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                                                    ");
+                                        } else if ($vax == "" || NULL && !($v_id == "" || NULL)) {
+                                            echo ("
+                                                        <td>N/A</td>
+                                                        <td><button class='btn btn-secondary btn-sm previewVIDBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                                                        <td>N/A</td>
+                                                    ");
                                         } else {
-                                            if ($v_id == "" || NULL && !($vax == "" || NULL)) {
-                                                echo ("
+                                            echo ("
                                                         <td>N/A</td>
-                                                        <td>N/A</td>
-                                                        <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
+                                                        <td><button class='btn btn-secondary btn-sm previewVIDBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                                                        <td><button class='btn btn-secondary btn-sm previewVAXBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
                                                     ");
-                                            } else if ($vax == "" || NULL && !($v_id == "" || NULL)) {
-                                                echo ("
-                                                        <td>N/A</td>
-                                                        <td><a class='btn btn-secondary btn-sm' target='_blank' href='../view_vid.php?id=" . $row["acc_no"] . "'>View</a></td>
-                                                        <td>N/A</td>
-                                                    ");
-                                            } else {
-                                                echo ("
-                                                        <td>N/A</td>
-                                                        <td><a class='btn btn-secondary btn-sm' target='_blank' href='../view_vid.php?id=" . $row["acc_no"] . "'>View</a></td>
-                                                        <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
-                                                    ");
-                                            }
                                         }
                                     }
-                                    echo "<td>
+                                }
+                                echo "<td>
                                                 <!-- Button trigger modal -->
                                                 <div class='btn-group' role='group'>
                                                     <button type='button' class='btn btn-primary statusBtn btn-sm' data-status='approve' data-accno='" . $row['acc_no'] . "'>Approve</button>
@@ -146,14 +145,14 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                                                 </div>
                                             </td>
                                         </tr>";
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
+                            }
+                            ?>
+                        </tbody>
+                    </table>
                 </div>
             </div>
         </div>
+    </div>
     <!-- Status Modal -->
     <div class="modal fade py-5" tabindex="-1" id="statusModal">
         <div class="modal-dialog">
@@ -178,6 +177,26 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
         </div>
     </div>
     <!-- Status modal -->
+
+    <div class="modal fade" tabindex="-1" id="previewFile">
+        <div class="modal-dialog modal-lg bg-dark">
+            <div class="modal-content">
+                <div class="modal-body vh-100">
+                    <embed type="application/pdf" id="previewFileContent" src="" width="100%" height="100%">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" id="previewImage">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark">
+                <div class="modal-body h-auto mx-auto">
+                    <img src="" id="previewImageContent" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="../js/table2.js"></script>
 </body>

@@ -2,6 +2,69 @@ $(document).ready(function () {
     $("#fPSpinner").hide();
     $("#errorAlert").hide();
 
+    $(".previewImageBtn").click(function (e) {
+        e.preventDefault();
+        var id = $(this).data("id");
+        $.ajax({
+            type: "POST",
+            url: "../viewpfp.php",
+            data: { getImage: true, id: id },
+            success: function (response) {
+                $("#previewImageContent").attr("src", "data:image;base64," + response);
+                $("#previewImage").modal("show");
+            },error: function (response) {
+                console.error(response);
+            }
+        });
+    });
+
+    $(".previewVIDBtn").click(function (e) {
+        e.preventDefault();
+        var id = $(this).data("id");
+        $.ajax({
+            type: "POST",
+            url: "../viewpfp.php",
+            data: { getVID: true, id: id },
+            success: function (response) {
+                $("#previewImageContent").attr("src", "../files/" + response);
+                $("#previewImage").modal("show");
+            },error: function (response) {
+                console.error(response);
+            }
+        });
+    });
+
+    $(".previewVAXBtn").click(function (e) {
+        e.preventDefault();
+        var id = $(this).data("id");
+        $.ajax({
+            type: "POST",
+            url: "../viewpfp.php",
+            data: { getVAX: true, id: id },
+            success: function (response) {
+                $("#previewImageContent").attr("src", "../files/" + response);
+                $("#previewImage").modal("show");
+            },error: function (response) {
+                console.error(response);
+            }
+        });
+    });
+
+    $(".previewCORBtn").click(function (e) {
+        e.preventDefault();
+        var id = $(this).data("id");
+        $.ajax({
+            type: "POST",
+            url: "../viewpfp.php",
+            data: { getCOR: true, id: id },
+            success: function (response) {
+                $("#previewFileContent").attr("src", "../files/" + response);
+                $("#previewFile").modal("show");
+            }
+        });
+    });
+
+
     $(".statusBtn").click(function (e) {
         e.preventDefault();
         var accno = $(this).data("accno");

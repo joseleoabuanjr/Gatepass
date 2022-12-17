@@ -10,11 +10,12 @@ $(document).ready(function () {
         e.preventDefault();
         var ctr = $(this).data("ctr");
         $(".alertWarning").hide()
-        var contact = document.forms["formReg"]["contactNumber"].value;
-        if (isNaN(contact)) {
-            alert("Please Input a valid contact number.");
-            return false;
-        }
+        // var contact = document.forms["formReg"]["contactNumber"].value;
+        // if (isNaN(contact)) {
+        //     alert("Please Input a valid contact number.");
+        //     return false;
+        // }
+        console.log($("#registrationForm"));
         var form = $("#registrationForm")[0];
         if (form[1].checkValidity()) {
             if (form[3].checkValidity()) {
@@ -30,17 +31,24 @@ $(document).ready(function () {
                                 $(".alertWarning").fadeIn();
                             } else {
                                 if (form[5].checkValidity()) {
-                                    if (form[6].checkValidity()) {
-                                        if (form[7].checkValidity()) {
-                                            $("#step" + ctr).hide();
-                                            $("#step" + (parseInt(ctr) + 1)).fadeIn();
-                                            $(".progress-bar").width((progress += 33.33) + "%");
+                                    var cont = $("#contactNum").val();
+                                    if (!isNaN(cont)) {
+                                        if (form[6].checkValidity()) {
+                                            if (form[7].checkValidity()) {
+                                                $("#step" + ctr).hide();
+                                                $("#step" + (parseInt(ctr) + 1)).fadeIn();
+                                                $(".progress-bar").width((progress += 33.33) + "%");
+                                            } else {
+                                                form[7].reportValidity()
+                                            }
                                         } else {
-                                            form[7].reportValidity()
+                                            form[6].reportValidity()
                                         }
                                     } else {
-                                        form[6].reportValidity()
+                                        $(".alertWarning").html("Please Input a valid contact number.");
+                                        $(".alertWarning").fadeIn();
                                     }
+
                                 } else {
                                     form[5].reportValidity()
                                 }
