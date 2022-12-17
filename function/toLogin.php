@@ -1,7 +1,7 @@
 <?php
 session_start();
 	$user = $_POST["username"];
-	$pass = md5($_POST["password"]);
+	$pass = ($_POST["password"]);
 
 include 'connect.php';
 

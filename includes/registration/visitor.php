@@ -21,13 +21,14 @@
             <div class="progress mb-3" style="height: 4px;">
                 <div class="progress-bar" role="progressbar" style="width: 50%;"></div>
             </div>
+            <i>Note: All fields indicated with an asterisk (*) are required.</i>
             <form id="registrationForm">
                 <input type="hidden" name="userType" value="visitor">
                 <div id="step1">
                     <div class="row row-cols-1 row-cols-md-3 g-2">
                         <div class="col">
                             <div class="mb-3">
-                                <label for="firstName" class="form-label">First Name</label>
+                                <label for="firstName" class="form-label">First Name *</label>
                                 <input type="text" class="form-control" name="first" id="firstName" required>
                             </div>
                         </div>
@@ -39,7 +40,7 @@
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <label for="lastName" class="form-label">Last Name</label>
+                                <label for="lastName" class="form-label">Last Name *</label>
                                 <input type="text" class="form-control" name="last" id="lastName" required>
                             </div>
                         </div>
@@ -47,19 +48,19 @@
                     <div class="row row-cols-1 row-cols-md-3 g-2">
                         <div class="col">
                             <div class="mb-3">
-                                <label for="email" class="form-label">Email Address</label>
+                                <label for="email" class="form-label">Email Address *</label>
                                 <input type="email" class="form-control" name="email" id="email" required email>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <label for="contactNumber" class="form-label">Contact Number</label>
+                                <label for="contactNumber" class="form-label">Contact Number *</label>
                                 <input type="text" class="form-control" placeholder="Ex: 09123456789" name="contact" id="contactNumber" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <label for="birthdate" class="form-label">Date of Birth</label>
+                                <label for="birthdate" class="form-label">Date of Birth *</label>
                                 <input type="date" class="form-control" name="dob" id="birthdate" required>
                             </div>
                         </div>
@@ -67,7 +68,7 @@
                     <div class="row g-2">
                         <div class="col">
                             <div class="mb-3">
-                                <label for="address" class="form-label">Address</label>
+                                <label for="address" class="form-label">Address *</label>
                                 <input type="text" class="form-control" name="address" id="address" required>
                             </div>
                         </div>
@@ -82,20 +83,20 @@
                     <div class="row row-cols-1 row-cols-md-3 g-2">
                         <div class="col">
                             <div class="mb-3">
-                                <label for="username" class="form-label">Username</label>
+                                <label for="username" class="form-label">Username *</label>
                                 <input type="text" class="form-control" name="username" id="username" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <label for="password" class="form-label">Password</label>
+                                <label for="password" class="form-label">Password *</label>
                                 <input type="password" class="form-control" name="pass" id="password" required minlength="8">
                                 <!-- <small class="text-secondary">Password must be at least 8 characters </small> -->
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <label for="confirmPassword" class="form-label">Confirm Password</label>
+                                <label for="confirmPassword" class="form-label">Confirm Password *</label>
                                 <input type="password" class="form-control" name="confirmPassword" id="confirmPassword" required>
                             </div>
                         </div>
@@ -103,19 +104,19 @@
                     <div class="row row-cols-1 row-cols-md-3 g-2">
                         <div class="col">
                             <div class="mb-3">
-                                <label for="profile" class="form-label">Account Profile Picture</label>
+                                <label for="profile" class="form-label">Account Profile Picture *</label>
                                 <input type="file" accept="image/*" class="form-control" name="image" id="profile" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <label for="vax" class="form-label">Vaccination Card</label>
+                                <label for="vax" class="form-label">Vaccination Card *</label>
                                 <input type="file" accept="image/*" class="form-control" name="vax" id="vax" required>
                             </div>
                         </div>
                         <div class="col">
                             <div class="mb-3">
-                                <label for="vid" class="form-label">Valid ID Card</label>
+                                <label for="vid" class="form-label">Valid ID Card *</label>
                                 <input type="file" accept="image/*" class="form-control" name="vid" id="vid" required>
                             </div>
                         </div>
