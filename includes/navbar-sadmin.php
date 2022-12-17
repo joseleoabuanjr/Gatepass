@@ -32,7 +32,7 @@ $c =  mysqli_num_rows($r);
                     <a class="nav-link" href="user.php" id="tl1">Users</a>
                     <a class="nav-link position-relative" href="verification.php" id="tl2">Verifications<?php if($c != 0){
                             echo '<span class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger">
-                            '.$count.'</span>';
+                            '.$c.'</span>';
                         } ?></a>
                     <a class="nav-link position-relative" href="appointment.php" id="tl3">Appointments
                         <?php if($count != 0){
