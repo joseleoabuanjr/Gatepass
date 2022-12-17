@@ -65,8 +65,8 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
             </div>
         </div>
     </div>
-    <!-- Javascript -->
 
+    <!-- Javascript -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
@@ -103,6 +103,9 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                 $.ajax({
                     type: "POST",
                     url: "../function/getTimeInOut.php",
+                    data: {
+                        admin: true
+                    },
                     dataType: "JSON",
                     success: function(response) {
                         var filtered = response.filter(function(x) {
