@@ -4,9 +4,12 @@ $(document).ready(function () {
     $("#errorAlert").hide();
     $("#successAlert").hide();
     $("#registerSpinner").hide();
+    $(".alertWarning").hide();
     var progress = 33.33;
     $(".nextBtn-1").click(function (e) {
         e.preventDefault();
+        var ctr = $(this).data("ctr");
+        $(".alertWarning").hide()
         var contact = document.forms["formReg"]["contactNumber"].value;
         if (isNaN(contact)) {
             alert("Please Input a valid contact number.");
@@ -17,22 +20,36 @@ $(document).ready(function () {
         if (form[1].checkValidity()) {
             if (form[3].checkValidity()) {
                 if (form[4].checkValidity()) {
-                    if (form[5].checkValidity()) {
-                        if (form[6].checkValidity()) {
-                            if (form[7].checkValidity()) {
-                                var ctr = $(this).data("ctr");
-                                $("#step" + ctr).hide();
-                                $("#step" + (parseInt(ctr) + 1)).fadeIn();
-                                $(".progress-bar").width((progress += 33.33) + "%");
+                    $.ajax({
+                        type: "POST",
+                        url: "../../function/validateInput.php",
+                        data: { checkDuplicateEmail: $("#email").val() },
+                        dataType: "json",
+                        success: function (response) {
+                            if (response.status) {
+                                $(".alertWarning").html(response.msg);
+                                $(".alertWarning").fadeIn();
                             } else {
-                                form[7].reportValidity()
+                                if (form[5].checkValidity()) {
+                                    if (form[6].checkValidity()) {
+                                        if (form[7].checkValidity()) {
+                                            $("#step" + ctr).hide();
+                                            $("#step" + (parseInt(ctr) + 1)).fadeIn();
+                                            $(".progress-bar").width((progress += 33.33) + "%");
+                                        } else {
+                                            form[7].reportValidity()
+                                        }
+                                    } else {
+                                        form[6].reportValidity()
+                                    }
+                                } else {
+                                    form[5].reportValidity()
+                                }
                             }
-                        } else {
-                            form[6].reportValidity()
+                        }, error: function (response) {
+                            console.error(response);
                         }
-                    } else {
-                        form[5].reportValidity()
-                    }
+                    });
                 } else {
                     form[4].reportValidity()
                 }
@@ -49,30 +66,46 @@ $(document).ready(function () {
 
     $(".nextBtn-2").click(function (e) {
         e.preventDefault();
+        var ctr = $(this).data("ctr");
+        $(".alertWarning").hide()
         console.log($("#registrationForm"));
         var form = $("#registrationForm")[0];
         if (form[9].checkValidity()) {
-            if (form[10].checkValidity()) {
-                if (form[11].checkValidity()) {
-                    if (form[12].checkValidity()) {
-                        if (form[13].checkValidity()) {
-                            var ctr = $(this).data("ctr");
-                            $("#step" + ctr).hide();
-                            $("#step" + (parseInt(ctr) + 1)).fadeIn();
-                            $(".progress-bar").width((progress += 33.33) + "%");
-
-                        } else {
-                            form[13].reportValidity()
-                        }
+            $.ajax({
+                type: "POST",
+                url: "../../function/validateInput.php",
+                data: { checkDuplicateIDNo: $("#studentNo").val() },
+                dataType: "json",
+                success: function (response) {
+                    if (response.status) {
+                        $(".alertWarning").html(response.msg);
+                        $(".alertWarning").fadeIn();
                     } else {
-                        form[12].reportValidity()
+                        if (form[10].checkValidity()) {
+                            if (form[11].checkValidity()) {
+                                if (form[12].checkValidity()) {
+                                    if (form[13].checkValidity()) {
+                                        $("#step" + ctr).hide();
+                                        $("#step" + (parseInt(ctr) + 1)).fadeIn();
+                                        $(".progress-bar").width((progress += 33.33) + "%");
+
+                                    } else {
+                                        form[13].reportValidity()
+                                    }
+                                } else {
+                                    form[12].reportValidity()
+                                }
+                            } else {
+                                form[11].reportValidity()
+                            }
+                        } else {
+                            form[10].reportValidity()
+                        }
                     }
-                } else {
-                    form[11].reportValidity()
+                }, error: function (response) {
+                    console.error(response);
                 }
-            } else {
-                form[10].reportValidity()
-            }
+            });
         } else {
             form[9].reportValidity()
         }
