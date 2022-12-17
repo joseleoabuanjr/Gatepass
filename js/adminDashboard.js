@@ -144,7 +144,7 @@ $(document).ready(function () {
             }, {
                 label: ["OUT"],
                 data: [67, 94, 36, 64, 37, 94, 14],
-                backgroundColor: ['#ffff0115'],
+                backgroundColor: ['#30303082'],
                 // borderColor: 'gray',
                 fill: true,
                 tension: 0.4

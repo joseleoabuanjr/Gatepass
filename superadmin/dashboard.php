@@ -19,14 +19,6 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
 
-    <!-- Javascript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script src="../js/dashboardSA.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#userAccountsTable, #accountVerificationTable, #appointmentRequestTable, #timeinoutTable").DataTable();
-        });
     </script>
 </head>
 
@@ -34,126 +26,77 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
     <?php require_once '../includes/navbar-sadmin.php'; ?>
     <div class="container" style="padding-bottom:20px;">
         <header class="pb-3 mb-4 border-bottom mt-5">
-            <div class="d-flex align-items-center text-dark text-decoration-none">
-                <span class="fs-3">Dashboard</span>
-            </div>
+            <div class="fs-3">Dashboard</div>
         </header>
-        <div class="row mb-2">
-            <h5>No. of Pending Accounts for Verification: </h5>
+        <div class="mb-3">
+            <div class="d-flex justify-content-between">
+                <h3>Time In - Out</h3>
+                <div>
+                    <select class="form-select" id="timeStatus">
+                        <option value="day" selected>Last 7 Days</option>
+                        <option value="month">Month</option>
+                        <option value="year">Year</option>
+                    </select>
+                </div>
+            </div>
+            <div style="height: 289px;">
+                <canvas id="chart1"></canvas>
+            </div>
         </div>
-        <div class="row mb-2">
+        <h5>Pending Accounts for Verification</h5>
+        <div class="row row-cols-3 g-3 mb-4">
             <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h5>Students</h5>
-                            </div>
-                            <div class="col">
-                                <h5><span id="pendingStudents"></h5>
-                            </div>
-                        </div>
+                <div class="p-4 text-bg-dark shadow-sm">
+                    <h3>Student</h3>
+                    <div class="display-3 text-end" id="pendingStudents">0</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="p-4 text-bg-dark shadow-sm">
+                    <h3>Employee</h3>
+                    <div class="display-3 text-end" id="pendingEmployees">0</div>
+                </div>
+            </div>
+            <div class="col">
+                <div class="p-4 text-bg-dark shadow-sm">
+                    <h3>Visitor</h3>
+                    <div class="display-3 text-end" id="pendingVisitors">0</div>
+                </div>
+            </div>
+        </div>
 
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h5>Employees</h5>
-                            </div>
-                            <div class="col">
-                                <h5><span id="pendingEmployees"></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h5>Visitors</h5>
-                            </div>
-                            <div class="col">
-                                <h5><span id="pendingVisitors"></h5>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
         <!-- APPOINTMENTS -->
-        <div class="row mb-2">
-            <h5>No. of Pending Appointments: </h5>
-        </div>
-        <div class="row mb-2">
+        <h5>Pending Appointments</h5>
+        <div class="row row-cols-3 g-3">
             <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h5>Students</h5>
-                            </div>
-                            <div class="col">
-                                <h5><span id="pendingApptStudents"></h5>
-                            </div>
-                        </div>
-
-                    </div>
+                <div class="p-4 text-bg-dark shadow-sm">
+                    <h3>Student</h3>
+                    <div class="display-3 text-end" id="pendingApptStudents">0</div>
                 </div>
             </div>
             <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h5>Employees</h5>
-                            </div>
-                            <div class="col">
-                                <h5><span id="pendingApptEmployees"></h5>
-                            </div>
-                        </div>
-                    </div>
+                <div class="p-4 text-bg-dark shadow-sm">
+                    <h3>Employee</h3>
+                    <div class="display-3 text-end" id="pendingApptEmployees">0</div>
                 </div>
             </div>
             <div class="col">
-                <div class="card">
-                    <div class="card-body">
-                        <div class="row">
-                            <div class="col">
-                                <h5>Visitors</h5>
-                            </div>
-                            <div class="col">
-                                <h5><span id="pendingApptVisitors"></h5>
-                            </div>
-                        </div>
-                    </div>
+                <div class="p-4 text-bg-dark shadow-sm">
+                    <h3>Visitor</h3>
+                    <div class="display-3 text-end" id="pendingApptVisitors">0</div>
                 </div>
             </div>
         </div>
-        <!-- TABLE -->
-        <!-- <div class="row">
-            <div class="col">
-                <div class="card">
-                    <div class="card-header" style="background-color: #4F4F4B; color:white;">
-                        <div class="row align-items-center">
-                            <div class="col col-sm-8 ps-5 py-2"></div>
-                            <div class="col col-sm-3">
-                            </div>
-                            <div class="col col-sm-auto p-0"></div>
-                        </div>
-                    </div>
-                    <div class="card-body">
-                        Table ng nag time in
-                    </div>
-                </div>
-            </div>
-        </div> -->
 
+    </div>
 </body>
+
+<!-- Javascript -->
+<script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+<script src="../js/dashboardSA.js"></script>
 
 </html>

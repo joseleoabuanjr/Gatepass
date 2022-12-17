@@ -1,6 +1,22 @@
 <?php
 require 'connect.php';
 
+if (isset($_POST["getTimeInOut"])) {
+    $query = "SELECT * FROM time_inout WHERE type = 'student' ORDER BY time DESC";
+    $result = mysqli_query($connect, $query);
+    $data = array();
+    if (mysqli_num_rows($result)) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $data[] = (object) [
+                "type" => $row['type'],
+                "in_out" => $row['in_out'],
+                "time" => $row['time']
+            ];
+        }
+    }
+    echo json_encode((array) $data);
+}
+
 if (isset($_POST['getPendingStudents'])) {
     $sql = "SELECT COUNT(acc_no) as pendingStudents
         FROM user_account
