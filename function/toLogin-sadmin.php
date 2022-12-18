@@ -2,7 +2,6 @@
 session_start();
 $user = $_POST["username"];
 $pass = md5($_POST["password"]);
-$p = $_POST["password"];
 
 include 'connect.php';
 
@@ -37,7 +36,6 @@ if ($count == 1) {
 			$_SESSION["accno"] = $row["acc_no"];
 			$_SESSION["username"] = $user;
 			$_SESSION["password"] = $pass;
-			$_SESSION["pass"] = $p;
 		}
 		echo json_encode(array("status" => true, "location" => "verification.php?id=$id"));
 		// header("refresh: 0; url=../verification.php?id=$id");
@@ -51,7 +49,6 @@ if ($count == 1) {
 				$_SESSION["accno"] = $row["acc_no"];
 				$_SESSION["username"] = $user;
 				$_SESSION["password"] = $pass;
-				$_SESSION["pass"] = $p;
 			}
 			$pageid = $_SESSION["accno"];
 			echo json_encode(array("status" => true, "location" => "dashboard.php"));
