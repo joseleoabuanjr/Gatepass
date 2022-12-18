@@ -50,7 +50,7 @@ $c =  mysqli_num_rows($r);
                                 More
                             </a>
                             <ul class="dropdown-menu">
-                                <li><a class="dropdown-item" href="../scanner.php">Kiosk Scanner</a></li>
+                                <li><a class="dropdown-item" href="../scanner.php">QR Scanner</a></li>
                             </ul>
                         </div>');
                     }

@@ -57,7 +57,7 @@
                 <br>Hi '.$fst.' '.$lst.',
                 <br>
                 <br>This is your temporay password :'.$temp_pass.'
-                <br>After logging in go to your profile and change your password.
+                <br>After logging in go to your profile and change your password on the profile page.
                 <br>
                 <br>
                 <br> -BulSU Gatepass Team</p>

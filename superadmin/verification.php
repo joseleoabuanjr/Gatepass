@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
     header("Location: ../superadmin/login.php");
 }
+$_SESSION["notif"] = "seen";
 ?>
 <!DOCTYPE html>
 <html lang="en">

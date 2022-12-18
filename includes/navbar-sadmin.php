@@ -30,10 +30,13 @@ $c =  mysqli_num_rows($r);
                 <div class="navbar-nav">
                     <a class="nav-link" href="dashboard.php" id="tl1">Dashboard</a>
                     <a class="nav-link" href="user.php" id="tl1">Users</a>
-                    <a class="nav-link position-relative" href="verification.php" id="tl2">Verifications<?php if($c != 0){
-                            echo '<span class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger">
-                            '.$c.'</span>';
-                        } ?></a>
+                    <a class="nav-link position-relative" href="verification.php" id="tl2">Verifications<?php 
+                    if(!isset($_SESSION["notif"])){
+                        if($c != 0){
+                                echo '<span class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger">
+                                '.$c.'</span>';
+                            } 
+                    }?></a>
                     <a class="nav-link position-relative" href="appointment.php" id="tl3">Appointments
                         <?php if($count != 0){
                             echo '<span class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger">
@@ -49,8 +52,8 @@ $c =  mysqli_num_rows($r);
                                     More
                                 </a>
                                 <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="admin.php">Create Admin</a></li>
-                                    <li><a class="dropdown-item" href="../scanner.php">Kiosk Scanner</a></li>
+                                    <li><a class="dropdown-item" href="admin.php">Manage Admin</a></li>
+                                    <li><a class="dropdown-item" href="../scanner.php">QR Scanner</a></li>
                                 </ul>
                             </div>');
                         }
