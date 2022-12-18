@@ -83,73 +83,66 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                                 $vax = $row["vax"];
                                 $v_id = $row["valid_id"];
                                 echo ("
-                                            <tr class='text-center'>
-                                                <td>" . $row["acc_no"] . "</td>
-                                                <td class='text-capitalize'>" . $row["first"] . " " . $row["middle"] . ". " . $row["last"] . "</td>
-                                                <td class='text-capitalize'>" . $row["type"] . "</td>
-                                        ");
+                                                <tr class='text-center'>
+                                                    <td>" . $row["acc_no"] . "</td>
+                                                    <td class='text-capitalize'>" . $row["first"] . " " . $row["middle"] . ". " . $row["last"] . "</td>
+                                                    <td class='text-capitalize'>" . $row["type"] . "</td>
+                                            ");
                                 if ($row["type"] == "student") {
                                     echo ("
-                                            <td>".$row['stud_no']."</td>
-                                            <td>N/A</td>
-                                            <td>".$row["contact_no"]."</td>
-                                            <td> <a class='btn btn-secondary btn-sm' target='_blank' href='../viewpfp.php?id=" . $row["acc_no"] . "'>View</a> </td>
-                                            <td> <a class='btn btn-secondary btn-sm' target='_blank' href='../viewcor.php?id=" . $row["acc_no"] . "'>View</a> </td>
-                                            <td> <a class='btn btn-secondary btn-sm' target='_blank' href='../view_vid.php?id=" . $row["acc_no"] . "'> View </a></td>
-                                            <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
-                                        ");
-                                    
+                                                <td>" . $row['stud_no'] . "</td>
+                                                <td>N/A</td>
+                                                <td>" . $row["contact_no"] . "</td>
+                                                <td><button class='btn btn-secondary btn-sm previewImageBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                                                <td><button class='btn btn-secondary btn-sm previewCORBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                                                <td><button class='btn btn-secondary btn-sm previewVIDBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                                                <td><button class='btn btn-secondary btn-sm previewVAXBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                                            ");
                                 } else if ($row["type"] == "employee" || "visitor") {
-                                    echo"<td>N/A</td>";
+                                    echo "<td>N/A</td>";
                                     if ($row["type"] == "employee") {
-                                        echo "<td>".$row['emp_no']."</td>";
-                                    }else{
+                                        echo "<td>" . $row['emp_no'] . "</td>";
+                                    } else {
                                         echo "<td>N/A</td>";
                                     }
-                                        echo"    
-                                            <td>".$row["contact_no"]."</td>
-                                            <td> <a class='btn btn-secondary btn-sm' target='_blank' href='../viewpfp.php?id=" . $row["acc_no"] . "'>View</a> </td>
-                                    ";
+                                    echo "    
+                                                <td>" . $row["contact_no"] . "</td>
+                                                <td><button class='btn btn-secondary btn-sm previewImageBtn' data-id='" . $row["acc_no"] . "'> </td>
+                                        ";
                                     if ($v_id == "" || NULL && $vax == "" || NULL) {
                                         echo ("
-                                                <td>N/A</td><td>N/A</td><td>N/A</td>
-                                            ");
+                                                    <td>N/A</td><td>N/A</td><td>N/A</td>
+                                                ");
                                     } else {
                                         if ($v_id == "" || NULL && !($vax == "" || NULL)) {
                                             echo ("
-                                                    <td>N/A</td>
-                                                    <td>N/A</td>
-                                                    <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
-                                                ");
+                                                        <td>N/A</td>
+                                                        <td>N/A</td>
+                                                        <td><button class='btn btn-secondary btn-sm previewVAXBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                                                    ");
                                         } else if ($vax == "" || NULL && !($v_id == "" || NULL)) {
                                             echo ("
-                                                    <td>N/A</td>
-                                                    <td><a class='btn btn-secondary btn-sm' target='_blank' href='../view_vid.php?id=" . $row["acc_no"] . "'>View</a></td>
-                                                    <td>N/A</td>
-                                                ");
+                                                        <td>N/A</td>
+                                                        <td><button class='btn btn-secondary btn-sm previewVIDBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                                                        <td>N/A</td>
+                                                    ");
                                         } else {
                                             echo ("
-                                                    <td>N/A</td>
-                                                    <td><a class='btn btn-secondary btn-sm' target='_blank' href='../view_vid.php?id=" . $row["acc_no"] . "'>View</a></td>
-                                                    <td><a class='btn btn-secondary btn-sm' target='_blank' href='../viewvax.php?id=" . $row["acc_no"] . "'>View</a></td>
-                                                ");
+                                                        <td>N/A</td>
+                                                        <td><button class='btn btn-secondary btn-sm previewVIDBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                                                        <td><button class='btn btn-secondary btn-sm previewVAXBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                                                    ");
                                         }
                                     }
                                 }
                                 echo "<td>
-                                            <!-- Button trigger modal -->
-                                            <div class='btn-group' role='group'>
-                                                <button type='button' class='btn btn-primary statusBtn btn-sm' data-status='approve' data-accno='" . $row['acc_no'] . "'>Approve</button>
-                                                <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='deny' data-accno='" . $row['acc_no'] . "'>Deny</button>
-                                            </div>
-                                        </td>
-                                    </tr>";
-
-                                //read 10 row of data from database table
-                                // if ($count == 9) {
-                                //     break;
-                                // }
-                                // $count += 1;
+                                                <!-- Button trigger modal -->
+                                                <div class='btn-group' role='group'>
+                                                    <button type='button' class='btn btn-primary statusBtn btn-sm' data-status='approve' data-accno='" . $row['acc_no'] . "'>Approve</button>
+                                                    <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='deny' data-accno='" . $row['acc_no'] . "'>Deny</button>
+                                                </div>
+                                            </td>
+                                        </tr>";
                             }
                             ?>
                         </tbody>
@@ -183,6 +176,26 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
         </div>
     </div>
     <!-- Status modal -->
+
+    <div class="modal fade" tabindex="-1" id="previewFile">
+        <div class="modal-dialog modal-lg bg-dark">
+            <div class="modal-content">
+                <div class="modal-body vh-100">
+                    <embed type="application/pdf" id="previewFileContent" src="" width="100%" height="100%">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" tabindex="-1" id="previewImage">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content bg-dark">
+                <div class="modal-body h-auto mx-auto">
+                    <img src="" id="previewImageContent" class="img-fluid">
+                </div>
+            </div>
+        </div>
+    </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="../js/table2.js"></script>
 </body>
