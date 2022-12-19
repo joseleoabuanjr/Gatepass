@@ -31,7 +31,8 @@ $(document).ready(function () {
                                 $(".alertWarning").fadeIn();
                             } else {
                                 if (form[5].checkValidity()) {
-                                    var cont = $("#contactNum").val();
+                                    var cont = $("#contactNumber").val();
+                                    debugger
                                     if (!isNaN(cont)) {
                                         if (form[6].checkValidity()) {
                                             if (form[7].checkValidity()) {
