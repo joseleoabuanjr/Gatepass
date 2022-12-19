@@ -73,7 +73,7 @@
         $insert = "INSERT INTO appointment (id,req_id,acc_no,name,type,reason,status,date,qr_status,college) VALUES ('$apptid','$reqid','$accno','$name','$type','$reason','$status','$date','$s_stats','$col')";
         if(mysqli_query($connect,$insert))
         {
-            // header("Location: ../appointment.php");
+            header("Location: ../appointment.php");
         }
     }
     else{
