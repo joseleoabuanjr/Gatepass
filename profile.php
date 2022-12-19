@@ -123,7 +123,7 @@ $bday = date_format($date, "Y-m-d");
                                                 <li>Image size is preferably a 2x2 picture</li>
                                             </ul>
                                             <div class="form-floating">
-                                                <input type="file" name="image" class="form-control ms-2 ps-5" style="height: 80px;padding-top:40px; padding-left:40px" id="img1" accept="image/png, image/jpeg" onchange="return checkImage1()">
+                                                <input type="file" name="image" class="form-control ms-2 ps-5" style="height: 80px;padding-top:40px; padding-left:40px" id="img1" accept="image/png, image/jpeg">
                                                 <label class="ms-3">Upload New Account Profile Picture</label>
                                                 <div class="msg" id="message"></div>
                                             </div>
@@ -223,8 +223,8 @@ $bday = date_format($date, "Y-m-d");
                                             </div>
                                             <div class="col-md-3">
                                                 <div class="mb-3">
-                                                    <h6 for="section" class="form-label">Section *</h6>
-                                                    <input type="text" class="form-control" name="section" id="section" value="<?php echo ($sec); ?>" required>
+                                                    <label for="section" class="form-label h6">Section *</label>
+                                                    <input type="text" class="form-control" name="section" id="section" value="<?php echo ($sec.'"'); echo ($type == "student" ? "" : "disabled"); ?> required>
                                                 </div>
                                             </div>
                                         </div>
