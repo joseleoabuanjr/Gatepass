@@ -10,11 +10,6 @@ $(document).ready(function () {
         e.preventDefault();
         var ctr = $(this).data("ctr");
         $(".alertWarning").hide()
-        // var contact = document.forms["formReg"]["contactNumber"].value;
-        // if (isNaN(contact)) {
-        //     alert("Please Input a valid contact number.");
-        //     return false;
-        // }
         console.log($("#registrationForm"));
         var form = $("#registrationForm")[0];
         if (form[1].checkValidity()) {
@@ -32,7 +27,6 @@ $(document).ready(function () {
                             } else {
                                 if (form[5].checkValidity()) {
                                     var cont = $("#contactNumber").val();
-                                    debugger
                                     if (!isNaN(cont)) {
                                         if (form[6].checkValidity()) {
                                             if (form[7].checkValidity()) {
