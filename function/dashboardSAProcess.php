@@ -2,7 +2,7 @@
 require 'connect.php';
 
 if (isset($_POST["getTimeInOut"])) {
-    $query = "SELECT * FROM time_inout WHERE type = 'student' ORDER BY time DESC";
+    $query = "SELECT * FROM time_inout ORDER BY time DESC";
     $result = mysqli_query($connect, $query);
     $data = array();
     if (mysqli_num_rows($result)) {

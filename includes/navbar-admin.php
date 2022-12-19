@@ -39,13 +39,13 @@ $c =  mysqli_num_rows($r);
                             } 
                     }?>
                 </a>
-                <a class="nav-link position-relative" href="appointment.php" id="tl3">Appointments
+                <!-- <a class="nav-link position-relative" href="appointment.php" id="tl3">Appointments
                     <?php if(!isset($_SESSION["notif2"])){
                         if($count != 0){
                                 echo '<span class="position-absolute top-25 start-100 translate-middle badge rounded-pill bg-danger">
                                 '.$count.'</span>';
                             } 
-                    }?></a>
+                    }?></a> -->
                 <a class="nav-link" href="time_inout.php" id="tl4">Time-in/out</a>
                 <?php 
                     if($type == 'superadmin') { 

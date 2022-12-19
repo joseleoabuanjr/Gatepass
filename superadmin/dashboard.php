@@ -33,19 +33,19 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
         <h4 class="text-start mb-4 mt-5">Pending Accounts for Verification</h4>
         <div class="row row-cols-3 g-3 mb-5">
             <div class="col">
-                <div class="p-4 text-bg-warning shadow-sm d-flex w-100">
+                <div class="p-4 text-white shadow-sm d-flex w-100" style="background-color: #800000;">
                     <div class="d-flex align-items-center fs-2">Student</div>
                     <div class="d-flex align-items-center justify-content-end fs-2 w-100" id="pendingStudents">0</div>
                 </div>
             </div>
             <div class="col">
-                <div class="p-4 text-bg-warning shadow-sm d-flex w-100">
+                <div class="p-4 text-white shadow-sm d-flex w-100" style="background-color: #800000;">
                     <div class="d-flex align-items-center fs-2" >Employee</div>
                     <div class="d-flex align-items-center justify-content-end fs-2 w-100" id="pendingEmployees">0</div>
                 </div>
             </div>
             <div class="col">
-                <div class="p-4 text-bg-warning shadow-sm d-flex w-100">
+                <div class="p-4 text-white shadow-sm d-flex w-100" style="background-color: #800000;">
                     <div class="d-flex align-items-center fs-2">Visitor</div>
                     <div class="d-flex align-items-center justify-content-end fs-2 w-100" id="pendingVisitors">0</div>
                 </div>
@@ -56,21 +56,21 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
         <h4 class="text-start mb-4">Pending Appointments</h4>
         <div class="row row-cols-3 g-3">
             <div class="col">
-                <div class="p-4 text-bg-warning shadow-sm d-flex w-100">
+                <div class="p-4 text-white shadow-sm d-flex w-100" style="background-color: #800000;">
                     <div class="d-flex align-items-center fs-2">Student</div>
-                    <div class="d-flex align-items-center justify-content-end fs-2 w-100" id="pendingStudents">0</div>
+                    <div class="d-flex align-items-center justify-content-end fs-2 w-100" id="pendingApptStudents">0</div>
                 </div>
             </div>
             <div class="col">
-                <div class="p-4 text-bg-warning shadow-sm d-flex w-100">
+                <div class="p-4 text-white shadow-sm d-flex w-100" style="background-color: #800000;">
                     <div class="d-flex align-items-center fs-2" >Employee</div>
-                    <div class="d-flex align-items-center justify-content-end fs-2 w-100" id="pendingEmployees">0</div>
+                    <div class="d-flex align-items-center justify-content-end fs-2 w-100" id="pendingApptEmployees">0</div>
                 </div>
             </div>
             <div class="col mb-5">
-                <div class="p-4 text-bg-warning shadow-sm d-flex w-100">
+                <div class="p-4 text-white shadow-sm d-flex w-100" style="background-color: #800000;">
                     <div class="d-flex align-items-center fs-2">Visitor</div>
-                    <div class="d-flex align-items-center justify-content-end fs-2 w-100" id="pendingVisitors">0</div>
+                    <div class="d-flex align-items-center justify-content-end fs-2 w-100" id="pendingApptVisitors">0</div>
                 </div>
             </div>
         </div>
@@ -94,12 +94,12 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 </body>
 
 <!-- Javascript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="../js/dashboardSA.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
 
 </html>

@@ -43,7 +43,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                     <div class="d-flex align-items-center justify-content-end fs-2 w-100" id="pendingStudents">0</div>
                 </div>
             </div>
-            <div class="col">
+            <!-- <div class="col">
                 <div class="p-4 text-bg-warning shadow-sm d-flex w-100">
                     <div class="d-flex align-items-center fs-2" >Employee</div>
                     <div class="d-flex align-items-center justify-content-end fs-2 w-100" id="pendingEmployees">0</div>
@@ -54,11 +54,11 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                     <div class="d-flex align-items-center fs-2">Visitor</div>
                     <div class="d-flex align-items-center justify-content-end fs-2 w-100" id="pendingVisitors">0</div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <!-- APPOINTMENTS -->
-        <h4 class="text-start mb-4">Pending Appointments</h4>
+        <!-- <h4 class="text-start mb-4">Pending Appointments</h4>
         <div class="row row-cols-3 g-3">
             <div class="col">
                 <div class="p-4 text-bg-warning shadow-sm d-flex w-100">
@@ -78,7 +78,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                     <div class="d-flex align-items-center justify-content-end fs-2 w-100" id="pendingVisitors">0</div>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="mb-3 mt-5">
             <div class="d-flex justify-content-between">
                 <h3>Time In - Out</h3>
