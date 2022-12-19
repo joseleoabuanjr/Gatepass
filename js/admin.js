@@ -36,9 +36,11 @@ $(document).ready(function () {
         var user = $(this).data("user");
         var status = $(this).data("status");
 
+        $("#status").html(status);
         $("#archiveBtnModal").data("id", id);
         $("#archiveBtnModal").data("user", user);
         $("#archiveBtnModal").data("status", status);
+        
 
         $("#archiveModal").modal("show");
     });
