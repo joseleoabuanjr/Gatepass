@@ -110,12 +110,12 @@ $bday = date_format($date, "Y-m-d");
                         <button type="submit" class="btn btn-success w-100 mt-2">Save Changes <span id="spinnerSave" class="spinner-border spinner-border-sm" role="status"></span></button>
                     </div>
                     <div class="col-12 col-lg-8">
-                        <div style="overflow-y: scroll; height: 100vh;" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0" data-bs-offset="56">
+                        <div style="overflow-y: scroll; height: 70vh;" data-bs-spy="scroll" data-bs-target="#list-example" data-bs-smooth-scroll="true" tabindex="0" data-bs-offset="56">
                             <div class="container" style="width:90%;">
                                 <div id="profilePicture" class="pb-3 mb-5">
                                 <i>Note: All fields indicated with an asterisk (*) are required.</i>
                                     <h2>Profile Picture</h2>
-                                    <div class="d-md-flex justify-content-md-start pt-3">
+                                    <div class="d-md-flex justify-content-md-start pt-3 pb-5">
                                         <img class="img-thumbnail" width="180px" height="180px" src="data:image;base64,<?php echo ($img); ?>">
                                         <div>
                                             <ul>
@@ -131,7 +131,7 @@ $bday = date_format($date, "Y-m-d");
                                     </div>
                                 </div>
 
-                                <div id="personalInfoSection" class="py-3 mb-5">
+                                <div id="personalInfoSection" class="py-3 pb-5">
                                     <h2>Personal Information</h2>
                                     <div class="row row-cols-1 row-cols-md-3 g-2 pt-3">
                                         <div class="col">
