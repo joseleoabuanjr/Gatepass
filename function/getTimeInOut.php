@@ -6,7 +6,7 @@ if (isset($_POST["admin"])){
     $col = $_SESSION["department"];   
     $query = "SELECT * FROM time_inout WHERE college ='$col' AND type = 'student' ORDER BY time DESC";
 } elseif(isset($_POST["superadmin"])) {
-    $query = "SELECT * FROM time_inout WHERE type = 'student' ORDER BY time DESC";
+    $query = "SELECT * FROM time_inout ORDER BY time DESC";
 }
 $result = mysqli_query($connect, $query);
 $data = array();

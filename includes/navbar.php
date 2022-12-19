@@ -28,7 +28,6 @@ if ($count == 1) {
     <div class="glass-effect w-100 navbar">
         <div class="container">
             <a class="navbar-brand" href="#">
-                <img src="resources/bulsulogo.png" class="mb-2" width="30" height="30">
                 <span class="d-none d-md-inline text-light"><span class="init">B</span>ULACAN <span class="init"> S</span>TATE <span class="init"> U</span>NIVERSITY <span class="init">[</span>GATEPASS<span class="init">]</span></span>
                 <span class="d-inline d-md-none text-light"><span class="init">B</span>UL<span class="init">S</span><span class="init">U</span> <span class="init">[</span>GATEPASS<span class="init">]</span></span>
             </a>

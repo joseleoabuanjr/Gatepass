@@ -3,18 +3,18 @@ include '../function/connect.php';
 $select = "SELECT * FROM admin_account Where type = 'superadmin'";
 $result = mysqli_query($connect, $select);
 $count =  mysqli_num_rows($result);
-
+$col = $_SESSION["department"];
 if ($count == 1) {
 	while ($row = mysqli_fetch_assoc($result)) {
 		$type = $row['type'];
 	}
 }
 //read all row from database table
-$select = "SELECT * FROM appointment WHERE status = 'pending'";
+$select = "SELECT * FROM appointment WHERE status = 'pending' AND college = '$col'";
 $result = mysqli_query($connect, $select);
 $count =  mysqli_num_rows($result);
 //read all row from database table
-$s = "SELECT * FROM user_account WHERE verification = 'pending'";
+$s = "SELECT * FROM user_account WHERE verification = 'pending' AND college = '$col'";
 $r = mysqli_query($connect, $s);
 $c =  mysqli_num_rows($r);
 ?>

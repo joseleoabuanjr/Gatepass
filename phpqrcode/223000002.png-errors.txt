@@ -160,3 +160,57 @@
 <b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\Users\jason\Desktop\Softwares\Xampp\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
 <br />
 <b>Warning</b>:  Trying to access array offset on value of type int in <b>C:\Users\jason\Desktop\Softwares\Xampp\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+2022-12-19 19:39:36: <br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>71</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>53</b><br />
+<br />
+<b>Warning</b>:  Trying to access array offset on value of type int in <b>D:\Tempest\Application\Coding App\Xampp\htdocs\Gatepass\phpqrcode\qrsplit.php</b> on line <b>62</b><br />
