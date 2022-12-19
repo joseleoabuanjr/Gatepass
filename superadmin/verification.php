@@ -108,7 +108,7 @@ $_SESSION["notif1"] = "seen";
                                     }
                                     echo "    
                                                 <td>" . $row["contact_no"] . "</td>
-                                                <td><button class='btn btn-secondary btn-sm previewImageBtn' data-id='" . $row["acc_no"] . "'> </td>
+                                                <td><button class='btn btn-secondary btn-sm previewImageBtn' data-id='" . $row["acc_no"] . "'>View</td>
                                         ";
                                     if ($v_id == "" || NULL && $vax == "" || NULL) {
                                         echo ("

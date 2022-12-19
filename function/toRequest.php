@@ -11,12 +11,14 @@
     $status = "pending";
     $col ="";
     $pps="";  
+    print json_encode($_POST["reason"]);
     foreach($_POST['reason'] as $ppstemp){
         $pps .= $ppstemp.",";
     }
     $exploded = explode(',', trim($pps, ','));
     $pps = implode(', ', $exploded);
-    print_r($pps);
+
+    
 
     $select = "SELECT COALESCE(MAX(req_id),0)+1 FROM appointment WHERE acc_no = '$id';";
     $result = mysqli_query($connect,$select); 
@@ -62,7 +64,7 @@
 
         //--REQUEST CREATION;
         if($pps == "Other"){
-            $reason = $_POST["reason"];
+            $reason = $_POST["othertxt"];
         }
         else{
             $reason = $pps;
@@ -71,7 +73,7 @@
         $insert = "INSERT INTO appointment (id,req_id,acc_no,name,type,reason,status,date,qr_status,college) VALUES ('$apptid','$reqid','$accno','$name','$type','$reason','$status','$date','$s_stats','$col')";
         if(mysqli_query($connect,$insert))
         {
-            header("Location: ../appointment.php");
+            // header("Location: ../appointment.php");
         }
     }
     else{
