@@ -58,10 +58,22 @@
                                 <input type="text" class="form-control" maxlength="11" minlength="11" placeholder="Ex: 09123456789" name="contact" id="contactNumber" required>
                             </div>
                         </div>
+                        <?php 
+                            //Get Current Time
+                            $tz = 'Asia/Manila';
+                            $timestamp = time();
+                            $dt = new DateTime("now", new DateTimeZone($tz));
+                            $dt->setTimestamp($timestamp);
+                            $curdate = $dt->format('Y');
+                            $maxdate = date('Y', strtotime($curdate . ' - 1 year'));
+                            $dt2 =new DateTime('1st December 2021');
+                            $dt2->modify('last day of this month');
+                            $curdate2 = $dt2 -> format('m-d');
+                        ?>
                         <div class="col">
                             <div class="mb-3">
                                 <label for="birthdate" class="form-label">Date of Birth *</label>
-                                <input type="date" class="form-control" name="dob" id="birthdate" required>
+                                <input type="date" class="form-control" name="dob" id="birthdate" max="<?php echo $maxdate.'-'.$curdate2 ?>" required>
                             </div>
                         </div>
                     </div>
