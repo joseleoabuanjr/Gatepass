@@ -49,8 +49,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                                 <th class="text-center">Account Type</th>
                                 <th class="text-center">Status</th>
                                 <th class="text-center">Course</th>
-                                <th class="text-center">Year</th>
-                                <th class="text-center">Section</th>
+                                <th class="text-center">Year & Section</th>
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
@@ -85,11 +84,9 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                                 if ($row["type"] == "student") {
                                     echo "
                                                 <td class='text-capitalize'>" . $row["course"] . "</td>
-                                                <td class='text-capitalize'>" . $row["year"] . "</td>
-                                                <td class='text-capitalize'>" . $row["section"] . "</td>";
+                                                <td class='text-capitalize'>" . $row["year"] . "" . $row["section"] . "</td>";
                                 } else {
                                     echo "
-                                                <td>N/A</td>
                                                 <td>N/A</td>
                                                 <td>N/A</td>";
                                 }

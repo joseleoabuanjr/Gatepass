@@ -140,7 +140,7 @@ $_SESSION["notif1"] = "seen";
                                                 <!-- Button trigger modal -->
                                                 <div class='btn-group' role='group'>
                                                     <button type='button' class='btn btn-primary statusBtn btn-sm' data-status='approve' data-accno='" . $row['acc_no'] . "'>Approve</button>
-                                                    <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='deny' data-accno='" . $row['acc_no'] . "'>Deny</button>
+                                                    <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='reject' data-accno='" . $row['acc_no'] . "'>Reject</button>
                                                 </div>
                                             </td>
                                         </tr>";
