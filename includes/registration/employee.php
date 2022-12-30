@@ -108,8 +108,9 @@
                         <div class="col">
                             <div class="mb-3">
                                 <label for="password" class="form-label">Password *</label>
-                                <input type="password" class="form-control" name="pass" id="password" required minlength="8">
-                                <!-- <small class="text-secondary">Password must be at least 8 characters </small> -->
+                                <input type="password" class="form-control" name="pass" id="password" required minlength="8" required maxlength="64" >
+                                <!-- <small class="text-secondary">Password must be at least 8 characters in length </small> -->
+                                <!-- <small class="text-secondary">Password must be at least 64 characters as maximum length </small> -->
                             </div>
                         </div>
                         <div class="col">
