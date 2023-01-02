@@ -1,7 +1,7 @@
 <?php
 session_start();
 if (!isset($_SESSION["accno"])) {
-	header("Location: index.php");
+    header("Location: index.php");
 }
 require_once "function/connect.php";
 $id = $_SESSION['accno'];
@@ -10,29 +10,30 @@ $id = $_SESSION['accno'];
 <html>
 
 <head>
-	<title>Account Information</title>
-	<meta charset="utf-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Account Information</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <!----------- CSS ------------>
-	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <link rel="stylesheet" href="css/navbar.css">
-	<link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/dashboard.css">
 
 
     <!----------- Javascript ------------>
 
 </head>
+
 <body>
-	<?php require_once 'includes/navbar.php'; ?>
-	<div class="container">
-    <?php
+    <?php require_once 'includes/navbar.php'; ?>
+    <div class="container">
+        <?php
         $accno = $_SESSION["accno"];
-        
+
         $select = "SELECT*FROM appointment WHERE date =(SELECT MIN(date) FROM appointment WHERE acc_no = $accno AND status = 'approved')";
-        $result = mysqli_query($connect,$select); 
-        while($row = mysqli_fetch_assoc($result)){
+        $result = mysqli_query($connect, $select);
+        while ($row = mysqli_fetch_assoc($result)) {
             $req_id = $row['req_id'];
             $qrv = $row['qr'];
         }
@@ -90,8 +91,7 @@ $id = $_SESSION['accno'];
                             </div>
                         </div>
                         ';
-                }
-                else if ($status == "blocked") {
+                } else if ($status == "blocked") {
                     echo '
                         <div class="w-100 pt-4">
                             <div class="alert text-center fw-bold alert-dark shadow" role="alert">
@@ -104,7 +104,7 @@ $id = $_SESSION['accno'];
         }
         ?>
 
-        <div class="py-4">
+        <div class="py-4 pt-1">
             <header class="pb-3 mb-4 border-bottom mt-5">
                 <div class="d-flex align-items-center text-dark text-decoration-none">
                     <span class="fs-3">My Dashboard</span>
@@ -132,7 +132,7 @@ $id = $_SESSION['accno'];
                     </div>
                     <?php
                     if ($status == "verified") {
-                        if ($type == "visitor"){
+                        if ($type == "visitor") {
                             $select = "SELECT * FROM appointment WHERE acc_no = $accno AND status = 'approved'";
                             $result = mysqli_query($connect, $select);
                             if (mysqli_num_rows($result) > 0) {
@@ -145,8 +145,7 @@ $id = $_SESSION['accno'];
                                 </div>
                                 ';
                             }
-                        }
-                        else{
+                        } else {
                             echo '
                             <div class="col d-flex align-items-center">
                                 <div class="text-center">
@@ -163,18 +162,22 @@ $id = $_SESSION['accno'];
             </div>
 
             <div class="row align-items-md-stretch">
-                <div class="col">
+                <div class="col-md-6">
                     <div class="h-100 p-5 text-bg-dark rounded-3 shadow-sm">
                         <h2>Profile Summary</h2>
-                        <div class="row row-cols-1 row-cols-md-2">
-                            <div class="col">Contact Number: </div>
-                            <div class="col"><?php echo $contactNo; ?></div>
-                            <div class="col">Email Address: </div>
-                            <div class="col"><?php echo $email; ?></div>
-                            <div class="col">Address: </div>
-                            <div class="col"><?php echo $add; ?></div>
-                            <div class="col">Date of Birth: </div>
-                            <div class="col"><?php echo $bday; ?></div>
+                        <div class="row">
+                            <div class="col-4">Contact Number: </div>
+                            <div class="col-8"><?php echo $contactNo; ?></div>
+                            <div class="col-4">Email Address: </div>
+                            <div class="col-8"><?php echo $email; ?></div>
+                            <div class="col-4">Address: </div>
+                            <div class="col-8"><?php echo $add; ?></div>
+                            <div class="col-4">Date of Birth: </div>
+                            <div class="col-8"><?php echo $bday; ?></div>
+                        </div>
+                        <div class="row mt-2 h6">
+                            <div class="col-4">Renewal Date: </div>
+                            <div class="col-8" id="renewalDate">January 2, 2028 (5 years)</div>
                         </div>
                     </div>
                 </div>
@@ -184,7 +187,7 @@ $id = $_SESSION['accno'];
                             <h2>Appointment Summary</h2>
                             <?php
                             $select = "SELECT*FROM appointment WHERE date =(SELECT MIN(date) FROM appointment WHERE acc_no = $accno AND status = 'approved')";
-                            $result = mysqli_query($connect,$select); 
+                            $result = mysqli_query($connect, $select);
 
                             if (mysqli_num_rows($result) > 0) {
                                 while ($row = mysqli_fetch_assoc($result)) {
@@ -195,18 +198,54 @@ $id = $_SESSION['accno'];
                                 }
                                 $exploded = explode(',', $reason);
 
-                                echo '<h4 class="text-primary">'. $date .'</h4>
+                                echo '<h4 class="text-primary">' . $date . '</h4>
                                 <ul>';
                                 foreach ($exploded as $reason) {
                                     echo "<li>" . $reason . "</li>";
                                 }
                                 echo '</ul>';
                             } else {
-                                echo '<a href="appointment.php" class="btn btn-outline-secondary mt-3 '.$disable.'" id="appointmentBtn">Set an Appointment</a>';
+                                echo '<a href="appointment.php" class="btn btn-outline-secondary mt-3 ' . $disable . '" id="appointmentBtn">Set an Appointment</a>';
                             }
                             ?>
                         </div>
                     </div>
+                <?php } else {
+                    if ($status == "unverified") {
+                        echo '
+                        <div class="col-md-6">
+                            <div class="h-100 p-5 border rounded-3 shadow-sm alert alert-danger">
+                                <h2>Account Need Verification</h2>
+                                Your account is not yet fully verified. Please <a href="profile.php">verify</a> now.
+                            </div>
+                        </div>
+                            ';
+                    } else if ($status == "pending") {
+                        echo '
+                            <div class="col-md-6">
+                                <div class="h-100 p-5 border rounded-3 shadow-sm alert alert-warning">
+                                    <h2>Account Pending</h2>
+                                    Your account verification status is pending. Please wait until your account is fully verified.
+                                </div>
+                            </div>
+                            ';
+                    } else if ($status == "blocked") {
+                        echo '
+                            <div class="col-md-6">
+                                <div class="h-100 p-5 border rounded-3 shadow-sm alert alert-dark">
+                                    <h2>Account Bloked</h2>
+                                    Your account has been blocked by the admin.
+                                </div>
+                            </div>
+                            ';
+                    }
+                ?>
+                    <!-- <div class="col-md-6">
+                        <div class="h-100 p-5 border rounded-3 shadow-sm alert alert-warning">
+                            <h2>Account Pending</h2>
+                        Your account verification status is pending. Please wait until your account is fully verified.
+                        </div>
+                    </div> -->
                 <?php } ?>
             </div>
         </div>
@@ -214,7 +253,8 @@ $id = $_SESSION['accno'];
 
     <footer class="py-4 mt-5 text-bg-dark text-center"></footer>
 
-	<!-- Javascripts -->
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+    <!-- Javascripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 </body>
+
 </html>

@@ -21,15 +21,11 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
     <!-- Javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#userAccountsTable, #accountVerificationTable, #appointmentRequestTable, #timeinoutTable").DataTable();
-        });
-    </script>
 </head>
 
 <body>
     <?php require_once '../includes/navbar-admin.php'; ?>
+    <div id="error"></div>
     <div class="container" style="padding-bottom:20px;">
         <header class="pb-3 mb-4 border-bottom mt-5">
             <div class="d-flex align-items-center text-dark text-decoration-none">
@@ -38,6 +34,12 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
         </header>
         <div class="card">
             <div class="card-header" style="background-color: #4F4F4B; color:white;">
+                <select id="userType" class="form-select w-auto">
+                    <option value="all">All</option>
+                    <option value="student">Student</option>
+                    <option value="employee">Employee</option>
+                    <option value="visitor">Visitor</option>
+                </select>
             </div>
             <div class="card-body">
                 <div class="container table-responsive">
@@ -53,69 +55,8 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                                 <th class="text-center">Action</th>
                             </tr>
                         </thead>
-                        <tbody class="text-center">
-                            <?php
-                            //connect to database
-                            require_once "../function/connect.php";
-
-                            $col = $_SESSION["department"];
-
-                            //read all row from database table
-                            $select = "SELECT * FROM user_account Where college ='$col' AND type = 'student'";
-                            $result = mysqli_query($connect, $select);
-
-                            if (!$result) {
-                                die("Invalid query: " . $connect->connect_error);
-                            }
-                            $count = 0;
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                $studno = $row['stud_no'];
-                                $empno = $row['emp_no'];
-                                $course = $row['course'];
-                                $section = $row['section'];
-                                $year = $row['year'];
-                                echo ("
-                                            <tr>
-                                                <td>" . $row["acc_no"] . "</td>
-                                                <td class='text-capitalize'>" . $row["first"] . " " . $row["middle"] . ". " . $row["last"] . "</td>
-                                                <td class='text-capitalize'>" . $row["type"] . "</td>
-                                                <td class='text-capitalize'>" . $row["verification"] . "</td>
-                                        ");
-                                if ($row["type"] == "student") {
-                                    echo "
-                                                <td class='text-capitalize'>" . $row["course"] . "</td>
-                                                <td class='text-capitalize'>" . $row["year"] . "" . $row["section"] . "</td>";
-                                } else {
-                                    echo "
-                                                <td>N/A</td>
-                                                <td>N/A</td>";
-                                }
-                                // <a class='btn btn-danger btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Archive</a>
-                                if ($row['verification'] == "unverified") {
-                                    echo "<td></td>";
-                                } else if ($row['verification'] == "pending") {
-                                    echo "<td></td>";
-                                } else {
-                                    if ($row['verification'] == "blocked") {
-                                        echo "<td>
-                                                <button class='btn btn-secondary btn-sm statusBtn' data-status='unblock' data-qr='granted' data-accno='" . $row['acc_no'] . "'>Unblock</button>
-                                            </td>
-                                            </tr>";
-                                    } else {
-                                        echo "<td>
-                                                <button class='btn btn-danger btn-sm statusBtn' data-status='block' data-qr='blocked' data-accno='" . $row['acc_no'] . "'>Block</button>
-                                            </td>
-                                        </tr>";
-                                    }
-                                }
-
-                                //read 10 row of data from database table
-                                // if ($count == 9) {
-                                //     break;
-                                // }
-                                // $count += 1;
-                            }
-                            ?>
+                        <tbody class="text-center" id="userAccountsTableContent">
+                            
                         </tbody>
                     </table>
                 </div>
