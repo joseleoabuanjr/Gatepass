@@ -137,14 +137,14 @@ $(document).ready(function () {
             datasets: [{
                 label: ["IN"],
                 data: [87, 97, 76, 84, 67, 84, 94],
-                backgroundColor: ['#eeb90215'],
+                backgroundColor: ['#FFD70080'],
                 // borderColor: 'gray',
                 fill: true,
                 tension: 0.4
             }, {
                 label: ["OUT"],
                 data: [67, 94, 36, 64, 37, 94, 14],
-                backgroundColor: ['#30303082'],
+                backgroundColor: ['#FFD70080'],
                 // borderColor: 'gray',
                 fill: true,
                 tension: 0.4
