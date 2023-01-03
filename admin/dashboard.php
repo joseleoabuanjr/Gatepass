@@ -36,9 +36,9 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
             </div>
         </header>
         <h4 class="text-start mb-4 mt-5">Pending Accounts for Verification</h4>
-        <div class="row row-cols-3 g-3 mb-5">
+        <div class="row row-cols-3 g-3 mb-5" >
             <div class="col">
-                <div class="p-4 text-bg-warning shadow-sm d-flex w-100">
+                <div class="p-4 text-white shadow-sm d-flex w-100" style="background-color: #800000;">
                     <div class="d-flex align-items-center fs-2">Student</div>
                     <div class="d-flex align-items-center justify-content-end fs-2 w-100" id="pendingStudents">0</div>
                 </div>

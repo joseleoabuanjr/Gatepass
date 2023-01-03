@@ -108,24 +108,24 @@ $(document).ready(function () {
         }
     });
 
-    // count employees
-    $.ajax({
-        type: "POST",
-        url: "../function/dashboardAdminProcess.php",
-        data: { getAppointmentEmployees: true },
-        success: function (response) {
-            $("#pendingApptEmployees").html(response);
-        }
-    });
-    // count vsitors
-    $.ajax({
-        type: "POST",
-        url: "../function/dashboardAdminProcess.php",
-        data: { getAppointmentVisitors: true },
-        success: function (response) {
-            $("#pendingApptVisitors").html(response);
-        }
-    });
+    // // count employees
+    // $.ajax({
+    //     type: "POST",
+    //     url: "../function/dashboardAdminProcess.php",
+    //     data: { getAppointmentEmployees: true },
+    //     success: function (response) {
+    //         $("#pendingApptEmployees").html(response);
+    //     }
+    // });
+    // // count vsitors
+    // $.ajax({
+    //     type: "POST",
+    //     url: "../function/dashboardAdminProcess.php",
+    //     data: { getAppointmentVisitors: true },
+    //     success: function (response) {
+    //         $("#pendingApptVisitors").html(response);
+    //     }
+    // });
 
 
     var ctxChart1 = document.getElementById('chart1').getContext('2d');
