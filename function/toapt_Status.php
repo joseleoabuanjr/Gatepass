@@ -9,8 +9,8 @@ $status = $_POST["status"];
 
 if ($status == "approve"){
     $status = "approved";
-}else if ( $status == "deny"){
-    $status = "denied";
+}else if ( $status == "reject"){
+    $status = "rejected";
 }
 
 if ($status == "approved") {
@@ -28,8 +28,9 @@ if ($status == "approved") {
             $last = $row['last'];
             $type = $row['type'];
         }
-        $name = $first . " " . $mid . ". " . $last;
-        $random = rand(100, 999);
+        $random = rand(100,999);
+        $name = $first . " " . $mid . " " . $last;
+        
         $text = $id . ":" . $reqid . ":" . $name . ":" . $random; //Only the student number will  be saved in the QR Code;
         //If you want every information be stored in the QR Code use the code below instead;
 

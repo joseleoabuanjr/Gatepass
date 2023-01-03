@@ -91,7 +91,7 @@ $_SESSION["notif2"] = "seen";
                                                 <td>
                                                 <div class='btn-group' role='group'>
                                                     <button type='button' class='btn btn-primary statusBtn btn-sm' data-status='approve' data-accno='" . $row['acc_no'] . "' data-reqid='" . $reqid . "'>Approve</button>
-                                                    <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='deny' data-accno='" . $row['acc_no'] . "' data-reqid='" . $reqid . "'>Deny</button>
+                                                    <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='reject' data-accno='" . $row['acc_no'] . "' data-reqid='" . $reqid . "'>Reject</button>
                                                 </div>
                                                 </td>
                                             </tr>");

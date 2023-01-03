@@ -20,7 +20,7 @@ if($status == "unblock"){
 }else if ($status == "approve"){
     $subject = "Account Verification";
     $status = "verified";
-}else if ( $status == "deny"){
+}else if ( $status == "recject"){
     $subject = "Account Verification";
     $status = "unverified";
 }
