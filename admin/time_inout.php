@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
     header("Location: ../admin/login.php");
 }
+$admin=$_SESSION["useradmin"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +15,11 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
     <title>BulSU Gatepass - Admin</title>
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <style>
+        @media print{
+            *{font-size: 12px;}
+        }
+    </style>
 
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
@@ -53,7 +59,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                                 <th class="text-center">Account Type</th>
                                 <th class="text-center">In/Out</th>
                                 <th class="text-center">Date & Time</th>
-                                <th class="text-center">Reason</th>
+                                <th class="text-center d-print-none">Reason</th>
                             </tr>
                         </thead>
 
@@ -62,6 +68,10 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                         </tbody>
                     </table>
                 </div>
+                <div class="d-flex justify-content-end" style="width: 100%;">
+                    <div class="d-none d-print-block" style="font-size:12px; padding-top:10px">Exported by: <?php echo $admin; ?></div>
+                </div>
+                
             </div>
         </div>
     </div>
@@ -125,7 +135,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                                 <td class='text-capitalize text-center'>${val.type}</td>
                                 <td class='text-capitalize text-center'>${val.in_out}</td>
                                 <td class='text-center'>${moment(val.time).format("llll")}</td>
-                                <td class='text-center'>${reason}</td>
+                                <td class='text-center d-print-none'>${reason}</td>
                             </tr>
 							`;
                         });
