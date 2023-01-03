@@ -177,7 +177,29 @@ $_SESSION["notif1"] = "seen";
             </div>
         </div>
     </div>
-    <!-- Status modal -->
+
+    <!-- Reject Modal -->
+    <div class="modal fade py-5" tabindex="-1" id="rejectModal">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-3">
+                <div class="modal-body p-4 text-center">
+                    <h5 class="">Reject Account</h5>
+                    
+                    <div class="alert alert-danger my-1" role="alert" id="errorAlert">
+                        <span class="status text-capitalize"></span> Failed.
+                    </div>
+                </div>
+                <div class="modal-footer flex-nowrap p-0">
+                    <button type="button" id="statusBtnModal" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"><strong>Reject</strong>
+                        <div id="fPSpinner" class="spinner-border spinner-border-sm" role="status">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                    </button>
+                    <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade" tabindex="-1" id="previewFile">
         <div class="modal-dialog modal-lg bg-dark">

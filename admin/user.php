@@ -56,7 +56,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                             </tr>
                         </thead>
                         <tbody class="text-center" id="userAccountsTableContent">
-                            
+
                         </tbody>
                     </table>
                 </div>
@@ -71,15 +71,15 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
             <div class="modal-content rounded-3">
                 <div class="modal-body p-4 text-center">
                     <h5 class="">Confirmation</h5>
-                    <p class="mb-1">Are you sure you want to <span class="status"></span> Account No. <span id="accNoModal"></span>?</p>
+                    <p class="mb-1">Are you sure you want to <span class="status"></span> Account No. <span class="accNoModal"></span>?</p>
                     <!-- <p class="mb-0 text-danger fw-bolder">*This action is cannot be undone!</p> -->
-                    <div class="alert alert-danger my-1" role="alert" id="errorAlert">
+                    <div class="alert alert-danger my-1 errorAlert" role="alert">
                         <span class="status text-capitalize"></span> Failed.
                     </div>
                 </div>
                 <div class="modal-footer flex-nowrap p-0">
-                    <button type="button" id="statusBtnModal" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"><strong>Yes</strong>
-                        <div id="fPSpinner" class="spinner-border spinner-border-sm" role="status">
+                    <button type="button" class="statusBtnModal btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"><strong>Yes</strong>
+                        <div class="spinner-border spinner-border-sm fPSpinner" role="status">
                             <span class="visually-hidden">Loading...</span>
                         </div>
                     </button>
@@ -88,7 +88,37 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
             </div>
         </div>
     </div>
-    <!-- Status modal -->
+
+    <div class="modal fade py-5" tabindex="-1" id="blockModal">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-3">
+                <form id="blockForm">
+                    <div class="modal-body p-4 text-center">
+                        <h5 class="">Confirmation</h5>
+                        <p class="mb-1">Are you sure you want to <span class="status"></span> Account No. <span class="accNoModal"></span>?</p>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a reason here" name="reason" id="reasonTextarea" style="height: 150px" required></textarea>
+                            <label for="reasonTextarea">*Reason for Block</label>
+                        </div>
+                        <div class="alert alert-danger my-1 errorAlert" role="alert">
+                            <span class="status text-capitalize"></span> Failed.
+                        </div>
+                    </div>
+                    <div class="modal-footer flex-nowrap p-0">
+                        <input type="hidden" id="accno" name="accno">
+                        <input type="hidden" id="status" name="status">
+                        <input type="hidden" id="qrstatus" name="qrstatus">
+                        <button type="submit" class="blockBtnModal btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"><strong>Block</strong>
+                            <div class="spinner-border spinner-border-sm fPSpinner" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </button>
+                        <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
     <script src="../js/table1.js"></script>

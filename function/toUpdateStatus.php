@@ -26,7 +26,12 @@ if($status == "unblock"){
 }
 
 if (isset($_POST["SET_USER_STATUS"])) {
-    $update = "UPDATE user_account SET verification= '$status', qr_status= '$qrstats' WHERE acc_no = $id";
+    $reasonSql = '';
+    if(isset($_POST['reason'])) {
+        $reason = $_POST['reason'];
+        $reasonSql = ", verification_note='$reason'";
+    }
+    $update = "UPDATE user_account SET verification= '$status', qr_status= '$qrstats'$reasonSql WHERE acc_no = $id";
     if (mysqli_query($connect, $update)) {
         require "../email/userStatus.php";
     } else {

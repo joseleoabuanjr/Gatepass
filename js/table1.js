@@ -1,26 +1,12 @@
 $(document).ready(function () {
-    $("#fPSpinner").hide();
-    $("#errorAlert").hide();
+    $(".fPSpinner").hide();
+    $(".errorAlert").hide();
 
-    $(".statusBtn").click(function (e) {
-        e.preventDefault();
-        var accno = $(this).data("accno");
-        var status = $(this).data("status");
-        var qrstatus = $(this).data("qr");
-        $("#accNoModal").html(accno);
-        $(".status").html(status);
-        $("#statusBtnModal").data("accno", accno);
-        $("#statusBtnModal").data("status", status);
-        $("#statusBtnModal").data("qrstatus", qrstatus);
-        $("#statusModal").modal("show");
-    });
-    $("#statusBtnModal").click(function (e) {
+    $(".statusBtnModal").click(function (e) {
         e.preventDefault();
         var accno = $(this).data("accno");
         var status = $(this).data("status");
         var qrstatus = $(this).data("qrstatus");
-        console.log(accno);
-        console.log(qrstatus);
         $.ajax({
             type: "post",
             url: "../function/toUpdateStatus.php",
@@ -35,20 +21,52 @@ $(document).ready(function () {
                 console.log(response);
                 if (response.status) {
                     $("#successAlert").fadeIn();
-                    $("#errorAlert").hide();
+                    $(".errorAlert").hide();
                     $("#dropBtnModal").hide();
                     $("#statusModal").modal("hide");
+                    $("#blockModal").modal("hide");
                     location.reload();
                 }
                 else {
-                    $("#errorAlert").fadeIn();
+                    $(".errorAlert").fadeIn();
                     // $("#errorAlertFP").html(response.msg);
                 }
-                $("#fPSpinner").hide();
+                $(".fPSpinner").hide();
             }, error: function (err) {
                 console.error(err);
             }, beforeSend: function () {
-                $("#fPSpinner").show();
+                $(".fPSpinner").show();
+            }
+        });
+    });
+
+    $("#blockForm").submit(function (e) {
+        e.preventDefault();
+        var data = $(this).serializeArray();  // Form Data
+        data.push({ name: 'SET_USER_STATUS', value: true });
+        $.ajax({
+            type: "post",
+            url: "../function/toUpdateStatus.php",
+            data: data,
+            dataType: "JSON",
+            success: function (response) {
+                console.log(response);
+                if (response.status) {
+                    $("#successAlert").fadeIn();
+                    $(".errorAlert").hide();
+                    $("#dropBtnModal").hide();
+                    $("#blockModal").modal("hide");
+                    location.reload();
+                }
+                else {
+                    $(".errorAlert").fadeIn();
+                    // $("#errorAlertFP").html(response.msg);
+                }
+                $(".fPSpinner").hide();
+            }, error: function (err) {
+                console.error(err);
+            }, beforeSend: function () {
+                $(".fPSpinner").show();
             }
         });
     });
@@ -83,9 +101,9 @@ $(document).ready(function () {
         $.each(filtered, function (indexInArray, val) {
             var action = ``;
             if (val.verification == "unverified") {
-                    action = ``;
-                } else if (val.verification == "pending") {
-                    action = ``;
+                action = ``;
+            } else if (val.verification == "pending") {
+                action = ``;
             } else {
                 if (val.verification == "blocked") {
                     action = `<button class='btn btn-secondary btn-sm statusBtn' data-status='unblock' data-qr='granted' data-accno='${val.accNo}'>Unblock</button>`
@@ -111,5 +129,25 @@ $(document).ready(function () {
         }
         $("#userAccountsTableContent").html(content);
         $("#userAccountsTable").DataTable();
+
+        $(".statusBtn").click(function (e) {
+            e.preventDefault();
+            var accno = $(this).data("accno");
+            var status = $(this).data("status");
+            var qrstatus = $(this).data("qr");
+            $(".accNoModal").html(accno);
+            $(".status").html(status);
+            if (status == "block") {
+                $("#accno").val(accno);
+                $("#status").val(status);
+                $("#qrstatus").val(qrstatus);
+                $("#blockModal").modal("show");
+            } else {
+                $(".statusBtnModal").data("accno", accno);
+                $(".statusBtnModal").data("status", status);
+                $(".statusBtnModal").data("qrstatus", qrstatus);
+                $("#statusModal").modal("show");
+            }
+        });
     }
 });
