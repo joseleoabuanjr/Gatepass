@@ -86,7 +86,7 @@ $_SESSION["notif1"] = "seen";
                                 echo ("
                                                 <tr class='text-center'>
                                                     <td>" . $row["acc_no"] . "</td>
-                                                    <td class='text-capitalize'>" . $row["first"] . " " . $row["middle"] . ". " . $row["last"] . "</td>
+                                                    <td class='text-capitalize'>" . $row["first"] . " " . $row["middle"] . " " . $row["last"] . "</td>
                                                     <td class='text-capitalize'>" . $row["type"] . "</td>
                                             ");
                                 if ($row["type"] == "student") {

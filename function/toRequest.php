@@ -54,7 +54,7 @@
                     $col = $row['college'];
                 }
         }
-        $name = $first." ".$mid.". ".$last;
+        $name = $first." ".$mid." ".$last;
         // $text = $id.":".$reqid.":".$name.":".rand(10,99);//Only the student number will  be saved in the QR Code;
 		// 		//If you want every information be stored in the QR Code use the code below instead;
 				
