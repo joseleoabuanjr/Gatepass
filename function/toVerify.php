@@ -50,7 +50,7 @@
 
         //Validate inputed verification code with database verification code;
         if($vcode == $in_vcode){
-            $verif = "pending";
+            $verif = "unverified";
             //insert data to database table
             $insert = "INSERT INTO user_account (acc_no,first,middle,last,contact_no,birthday,address,cp_name,cp_no,stud_no,emp_no,college,course,year,section,username,password,email,image,cor,valid_id,vax,verification,qr,type) VALUES ('$accno','$first','$mid','$last','$pnum','$bday','$add','$cname','$contnum','$studno','$empno','$col','$course','$yr','$sec','$user','$pass','$email','$img','$cor','$v_id','$vax','$verif','$qr','$type')";
 

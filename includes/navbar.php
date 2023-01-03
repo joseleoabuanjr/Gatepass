@@ -11,10 +11,10 @@ if ($count == 1) {
     if ($stats == "blocked") {
         $disable2 = 'disabled';
         $disable = "";
-    } else if ($stats == "pending") {
+    } else if ($stats == "unverified") {
         $disable = 'disabled';
         $disable2 = '';
-    } else if ($stats == "unverified") {
+    } else if ($stats == "rejected") {
         $disable = 'disabled';
         $disable2 = '';
     } else {

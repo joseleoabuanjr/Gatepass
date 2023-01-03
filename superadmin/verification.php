@@ -71,7 +71,7 @@ $_SESSION["notif1"] = "seen";
                             require_once "../function/connect.php";
 
                             //read all row from database table
-                            $select = "SELECT * FROM user_account WHERE verification = 'pending'";
+                            $select = "SELECT * FROM user_account WHERE verification = 'unverified'";
                             $result = mysqli_query($connect, $select);
 
                             if (!$result) {

@@ -64,9 +64,9 @@ $id = $_SESSION['accno'];
                 $status = $row['verification'];
                 $statusColor = "text-bg-success";
                 if ($status != "verified") {
-                    $statusColor = "text-bg-warning";
+                    $statusColor = "text-bg-danger";
                 }
-                if ($status == "unverified") {
+                if ($status == "rejected") {
                     $statusColor = "text-bg-danger";
                 }
                 if ($status == "blocked") {
@@ -75,7 +75,7 @@ $id = $_SESSION['accno'];
 
                 $tempbday = date_create($bday);
                 $bday = date_format($tempbday, "F d, Y");
-                if ($status == "unverified") {
+                if ($status == "rejected") {
                     echo '
                         <div class="w-100 pt-4">
                             <div class="alert text-center fw-bold alert-danger shadow-sm" role="alert">
@@ -83,7 +83,7 @@ $id = $_SESSION['accno'];
                             </div>
                         </div>
                         ';
-                } else if ($status == "pending") {
+                } else if ($status == "unverified") {
                     echo '
                         <div class="w-100 pt-4">
                             <div class="alert text-center fw-bold alert-warning shadow" role="alert">
@@ -211,7 +211,7 @@ $id = $_SESSION['accno'];
                         </div>
                     </div>
                 <?php } else {
-                    if ($status == "unverified") {
+                    if ($status == "rejected") {
                         echo '
                         <div class="col-md-6">
                             <div class="h-100 p-5 border rounded-3 shadow-sm alert alert-danger">
@@ -220,7 +220,7 @@ $id = $_SESSION['accno'];
                             </div>
                         </div>
                             ';
-                    } else if ($status == "pending") {
+                    } else if ($status == "unverified") {
                         echo '
                             <div class="col-md-6">
                                 <div class="h-100 p-5 border rounded-3 shadow-sm alert alert-warning">

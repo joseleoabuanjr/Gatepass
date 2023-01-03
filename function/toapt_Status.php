@@ -53,7 +53,7 @@ if ($status == "approved") {
 
     if($count1 == 1){
         
-		$update = "UPDATE appointment SET status = 'denied' WHERE acc_no= '$id' AND req_id = '$reqid'";
+		$update = "UPDATE appointment SET status = 'rejected' WHERE acc_no= '$id' AND req_id = '$reqid'";
         $result = mysqli_query($connect,$update);
         if (mysqli_query($connect, $update)) {
             require "../email/apt_denied.php";

@@ -11,7 +11,7 @@
     $first = $_POST["first"];
     $mid = $_POST["mid"];
     $last = $_POST["last"];
-    $status = "pending";
+    $status = "unverified";
 
     $select = "SELECT * FROM user_account WHERE acc_no = $id";
 	$result = mysqli_query($connect,$select);

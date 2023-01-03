@@ -96,9 +96,9 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
                                                 <td>N/A</td>";
                                     }
                                     // <a class='btn btn-danger btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Archive</a>
-                                    if ($row['verification'] == "unverified"){
+                                    if ($row['verification'] == "rejected"){
                                         echo "<td></td>";
-                                    }else if ($row['verification'] == "pending"){
+                                    }else if ($row['verification'] == "unverified"){
                                         echo "<td></td>";
                                     }else{
                                         if ($row['verification'] == "blocked") {

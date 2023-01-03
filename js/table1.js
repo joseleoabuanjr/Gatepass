@@ -100,9 +100,9 @@ $(document).ready(function () {
         var content = ``;
         $.each(filtered, function (indexInArray, val) {
             var action = ``;
-            if (val.verification == "unverified") {
+            if (val.verification == "rejected") {
                 action = ``;
-            } else if (val.verification == "pending") {
+            } else if (val.verification == "unverified") {
                 action = ``;
             } else {
                 if (val.verification == "blocked") {

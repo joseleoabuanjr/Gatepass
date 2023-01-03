@@ -72,7 +72,7 @@ $bday = date_format($date, "Y-m-d");
                 <span class="fs-3">My Profile Information</span>
             </div>
         </header>
-        <?php if ($status == "unverified") {
+        <?php if ($status == "rejected") {
                     echo '
                         <div class="w-100 pt-4">
                             <div class="alert text-center fw-bold alert-danger shadow-sm" role="alert">

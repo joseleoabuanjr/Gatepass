@@ -11,7 +11,7 @@
 
     if($count1 == 1){
         
-		$update = "UPDATE user_account SET verification = 'unverified' WHERE acc_no= '$id'";
+		$update = "UPDATE user_account SET verification = 'rejected' WHERE acc_no= '$id'";
         $result = mysqli_query($connect,$update);
         if(mysqli_query($connect,$update))
 		{

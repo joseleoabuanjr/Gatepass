@@ -4,9 +4,9 @@ require_once "../function/connect.php";
 
 if (isset($_POST["admin"])) {
     $col = $_SESSION["department"];
-    $query = "SELECT * FROM user_account WHERE verification = 'pending' AND college ='$col' AND type = 'student'";
+    $query = "SELECT * FROM user_account WHERE verification = 'unverified' AND college ='$col' AND type = 'student'";
 } elseif (isset($_POST["superadmin"])) {
-    $query = "SELECT * FROM user_account WHERE verification = 'pending'";
+    $query = "SELECT * FROM user_account WHERE verification = 'unverified'";
 }
 $result = mysqli_query($connect, $query);
 

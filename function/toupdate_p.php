@@ -113,8 +113,8 @@ if (isEmailDuplicate($connect, $email, $id)) {
 
         move_uploaded_file($v_idpdf_tem_loc, $v_idpdf_store);
     }
-    if ($stats == "unverified") {
-        $stats = 'pending';
+    if ($stats == "rejected") {
+        $stats = 'unverified';
         $query .= "verification = '$stats', ";
     }
     $query = substr($query, 0, -2);

@@ -20,7 +20,7 @@ if (isset($_POST["getTimeInOut"])) {
 if (isset($_POST['getPendingStudents'])) {
     $sql = "SELECT COUNT(acc_no) as pendingStudents
         FROM user_account
-        WHERE type='student' AND verification='pending'";
+        WHERE type='student' AND verification='unverified'";
     $result =  mysqli_query($connect, $sql);
     if (mysqli_num_rows($result)) {
         while ($row = mysqli_fetch_assoc($result)) {
@@ -32,7 +32,7 @@ if (isset($_POST['getPendingStudents'])) {
 if (isset($_POST['getPendingEmployees'])) {
     $sql = "SELECT COUNT(acc_no) as pendingEmployees
         FROM user_account
-        WHERE type='employee' AND verification='pending'";
+        WHERE type='employee' AND verification='unverified'";
     $result =  mysqli_query($connect, $sql);
     if (mysqli_num_rows($result)) {
         while ($row = mysqli_fetch_assoc($result)) {
@@ -44,7 +44,7 @@ if (isset($_POST['getPendingEmployees'])) {
 if (isset($_POST['getPendingVisitors'])) {
     $sql = "SELECT COUNT(acc_no) as pendingVisitors
         FROM user_account
-        WHERE type='visitor' AND verification='pending'";
+        WHERE type='visitor' AND verification='unverified'";
     $result =  mysqli_query($connect, $sql);
     if (mysqli_num_rows($result)) {
         while ($row = mysqli_fetch_assoc($result)) {

@@ -14,7 +14,7 @@ $select = "SELECT * FROM appointment WHERE status = 'pending' AND college = '$co
 $result = mysqli_query($connect, $select);
 $count =  mysqli_num_rows($result);
 //read all row from database table
-$s = "SELECT * FROM user_account WHERE verification = 'pending' AND college = '$col'";
+$s = "SELECT * FROM user_account WHERE verification = 'unverified' AND college = '$col'";
 $r = mysqli_query($connect, $s);
 $c =  mysqli_num_rows($r);
 ?>
