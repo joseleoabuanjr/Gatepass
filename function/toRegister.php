@@ -110,7 +110,7 @@ if (mysqli_num_rows($result)) {
 		$last = ucfirst(lcfirst($last));
 		$mid = ucfirst(lcfirst($mid));
 
-		$name = $first . " " . $mid . ". " . $last;
+		$name = $first . " " . $mid . " " . $last;
 
 		//================================================Generate QR Code;
 		$text = $accnum . ":" . $name . ":" . $studno; //Only the student number will  be saved in the QR Code;
@@ -203,7 +203,7 @@ if (mysqli_num_rows($result)) {
 		$last = ucfirst(lcfirst($last));
 		$mid = ucfirst(lcfirst($mid));
 
-		$name = $first . " " . $mid . ". " . $last;
+		$name = $first . " " . $mid . " " . $last;
 
 		//================================================Generate QR Code;
 		$text = $accnum . ":" . $name . ":" . $empno; //Only the student number will  be saved in the QR Code;
