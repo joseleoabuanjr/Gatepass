@@ -74,7 +74,7 @@ $bday = date_format($date, "Y-m-d");
         </header>
         <?php if ($status == "rejected") {
                     echo '
-                        <div class="w-100 pt-4">
+                        <div class="w-100 py-4">
                             <div class="alert text-center fw-bold alert-danger shadow-sm" role="alert">
                                 Your account is unverified. <br>Please fill up all needed information below and make sure that the information is correct. Then click <b>Save Changes</b> to sumbit for fully verification. 
                             </div>

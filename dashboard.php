@@ -75,31 +75,31 @@ $id = $_SESSION['accno'];
 
                 $tempbday = date_create($bday);
                 $bday = date_format($tempbday, "F d, Y");
-                if ($status == "rejected") {
-                    echo '
-                        <div class="w-100 pt-4">
-                            <div class="alert text-center fw-bold alert-danger shadow-sm" role="alert">
-                                Your account is not yet fully verified. Please <a href="profile.php">verify</a> now.
-                            </div>
-                        </div>
-                        ';
-                } else if ($status == "unverified") {
-                    echo '
-                        <div class="w-100 pt-4">
-                            <div class="alert text-center fw-bold alert-warning shadow" role="alert">
-                                Your account verification status is pending. Please wait until your account is fully verified.
-                            </div>
-                        </div>
-                        ';
-                } else if ($status == "blocked") {
-                    echo '
-                        <div class="w-100 pt-4">
-                            <div class="alert text-center fw-bold alert-dark shadow" role="alert">
-                                Your account has been blocked by the admin.
-                            </div>
-                        </div>
-                        ';
-                }
+                // if ($status == "rejected") {
+                //     echo '
+                //         <div class="w-100 pt-4">
+                //             <div class="alert text-center fw-bold alert-danger shadow-sm" role="alert">
+                //                 Your account is not yet fully verified. Please <a href="profile.php">verify</a> now.
+                //             </div>
+                //         </div>
+                //         ';
+                // } else if ($status == "unverified") {
+                //     echo '
+                //         <div class="w-100 pt-4">
+                //             <div class="alert text-center fw-bold alert-warning shadow" role="alert">
+                //                 Your account verification status is pending. Please wait until your account is fully verified.
+                //             </div>
+                //         </div>
+                //         ';
+                // } else if ($status == "blocked") {
+                //     echo '
+                //         <div class="w-100 pt-4">
+                //             <div class="alert text-center fw-bold alert-dark shadow" role="alert">
+                //                 Your account has been blocked by the admin.
+                //             </div>
+                //         </div>
+                //         ';
+                // }
             }
         }
         ?>
