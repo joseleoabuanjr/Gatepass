@@ -57,6 +57,9 @@ $(document).ready(function () {
             success: function (response) {
                 $("#errorAlert").fadeOut();
                 if (response.status) {
+                    if (response.renewal) {
+                        alert("Your renewal date has passed. Your account type has changed to visitor");
+                    }
                     window.location.href = response.location;
                 } else {
                     $("#errorAlert").html(response.msg);

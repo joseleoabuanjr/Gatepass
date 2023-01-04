@@ -60,6 +60,7 @@ $id = $_SESSION['accno'];
                 $section = $row["section"];
                 $contactNo = $row["contact_no"];
                 $email = $row["email"];
+                $renewal = $row["renewal"];
 
                 $status = $row['verification'];
                 $statusColor = "text-bg-success";
@@ -75,6 +76,10 @@ $id = $_SESSION['accno'];
 
                 $tempbday = date_create($bday);
                 $bday = date_format($tempbday, "F d, Y");
+                if ($renewal != '') {
+                    $tempRenewal = date_create($renewal);
+                    $renewal = date_format($tempRenewal, "F d, Y");
+                }
                 // if ($status == "rejected") {
                 //     echo '
                 //         <div class="w-100 pt-4">
@@ -162,23 +167,16 @@ $id = $_SESSION['accno'];
             </div>
 
             <div class="row align-items-md-stretch">
-                <div class="col-md-6">
+                <div class="col">
                     <div class="h-100 p-5 text-bg-dark rounded-3 shadow-sm">
                         <h2>Profile Summary</h2>
-                        <div class="row">
-                            <div class="col-4">Contact Number: </div>
-                            <div class="col-8"><?php echo $contactNo; ?></div>
-                            <div class="col-4">Email Address: </div>
-                            <div class="col-8"><?php echo $email; ?></div>
-                            <div class="col-4">Address: </div>
-                            <div class="col-8"><?php echo $add; ?></div>
-                            <div class="col-4">Date of Birth: </div>
-                            <div class="col-8"><?php echo $bday; ?></div>
-                        </div>
-                        <div class="row mt-2 h6">
-                            <div class="col-4">Renewal Date: </div>
-                            <div class="col-8" id="renewalDate">January 2, 2028 (5 years)</div>
-                        </div>
+                            <div class="mb-2">Contact Number: <span class="fw-bold"><?php echo $contactNo; ?></span></div>
+                            <div class="mb-2">Email Address: <span class="fw-bold"><?php echo $email; ?></span></div>
+                            <div class="mb-2">Address: <span class="fw-bold"><?php echo $add; ?></span></div>
+                            <div class="mb-2">Date of Birth: <span class="fw-bold"><?php echo $bday; ?></span></div>
+                        <?php if ($renewal != '') { ?>
+                            <div class="mt-2">Renewal Date: <span class="fw-bold"><?php echo $renewal; ?></span></div>
+                        <?php } ?>
                     </div>
                 </div>
                 <?php if ($type == "visitor") { ?>
@@ -240,12 +238,6 @@ $id = $_SESSION['accno'];
                             ';
                     }
                 ?>
-                    <!-- <div class="col-md-6">
-                        <div class="h-100 p-5 border rounded-3 shadow-sm alert alert-warning">
-                            <h2>Account Pending</h2>
-                        Your account verification status is pending. Please wait until your account is fully verified.
-                        </div>
-                    </div> -->
                 <?php } ?>
             </div>
         </div>
