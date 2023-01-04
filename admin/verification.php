@@ -39,12 +39,17 @@ $_SESSION["notif1"] = "seen";
         </header>
         <div class="card">
             <div class="card-header" style="background-color: #4F4F4B; color:white;">
-                <select id="userType" class="form-select w-auto">
-                    <option value="all">All</option>
-                    <option value="student">Student</option>
-                    <option value="employee">Employee</option>
-                    <option value="visitor">Visitor</option>
-                </select>
+                <div class="d-flex justify-content-start align-items-center">
+                    <h6 class="mx-2 my-0">Account Type</h6>
+                    <div>
+                        <select id="userTypeFilter" class="form-select w-auto">
+                            <option value="all">All</option>
+                            <option value="student">Student</option>
+                            <option value="employee">Employee</option>
+                            <option value="visitor">Visitor</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <div class="container table-responsive">
