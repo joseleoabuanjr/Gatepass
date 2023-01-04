@@ -3,6 +3,7 @@ session_start();
 if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
     header("Location: ../superadmin/login.php");
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -21,115 +22,74 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
     <!-- Javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#userAccountsTable, #accountVerificationTable, #appointmentRequestTable, #timeinoutTable").DataTable();
-        });
-    </script>
 </head>
 
 <body>
     <?php require_once '../includes/navbar-sadmin.php'; ?>
-        <div class="container" style="padding-bottom:20px;">
-            <header class="pb-3 mb-4 border-bottom mt-5">
-                <div class="d-flex align-items-center text-dark text-decoration-none">
-                    <span class="fs-3">User Accounts</span>
-                </div>
-            </header>
-            <div class="card">
-                <div class="card-header" style="background-color: #4F4F4B; color:white;">
-                    <div class="row align-items-center">
-                        <div class="col col-sm-8 ps-5 py-2"></div>
-                        <div class="col col-sm-3">
+    <div class="container" style="padding-bottom:20px;">
+        <header class="pb-3 mb-4 border-bottom mt-5">
+            <div class="d-flex align-items-center text-dark text-decoration-none">
+                <span class="fs-3">User Accounts</span>
+            </div>
+        </header>
+        <div class="card">
+            <div class="card-header" style="background-color: #4F4F4B; color:white;">
+                <div class="d-flex justify-content-start">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <h6 class="mx-2 my-0">Account Type</h6>
+                        <div>
+                            <select id="userTypeFilter" class="form-select w-auto">
+                                <option value="all">All</option>
+                                <option value="student">Student</option>
+                                <option value="employee">Employee</option>
+                                <option value="visitor">Visitor</option>
+                            </select>
                         </div>
-                        <div class="col col-sm-auto p-0"></div>
                     </div>
-                </div>
-                <div class="card-body">
-                    <div class="table table-responsive">
-                        <table class="table pt-2 shadow table-striped table-hover display compact" id="userAccountsTable">
-                            <thead>
-                                <tr class="text-bg-warning"style="background-color: #4F4F4B; color:white;">
-                                    <th class="text-center">Account Number</th>
-                                    <th class="text-center">Name</th>
-                                    <th class="text-center">Account Type</th>
-                                    <th class="text-center">Status</th>
-                                    <th class="text-center">Course</th>
-                                    <th class="text-center">Year & Section</th>
-                                    <th class="text-center">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody class="text-center">
-                                <?php
-                                //connect to database
-                                require_once "../function/connect.php";
-
-                                //read all row from database table
-                                $select = "SELECT * FROM user_account";
-                                $result = mysqli_query($connect, $select);
-
-                                if (!$result) {
-                                    die("Invalid query: " . $connect->connect_error);
-                                }
-
-                                $count = 0;
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $studno = $row['stud_no'];
-                                    $empno = $row['emp_no'];
-                                    $course = $row['course'];
-                                    $section = $row['section'];
-                                    $year = $row['year'];
-                                    echo ("
-                                            <tr>
-                                                <td>" . $row["acc_no"] . "</td>
-                                                <td class='text-capitalize'>" . $row["first"] . " " . $row["middle"] . " " . $row["last"] . "</td>
-                                                <td class='text-capitalize'>" . $row["type"] . "</td>
-                                                <td class='text-capitalize'>" . $row["verification"] . "</td>
-                                        ");
-                                    if ($row["type"] == "student") {
-                                        echo "
-                                                <td class='text-capitalize'>" . $row["course"] . "</td>
-                                                <td class='text-capitalize'>" . $row["year"] . "". $row["section"]."</td>";
-                                    } else {
-                                        echo "
-                                                <td>N/A</td>
-                                                <td>N/A</td>";
-                                    }
-                                    // <a class='btn btn-danger btn-sm' href='function/toUserdel.php?id=".$row['acc_no']."'>Archive</a>
-                                    if ($row['verification'] == "rejected"){
-                                        echo "<td></td>";
-                                    }else if ($row['verification'] == "unverified"){
-                                        echo "<td></td>";
-                                    }else{
-                                        if ($row['verification'] == "blocked") {
-                                            echo "<td>
-                                                <button class='btn btn-secondary btn-sm statusBtn' data-status='unblock' data-qr='granted' data-accno='" . $row['acc_no'] . "'>Unblock</button>
-                                            </td>
-                                            </tr>";
-                                        } else {
-                                            echo "<td>
-                                                <button class='btn btn-danger btn-sm statusBtn' data-status='block' data-qr='blocked' data-accno='" . $row['acc_no'] . "'>Block</button>
-                                            </td>
-                                        </tr>";
-                                        }
-                                    }
-
-                                    //read 10 row of data from database table
-                                    // if ($count == 9) {
-                                    //     break;
-                                    // }
-                                    // $count += 1;
-                                }
-                                ?>
-                            </tbody>
-                        </table>
+                    <div class="d-flex justify-content-start align-items-center">
+                        <h6 class="mx-2 my-0">Course</h6>
+                        <div>
+                            <select class="form-select" id="courseFilter" style="width: 200px;" required>
+                                <option value="all">All</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-start align-items-center">
+                        <h6 class="mx-2 my-0">Status</h6>
+                        <div>
+                            <select id="statusFilter" class="form-select w-auto">
+                                <option value="all">All</option>
+                                <option value="verified">Verified</option>
+                                <option value="unverified">Unverified</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="card-body">
+                <div class="container table-responsive">
+                    <table class="table pt-2 shadow table-striped table-hover display compact" id="userAccountsTable">
+                        <thead>
+                            <tr class="text-bg-warning" style="background-color: #4F4F4B; color:white;">
+                                <th class="text-center">Account Number</th>
+                                <th class="text-center">Name</th>
+                                <th class="text-center">Account Type</th>
+                                <th class="text-center">Status</th>
+                                <th class="text-center">Course</th>
+                                <th class="text-center">Year & Section</th>
+                                <th class="text-center">Action</th>
+                            </tr>
+                        </thead>
+                        <tbody class="text-center" id="userAccountsTableContent">
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    <div class="container table-responsive" style="margin-bottom:100px;">
-        
     </div>
+
 
     <!-- Status Modal -->
     <div class="modal fade py-5" tabindex="-1" id="statusModal">
@@ -137,15 +97,15 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
             <div class="modal-content rounded-3">
                 <div class="modal-body p-4 text-center">
                     <h5 class="">Confirmation</h5>
-                    <p class="mb-1">Are you sure you want to <span class="status"></span> Account No. <span id="accNoModal"></span>?</p>
+                    <p class="mb-1">Are you sure you want to <span class="status"></span> Account No. <span class="accNoModal"></span>?</p>
                     <!-- <p class="mb-0 text-danger fw-bolder">*This action is cannot be undone!</p> -->
-                    <div class="alert alert-danger my-1" role="alert" id="errorAlert">
+                    <div class="alert alert-danger my-1 errorAlert" role="alert">
                         <span class="status text-capitalize"></span> Failed.
                     </div>
                 </div>
                 <div class="modal-footer flex-nowrap p-0">
-                    <button type="button" id="statusBtnModal" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"><strong>Yes</strong> 
-                        <div id="fPSpinner" class="spinner-border spinner-border-sm" role="status">
+                    <button type="button" class="statusBtnModal btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"><strong>Yes</strong>
+                        <div class="spinner-border spinner-border-sm fPSpinner" role="status">
                             <span class="visually-hidden">Loading...</span>
                         </div>
                     </button>
@@ -154,10 +114,40 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
             </div>
         </div>
     </div>
-    <!-- Status modal -->
+
+    <div class="modal fade py-5" tabindex="-1" id="blockModal">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-3">
+                <form id="blockForm">
+                    <div class="modal-body p-4 text-center">
+                        <h5 class="">Confirmation</h5>
+                        <p class="mb-1">Are you sure you want to <span class="status"></span> Account No. <span class="accNoModal"></span>?</p>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a reason here" name="reason" id="reasonTextarea" style="height: 150px" required></textarea>
+                            <label for="reasonTextarea">*Reason for Block</label>
+                        </div>
+                        <div class="alert alert-danger my-1 errorAlert" role="alert">
+                            <span class="status text-capitalize"></span> Failed.
+                        </div>
+                    </div>
+                    <div class="modal-footer flex-nowrap p-0">
+                        <input type="hidden" id="accno" name="accno">
+                        <input type="hidden" id="status" name="status">
+                        <input type="hidden" id="qrstatus" name="qrstatus">
+                        <button type="submit" class="blockBtnModal btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"><strong>Block</strong>
+                            <div class="spinner-border spinner-border-sm fPSpinner" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </button>
+                        <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="../js/table1.js"></script>
+    <script src="../js/superAdminUser.js"></script>
 </body>
 
 </html>
