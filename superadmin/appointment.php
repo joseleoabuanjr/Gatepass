@@ -18,94 +18,68 @@ $_SESSION["notif2"] = "seen";
 
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
 
     <!-- Javascript -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
-    <script>
-        $(document).ready(function() {
-            $("#userAccountsTable, #accountVerificationTable, #appointmentRequestTable, #timeinoutTable").DataTable();
-        });
-    </script>
-    <script src="../js/appointment.js"></script>
+    
 </head>
 
 <body>
     <?php require_once '../includes/navbar-sadmin.php'; ?>
     <div class="container" style="padding-bottom:20px;">
-            <header class="pb-3 mb-4 border-bottom mt-5">
-                <div class="d-flex align-items-center text-dark text-decoration-none">
-                    <span class="fs-3">Appointment Requests</span>
-                </div>
-            </header>
-            <div class="card">
-                <div class="card-header" style="background-color: #4F4F4B; color:white;">
-                    <div class="row align-items-center">
-                        <div class="col col-sm-8 ps-5 py-2"></div>
-                        <div class="col col-sm-3">
+        <header class="pb-3 mb-4 border-bottom mt-5">
+            <div class="d-flex align-items-center text-dark text-decoration-none">
+                <span class="fs-3">Appointment Requests</span>
+            </div>
+        </header>
+        <div class="card">
+            <div class="card-header" style="background-color: #4F4F4B; color:white;">
+                <div class="d-flex justify-content-start">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <h6 class="mx-2 my-0 text-white">Account Type</h6>
+                        <div>
+                            <select id="userTypeFilter" class="form-select w-auto">
+                                <option value="all">All</option>
+                                <option value="student">Student</option>
+                                <option value="employee">Employee</option>
+                                <option value="visitor">Visitor</option>
+                            </select>
                         </div>
-                        <div class="col col-sm-auto p-0"></div>
                     </div>
-                </div>
-                <div class="card-body">
-                    <div class="container table-responsive" >
-                        <table class="table pt-2 shadow table-striped table-hover display compact" id="appointmentRequestTable">
-                            <thead>
-                                <tr class="text-bg-warning"style="background-color: #4F4F4B; color:white;">
-                                    <th class="text-center">Account Number</th>
-                                    <th class="text-center">Name</th>
-                                    <th class="text-center">Account Type</th>
-                                    <th class="text-center">Purpose of Appointment</th>
-                                    <th class="text-center">Date of Appointment</th>
-                                    <th class="text-center">Actions</th>
-                                </tr>
-                            </thead>
-
-                            <tbody class="text-center">
-                                <?php
-                                //connect to database
-                                require_once "../function/connect.php";
-
-                                //read all row from database table
-                                $select = "SELECT * FROM appointment WHERE status = 'pending'";
-                                $result = mysqli_query($connect, $select);
-
-                                if (!$result) {
-                                    die("Invalid query: " . $connect->connect_error);
-                                }
-
-                                $count = 0;
-                                while ($row = mysqli_fetch_assoc($result)) {
-                                    $reqid = $row['req_id'];
-                                    echo ("
-                                                <tr>
-                                                    <td>" . $row["acc_no"] . "</td>
-                                                    <td class='text-capitalize'>" . $row["name"] . "</td>
-                                                    <td class='text-capitalize'>" . $row["type"] . "</td>
-                                                    <td>" . $row["reason"] . "</td>
-                                                    <td>" . $row["date"] . "</td>
-                                                    <td>
-                                                    <div class='btn-group' role='group'>
-                                                        <button type='button' class='btn btn-primary statusBtn btn-sm' data-status='approve' data-accno='" . $row['acc_no'] . "' data-reqid='" . $reqid . "'>Approve</button>
-                                                        <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='reject' data-accno='" . $row['acc_no'] . "' data-reqid='" . $reqid . "'>Reject</button>
-                                                    </div>
-                                                    </td>
-                                                </tr>");
-
-                                    //read 10 row of data from database table
-                                    if ($count == 9) {
-                                        break;
-                                    }
-                                    $count += 1;
-                                }
-                                ?>
-                            </tbody>
-                        </table>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <h6 class="text-white mx-2 m-0">Filter by Date & Time</h6>
+                            <div id="reportrange" class="w-auto mx-2 rounded-1" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                <i class="fa fa-calendar"></i>&nbsp;
+                                <span class="text-dark"></span> <i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
+            <div class="card-body">
+                <div class="container table-responsive">
+                    <table class="table pt-2 shadow table-striped table-hover display compact" id="appointmentRequestTable">
+                        <thead>
+                            <tr class="text-bg-warning" style="background-color: #4F4F4B; color:white;">
+                                <th class="text-center">Account Number</th>
+                                <th class="text-center">Name</th>
+                                <th class="text-center">Account Type</th>
+                                <th class="text-center">Purpose of Appointment</th>
+                                <th class="text-center">Date of Appointment</th>
+                                <th class="text-center">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <tbody class="text-center" id="appointmentRequestTableContent">
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
         </div>
-    
+    </div>
+
     <!-- Status Modal -->
     <div class="modal fade py-5" tabindex="-1" id="statusModal">
         <div class="modal-dialog">
@@ -130,7 +104,13 @@ $_SESSION["notif2"] = "seen";
         </div>
     </div>
     <!-- Status modal -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+    
+    <script src="../js/appointment.js"></script>
 </body>
 
 </html>

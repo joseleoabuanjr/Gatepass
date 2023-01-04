@@ -108,7 +108,7 @@ $admin = $_SESSION["useradmin"];
                 e.preventDefault();
                 var userType = $("#userTypeFilter").val();
                 var range = $('#reportrange span').html().split(" - ");
-                displayTimeInOutTable(range[0].format("L"), range[1].format("L"), userType);
+                displayTimeInOutTable(moment(range[0]).format("L"), moment(range[1]).format("L"), userType);
             });
 
             function cb(start, end) {

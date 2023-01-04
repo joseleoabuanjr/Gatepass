@@ -3,7 +3,7 @@ session_start();
 if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
     header("Location: ../superadmin/login.php");
 }
-$admin=$_SESSION["useradmin"];
+$admin = $_SESSION["useradmin"];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,14 +16,18 @@ $admin=$_SESSION["useradmin"];
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
     <style>
-        @media print{
-            *{font-size: 12px;}
+        @media print {
+            * {
+                font-size: 12px;
+            }
         }
     </style>
 
     <link rel="stylesheet" href="../css/navbar.css">
     <link rel="stylesheet" href="https://cdn.datatables.net/1.12.1/css/jquery.dataTables.min.css">
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
+
 </head>
 
 <body>
@@ -36,15 +40,28 @@ $admin=$_SESSION["useradmin"];
         </header>
         <div class="card">
             <div class="card-header" style="background-color: #4F4F4B;">
-                <div class="d-flex justify-content-between align-items-center">
+                <div class="d-flex justify-content-start">
                     <div class="d-flex justify-content-start align-items-center">
-                        <h6 class="text-white m-0">Filter by Date & Time</h6>
-                        <div id="reportrange" class="w-auto mx-2 rounded-1" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
-                            <i class="fa fa-calendar"></i>&nbsp;
-                            <span></span> <i class="fa fa-caret-down"></i>
+                        <h6 class="mx-2 my-0 text-white">Account Type</h6>
+                        <div>
+                            <select id="userTypeFilter" class="form-select w-auto">
+                                <option value="all">All</option>
+                                <option value="student">Student</option>
+                                <option value="employee">Employee</option>
+                                <option value="visitor">Visitor</option>
+                            </select>
                         </div>
                     </div>
-                    <div class="col col-sm-auto p-0"><button type="button" class="btn btn-primary btn d-print-none" onclick="window.print()">Print Records</button></div>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-start align-items-center">
+                            <h6 class="text-white mx-2 m-0">Filter by Date & Time</h6>
+                            <div id="reportrange" class="w-auto mx-2 rounded-1" style="background: #fff; cursor: pointer; padding: 5px 10px; border: 1px solid #ccc; width: 100%">
+                                <i class="fa fa-calendar"></i>&nbsp;
+                                <span></span> <i class="fa fa-caret-down"></i>
+                            </div>
+                        </div>
+                        <div class="col col-sm-auto p-0"><button type="button" class="btn btn-primary btn d-print-none" onclick="window.print()">Print Records</button></div>
+                    </div>
                 </div>
             </div>
             <div class="card-body">
@@ -65,14 +82,15 @@ $admin=$_SESSION["useradmin"];
 
                         </tbody>
                     </table>
-                    
                 </div>
                 <div class="d-flex justify-content-end" style="width: 100%;">
-                        <div class="d-none d-print-block" style="font-size:12px; padding-top:10px">Exported by: <?php echo $admin; ?></div>
+                    <div class="d-none d-print-block" style="font-size:12px; padding-top:10px">Exported by: <?php echo $admin; ?></div>
                 </div>
+
             </div>
         </div>
     </div>
+
     <!-- Javascript -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
@@ -86,9 +104,17 @@ $admin=$_SESSION["useradmin"];
             var start = moment().subtract(29, 'days');
             var end = moment();
 
+            $("#userTypeFilter").change(function(e) {
+                e.preventDefault();
+                var userType = $("#userTypeFilter").val();
+                var range = $('#reportrange span').html().split(" - ");
+                displayTimeInOutTable(moment(range[0]).format("L"), moment(range[1]).format("L"), userType);
+            });
+
             function cb(start, end) {
                 $('#reportrange span').html(start.format('ll') + ' - ' + end.format('ll'));
-                displayTimeInOutTable(start.format("L"), end.format("L"));
+                var userType = $("#userTypeFilter").val();
+                displayTimeInOutTable(start.format("L"), end.format("L"), userType);
             }
 
             $('#reportrange').daterangepicker({
@@ -106,7 +132,7 @@ $admin=$_SESSION["useradmin"];
 
             cb(start, end);
 
-            function displayTimeInOutTable(start, end) {
+            function displayTimeInOutTable(start, end, userType) {
                 $.ajax({
                     type: "POST",
                     url: "../function/getTimeInOut.php",
@@ -116,7 +142,8 @@ $admin=$_SESSION["useradmin"];
                     dataType: "JSON",
                     success: function(response) {
                         var filtered = response.filter(function(x) {
-                            return dateCheck(start, end, moment(x.time).format("L"));
+                            var u = userType == "all" ? true : userType == x.type;
+                            return dateCheck(start, end, moment(x.time).format("L")) && u;
                         });
                         var content = ``;
                         $.each(filtered, function(indexInArray, val) {
