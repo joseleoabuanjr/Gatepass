@@ -39,12 +39,17 @@ $_SESSION["notif1"] = "seen";
         </header>
         <div class="card">
             <div class="card-header" style="background-color: #4F4F4B; color:white;">
-                <select id="userType" class="form-select w-auto">
-                    <option value="all">All</option>
-                    <option value="student">Student</option>
-                    <option value="employee">Employee</option>
-                    <option value="visitor">Visitor</option>
-                </select>
+                <div class="d-flex justify-content-start align-items-center">
+                    <h6 class="mx-2 my-0">Account Type</h6>
+                    <div>
+                        <select id="userTypeFilter" class="form-select w-auto">
+                            <option value="all">All</option>
+                            <option value="student">Student</option>
+                            <option value="employee">Employee</option>
+                            <option value="visitor">Visitor</option>
+                        </select>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <div class="container table-responsive">
@@ -67,85 +72,7 @@ $_SESSION["notif1"] = "seen";
 
                         <tbody class="text-center" id="accountVerificationTableContent">
                             <?php
-                            // //connect to database
-                            // require_once "../function/connect.php";
-
-                            // $col = $_SESSION["department"];
-
-                            // //read all row from database table
-                            // $select = "SELECT * FROM user_account WHERE verification = 'pending' AND college ='$col' AND type = 'student'";
-                            // $result = mysqli_query($connect, $select);
-
-                            // if (!$result) {
-                            //     die("Invalid query: " . $connect->connect_error);
-                            // }
-
-                            // $count = 0;
-                            // while ($row = mysqli_fetch_assoc($result)) {
-                            //     $cor = $row["cor"];
-                            //     $vax = $row["vax"];
-                            //     $v_id = $row["valid_id"];
-                            //     echo ("
-                            //                     <tr class='text-center'>
-                            //                         <td>" . $row["acc_no"] . "</td>
-                            //                         <td class='text-capitalize'>" . $row["first"] . " " . $row["middle"] . ". " . $row["last"] . "</td>
-                            //                         <td class='text-capitalize'>" . $row["type"] . "</td>
-                            //                 ");
-                            //     if ($row["type"] == "student") {
-                            //         echo ("
-                            //                     <td>" . $row['stud_no'] . "</td>
-                            //                     <td>N/A</td>
-                            //                     <td>" . $row["contact_no"] . "</td>
-                            //                     <td><button class='btn btn-secondary btn-sm previewImageBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                            //                     <td><button class='btn btn-secondary btn-sm previewCORBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                            //                     <td><button class='btn btn-secondary btn-sm previewVIDBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                            //                     <td><button class='btn btn-secondary btn-sm previewVAXBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                            //                 ");
-                            //     } else if ($row["type"] == "employee" || "visitor") {
-                            //         echo "<td>N/A</td>";
-                            //         if ($row["type"] == "employee") {
-                            //             echo "<td>" . $row['emp_no'] . "</td>";
-                            //         } else {
-                            //             echo "<td>N/A</td>";
-                            //         }
-                            //         echo "    
-                            //                     <td>" . $row["contact_no"] . "</td>
-                            //                     <td><button class='btn btn-secondary btn-sm previewImageBtn' data-id='" . $row["acc_no"] . "'> </td>
-                            //             ";
-                            //         if ($v_id == "" || NULL && $vax == "" || NULL) {
-                            //             echo ("
-                            //                         <td>N/A</td><td>N/A</td><td>N/A</td>
-                            //                     ");
-                            //         } else {
-                            //             if ($v_id == "" || NULL && !($vax == "" || NULL)) {
-                            //                 echo ("
-                            //                             <td>N/A</td>
-                            //                             <td>N/A</td>
-                            //                             <td><button class='btn btn-secondary btn-sm previewVAXBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                            //                         ");
-                            //             } else if ($vax == "" || NULL && !($v_id == "" || NULL)) {
-                            //                 echo ("
-                            //                             <td>N/A</td>
-                            //                             <td><button class='btn btn-secondary btn-sm previewVIDBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                            //                             <td>N/A</td>
-                            //                         ");
-                            //             } else {
-                            //                 echo ("
-                            //                             <td>N/A</td>
-                            //                             <td><button class='btn btn-secondary btn-sm previewVIDBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                            //                             <td><button class='btn btn-secondary btn-sm previewVAXBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                            //                         ");
-                            //             }
-                            //         }
-                            //     }
-                            //     echo "<td>
-                            //                     <div class='btn-group' role='group'>
-                            //                         <button type='button' class='btn btn-primary statusBtn btn-sm' data-status='approve' data-accno='" . $row['acc_no'] . "'>Approve</button>
-                            //                         <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='reject' data-accno='" . $row['acc_no'] . "'>Reject</button>
-                            //                     </div>
-                            //                 </td>
-                            //             </tr>";
-                            // }
+                           
                             ?>
                         </tbody>
                     </table>

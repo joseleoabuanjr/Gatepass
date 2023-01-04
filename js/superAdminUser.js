@@ -2,12 +2,14 @@ $(document).ready(function () {
     $(".fPSpinner").hide();
     $(".errorAlert").hide();
 
-    var courses = getCourseByDepartment($("#collegeDept").val());
-    $.each(courses, function (indexInArray, val) {
-        $('#courseFilter').append($('<option>', {
-            value: val,
-            text: val
-        }));
+    var department = getCourseByDepartment();
+    $.each(department, function (indexInArray, dept) {
+        $.each(dept, function (indexInArray, course) { 
+            $('#courseFilter').append($('<option>', {
+                value: course,
+                text: course
+            }));
+        });
     });
 
     $("#statusFilter").change(function (e) {
@@ -107,7 +109,7 @@ $(document).ready(function () {
     $.ajax({
         type: "POST",
         url: "../function/getUser.php",
-        data: { admin: true },
+        data: { superadmin: true },
         dataType: "json",
         success: function (response) {
             users = response;
@@ -184,7 +186,7 @@ $(document).ready(function () {
         });
     }
 
-    function getCourseByDepartment(department) {
+    function getCourseByDepartment() {
         var x = {
             "College of Architecture and Fine Arts (CAFA)": [
                 "Bachelor of Science in Architecture",
@@ -294,6 +296,6 @@ $(document).ready(function () {
                 "Master of Manufacturing Engineering",
             ]
         };
-        return x[department];
+        return x;
     }
 });

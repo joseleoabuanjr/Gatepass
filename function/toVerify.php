@@ -52,7 +52,8 @@
         if($vcode == $in_vcode){
             $verif = "unverified";
             //insert data to database table
-            $insert = "INSERT INTO user_account (acc_no,first,middle,last,contact_no,birthday,address,cp_name,cp_no,stud_no,emp_no,college,course,year,section,username,password,email,image,cor,valid_id,vax,verification,qr,type) VALUES ('$accno','$first','$mid','$last','$pnum','$bday','$add','$cname','$contnum','$studno','$empno','$col','$course','$yr','$sec','$user','$pass','$email','$img','$cor','$v_id','$vax','$verif','$qr','$type')";
+            $renewal = date('Y-m-d', strtotime(' + 5 years'));
+            $insert = "INSERT INTO user_account (acc_no,first,middle,last,contact_no,birthday,address,cp_name,cp_no,stud_no,emp_no,college,course,year,section,username,password,email,image,cor,valid_id,vax,verification,qr,type,renewal) VALUES ('$accno','$first','$mid','$last','$pnum','$bday','$add','$cname','$contnum','$studno','$empno','$col','$course','$yr','$sec','$user','$pass','$email','$img','$cor','$v_id','$vax','$verif','$qr','$type','$renewal')";
 
             if(mysqli_query($connect,$insert)){
                 //delete data of acc_no from database table;
