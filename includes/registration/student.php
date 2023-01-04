@@ -148,6 +148,7 @@
                                 <label class="form-label">Course *</label>
                                 <select class="form-select mb-3" name="course" required>
                                     <option selected disabled>Select Course</option>
+                                    
                                     <div class="op1" name="College of Architecture and Fine Arts (CAFA)" id="cafa">
                                         <option class="cafa1--hidden" id="cafa1" value="Bachelor of Science in Architecture">Bachelor of Science in Architecture</option>
                                         <option class="cafa2--hidden" id="cafa2" value="Bachelor of Landscape Architecture">Bachelor of Landscape Architecture</option>

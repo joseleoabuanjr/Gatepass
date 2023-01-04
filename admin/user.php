@@ -3,6 +3,8 @@ session_start();
 if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
     header("Location: ../admin/login.php");
 }
+$college = $_SESSION['department'];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -26,6 +28,7 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
 <body>
     <?php require_once '../includes/navbar-admin.php'; ?>
     <div id="error"></div>
+    <input type="hidden" id="collegeDept" value="<?php echo $college; ?>">
     <div class="container" style="padding-bottom:20px;">
         <header class="pb-3 mb-4 border-bottom mt-5">
             <div class="d-flex align-items-center text-dark text-decoration-none">
@@ -34,12 +37,38 @@ if (!isset($_SESSION["useradmin"]) && !isset($_SESSION["passadmin"])) {
         </header>
         <div class="card">
             <div class="card-header" style="background-color: #4F4F4B; color:white;">
-                <select id="userType" class="form-select w-auto">
-                    <option value="all">All</option>
-                    <option value="student">Student</option>
-                    <option value="employee">Employee</option>
-                    <option value="visitor">Visitor</option>
-                </select>
+                <div class="d-flex justify-content-start">
+                    <div class="d-flex justify-content-start align-items-center">
+                        <h6 class="mx-2 my-0">Account Type</h6>
+                        <div>
+                            <select id="userTypeFilter" class="form-select w-auto">
+                                <option value="all">All</option>
+                                <option value="student">Student</option>
+                                <option value="employee">Employee</option>
+                                <option value="visitor">Visitor</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-start align-items-center">
+                        <h6 class="mx-2 my-0">Course</h6>
+                        <div>
+                            <select class="form-select" id="courseFilter" style="width: 200px;" required>
+                                <option value="all">All</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="d-flex justify-content-start align-items-center">
+                        <h6 class="mx-2 my-0">Status</h6>
+                        <div>
+                            <select id="statusFilter" class="form-select w-auto">
+                                <option value="all">All</option>
+                                <option value="verified">Verified</option>
+                                <option value="unverified">Unverified</option>
+                                <option value="pending">Pending</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="card-body">
                 <div class="container table-responsive">
