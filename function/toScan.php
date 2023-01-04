@@ -42,7 +42,6 @@ if (strpos($qrwhole, ":") !== false) {
 	$qraccno = $qrwhole;
 	
 }
-
 //check if user have an appointment(Visitor);
 $select = "SELECT * FROM appointment WHERE type = 'visitor' AND acc_no = '$qraccno' AND req_id = '$reqid'";
 $result = mysqli_query($connect, $select);
@@ -320,7 +319,7 @@ if (mysqli_num_rows($result) > 0) {
 				');
 				
 			}
-		} else if ($type == 'employee'){
+		} else if ($qrstats == "denied"){
 			echo ('
 				<body onload="denied(); autoClose();" class="bg-danger">
 					<div class="cont d-flex justify-content-center align-items-center vh-100">
