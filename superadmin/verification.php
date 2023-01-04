@@ -39,18 +39,23 @@ $_SESSION["notif1"] = "seen";
         </header>
         <div class="card">
             <div class="card-header" style="background-color: #4F4F4B; color:white;">
-                <div class="row align-items-center">
-                    <div class="col col-sm-8 ps-5 py-2"></div>
-                    <div class="col col-sm-3">
+                <div class="d-flex justify-content-start align-items-center">
+                    <h6 class="mx-2 my-0">Account Type</h6>
+                    <div>
+                        <select id="userTypeFilter" class="form-select w-auto">
+                            <option value="all">All</option>
+                            <option value="student">Student</option>
+                            <option value="employee">Employee</option>
+                            <option value="visitor">Visitor</option>
+                        </select>
                     </div>
-                    <div class="col col-sm-auto p-0"></div>
                 </div>
             </div>
             <div class="card-body">
-                <div class="container table-responsive" >
+                <div class="container table-responsive">
                     <table class="table pt-2 shadow table-striped table-hover display compact" id="accountVerificationTable">
                         <thead>
-                            <tr class="text-bg-warning"style="background-color: #4F4F4B; color:white;">
+                            <tr class="text-bg-warning" style="background-color: #4F4F4B; color:white;">
                                 <th class="text-center">Account Number</th>
                                 <th class="text-center">Name</th>
                                 <th class="text-center">Account Type</th>
@@ -65,86 +70,87 @@ $_SESSION["notif1"] = "seen";
                             </tr>
                         </thead>
 
-                        <tbody>
+                        <tbody class="text-center" id="accountVerificationTableContent">
                             <?php
-                            //connect to database
-                            require_once "../function/connect.php";
+                            // //connect to database
+                            // require_once "../function/connect.php";
 
-                            //read all row from database table
-                            $select = "SELECT * FROM user_account WHERE verification = 'unverified'";
-                            $result = mysqli_query($connect, $select);
+                            // $col = $_SESSION["department"];
 
-                            if (!$result) {
-                                die("Invalid query: " . $connect->connect_error);
-                            }
+                            // //read all row from database table
+                            // $select = "SELECT * FROM user_account WHERE verification = 'pending' AND college ='$col' AND type = 'student'";
+                            // $result = mysqli_query($connect, $select);
 
-                            $count = 0;
-                            while ($row = mysqli_fetch_assoc($result)) {
-                                $cor = $row["cor"];
-                                $vax = $row["vax"];
-                                $v_id = $row["valid_id"];
-                                echo ("
-                                                <tr class='text-center'>
-                                                    <td>" . $row["acc_no"] . "</td>
-                                                    <td class='text-capitalize'>" . $row["first"] . " " . $row["middle"] . " " . $row["last"] . "</td>
-                                                    <td class='text-capitalize'>" . $row["type"] . "</td>
-                                            ");
-                                if ($row["type"] == "student") {
-                                    echo ("
-                                                <td>" . $row['stud_no'] . "</td>
-                                                <td>N/A</td>
-                                                <td>" . $row["contact_no"] . "</td>
-                                                <td><button class='btn btn-secondary btn-sm previewImageBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                                                <td><button class='btn btn-secondary btn-sm previewCORBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                                                <td><button class='btn btn-secondary btn-sm previewVIDBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                                                <td><button class='btn btn-secondary btn-sm previewVAXBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                                            ");
-                                } else if ($row["type"] == "employee" || "visitor") {
-                                    echo "<td>N/A</td>";
-                                    if ($row["type"] == "employee") {
-                                        echo "<td>" . $row['emp_no'] . "</td>";
-                                    } else {
-                                        echo "<td>N/A</td>";
-                                    }
-                                    echo "    
-                                                <td>" . $row["contact_no"] . "</td>
-                                                <td><button class='btn btn-secondary btn-sm previewImageBtn' data-id='" . $row["acc_no"] . "'>View</td>
-                                        ";
-                                    if ($v_id == "" || NULL && $vax == "" || NULL) {
-                                        echo ("
-                                                    <td>N/A</td><td>N/A</td><td>N/A</td>
-                                                ");
-                                    } else {
-                                        if ($v_id == "" || NULL && !($vax == "" || NULL)) {
-                                            echo ("
-                                                        <td>N/A</td>
-                                                        <td>N/A</td>
-                                                        <td><button class='btn btn-secondary btn-sm previewVAXBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                                                    ");
-                                        } else if ($vax == "" || NULL && !($v_id == "" || NULL)) {
-                                            echo ("
-                                                        <td>N/A</td>
-                                                        <td><button class='btn btn-secondary btn-sm previewVIDBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                                                        <td>N/A</td>
-                                                    ");
-                                        } else {
-                                            echo ("
-                                                        <td>N/A</td>
-                                                        <td><button class='btn btn-secondary btn-sm previewVIDBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                                                        <td><button class='btn btn-secondary btn-sm previewVAXBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
-                                                    ");
-                                        }
-                                    }
-                                }
-                                echo "<td>
-                                                <!-- Button trigger modal -->
-                                                <div class='btn-group' role='group'>
-                                                    <button type='button' class='btn btn-primary statusBtn btn-sm' data-status='approve' data-accno='" . $row['acc_no'] . "'>Approve</button>
-                                                    <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='reject' data-accno='" . $row['acc_no'] . "'>Reject</button>
-                                                </div>
-                                            </td>
-                                        </tr>";
-                            }
+                            // if (!$result) {
+                            //     die("Invalid query: " . $connect->connect_error);
+                            // }
+
+                            // $count = 0;
+                            // while ($row = mysqli_fetch_assoc($result)) {
+                            //     $cor = $row["cor"];
+                            //     $vax = $row["vax"];
+                            //     $v_id = $row["valid_id"];
+                            //     echo ("
+                            //                     <tr class='text-center'>
+                            //                         <td>" . $row["acc_no"] . "</td>
+                            //                         <td class='text-capitalize'>" . $row["first"] . " " . $row["middle"] . ". " . $row["last"] . "</td>
+                            //                         <td class='text-capitalize'>" . $row["type"] . "</td>
+                            //                 ");
+                            //     if ($row["type"] == "student") {
+                            //         echo ("
+                            //                     <td>" . $row['stud_no'] . "</td>
+                            //                     <td>N/A</td>
+                            //                     <td>" . $row["contact_no"] . "</td>
+                            //                     <td><button class='btn btn-secondary btn-sm previewImageBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                            //                     <td><button class='btn btn-secondary btn-sm previewCORBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                            //                     <td><button class='btn btn-secondary btn-sm previewVIDBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                            //                     <td><button class='btn btn-secondary btn-sm previewVAXBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                            //                 ");
+                            //     } else if ($row["type"] == "employee" || "visitor") {
+                            //         echo "<td>N/A</td>";
+                            //         if ($row["type"] == "employee") {
+                            //             echo "<td>" . $row['emp_no'] . "</td>";
+                            //         } else {
+                            //             echo "<td>N/A</td>";
+                            //         }
+                            //         echo "    
+                            //                     <td>" . $row["contact_no"] . "</td>
+                            //                     <td><button class='btn btn-secondary btn-sm previewImageBtn' data-id='" . $row["acc_no"] . "'> </td>
+                            //             ";
+                            //         if ($v_id == "" || NULL && $vax == "" || NULL) {
+                            //             echo ("
+                            //                         <td>N/A</td><td>N/A</td><td>N/A</td>
+                            //                     ");
+                            //         } else {
+                            //             if ($v_id == "" || NULL && !($vax == "" || NULL)) {
+                            //                 echo ("
+                            //                             <td>N/A</td>
+                            //                             <td>N/A</td>
+                            //                             <td><button class='btn btn-secondary btn-sm previewVAXBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                            //                         ");
+                            //             } else if ($vax == "" || NULL && !($v_id == "" || NULL)) {
+                            //                 echo ("
+                            //                             <td>N/A</td>
+                            //                             <td><button class='btn btn-secondary btn-sm previewVIDBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                            //                             <td>N/A</td>
+                            //                         ");
+                            //             } else {
+                            //                 echo ("
+                            //                             <td>N/A</td>
+                            //                             <td><button class='btn btn-secondary btn-sm previewVIDBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                            //                             <td><button class='btn btn-secondary btn-sm previewVAXBtn' data-id='" . $row["acc_no"] . "'>View</button></td>
+                            //                         ");
+                            //             }
+                            //         }
+                            //     }
+                            //     echo "<td>
+                            //                     <div class='btn-group' role='group'>
+                            //                         <button type='button' class='btn btn-primary statusBtn btn-sm' data-status='approve' data-accno='" . $row['acc_no'] . "'>Approve</button>
+                            //                         <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='reject' data-accno='" . $row['acc_no'] . "'>Reject</button>
+                            //                     </div>
+                            //                 </td>
+                            //             </tr>";
+                            // }
                             ?>
                         </tbody>
                     </table>
@@ -152,22 +158,21 @@ $_SESSION["notif1"] = "seen";
             </div>
         </div>
     </div>
-    
     <!-- Status Modal -->
     <div class="modal fade py-5" tabindex="-1" id="statusModal">
         <div class="modal-dialog">
             <div class="modal-content rounded-3">
                 <div class="modal-body p-4 text-center">
                     <h5 class="">Confirmation</h5>
-                    <p class="mb-1">Are you sure you want to <span class="status text-info"></span> the account verification of Account No. <span id="accNoModal"></span>?</p>
+                    <p class="mb-1">Are you sure you want to <span class="status"></span> Account No. <span class="accNoModal"></span>?</p>
                     <!-- <p class="mb-0 text-danger fw-bolder">*This action is cannot be undone!</p> -->
-                    <div class="alert alert-danger my-1" role="alert" id="errorAlert">
+                    <div class="alert alert-danger my-1 errorAlert" role="alert">
                         <span class="status text-capitalize"></span> Failed.
                     </div>
                 </div>
                 <div class="modal-footer flex-nowrap p-0">
-                    <button type="button" id="statusBtnModal" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"><strong>Yes</strong>
-                        <div id="fPSpinner" class="spinner-border spinner-border-sm" role="status">
+                    <button type="button" class="statusBtnModal btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"><strong>Yes</strong>
+                        <div class="spinner-border spinner-border-sm fPSpinner" role="status">
                             <span class="visually-hidden">Loading...</span>
                         </div>
                     </button>
@@ -176,7 +181,37 @@ $_SESSION["notif1"] = "seen";
             </div>
         </div>
     </div>
-    <!-- Status modal -->
+
+    <div class="modal fade py-5" tabindex="-1" id="blockModal">
+        <div class="modal-dialog">
+            <div class="modal-content rounded-3">
+                <form id="blockForm">
+                    <div class="modal-body p-4 text-center">
+                        <h5 class="">Confirmation</h5>
+                        <p class="mb-1">Are you sure you want to <span class="status"></span> Account No. <span class="accNoModal"></span>?</p>
+                        <div class="form-floating">
+                            <textarea class="form-control" placeholder="Leave a reason here" name="reason" id="reasonTextarea" style="height: 150px" required></textarea>
+                            <label for="reasonTextarea">*Reason for Rejection</label>
+                        </div>
+                        <div class="alert alert-danger my-1 errorAlert" role="alert">
+                            <span class="status text-capitalize"></span> Failed.
+                        </div>
+                    </div>
+                    <div class="modal-footer flex-nowrap p-0">
+                        <input type="hidden" id="accno" name="accno">
+                        <input type="hidden" id="status" name="status">
+                        <input type="hidden" id="qrstatus" name="qrstatus">
+                        <button type="submit" class="blockBtnModal btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0 border-end"><strong>Reject</strong>
+                            <div class="spinner-border spinner-border-sm fPSpinner" role="status">
+                                <span class="visually-hidden">Loading...</span>
+                            </div>
+                        </button>
+                        <button type="button" class="btn btn-lg btn-link fs-6 text-decoration-none col-6 m-0 rounded-0" data-bs-dismiss="modal">Cancel</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 
     <div class="modal fade" tabindex="-1" id="previewFile">
         <div class="modal-dialog modal-lg bg-dark">
@@ -198,7 +233,7 @@ $_SESSION["notif1"] = "seen";
         </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-    <script src="../js/table2.js"></script>
+    <script src="../js/superAdminVerification.js"></script>
 </body>
 
 </html>
