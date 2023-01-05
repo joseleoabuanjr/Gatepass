@@ -74,7 +74,7 @@ $admin = $_SESSION["useradmin"];
                                 <th class="text-center">Account Type</th>
                                 <th class="text-center">In/Out</th>
                                 <th class="text-center">Date & Time</th>
-                                <th class="text-center d-print-none">Reason</th>
+                                <th class="text-center">Reason</th>
                             </tr>
                         </thead>
 
@@ -159,7 +159,7 @@ $admin = $_SESSION["useradmin"];
                                 <td class='text-capitalize text-center'>${val.type}</td>
                                 <td class='text-capitalize text-center'>${val.in_out}</td>
                                 <td class='text-center'>${moment(val.time).format("llll")}</td>
-                                <td class='text-center d-print-none'>${reason}</td>
+                                <td class='text-center'>${reason}</td>
                             </tr>
 							`;
                         });
