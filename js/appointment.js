@@ -3,61 +3,8 @@ $(document).ready(function () {
     $("#fPSpinner").hide();
     $("#errorAlert").hide();
 
-    $(".statusBtn").click(function (e) {
-        e.preventDefault();
-        var accno = $(this).data("accno");
-        var status = $(this).data("status");
-        var reqid = $(this).data("reqid");
-        $("#accNoModal").html(accno);
-        $(".status").html(status);
-        $("#statusBtnModal").data("accno", accno);
-        $("#statusBtnModal").data("status", status);
-        $("#statusBtnModal").data("reqid", reqid);
-        $("#statusModal").modal("show");
-    });
-    $("#statusBtnModal").click(function (e) {
-        e.preventDefault();
-        var accno = $(this).data("accno");
-        var status = $(this).data("status");
-        var reqid = $(this).data("reqid");
-        var location = "../function/toapt_Status.php";
-        if (status == "cancel") {
-            location = "function/toapt-cancel.php";
-        }
-
-        console.log(location);
-        console.log(status);
-        $.ajax({
-            type: "post",
-            url: location,
-            data: {
-                // SET_USER_STATUS: true,
-                accno: accno,
-                status: status,
-                reqid: reqid
-            },
-            dataType: "JSON",
-            success: function (response) {
-                console.log(response);
-                if (response.status) {
-                    $("#successAlert").fadeIn();
-                    $("#errorAlert").hide();
-                    $("#dropBtnModal").hide();
-                    $("#statusModal").modal("hide");
-                    window.location.reload();
-                }
-                else {
-                    $("#errorAlert").fadeIn();
-                    // $("#errorAlertFP").html(response.msg);
-                }
-                $("#fPSpinner").hide();
-            }, error: function (err) {
-                console.error(err);
-            }, beforeSend: function () {
-                $("#fPSpinner").show();
-            }
-        });
-    });
+    
+    
 
     var inputs = document.querySelectorAll('[name="reason[]"]')
     var radioForCheckboxes = document.getElementById('radio-for-checkboxes')
@@ -137,8 +84,8 @@ $(document).ready(function () {
                                 <td class='text-center'>${moment(val.date).format("ll")}</td>
                                 <td>
                                     <div class='btn-group' role='group'>
-                                        <button type='button' class='btn btn-primary statusBtn btn-sm' data-status='approve' data-accno='" . $row['acc_no'] . "' data-reqid='" . $reqid . "'>Approve</button>
-                                        <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='reject' data-accno='" . $row['acc_no'] . "' data-reqid='" . $reqid . "'>Reject</button>
+                                        <button type='button' class='btn btn-primary statusBtn btn-sm' data-status='approve' data-accno='${val.accNo}' data-reqid='${val.reqId}'>Approve</button>
+                                        <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='reject' data-accno='${val.accNo}' data-reqid='${val.reqId}'>Reject</button>
                                     </div>
                                 </td>
                             </tr>
@@ -150,6 +97,62 @@ $(document).ready(function () {
                 $("#appointmentRequestTableContent").html(content);
                 $("#appointmentRequestTable").DataTable({
                     "ordering": false
+                });
+
+                $(".statusBtn").click(function (e) {
+                    e.preventDefault();
+                    var accno = $(this).data("accno");
+                    var status = $(this).data("status");
+                    var reqid = $(this).data("reqid");
+                    $("#accNoModal").html(accno);
+                    $(".status").html(status);
+                    $("#statusBtnModal").data("accno", accno);
+                    $("#statusBtnModal").data("status", status);
+                    $("#statusBtnModal").data("reqid", reqid);
+                    $("#statusModal").modal("show");
+                });
+                $("#statusBtnModal").click(function (e) {
+                    e.preventDefault();
+                    var accno = $(this).data("accno");
+                    var status = $(this).data("status");
+                    var reqid = $(this).data("reqid");
+                    var location = "../function/toapt_Status.php";
+                    if (status == "cancel") {
+                        location = "function/toapt-cancel.php";
+                    }
+            
+                    console.log(location);
+                    console.log(status);
+                    $.ajax({
+                        type: "post",
+                        url: location,
+                        data: {
+                            // SET_USER_STATUS: true,
+                            accno: accno,
+                            status: status,
+                            reqid: reqid
+                        },
+                        dataType: "JSON",
+                        success: function (response) {
+                            console.log(response);
+                            if (response.status) {
+                                $("#successAlert").fadeIn();
+                                $("#errorAlert").hide();
+                                $("#dropBtnModal").hide();
+                                $("#statusModal").modal("hide");
+                                window.location.reload();
+                            }
+                            else {
+                                $("#errorAlert").fadeIn();
+                                // $("#errorAlertFP").html(response.msg);
+                            }
+                            $("#fPSpinner").hide();
+                        }, error: function (err) {
+                            console.error(err);
+                        }, beforeSend: function () {
+                            $("#fPSpinner").show();
+                        }
+                    });
                 });
             },
             error: function (response) {

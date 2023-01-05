@@ -151,14 +151,13 @@ $(document).ready(function () {
         success: function (response) {
             users = response;
             console.log(response);
-            displayUser($("#userType").val())
+            displayUser($("#userTypeFilter").val())
         }, error: function (response) {
             console.error(response);
             $("#error").html(response.responseText);
         }
     });
-
-    $("#userType").change(function (e) {
+    $("#userTypeFilter").change(function (e) {
         e.preventDefault();
         displayUser($(this).val());
     });
@@ -199,10 +198,11 @@ $(document).ready(function () {
                         <button type='button' class='btn btn-danger statusBtn btn-sm' data-status='reject' data-accno='${val.accNo}'>Reject</button>
                     </div>
                 </td>
-            </tr>    
-             `;
+            </tr>
+            `;
 
         });
+
         if ($.fn.DataTable.isDataTable("#accountVerificationTable")) {
             $('#accountVerificationTable').DataTable().clear().destroy();
         }

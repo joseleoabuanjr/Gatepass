@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once "../function/connect.php";
-
 if (isset($_POST["admin"])) {
     $col = $_SESSION["department"];
     $query = "SELECT * FROM user_account WHERE verification = 'unverified' AND college ='$col' AND type = 'student'";
