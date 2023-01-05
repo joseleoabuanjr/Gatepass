@@ -16,13 +16,21 @@ if (!$result) {
 
 $data = array();
 while ($row = mysqli_fetch_assoc($result)) {
+    if($row['type'] == 'student'){
+        $yrsec = $row['year'].$row['section'];
+        $course = $row['course'];
+    }else{
+        $yrsec = "N/A";
+        $course = "N/A";
+    }
+    
+    
     $data[] = (object) [
         "accNo" => $row['acc_no'],
         "studentNo" => $row['stud_no'],
         "empNo" => $row['emp_no'],
-        "course" => $row['course'],
-        "section" => $row['section'],
-        "year" => $row['year'],
+        "course" => $course,
+        "year" => $yrsec,
         "fullName" => $row["first"] . " " . $row["middle"] . ". " . $row["last"],
         "type" => $row['type'],
         "verification" => $row['verification'],

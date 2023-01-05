@@ -154,7 +154,7 @@ $(document).ready(function () {
                 <td class='text-capitalize'>${val.year}</td>
                 <td class='text-capitalize'>${action}</td>
             </tr>    
-             `;
+            `;
 
         });
         if ($.fn.DataTable.isDataTable("#userAccountsTable")) {
