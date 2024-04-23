@@ -2,6 +2,8 @@
 
 Project Name called "Alternative QR Code Based Gatepass for BulSU"
 
+**Find "Capstone-Sample" folder to see the actual picture of the project!**
+
 Features:
 1. Login and Register (Faculty,Visitor,Students)
 2. Dashboard
